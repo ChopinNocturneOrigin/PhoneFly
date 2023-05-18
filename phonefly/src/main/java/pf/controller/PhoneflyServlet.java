@@ -36,7 +36,7 @@ public class PhoneflyServlet extends HttpServlet {
 		System.out.println("command : " + command);
 		ActionFactory af = ActionFactory.getInstance();
 		Action ac = af.getAction( command );  // command를 전달하고 조립된 객체를 return 받습니다
-
+		
 		if( ac==null) System.out.println("ac 가 null임");
 		else ac.execute(request, response);
 	}
