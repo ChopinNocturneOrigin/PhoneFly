@@ -1,12 +1,6 @@
 package pf.controller;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import pf.controller.ActionFactory;
+import pf.controller.action.Action;
 
 public class ActionFactory {
 
@@ -14,9 +8,15 @@ public class ActionFactory {
 	private static ActionFactory itc = new ActionFactory();
 	public static ActionFactory getInstance() { return itc; }
 	
-	public interface Action {
-		public void execute(HttpServletRequest request, HttpServletResponse response) 
-				throws ServletException, IOException;
+	public Action getAction(String command) {
+		Action ac = null;
+		
+		
+		
+		
+		
+		
+		return ac;
 	}
 
 
