@@ -14,6 +14,7 @@ public class ProductVO {
 	private String eventyn;
 	private Timestamp indate;
 	private String mfc;
+	
 	public Integer getPseq() {
 		return pseq;
 	}
