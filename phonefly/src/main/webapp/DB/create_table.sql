@@ -30,7 +30,7 @@ DROP TABLE orders;
 CREATE TABLE orders (
 	oseq	number(10)		NOT NULL,
 	id	varchar2(20)		NOT NULL,
-	indate	date	DEFAULT SYSDATE	NOT NULL
+	indate	date	DEFAULT SYSDATE
 );
 
 
@@ -41,8 +41,8 @@ CREATE TABLE cart (
 	id	varchar2(20)		NOT NULL,
 	pseq	number(10)		NOT NULL,
 	quantity	number(5)	DEFAULT 1	NOT NULL,
-	result	char(1)	DEFAULT '1'	NOT NULL,
-	indate	date	DEFAULT SYSDATE	NULL
+	result	char(1)	DEFAULT '1',
+	indate	date	DEFAULT SYSDATE
 );
 
 
@@ -61,7 +61,7 @@ CREATE TABLE notice (
 	id	varchar2(20)		NOT NULL,
 	subject	varchar2(100)		NOT NULL,
 	content	varchar2(1000)		NOT NULL,
-	indate	date	DEFAULT SYSDATE	NULL
+	indate	date	DEFAULT SYSDATE
 );
 
 DROP TABLE order_detail;
@@ -71,7 +71,7 @@ CREATE TABLE order_detail (
 	oseq	number(10)		NOT NULL,
 	pseq	number(10)		NOT NULL,
 	quantity	number(5)		NOT NULL,
-	result	char(1)	DEFAULT 1	NOT NULL
+	result	char(1)	DEFAULT '1'
 );
 
 DROP TABLE review;
@@ -81,7 +81,7 @@ CREATE TABLE review (
 	id	varchar2(20)		NOT NULL,
 	subject	varchar2(100)		NOT NULL,
 	content	varchar2(1000)		NOT NULL,
-	indate	date	DEFAULT SYSDATE	NULL
+	indate	date	DEFAULT SYSDATE
 );
 
 
@@ -94,9 +94,9 @@ CREATE TABLE product (
 	price2	number(10)		NOT NULL,
 	price3	number(10)		NOT NULL,
 	content	varchar2(1000)		NOT NULL,
-	image	varchar2(255)		NOT NULL,
-	useyn	char(1)	DEFAULT 'Y'	NULL,
-	eventyn	char(1)	DEFAULT 'N'	NULL,
+	useyn	char(1)	DEFAULT 'Y',
+	eventyn	char(1)	DEFAULT 'N',
+	bestyn	char(1)	DEFAULT 'N',
 	indate	date	DEFAULT SYSDATE,
 	mfc	VARCHAR2(255)		NULL
 );
@@ -109,8 +109,8 @@ CREATE TABLE qna (
 	subject	varchar2(100)		NOT NULL,
 	content	varchar2(1000)		NOT NULL,
 	reply	varchar2(1000)		NULL,
-	rep	char(1)	DEFAULT '1'	NULL,
-	indate	date	DEFAULT SYSDATE	NULL
+	rep	char(1)	DEFAULT '1',
+	indate	date	DEFAULT SYSDATE
 );
 
 
@@ -121,7 +121,7 @@ CREATE TABLE event (
 	id	varchar2(20)		NOT NULL,
 	subject	varchar2(100)		NOT NULL,
 	content	varchar2(1000)		NOT NULL,
-	indate	date	DEFAULT SYSDATE	NULL
+	indate	date	DEFAULT SYSDATE
 );
 
 DROP TABLE comm;
@@ -131,13 +131,6 @@ CREATE TABLE comm (
 	name	varchar2(20)		NOT NULL
 );
 
-DROP TABLE color;
-
-CREATE TABLE color (
-	ceseq	number(10)		NOT NULL,
-	name	varchar2(20)		NOT NULL,
-	ccode	varchar2(20)		NOT NULL
-);
 
 DROP TABLE rplan;
 
@@ -148,7 +141,7 @@ CREATE TABLE rplan (
 	charge	number(10)		NOT NULL,
 	dp	varchar2(30)		NOT NULL,
 	pp	varchar2(30)		NOT NULL,
-	mp	varchar2(30)	DEFAULT '무제한'	NULL
+	mp	varchar2(30)	DEFAULT '무제한'
 );
 
 DROP TABLE color_detail;
@@ -156,7 +149,10 @@ DROP TABLE color_detail;
 CREATE TABLE color_detail (
 	cdseq	number(10)		NOT NULL,
 	pseq	number(10)		NOT NULL,
-	ceseq	number(10)		NOT NULL
+	ceseq	number(10)		NOT NULL,
+	name	varchar2(20)	NOT NULL,
+	ccode	varchar2(20)	NOT NULL,
+	image	varchar2(255)	NULL
 );
 
 ALTER TABLE member ADD CONSTRAINT PK_MEMBER PRIMARY KEY (
@@ -215,87 +211,129 @@ ALTER TABLE color_detail ADD CONSTRAINT PK_COLOR_DETAIL PRIMARY KEY (
 	cdseq
 );
 
+
+
+
+
+
+
+
+alter table orders drop constraint FK_member_TO_orders_1;
+
 ALTER TABLE orders ADD CONSTRAINT FK_member_TO_orders_1 FOREIGN KEY (
 	id
 )
 REFERENCES member (
 	id
-);
+) ON DELETE CASCADE;
+
+
+alter table cart drop constraint FK_member_TO_cart_1;
 
 ALTER TABLE cart ADD CONSTRAINT FK_member_TO_cart_1 FOREIGN KEY (
 	id
 )
 REFERENCES member (
 	id
-);
+) ON DELETE CASCADE;
+
+
+alter table cart drop constraint FK_product_TO_cart_1;
 
 ALTER TABLE cart ADD CONSTRAINT FK_product_TO_cart_1 FOREIGN KEY (
 	pseq
 )
 REFERENCES product (
 	pseq
-);
+) ON DELETE CASCADE;
+
+
+alter table notice drop constraint FK_worker_TO_notice_1;
 
 ALTER TABLE notice ADD CONSTRAINT FK_worker_TO_notice_1 FOREIGN KEY (
 	id
 )
 REFERENCES worker (
 	id
-);
+) ON DELETE CASCADE;
+
+
+alter table order_detail drop constraint FK_orders_TO_order_detail_1;
 
 ALTER TABLE order_detail ADD CONSTRAINT FK_orders_TO_order_detail_1 FOREIGN KEY (
 	oseq
 )
 REFERENCES orders (
 	oseq
-);
+) ON DELETE CASCADE;
+
+
+alter table order_detail drop constraint FK_product_TO_order_detail_1;
 
 ALTER TABLE order_detail ADD CONSTRAINT FK_product_TO_order_detail_1 FOREIGN KEY (
 	pseq
 )
 REFERENCES product (
 	pseq
-);
+) ON DELETE CASCADE;
+
+
+alter table review drop constraint FK_member_TO_review_1;
 
 ALTER TABLE review ADD CONSTRAINT FK_member_TO_review_1 FOREIGN KEY (
 	id
 )
 REFERENCES member (
 	id
-);
+) ON DELETE CASCADE;
+
+
+alter table qna drop constraint FK_member_TO_qna_1;
 
 ALTER TABLE qna ADD CONSTRAINT FK_member_TO_qna_1 FOREIGN KEY (
 	id
 )
 REFERENCES member (
 	id
-);
+) ON DELETE CASCADE;
+
+
+alter table event drop constraint FK_worker_TO_event_1;
 
 ALTER TABLE event ADD CONSTRAINT FK_worker_TO_event_1 FOREIGN KEY (
 	id
 )
 REFERENCES worker (
 	id
-);
+) ON DELETE CASCADE;
+
+
+alter table rplan drop constraint FK_comm_TO_rplan_1;
 
 ALTER TABLE rplan ADD CONSTRAINT FK_comm_TO_rplan_1 FOREIGN KEY (
 	mseq
 )
 REFERENCES comm (
 	mseq
-);
+) ON DELETE CASCADE;
+
+
+alter table color_detail drop constraint FK_product_TO_color_detail_1;
 
 ALTER TABLE color_detail ADD CONSTRAINT FK_product_TO_color_detail_1 FOREIGN KEY (
 	pseq
 )
 REFERENCES product (
 	pseq
-);
+) ON DELETE CASCADE;
+
+
+alter table color_detail drop constraint FK_color_TO_color_detail_1;
 
 ALTER TABLE color_detail ADD CONSTRAINT FK_color_TO_color_detail_1 FOREIGN KEY (
 	ceseq
 )
 REFERENCES color (
 	ceseq
-);
+) ON DELETE CASCADE;
 
