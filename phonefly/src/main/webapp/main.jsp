@@ -1,6 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 
+<!-- main <START> -->
+
+<!-- 
+author : PMS
+-->
 
 
 <!-- 
@@ -12,7 +17,6 @@
         <div id="lbutton" onClick="move(-1);"></div>
         <div id="rbutton" onClick="move(1);"></div>
 </div> -->
-
 
 
 <!-- 베스트 상품 -->
@@ -85,5 +89,9 @@
 
 
 
+<div class="clear"></div>
+<!-- main <END> -->
 
 
+
+<%@ include file="footer.jsp" %>
