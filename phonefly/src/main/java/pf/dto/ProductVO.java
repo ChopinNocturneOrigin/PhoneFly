@@ -1,6 +1,7 @@
 package pf.dto;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class ProductVO {
 	private Integer pseq;
@@ -14,7 +15,14 @@ public class ProductVO {
 	private String eventyn;
 	private Timestamp indate;
 	private String mfc;
+	private ArrayList<String> color_detailList;
 	
+	public ArrayList<String> getcolor_detailList() {
+		return color_detailList;
+	}
+	public void setcolor_detailList(ArrayList<String> color_detailList) {
+		this.color_detailList = color_detailList;
+	}
 	public Integer getPseq() {
 		return pseq;
 	}

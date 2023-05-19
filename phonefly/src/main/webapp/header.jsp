@@ -14,6 +14,7 @@ author : BHS
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <script src="script/jquery-3.6.4.min.js"></script>
 <script src="script/mainmenu.js"></script>
+<script src="script/mainbanner.js"></script>
 <!-- <script src="script/member.js"></script>
 <script src="script/mypage.js"></script> -->
 </head>

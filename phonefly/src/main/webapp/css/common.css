@@ -17,6 +17,8 @@ div,table,tr,td {
 }
 ul {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
 }
 #logo {
 	width: 330px;
@@ -38,6 +40,11 @@ ul {
 	clear: both;
 }
 
+
+
+
+
+/* Main Menu */
 
 nav#menu {
 	font-family: "Noto Sans KR";
@@ -90,6 +97,9 @@ nav#menu a:hover {
 
 
 
+
+/* Sub Menu */
+
 nav#sub_menu {
 	font-family: "Noto Sans KR";
 	font-size: 100%;
@@ -110,4 +120,65 @@ nav#sub_menu a {
 }
 nav#sub_menu a:hover {
 	color:black;
+}
+
+
+
+
+
+/* Main Banner */
+
+.movie_object {
+	width: 1470px;
+	transform: translate(0%,-10%);
+	z-index: 5;
+}
+#wrap_main_banner {
+	position: relative;
+	width: 1470px;
+	overflow: hidden;
+}
+#main_banner {
+	position: relative;
+	width: 4410px;
+}
+#main_banner li {
+	position: relative;
+	width: 1470px;
+	height: 500px;
+	border-radius: 15px;
+	float: left;
+	overflow: hidden;
+}
+#banner_text1,#banner_text2,#banner_text3 {
+	position: absolute;
+	color: white;
+	text-align: left;
+	z-index: 10;
+}
+#banner_text1,#banner_text2 {
+	top: 100px;
+	left:50px;
+}
+#banner_text3 {
+	top: 30px;
+	left:900px;
+}
+#banner_btns {
+	position: absolute;
+	top: 420px;
+	left:50px;
+	color: white;
+	z-index: 10;
+}
+#banner_btns li {
+	float: left;
+	width: 20px;
+	height: 20px;
+	font-size: 18px;
+	padding: 5px;
+	cursor:pointer;
+}
+#main_banner .txt_1 {
+	font-size: 24px;
 }
