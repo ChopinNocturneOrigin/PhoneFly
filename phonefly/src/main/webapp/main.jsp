@@ -1,8 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 
+<!-- 
+author : PMS
+-->
 
-
+<!-- main <START> -->
 
 <div id align="center">
 	<img src="images/text.images.jpg"
@@ -40,3 +43,9 @@
 		</div>
 	</c:forEach>
 </div>
+<div class="clear"></div>
+<!-- main <END> -->
+
+
+
+<%@ include file="footer.jsp" %>
