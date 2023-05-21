@@ -1,4 +1,4 @@
-package pf.utill;
+package pf.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

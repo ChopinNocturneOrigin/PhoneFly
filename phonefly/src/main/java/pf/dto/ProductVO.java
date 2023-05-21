@@ -15,14 +15,8 @@ public class ProductVO {
 	private String eventyn;
 	private Timestamp indate;
 	private String mfc;
-	private ArrayList<String> color_detailList;
-	
-	public ArrayList<String> getcolor_detailList() {
-		return color_detailList;
-	}
-	public void setcolor_detailList(ArrayList<String> color_detailList) {
-		this.color_detailList = color_detailList;
-	}
+	private ArrayList<ColorDetailVO> colorDetailList;
+
 	public Integer getPseq() {
 		return pseq;
 	}
@@ -89,7 +83,10 @@ public class ProductVO {
 	public void setMfc(String mfc) {
 		this.mfc = mfc;
 	}
-	
-	
-	
+	public ArrayList<ColorDetailVO> getColorDetailList() {
+		return colorDetailList;
+	}
+	public void setColorDetailList(ArrayList<ColorDetailVO> colorDetailList) {
+		this.colorDetailList = colorDetailList;
+	}
 }

@@ -1,7 +1,5 @@
 package pf.dto;
 
-import java.sql.Timestamp;
-
 public class WorkerVO {
 	
 	private String id;

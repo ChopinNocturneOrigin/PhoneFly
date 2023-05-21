@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+
+
+
+
+
+<!-- 메인 배너 -->
+<!--
+ author : BHS
+ -->
 
 <div class="clear"></div>
 <div id="wrap_main_banner">
@@ -55,5 +63,8 @@
 </div>
 
 
+<!-- //메인 배너 -->
 
-<%@ include file="footer.jsp" %>
+
+
+
