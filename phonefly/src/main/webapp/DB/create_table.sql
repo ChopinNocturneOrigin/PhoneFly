@@ -70,6 +70,7 @@ CREATE TABLE order_detail (
 	odseq	number(10)		NOT NULL,
 	oseq	number(10)		NOT NULL,
 	pseq	number(10)		NOT NULL,
+    rseq    number(10)      NOT NULL,
 	quantity	number(5)		NOT NULL,
 	result	char(1)	DEFAULT '1'
 );
@@ -270,6 +271,16 @@ ALTER TABLE order_detail ADD CONSTRAINT FK_product_TO_order_detail_1 FOREIGN KEY
 )
 REFERENCES product (
 	pseq
+) ON DELETE CASCADE;
+
+
+alter table order_detail drop constraint FK_rplan_TO_order_detail_1;
+
+ALTER TABLE order_detail ADD CONSTRAINT FK_rplan_TO_order_detail_1 FOREIGN KEY (
+	rseq
+)
+REFERENCES rplan (
+	rseq
 ) ON DELETE CASCADE;
 
 
