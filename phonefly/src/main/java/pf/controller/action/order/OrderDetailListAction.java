@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import pf.controller.action.Action;
 
-public class Order_DetailListAction implements Action {
+public class OrderDetailListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

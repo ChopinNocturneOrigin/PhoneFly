@@ -14,11 +14,13 @@ author : BHS
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/mainBanner.css">
 <link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" type="text/css" href="css/comparePopup.css">
 <script src="script/jquery-3.6.4.min.js"></script>
 <script src="script/common.js"></script>
 <script src="script/mainMenu.js"></script>
 <script src="script/mainBanner.js"></script>
 <script src="script/mainColorSelect.js"></script>
+<script src="script/comparePopup.js"></script>
 <!-- <script src="script/member.js"></script>
 <script src="script/mypage.js"></script> -->
 </head>
@@ -67,7 +69,7 @@ author : BHS
 
 
 <!-- To top button -->
-    <button id="go-top" onclick="backToTop();"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor"
+    <button id="go_top" onclick="backToTop();"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor"
         class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
         <path fill-rule="evenodd"
           d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />

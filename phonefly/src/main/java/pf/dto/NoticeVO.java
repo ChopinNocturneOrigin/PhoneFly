@@ -3,16 +3,16 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class NoticeVO {
-	private Integer nseq;
+	private int nseq;
 	private String id;
 	private String subject;
 	private String content;
 	private Timestamp indate;
-	
-	public Integer getNseq() {
+
+	public int getNseq() {
 		return nseq;
 	}
-	public void setNseq(Integer nseq) {
+	public void setNseq(int nseq) {
 		this.nseq = nseq;
 	}
 	public String getId() {
@@ -39,6 +39,4 @@ public class NoticeVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
-
 }

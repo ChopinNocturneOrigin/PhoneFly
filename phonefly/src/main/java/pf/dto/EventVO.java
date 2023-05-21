@@ -3,18 +3,16 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class EventVO {
-	
-	private Integer eseq;
+	private int eseq;
 	private String id;
 	private String subject;
 	private String content;
 	private Timestamp indate;
-	
-	
-	public Integer getEseq() {
+
+	public int getEseq() {
 		return eseq;
 	}
-	public void setEseq(Integer eseq) {
+	public void setEseq(int eseq) {
 		this.eseq = eseq;
 	}
 	public String getId() {
@@ -41,7 +39,4 @@ public class EventVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
-	
-
 }

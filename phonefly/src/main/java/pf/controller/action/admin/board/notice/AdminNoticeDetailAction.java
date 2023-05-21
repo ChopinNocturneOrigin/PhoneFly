@@ -1,4 +1,4 @@
-package pf.controller.action.order;
+package pf.controller.action.admin.board.notice;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import pf.controller.action.Action;
 
-public class Order_DetailListFormAction implements Action {
+public class AdminNoticeDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

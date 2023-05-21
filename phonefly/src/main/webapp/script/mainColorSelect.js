@@ -1,6 +1,7 @@
 /**
  * author : BHS
  */
+"use strict"
 
 function colorClick(i, j) {
 	$(function(){

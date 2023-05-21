@@ -1,22 +1,22 @@
 package pf.dto;
 
-public class ColorDetailVO {
-	private Integer cdseq;
-	private Integer pseq;
+public class ColorVO {
+	private int cseq;
+	private int pseq;
 	private String name;
 	private String ccode;
 	private String image;
 
-	public Integer getCdseq() {
-		return cdseq;
+	public int getCseq() {
+		return cseq;
 	}
-	public void setCdseq(Integer cdseq) {
-		this.cdseq = cdseq;
+	public void setCseq(int cseq) {
+		this.cseq = cseq;
 	}
-	public Integer getPseq() {
+	public int getPseq() {
 		return pseq;
 	}
-	public void setPseq(Integer pseq) {
+	public void setPseq(int pseq) {
 		this.pseq = pseq;
 	}
 	public String getName() {

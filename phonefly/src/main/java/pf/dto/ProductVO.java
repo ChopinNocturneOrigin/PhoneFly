@@ -4,23 +4,23 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class ProductVO {
-	private Integer pseq;
+	private int pseq;
 	private String name;
-	private Integer price1;
-	private Integer price2;
-	private Integer price3;
+	private int price1;
+	private int price2;
+	private int price3;
 	private String content;
-	private String image;
 	private String useyn;
 	private String eventyn;
+	private String bestyn;
 	private Timestamp indate;
 	private String mfc;
-	private ArrayList<ColorDetailVO> colorDetailList;
+	private ArrayList<ColorVO> colorList;
 
-	public Integer getPseq() {
+	public int getPseq() {
 		return pseq;
 	}
-	public void setPseq(Integer pseq) {
+	public void setPseq(int pseq) {
 		this.pseq = pseq;
 	}
 	public String getName() {
@@ -29,22 +29,22 @@ public class ProductVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getPrice1() {
+	public int getPrice1() {
 		return price1;
 	}
-	public void setPrice1(Integer price1) {
+	public void setPrice1(int price1) {
 		this.price1 = price1;
 	}
-	public Integer getPrice2() {
+	public int getPrice2() {
 		return price2;
 	}
-	public void setPrice2(Integer price2) {
+	public void setPrice2(int price2) {
 		this.price2 = price2;
 	}
-	public Integer getPrice3() {
+	public int getPrice3() {
 		return price3;
 	}
-	public void setPrice3(Integer price3) {
+	public void setPrice3(int price3) {
 		this.price3 = price3;
 	}
 	public String getContent() {
@@ -52,12 +52,6 @@ public class ProductVO {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public String getUseyn() {
 		return useyn;
@@ -71,6 +65,12 @@ public class ProductVO {
 	public void setEventyn(String eventyn) {
 		this.eventyn = eventyn;
 	}
+	public String getBestyn() {
+		return bestyn;
+	}
+	public void setBestyn(String bestyn) {
+		this.bestyn = bestyn;
+	}
 	public Timestamp getIndate() {
 		return indate;
 	}
@@ -83,10 +83,10 @@ public class ProductVO {
 	public void setMfc(String mfc) {
 		this.mfc = mfc;
 	}
-	public ArrayList<ColorDetailVO> getColorDetailList() {
-		return colorDetailList;
+	public ArrayList<ColorVO> getColorList() {
+		return colorList;
 	}
-	public void setColorDetailList(ArrayList<ColorDetailVO> colorDetailList) {
-		this.colorDetailList = colorDetailList;
+	public void setColorList(ArrayList<ColorVO> colorList) {
+		this.colorList = colorList;
 	}
 }

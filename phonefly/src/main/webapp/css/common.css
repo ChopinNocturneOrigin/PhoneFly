@@ -71,7 +71,7 @@ h3 {
 
 
 /* 맨 위로 돌아가기 */
-#go-top {
+#go_top {
 	display: none;
 	position: fixed;
 	right: 30px;
@@ -238,10 +238,10 @@ article h3 {
 
 /* item compare button */
 #main_card_box .card_compare_price {
-	font-size: 0.9em;
+	font-size: 1em;
 	font-weight: bold;
 	letter-spacing: -0.1em;
-	line-height: 20px;
+	line-height: 1.11em;
 	cursor: pointer;
 }
 #main_card_box .card_compare_price div,
@@ -250,24 +250,41 @@ article h3 {
 	vertical-align: middle;
 }
 
+.card_compare_price.disabled {
+	pointer-events: none;
+}
+
 .plus_button {
-	font-family: sans-serif;
 	display: inline-block;
-	width: 14px;
-	height: 14px;
-	border: 2px solid #111;
-	border-radius: 50%;
-	font-size: 20px;
 	text-align: center;
+	vertical-align: middle;
 }
-.plus_button > div {
+.plus_button.disabled {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	color: #2189ff;
+}
+.plus_button:before {
+	content: '';
+	display: inline-block;
+	background: url(../images/common/iconPlus-default.svg) no-repeat center;
+	background-size: 100% auto;
+	width: 20px;
+	height: 20px;
 	position: relative;
-	top: -5px;
-	left: -1px;
+	vertical-align: middle;
 }
-
-
-
+.plus_button.disabled:before {
+	content: '';
+	display: inline-block;
+	background: url(../images/common/iconPlus-active.svg) no-repeat center;
+	background-size: 100% auto;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	vertical-align: middle;
+}
 
 /* Main Apple */
 #main_apple {

@@ -139,18 +139,17 @@ CREATE TABLE rplan (
 	mseq	number(10)		NOT NULL,
 	name	varchar2(100)		NOT NULL,
 	charge	number(10)		NOT NULL,
-	dp	varchar2(30)		NOT NULL,
-	pp	varchar2(30)		NOT NULL,
-	mp	varchar2(30)	DEFAULT '무제한'
+	dataplan	varchar2(30)		NOT NULL,
+	timeplan	varchar2(30)		NOT NULL,
+	textplan	varchar2(30)	DEFAULT '무제한'
 );
 
-DROP TABLE color_detail;
+DROP TABLE color;
 
-CREATE TABLE color_detail (
-	cdseq	number(10)		NOT NULL,
+CREATE TABLE color (
+	cseq	number(10)		NOT NULL,
 	pseq	number(10)		NOT NULL,
-	ceseq	number(10)		NOT NULL,
-	name	varchar2(20)	NOT NULL,
+	name	varchar2(50)	NOT NULL,
 	ccode	varchar2(20)	NOT NULL,
 	image	varchar2(255)	NULL
 );
@@ -199,16 +198,12 @@ ALTER TABLE comm ADD CONSTRAINT PK_COMM PRIMARY KEY (
 	mseq
 );
 
-ALTER TABLE color ADD CONSTRAINT PK_COLOR PRIMARY KEY (
-	ceseq
-);
-
 ALTER TABLE rplan ADD CONSTRAINT PK_RPLAN PRIMARY KEY (
 	rseq
 );
 
-ALTER TABLE color_detail ADD CONSTRAINT PK_COLOR_DETAIL PRIMARY KEY (
-	cdseq
+ALTER TABLE color ADD CONSTRAINT PK_COLOR PRIMARY KEY (
+	cseq
 );
 
 
@@ -318,22 +313,13 @@ REFERENCES comm (
 ) ON DELETE CASCADE;
 
 
-alter table color_detail drop constraint FK_product_TO_color_detail_1;
+alter table color drop constraint FK_product_TO_color_1;
 
-ALTER TABLE color_detail ADD CONSTRAINT FK_product_TO_color_detail_1 FOREIGN KEY (
+ALTER TABLE color ADD CONSTRAINT FK_product_TO_color_1 FOREIGN KEY (
 	pseq
 )
 REFERENCES product (
 	pseq
 ) ON DELETE CASCADE;
 
-
-alter table color_detail drop constraint FK_color_TO_color_detail_1;
-
-ALTER TABLE color_detail ADD CONSTRAINT FK_color_TO_color_detail_1 FOREIGN KEY (
-	ceseq
-)
-REFERENCES color (
-	ceseq
-) ON DELETE CASCADE;
 

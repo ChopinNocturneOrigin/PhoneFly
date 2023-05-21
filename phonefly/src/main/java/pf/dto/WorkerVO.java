@@ -1,12 +1,10 @@
 package pf.dto;
 
 public class WorkerVO {
-	
 	private String id;
 	private String pwd;
 	private String name;
-	
-	
+
 	public String getId() {
 		return id;
 	}
@@ -25,6 +23,4 @@ public class WorkerVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-
 }

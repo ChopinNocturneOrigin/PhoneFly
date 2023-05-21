@@ -1,25 +1,24 @@
 package pf.dto;
 
 public class RplanVO {
-	
-	private Integer rseq;
-	private Integer mseq;
+	private int rseq;
+	private int mseq;
 	private String name;
-	private Integer charge;
-	private String dp;
-	private String pp;
-	private String mp;
-	
-	public Integer getRseq() {
+	private int charge;
+	private String dataplan;
+	private String timeplan;
+	private String textplan;
+
+	public int getRseq() {
 		return rseq;
 	}
-	public void setRseq(Integer rseq) {
+	public void setRseq(int rseq) {
 		this.rseq = rseq;
 	}
-	public Integer getMseq() {
+	public int getMseq() {
 		return mseq;
 	}
-	public void setMseq(Integer mseq) {
+	public void setMseq(int mseq) {
 		this.mseq = mseq;
 	}
 	public String getName() {
@@ -28,30 +27,28 @@ public class RplanVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getCharge() {
+	public int getCharge() {
 		return charge;
 	}
-	public void setCharge(Integer charge) {
+	public void setCharge(int charge) {
 		this.charge = charge;
 	}
-	public String getDp() {
-		return dp;
+	public String getDataplan() {
+		return dataplan;
 	}
-	public void setDp(String dp) {
-		this.dp = dp;
+	public void setDataplan(String dataplan) {
+		this.dataplan = dataplan;
 	}
-	public String getPp() {
-		return pp;
+	public String getTimeplan() {
+		return timeplan;
 	}
-	public void setPp(String pp) {
-		this.pp = pp;
+	public void setTimeplan(String timeplan) {
+		this.timeplan = timeplan;
 	}
-	public String getMp() {
-		return mp;
+	public String getTextplan() {
+		return textplan;
 	}
-	public void setMp(String mp) {
-		this.mp = mp;
+	public void setTextplan(String textplan) {
+		this.textplan = textplan;
 	}
-	
-	
 }

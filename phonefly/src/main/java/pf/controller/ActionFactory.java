@@ -15,8 +15,8 @@ import pf.controller.action.admin.board.notice.AdminNoticeListAction;
 import pf.controller.action.admin.board.notice.AdminNoticeListFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
-import pf.controller.action.admin.board.notice.AdminNotice_detailAction;
-import pf.controller.action.admin.board.notice.AdminNotice_detailFormAction;
+import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
+import pf.controller.action.admin.board.notice.AdminNoticeDetailFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
 import pf.controller.action.admin.board.qna.AdminQnaListFormAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
@@ -71,8 +71,8 @@ import pf.controller.action.order.OrderAction;
 import pf.controller.action.order.OrderFormAction;
 import pf.controller.action.order.OrderListAction;
 import pf.controller.action.order.OrderListFormAction;
-import pf.controller.action.order.Order_DetailListAction;
-import pf.controller.action.order.Order_DetailListFormAction;
+import pf.controller.action.order.OrderDetailListAction;
+import pf.controller.action.order.OrderDetailListFormAction;
 import pf.controller.action.product.CategoryAction;
 import pf.controller.action.product.ProductCompareAction;
 import pf.controller.action.product.ProductDetailAction;
@@ -120,8 +120,8 @@ public class ActionFactory {
 	else if(command.equals("orderList") ) ac = new OrderListAction();
 	else if(command.equals("orderForm") ) ac = new OrderFormAction();
 	else if(command.equals("order") ) ac = new OrderAction();
-	else if(command.equals("order_DetailListForm") ) ac = new Order_DetailListFormAction();
-	else if(command.equals("order_DetailList") ) ac = new Order_DetailListAction();
+	else if(command.equals("orderDetailListForm") ) ac = new OrderDetailListFormAction();
+	else if(command.equals("orderDetailList") ) ac = new OrderDetailListAction();
 	
 
 	//상품(product)
@@ -175,20 +175,20 @@ public class ActionFactory {
 	else if(command.equals("adminProductUpdateAction") ) ac = new AdminProductUpdateAction();
 	//관리자(admin).order
 	else if(command.equals("adminOrderListAction") ) ac = new AdminOrderListAction();
-	else if(command.equals("adminOrder_detailAction") ) ac = new AdminOrder_detailAction();
+	else if(command.equals("adminOrderDetailAction") ) ac = new AdminOrder_detailAction();
 
 	//관리자(admin).board
 	
 	//관리자(admin).board.QnA
 	else if(command.equals("adminQnaListFormAction") ) ac = new AdminQnaListFormAction();
 	else if(command.equals("adminQnaListAction") ) ac = new AdminQnaListAction();
-	else if(command.equals("adminQna_detailListFormAction") ) ac = new AdminQna_detailListFormAction();
-	else if(command.equals("adminQna_detailListAction") ) ac = new AdminQna_detailListAction();
+	else if(command.equals("adminQnaDetailListFormAction") ) ac = new AdminQna_detailListFormAction();
+	else if(command.equals("adminQnaDetailListAction") ) ac = new AdminQna_detailListAction();
 	//관리자(admin).board.Notice
 	else if(command.equals("adminNoticeListFormAction") ) ac = new AdminNoticeListFormAction();
 	else if(command.equals("adminNoticeListAction") ) ac = new AdminNoticeListAction();
-	else if(command.equals("adminNotice_detailFormAction") ) ac = new AdminNotice_detailFormAction();
-	else if(command.equals("adminNotice_detailAction") ) ac = new AdminNotice_detailAction();
+	else if(command.equals("adminNoticeDetailFormAction") ) ac = new AdminNoticeDetailFormAction();
+	else if(command.equals("adminNoticeDetailAction") ) ac = new AdminNoticeDetailAction();
 	else if(command.equals("adminNoticeInsertFormAction") ) ac = new AdminNoticeInsertFormAction();
 	else if(command.equals("adminNoticeInsertAction") ) ac = new AdminNoticeInsertAction();
 	else if(command.equals("adminNoticeUpdateFormAction") ) ac = new AdminNoticeUpdateFormAction();

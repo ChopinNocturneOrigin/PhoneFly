@@ -3,15 +3,14 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class OrdersVO {
-	
-	private Integer oseq;
+	private int oseq;
 	private String id;
 	private Timestamp indate;
-	
-	public Integer getOseq() {
+
+	public int getOseq() {
 		return oseq;
 	}
-	public void setOseq(Integer oseq) {
+	public void setOseq(int oseq) {
 		this.oseq = oseq;
 	}
 	public String getId() {
@@ -26,5 +25,4 @@ public class OrdersVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
 }

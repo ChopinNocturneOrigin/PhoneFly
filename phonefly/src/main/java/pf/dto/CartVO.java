@@ -3,17 +3,17 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class CartVO {
-	private Integer cseq;
+	private int cseq;
 	private String id;
-	private Integer pseq;
+	private int pseq;
 	private String quantity;
 	private String result;
 	private Timestamp indate;
-	
-	public Integer getCseq() {
+
+	public int getCseq() {
 		return cseq;
 	}
-	public void setCseq(Integer cseq) {
+	public void setCseq(int cseq) {
 		this.cseq = cseq;
 	}
 	public String getId() {
@@ -22,10 +22,10 @@ public class CartVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Integer getPseq() {
+	public int getPseq() {
 		return pseq;
 	}
-	public void setPseq(Integer pseq) {
+	public void setPseq(int pseq) {
 		this.pseq = pseq;
 	}
 	public String getQuantity() {

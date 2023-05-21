@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header.jsp"%>
 
 <!-- MAIN  -->
 <!-- 
 author : PMS, BHS
 -->
 
+
+<!-- 헤더 불러오기 -->
+<%@ include file="header.jsp"%>
+
+
 <article>
 
+<!-- 메인 배너 불러오기 -->
 <%@ include file="mainBanner.jsp"%>
 
  
@@ -18,53 +23,89 @@ author : PMS, BHS
 
 <div id="main_card_box">
 	<ul>
-		<%--  <c:forEach items="${bestItemList}" var="productVO" >    --%>
-		<c:forEach var="i" begin="1" end="4">
-			<li class="card">
-			<%-- <li class="card" onclick="location.href='pf.do?command=productDetail&pseq=${productVO.pseq}';"> --%>
-				<div class="card_img card_img_${i}" onclick="location.href='#'">
-					<ul>
-<%-- 					<c:forEach items="${productVO.colorDetaiList}" var="colorVO">
- 						<li><img src="images/productImage/${colorVO.image}" /></li> --%>
-							<li style="z-index:10"><img src="images/productImage/Aippr1401.png" /></li>
-							<li><img src="images/productImage/Aippr1402.png" /></li>
-							<li><img src="images/productImage/Aippr1403.png" /></li>
-							<li><img src="images/productImage/Aippr1404.png" /></li>
-<%-- 					</c:forEach> --%>
-					</ul>
-				</div>
-				<div class="card_color_buttons card_color_buttons_${i}">
-					<ul>
-						<%-- <c:forEach items="${productVO.colorDetailList}" var="colorVO"> --%>
-							<li onclick="colorClick(${i}, 1);"><div class="color_button" style="background-color:blue" <%-- style="background-color:${colorVO.ccode}" --%>><div class="color_button_selector"></div></div></li>
-							<li onclick="colorClick(${i}, 2);"><div class="color_button" style="background-color:red" <%-- style="background-color:${colorVO.ccode}" --%>><div></div></div></li>
-							<li onclick="colorClick(${i}, 3);"><div class="color_button" style="background-color:yellow" <%-- style="background-color:${colorVO.ccode}" --%>><div></div></div></li>
-							<li onclick="colorClick(${i}, 4);"><div class="color_button" style="background-color:green" <%-- style="background-color:${colorVO.ccode}" --%>><div></div></div></li>
-						<%-- </c:forEach> --%>
-					</ul>
-				</div>
-				<div class="clear"></div>
+		<c:forEach items="${mainBestList}" var="productVO" varStatus="status">
 
-				<div class="card_name" onclick="location.href='#'">
+			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
+			<c:set var="productDetailLH" value="location.href='pf.do?command=productDetail&pseq=${productVO.pseq}';" />
+			
+			
+			<!-- 제품 아이템 시작 -->
+			<li class="card">
+
+
+				<input type="hidden" class="pdPseq" value="${productVO.pseq}" />
+				<input type="hidden" class="pdImg" value="${productVO.colorList[0].image}" />
+				<input type="hidden" class="pdName" value="${productVO.name}" />
+				<input type="hidden" class="pdPrice" value="<fmt:formatNumber value='${productVO.price2}' type='number' maxFractionDigits='3' />원" />
+
+
+				<!-- 이미지 -->
+				<div class="card_img card_img_${status.count}" onclick="${productDetailLH}">
+					<ul>
+ 					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
+						<c:choose>
+							<c:when test="${statusColor.count == 1}">
+								<li style="z-index:10"><img src="images/productImage/${colorVO.image}" /></li>
+							</c:when>
+							<c:otherwise>
+								<li><img src="images/productImage/${colorVO.image}" /></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					</ul>
+				</div>
+				<!-- //이미지 -->
+				
+				
+				<!-- 컬러 리스트 -->
+				<div class="card_color_buttons card_color_buttons_${status.count}">
+					<ul>
+						<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
+							<li onclick="colorClick(${status.count}, ${statusColor.count});">
+								<div class="color_button" style="background-color:${colorVO.ccode}">
+								<c:choose>
+									<c:when test="${statusColor.count == 1}">
+										<div class="color_button_selector"></div>
+									</c:when>
+									<c:otherwise>
+										<div></div>
+									</c:otherwise>
+								</c:choose>
+								</div>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+				<!-- //컬러 리스트 -->
+				<div class="clear"></div>
+				
+				
+				<!-- 제품명 -->
+				<div class="card_name" onclick="${productDetailLH}">
 					<h3>
-						iPhone 14 pro MAX
 						${productVO.name}
 					</h3>
 				</div>
-				<div class="card_price" onclick="location.href='#'">
-					<h3><fmt:formatNumber value="348400" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
-					
-					<%-- <h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4> --%>
+				<!-- //제품명 -->
+				
+				
+				<!-- 가격 -->
+				<div class="card_price" onclick="${productDetailLH}">
+					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
-
-
-				<div class="card_buy">구매하기</div>
-
-
-				<%-- <div class="card_compare_price" onclick="compareProduct(${productVO.pseq}, '${productVO.name}', ${productVO.price2}, '${productVO.colorDetailList[0].image}');"> --%>
-				<div class="card_compare_price" onclick="compareProduct(${i}, 'iPhone 14 pro MAX', 348400, 'Aippr1401.png');">
-					<div class="plus_button"><div>+</div></div><span>&nbsp;가격 비교하기</span>
+				<!-- //가격 -->
+				
+				
+				<!-- 구매하기 버튼 -->
+				<div class="card_buy" onclick="#">구매하기</div>
+				<!-- //구매하기 버튼 -->
+				
+				
+				<!-- 가격비교 -->
+				<div class="card_compare_price" onclick="compareProduct(${productVO.pseq});">
+					<div class="plus_button"><span>&nbsp;가격 비교하기</span></div>
 				</div>
+				<!-- //가격비교 -->
 			</li>
 		</c:forEach>
 	</ul>
@@ -72,6 +113,7 @@ author : PMS, BHS
 <div class="clear"></div>
 
 <!-- //베스트 상품 -->
+
 
 
 
@@ -89,7 +131,7 @@ author : PMS, BHS
 		</li>
 		<li>
 			<div id="content2" class="card" onclick="location.href='#'">
-				<img src="images/iphone-card-50-compare-202209.jpg" />
+				<img src="images/main/iphone-card-50-compare-202209.jpg" />
 				<div>
 					<span>Apple iPhone 모든 모델 보기</span><br />
 					어떤 iPhone이<br />
@@ -99,7 +141,7 @@ author : PMS, BHS
 		</li>
 		<li>
 			<div id="content3" class="card" onclick="location.href='#'">
-				<img src="images/iphone-card-50-whyswitch-202209_GEO_KR.jpg" />
+				<img src="images/main/iphone-card-50-whyswitch-202209_GEO_KR.jpg" />
 				<div>
 					<span>iPhone으로 갈아타기</span><br />
 					iPhone으로 갈아타기, 무척<br />
@@ -122,53 +164,89 @@ author : PMS, BHS
 
 <div id="main_card_box">
 	<ul>
-		<%--  <c:forEach items="${bestItemList}" var="productVO" >    --%>
-		<c:forEach var="i" begin="5" end="8">
+		<c:forEach items="${mainEventList}" var="productVO" varStatus="status">
+			
+			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
+			<c:set var="productDetailLH" value="location.href='pf.do?command=productDetail&pseq=${productVO.pseq}';" />
+			
+			
+			<!-- 제품 아이템 시작 -->
 			<li class="card">
-			<%-- <li class="card" onclick="location.href='pf.do?command=productDetail&pseq=${productVO.pseq}';"> --%>
-				<div class="card_img card_img_${i}" onclick="location.href='#'">
-					<ul>
-<%-- 					<c:forEach items="${productVO.colorDetaiList}" var="colorVO">
- 						<li><img src="images/productImage/${colorVO.image}" /></li> --%>
-							<li style="z-index:10"><img src="images/productImage/Aippr1401.png" /></li>
-							<li><img src="images/productImage/Aippr1402.png" /></li>
-							<li><img src="images/productImage/Aippr1403.png" /></li>
-							<li><img src="images/productImage/Aippr1404.png" /></li>
-<%-- 					</c:forEach> --%>
-					</ul>
-				</div>
-				<div class="card_color_buttons card_color_buttons_${i}">
-					<ul>
-						<%-- <c:forEach items="${productVO.colorDetailList}" var="colorVO"> --%>
-							<li onclick="colorClick(${i}, 1);"><div class="color_button" style="background-color:blue" <%-- style="background-color:${colorVO.ccode}" --%>><div class="color_button_selector"></div></div></li>
-							<li onclick="colorClick(${i}, 2);"><div class="color_button" style="background-color:red" <%-- style="background-color:${colorVO.ccode}" --%>><div></div></div></li>
-							<li onclick="colorClick(${i}, 3);"><div class="color_button" style="background-color:yellow" <%-- style="background-color:${colorVO.ccode}" --%>><div></div></div></li>
-							<li onclick="colorClick(${i}, 4);"><div class="color_button" style="background-color:green" <%-- style="background-color:${colorVO.ccode}" --%>><div></div></div></li>
-						<%-- </c:forEach> --%>
-					</ul>
-				</div>
-				<div class="clear"></div>
 
-				<div class="card_name" onclick="location.href='#'">
+
+				<input type="hidden" class="pdPseq" value="${productVO.pseq}" />
+				<input type="hidden" class="pdImg" value="${productVO.colorList[0].image}" />
+				<input type="hidden" class="pdName" value="${productVO.name}" />
+				<input type="hidden" class="pdPrice" value="<fmt:formatNumber value='${productVO.price2}' type='number' maxFractionDigits='3' />원" />
+
+
+				<!-- 이미지 -->
+				<div class="card_img card_img_${status.count + 4}" onclick="${productDetailLH}">
+					<ul>
+ 					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
+						<c:choose>
+							<c:when test="${statusColor.count == 1}">
+								<li style="z-index:10"><img src="images/productImage/${colorVO.image}" /></li>
+							</c:when>
+							<c:otherwise>
+								<li><img src="images/productImage/${colorVO.image}" /></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					</ul>
+				</div>
+				<!-- //이미지 -->
+				
+				
+				<!-- 컬러 리스트 -->
+				<div class="card_color_buttons card_color_buttons_${status.count + 4}">
+					<ul>
+						<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
+							<li onclick="colorClick(${status.count + 4}, ${statusColor.count});">
+								<div class="color_button" style="background-color:${colorVO.ccode}">
+								<c:choose>
+									<c:when test="${statusColor.count == 1}">
+										<div class="color_button_selector"></div>
+									</c:when>
+									<c:otherwise>
+										<div></div>
+									</c:otherwise>
+								</c:choose>
+								</div>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+				<!-- //컬러 리스트 -->
+				<div class="clear"></div>
+				
+				
+				<!-- 제품명 -->
+				<div class="card_name" onclick="${productDetailLH}">
 					<h3>
-						iPhone 14 pro MAX
 						${productVO.name}
 					</h3>
 				</div>
-				<div class="card_price" onclick="location.href='#'">
-					<h3><fmt:formatNumber value="348400" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
-					
-					<%-- <h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4> --%>
+				<!-- //제품명 -->
+				
+				
+				<!-- 가격 -->
+				<div class="card_price" onclick="${productDetailLH}">
+					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
-
-
-				<div class="card_buy">구매하기</div>
-
-
-				<%-- <div class="card_compare_price" onclick="compareProduct(${productVO.pseq}, '${productVO.name}', ${productVO.price2}, '${productVO.colorDetailList[0].image}');"> --%>
-				<div class="card_compare_price" onclick="compareProduct(${i}, 'iPhone 14 pro MAX', 348400, 'Aippr1401.png');">
-					<div class="plus_button"><div>+</div></div><span>&nbsp;가격 비교하기</span>
+				<!-- //가격 -->
+				
+				
+				<!-- 구매하기 버튼 -->
+				<div class="card_buy" onclick="#">구매하기</div>
+				<!-- //구매하기 버튼 -->
+				
+				
+				<!-- 가격비교 -->
+				<div class="card_compare_price" onclick="compareProduct(${productVO.pseq});">
+					<div class="plus_button"><span>&nbsp;가격 비교하기</span></div>
 				</div>
+				<!-- //가격비교 -->
 			</li>
 		</c:forEach>
 	</ul>
@@ -188,5 +266,9 @@ author : PMS, BHS
 <!-- //MAIN -->
 
 
+<!-- 비교 상자 불러오기 -->
+<%@ include file="comparePopup.jsp"%>
 
+
+<!-- footer 불러오기 -->
 <%@ include file="footer.jsp"%>

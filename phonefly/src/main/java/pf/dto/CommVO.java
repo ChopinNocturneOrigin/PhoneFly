@@ -1,13 +1,12 @@
 package pf.dto;
 
 public class CommVO {
-	private Integer mseq;
+	private int mseq;
 	private String name;
-	
-	public Integer getMseq() {
+	public int getMseq() {
 		return mseq;
 	}
-	public void setMseq(Integer mseq) {
+	public void setMseq(int mseq) {
 		this.mseq = mseq;
 	}
 	public String getName() {
@@ -16,6 +15,4 @@ public class CommVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 }

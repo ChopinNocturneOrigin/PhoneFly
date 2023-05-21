@@ -1,6 +1,7 @@
 /**
  * author : BHS
  */
+"use strict"
 
 
 
@@ -12,9 +13,9 @@ var backToTopReady = () => {
 	// Scroll | button show/hide
 	window.addEventListener('scroll', () => {
 		if (document.querySelector('html').scrollTop > 100) {
-			document.getElementById('go-top').style.display = "block";
+			document.getElementById('go_top').style.display = "block";
 		} else {
-			document.getElementById('go-top').style.display = "none";
+			document.getElementById('go_top').style.display = "none";
 		}
 	});
 };
@@ -38,6 +39,3 @@ var backToTop = () => {
 
 
 
-function compareProduct(pseq, name, price, image) {
-	
-}
