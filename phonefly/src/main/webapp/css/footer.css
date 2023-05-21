@@ -5,8 +5,7 @@
 #footer h5:after { background-color:#333; width:25px; height:1px; display:block; content:''; position:absolute; bottom:0; left:0; }
 #footer .wrap { overflow:hidden; padding:22px 0; }
 #footer .wrap > div { position:relative; box-sizing:border-box; }
-#footer .wrap > div:after { display:block; content:''; background-color:#ececec; width:2px; height:170px; position:absolute; top:50%; left:0; transform:translate(0,-50%); }
-#footer .wrap > div.info:after { height:170px; top:7px; transform:none; }
+#footer .wrap > div:after { display:block; content:''; background-color:#ececec; width:2px; height:230px; position:absolute; top:0; left:0; }
 #footer .info { color:#555; overflow:hidden; float:left; width:50%; position:relative; padding:0 0 0 15px; }
 #footer .info h4 { color:#555; font-family:'s-core-dream-bold'; font-size:18px; display:inline-block; }
 #footer .info h5 { margin:20px 0 8px; }
@@ -26,7 +25,6 @@
 #footer .f_customer p { font-size:11px; line-height:24px; color:#999; }
 #footer .quick { float:left; width:25%; padding:20px 0 0 70px; box-sizing:border-box; }
 #footer .quick ul { padding:5px 0 0; }
-#footer .quick ul li {  }
 #footer .quick ul li a { padding:6px 0; display:block; font-size:11px; color:#999; font-family:'s-core-dream-regular'; }
 #footer .quick ul li a span { color:#555; font-family:'s-core-dream-regular'; background-color:#cef4c8; border-radius:3px; padding:2px 5px; margin:0 0 0 5px; }
 #footer .warning { background-color:#333; color:#fff; padding:12px 0; font-size:11px; font-family:'s-core-dream-regular'; }

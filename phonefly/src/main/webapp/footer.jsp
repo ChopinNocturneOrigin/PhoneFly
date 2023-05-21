@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 </div>
+
+<!-- FOOTER -->
+
 <div class="clear"></div> 
 
  <footer id="footer" class="black">
@@ -23,17 +26,16 @@
         <span>주소</span>서울특별시 서대문구 신촌로 48, 4층 401호(효자동2가)<br>
         <span>개인정보관리책임자</span>홍길동<i></i>
         <span>이메일</span>ezen0008@naver.com<br>
-        <span>판매제휴업체</span>바른 / KT - 늘품정보통신 / LGU+ - 소망텔레콤<br>
         <span>대표</span>강희준<i></i>
         <span>사업자번호</span>012-34-5678<i></i>
-         통신판매업신고번호 : 제2020-전주완산-0012호       </p>
+         통신판매업신고번호 : 제1234-서울서대문-5678호       </p>
       <a href="https://www.todayphone.net/black" target="_blank" class="ok">
                   <img style="cursor:pointer; height:77px !important;" src="https://storage.todayphone.net/upload/config/20230201145252_3763.png">
               </a>
     </div>
     <div class="f_customer">
       <h5>다이렉트 상담</h5>
-      <strong>1600-7949</strong>
+      <strong>02-1234-5678</strong>
       <p>
          평일 : 오전 9:30 ~ 오후 7:00<br>          점심 : 오후 12:30 ~ 오후 1:30<br>          일 / 공휴일 휴무<br>       </p>
     </div>
@@ -52,7 +54,7 @@
           </li>
                           <li>
             <a href="https://www.todayphone.net/board/list/qna">
-              F  & Q 자주 묻는 질문
+              F A Q 자주 묻는 질문
                           </a>
           </li>
                               </ul>
@@ -63,6 +65,7 @@
       </div>
 </footer>
 
-
 </body>
 </html>
+
+<!-- //FOOTER -->

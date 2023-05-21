@@ -1,6 +1,8 @@
 /**
  * author : BHS
  */
+"use strict"
+
 $(function(){
 	let sIndex = parseInt(sessionStorage.getItem("menuIndex"));
 	function setHover() {

@@ -1,6 +1,8 @@
 /**
  * author : BHS
  */
+"use strict"
+
 $(function(){
 	let imgIndex = 0;
 	let playFlag = false;

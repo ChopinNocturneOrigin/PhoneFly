@@ -3,18 +3,18 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class QnaVO {
-	private Integer qseq;
+	private int qseq;
 	private String id;
 	private String subject;
 	private String content;
 	private String reply;
 	private String rep;
 	private Timestamp indate;
-	
-	public Integer getQseq() {
+
+	public int getQseq() {
 		return qseq;
 	}
-	public void setQseq(Integer qseq) {
+	public void setQseq(int qseq) {
 		this.qseq = qseq;
 	}
 	public String getId() {
@@ -53,5 +53,4 @@ public class QnaVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
 }

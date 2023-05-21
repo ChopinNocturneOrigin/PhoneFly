@@ -8,8 +8,7 @@
 <body>
 
 <%
-//response.sendRedirect("pf.do?command=index");
-response.sendRedirect("main.jsp");
+response.sendRedirect("pf.do?command=index");
 %>
 
 </body>

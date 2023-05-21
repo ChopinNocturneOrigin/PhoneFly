@@ -3,18 +3,16 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class ReviewVO {
-	
-	private Integer rseq;
+	private int rseq;
 	private String id;
 	private String subject;
 	private String content;
 	private Timestamp indate;
-	
-	
-	public Integer getRseq() {
+
+	public int getRseq() {
 		return rseq;
 	}
-	public void setRseq(Integer rseq) {
+	public void setRseq(int rseq) {
 		this.rseq = rseq;
 	}
 	public String getId() {
@@ -41,6 +39,4 @@ public class ReviewVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
-
 }
