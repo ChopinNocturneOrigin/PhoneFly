@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import pf.dto.AddressVO;
 import pf.dto.MemberVO;
 import pf.util.DBM;
@@ -18,8 +17,6 @@ public class MemberDao {
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
-	
 	
 	public void insertMember(MemberVO mvo) {
 		String sql = "insert into member( id, pwd, name, zipnum, address1, address2, phone, email ) "
@@ -41,13 +38,12 @@ public class MemberDao {
 		}
 	}
 
-
-
 	public MemberVO getMember(String id) {
 		
 		MemberVO mvo = null;
 		con = DBM.getConnection();
 		String sql = "select * from member where id=?";
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,  id);
@@ -122,6 +118,43 @@ public class MemberDao {
 
 
 
+	public MemberVO selectId(String name, String phone) {
+		MemberVO mvo = null;
+		String sql = "SELECT ID FROM member WHERE name = ? AND phone = ?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+		    while( rs.next() ) {
+		    	mvo = new MemberVO();
+				mvo.setId( rs.getString("id") );
+		    }
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);
+		}
+		return mvo;
+	}
+
+	public MemberVO selectPwd(String id, String newPwd) {
+	    MemberVO mvo = null;
+	    String sql = "UPDATE member SET pwd = ? WHERE id = ?";
+	    con = DBM.getConnection();
+	    try {
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, newPwd);
+	        pstmt.setString(2, id);		
+	        rs = pstmt.executeQuery();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBM.close(con, pstmt, rs);
+	    }
+	    return mvo;
+	}
+	
+	
 	public void deleteMember(String id) {
 		con = DBM.getConnection();
 		String sql="update member set useyn='N' where id=?";
@@ -132,5 +165,9 @@ public class MemberDao {
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
 		}
-	}	
+	}
+
 }
+
+
+
