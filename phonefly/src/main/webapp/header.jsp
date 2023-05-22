@@ -41,7 +41,7 @@ author : BHS
 							</c:when>
 							<c:otherwise>
 
-								<li>${loginUser.name}(${loginUser.id})</li> --%>
+								<li>${loginUser.name}(${loginUser.id})</li>
 								<li><a href="pf.do?command=">정보수정</a></li>
 								<li><a href="pf.do?command=">로그아웃</a></li>
 								<li><a href="pf.do?command=">장바구니</a></li>
@@ -49,7 +49,9 @@ author : BHS
 								<li><a href="pf.do?command=">1:1 문의</a></li>
 							</c:otherwise>
 						</c:choose>
-						<!-- <li><a href="shop.do?cmd=admin">admin</a></li> -->
+
+						<!-- <li><a href="pf.do?cmd=admin">admin</a></li> -->
+
 					</ul>
 				</nav>
 				<nav id="menu">
