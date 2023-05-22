@@ -50,7 +50,7 @@ author : BHS
 							</c:otherwise>
 						</c:choose>
 
-						<!-- <li><a href="pf.do?cmd=admin">admin</a></li> -->
+						 <li><a href="pf.do?cmd=admin">admin</a></li> 
 
 					</ul>
 				</nav>

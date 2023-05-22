@@ -15,8 +15,16 @@
 	</table>
 	
 	<table id="orderList">
-		<tr><th>주문번호(처리)</th><th>주문자</th><th>상품명</th><th>수량</th><th>우편</th>
-		<th>주소</th><th>전화</th><th>주문일</th></tr>
+		<tr>
+		<th>주문번호(처리)</th>
+		<th>주문자</th>
+		<th>상품명</th>
+		<th>수량</th>
+		<th>우편</th>
+		<th>주소</th>
+		<th>전화</th>
+		<th>주문일</th>
+		</tr>
 		<c:forEach items="${orderList}" var="orderVO">
 			<tr>
 				<td>

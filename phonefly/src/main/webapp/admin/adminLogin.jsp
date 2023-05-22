@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin Login</title>
+<title>admin </title>
 <link rel="stylesheet" href="admin/css/admin.css">
 <script src="admin/script/admin.js"></script>
 </head>
