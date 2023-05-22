@@ -9,14 +9,14 @@ import pf.controller.action.admin.board.event.AdminEventListFormAction;
 import pf.controller.action.admin.board.event.AdminEventUpdateAction;
 import pf.controller.action.admin.board.event.AdminEventUpdateFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDeleteAction;
+import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
+import pf.controller.action.admin.board.notice.AdminNoticeDetailFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeInsertAction;
 import pf.controller.action.admin.board.notice.AdminNoticeInsertFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeListAction;
 import pf.controller.action.admin.board.notice.AdminNoticeListFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
-import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
-import pf.controller.action.admin.board.notice.AdminNoticeDetailFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
 import pf.controller.action.admin.board.qna.AdminQnaListFormAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
@@ -71,8 +71,6 @@ import pf.controller.action.order.OrderAction;
 import pf.controller.action.order.OrderFormAction;
 import pf.controller.action.order.OrderListAction;
 import pf.controller.action.order.OrderListFormAction;
-import pf.controller.action.order.OrderDetailListAction;
-import pf.controller.action.order.OrderDetailListFormAction;
 import pf.controller.action.product.CategoryAction;
 import pf.controller.action.product.ProductCompareAction;
 import pf.controller.action.product.ProductDetailAction;
@@ -101,6 +99,8 @@ public class ActionFactory {
 	else if(command.equals("logout") ) ac = new LogoutAction();
 	else if(command.equals("selectId") ) ac = new SelectIdAction();
 	else if(command.equals("selectPwd") ) ac = new SelectPwdAction();
+
+	
 	//회원(member).join
 	else if(command.equals("contract") ) ac = new ContractAction();
 	else if(command.equals("joinForm") ) ac = new JoinFormAction();
@@ -120,8 +120,8 @@ public class ActionFactory {
 	else if(command.equals("orderList") ) ac = new OrderListAction();
 	else if(command.equals("orderForm") ) ac = new OrderFormAction();
 	else if(command.equals("order") ) ac = new OrderAction();
-	else if(command.equals("orderDetailListForm") ) ac = new OrderDetailListFormAction();
-	else if(command.equals("orderDetailList") ) ac = new OrderDetailListAction();
+	else if(command.equals("orderDetailListForm") ) ac = new AdminOrder_detailAction();
+	else if(command.equals("orderDetailList") ) ac = new AdminOrderListAction();
 	
 
 	//상품(product)
