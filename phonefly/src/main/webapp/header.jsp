@@ -41,7 +41,7 @@ author : BHS
 							</c:when>
 							<c:otherwise>
 
-								<li>${loginUser.name}(${loginUser.id})</li> --%>
+								<li>${loginUser.name}(${loginUser.id})</li>
 								<li><a href="pf.do?command=">정보수정</a></li>
 								<li><a href="pf.do?command=">로그아웃</a></li>
 								<li><a href="pf.do?command=">장바구니</a></li>
