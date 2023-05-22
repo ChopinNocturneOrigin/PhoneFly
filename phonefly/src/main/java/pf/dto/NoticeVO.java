@@ -8,7 +8,7 @@ public class NoticeVO {
 	private String subject;
 	private String content;
 	private Timestamp indate;
-
+	
 	public int getNseq() {
 		return nseq;
 	}
