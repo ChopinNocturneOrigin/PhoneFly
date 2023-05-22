@@ -60,20 +60,7 @@
 								<input type="radio" name="bestyn" value="N" checked="checkd">미사용
 							</c:otherwise>
 						</c:choose>
-					</td>
-					<th>사용유무</th>
-					<td>
-						<c:choose>
-					     	<c:when test='${productVO.useyn=="y"}'>
-					     		<input type="radio" name="useyn" value="y" checked="checked">사용
-					     		<input type="radio" name="useyn" value="n">미사용
-					     	</c:when>
-					      	<c:otherwise>
-					      		<input type="radio" name="useyn" value="y">사용
-					      		<input type="radio" name="useyn" value="n"  checked="checked">미사용
-					      	</c:otherwise>
-			    		</c:choose>
-			    	</td>
+					</td>				
 			</tr>
 				
 				

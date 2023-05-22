@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import pf.dto.ColorVO;
 import pf.dto.ProductVO;
+import pf.dto.RplanVO;
 import pf.util.DBM;
 
 public class ProductDao {
@@ -153,6 +154,33 @@ public class ProductDao {
 		} finally { DBM.close(con, pstmt, rs);  }
 		return pvo;
 	}
+
+	public ArrayList<RplanVO> getRplanList() {
+		ArrayList<RplanVO>list = new ArrayList<>();
+		con = DBM.getConnection();
+		String sql = "SELECT * FROM rplan";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				RplanVO rvo = new RplanVO();
+				rvo.setRseq(rs.getInt("rseq"));
+				rvo.setMseq(rs.getInt("mseq"));
+				rvo.setName(rs.getString("name"));
+				rvo.setCharge(rs.getInt("charge"));
+				rvo.setDataplan(rs.getString("dataplan"));
+				rvo.setTimeplan(rs.getString("timeplan"));
+				rvo.setTextplan(rs.getString("textplan"));
+				list.add(rvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return list;
+	}
+
 
 
 }

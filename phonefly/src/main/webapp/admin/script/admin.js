@@ -17,11 +17,30 @@ function go_detail( pseq ){
 	// location.href="pf.do?command=adminProductDetail&pseq=" + pseq;
 }
 
+function go_detail_e( eseq ){
+	document.frm.action = "pf.do?command=adminEventDetail&eseq=" + eseq; 
+	document.frm.submit();
+	// location.href="pf.do?command=adminEventDetail&eseq=" + eseq;
+}
+
+function go_detail_n( nseq ){
+	document.frm.action = "pf.do?command=adminNoticeDetail&nseq=" + nseq; 
+	document.frm.submit();
+	// location.href="pf.do?command=adminEventDetail&nseq=" + nseq;
+}
+
 
 function go_mov(){
 	location.href = "pf.do?command=adminProductList";
 }
 
+function go_mov_e(){
+	location.href = "pf.do?command=adminEventList";
+}
+
+function go_mov_n(){
+	location.href = "pf.do?command=adminNoticeList";
+}
 
 
 function go_search( comm ){
@@ -47,7 +66,21 @@ function go_total( comm ){
 
 
 function go_wrt(){
-	document.frm.action = "pf.do?command=adminProductInsertForm";
+	document.frm.action = "pf.do?command=adminProductWriteForm";
+	document.frm.submit();
+}
+
+
+
+function go_wrt_e(){
+	document.frm.action = "pf.do?command=adminEventWriteForm";
+	document.frm.submit();
+}
+
+
+
+function go_wrt_n(){
+	document.frm.action = "pf.do?command=adminNoticeWriteForm";
 	document.frm.submit();
 }
 
@@ -84,6 +117,19 @@ function go_save(){
 	}
 }
 
+function go_save_e(){
+	var theForm = document.frm;
+	if( theForm.name.value == "") {
+		alert('이벤트명을 입력하세요.'); 	
+		theForm.name.focus();	
+	} else if (theForm.content.value == "") {
+		alert('이벤트상세를 입력하세요.'); 		
+		theForm.content.focus();
+	} else{
+		theForm.action = "pf.do?command=adminEventWrite";
+		theForm.submit();
+	}
+}
 
 
 
@@ -95,6 +141,19 @@ function go_mod(pseq){
 	// document.frm.submit();
 }
 
+function go_mod_e(eseq){
+	var url = "pf.do?command=adminEventUpdateForm&eseq=" + eseq;
+	location.href=url;
+	// document.frm.action = url;
+	// document.frm.submit();
+}
+
+function go_mod_n(nseq){
+	var url = "pf.do?command=adminNoticeUpdateForm&nseq=" + nseq;
+	location.href=url;
+	// document.frm.action = url;
+	// document.frm.submit();
+}
 
 
 function go_mod_save(){
@@ -116,6 +175,40 @@ function go_mod_save(){
 	 }else{
 		if( confirm('수정하시겠습니까?') ){
 			 document.frm.action = "pf.do?command=adminProductUpdate";
+			 document.frm.submit();
+		}
+	}
+}
+
+function go_mod_save_e(){
+	if  (document.frm.name.value == '') {
+		  alert('이벤트 명을 입력하세요');	  
+		  document.frm.name.focus();
+	 } else if (document.frm.content.value == '') {
+		  alert('이벤트 상세를 입력하세요');	  
+		  document.frm.content.focus();
+	 }else{
+		if( confirm('수정하시겠습니까?') ){
+			 document.frm.action = "pf.do?command=adminEventUpdate";
+			 document.frm.submit();
+		}
+	}
+}
+
+
+
+
+
+function go_mod_save_n(){
+	if  (document.frm.name.value == '') {
+		  alert('공지사항 이름을 입력하세요');	  
+		  document.frm.name.focus();
+	 } else if (document.frm.content.value == '') {
+		  alert('공지사항 상세를 입력하세요');	  
+		  document.frm.content.focus();
+	 }else{
+		if( confirm('수정하시겠습니까?') ){
+			 document.frm.action = "pf.do?command=adminNoticeUpdate";
 			 document.frm.submit();
 		}
 	}
@@ -155,7 +248,7 @@ function go_view( qseq ){
 
 
 
-function go_rep(qseq){
+function go_rep( qseq ){
 	document.frm.action="pf.do?command=adminQnaRepSave";
 	document.frm.submit();
 	// 답변 글 등록 & rep 필드를 2로 업데이트
