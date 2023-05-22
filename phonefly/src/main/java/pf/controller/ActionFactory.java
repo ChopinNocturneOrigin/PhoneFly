@@ -35,6 +35,8 @@ import pf.controller.action.admin.product.AdminProductUpdateAction;
 import pf.controller.action.admin.product.AdminProductUpdateFormAction;
 import pf.controller.action.board.event.EventDetailAction;
 import pf.controller.action.board.event.EventListAction;
+import pf.controller.action.board.notice.NoticeDetailAction;
+import pf.controller.action.board.notice.NoticeListAction;
 import pf.controller.action.board.qna.FAQListAction;
 import pf.controller.action.board.qna.QnaDeleteAction;
 import pf.controller.action.board.qna.QnaDetailAction;
@@ -155,6 +157,9 @@ public class ActionFactory {
 	//게시판(board).Event
 	else if(command.equals("eventList") ) ac = new EventListAction();
 	else if(command.equals("eventDetail") ) ac = new EventDetailAction();
+	//게시판(board).Notice
+	else if(command.equals("noticeList") ) ac = new NoticeListAction();
+	else if(command.equals("noticeDetail") ) ac = new NoticeDetailAction();
 	
 	
 	
