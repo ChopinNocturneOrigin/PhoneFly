@@ -22,7 +22,7 @@ public class AdminLoginAction implements Action {
 		MemberDao mdao = MemberDao.getInstance();
 		MemberVO mvo = mdao.getMember(id);
 		
-		String url = "admin/adminloginForm.jsp";
+		String url = "admin/member/adminMemberList.jsp";
 		
 		if( mvo == null)
 			request.setAttribute("message", "없는 아이디입니다");
@@ -35,7 +35,7 @@ public class AdminLoginAction implements Action {
 		else if( mvo.getPwd().equals(pwd) ) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", mvo);
-			url = "shop.do?command=index";
+			url = "pf.do?command=index";
 		}else
 			request.setAttribute("message", "로그인 실패. 관리자에게 문의하세요");
 		

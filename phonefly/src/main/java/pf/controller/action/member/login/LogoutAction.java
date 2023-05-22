@@ -18,7 +18,7 @@ public class LogoutAction implements Action {
 		HttpSession session = request.getSession();
 		session.removeAttribute("loginUser");
 
-		RequestDispatcher dp=request.getRequestDispatcher("shop.do?command=index");
+		RequestDispatcher dp=request.getRequestDispatcher("pf.do?command=index");
 		dp.forward(request, response); 
 
 	}

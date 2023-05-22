@@ -6,8 +6,8 @@ CREATE TABLE member (
 	name	varchar2(20)		NOT NULL,
 	email	varchar2(40)		NOT NULL,
 	zipnum	varchar2(10)		NOT NULL,
-	address1	varchar2(50)		NOT NULL,
-	address2	varchar2(50)		NOT NULL,
+	address1	varchar2(100)		NOT NULL,
+	address2	varchar2(100)		NOT NULL,
 	phone	varchar2(20)		NOT NULL,
 	useyn	char(1)		DEFAULT 'Y'
 );

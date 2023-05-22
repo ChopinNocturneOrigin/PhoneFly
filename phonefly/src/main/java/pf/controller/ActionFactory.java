@@ -21,8 +21,8 @@ import pf.controller.action.admin.board.qna.AdminQnaListAction;
 import pf.controller.action.admin.board.qna.AdminQnaListFormAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListFormAction;
+import pf.controller.action.admin.login.AdminAction;
 import pf.controller.action.admin.login.AdminLoginAction;
-import pf.controller.action.admin.login.AdminLoginFormAction;
 import pf.controller.action.admin.member.AdminMemberDetailAction;
 import pf.controller.action.admin.member.AdminMemberListAction;
 import pf.controller.action.admin.order.AdminOrderListAction;
@@ -55,7 +55,7 @@ import pf.controller.action.member.DeleteMemberFormAction;
 import pf.controller.action.member.MemberUpdateAction;
 import pf.controller.action.member.MemberUpdateFormAction;
 import pf.controller.action.member.join.ContractAction;
-import pf.controller.action.member.join.FindZip_numAction;
+import pf.controller.action.member.join.FindZipnumAction;
 import pf.controller.action.member.join.IdCheckAction;
 import pf.controller.action.member.join.JoinAction;
 import pf.controller.action.member.join.JoinFormAction;
@@ -108,7 +108,7 @@ public class ActionFactory {
 	else if(command.equals("joinForm") ) ac = new JoinFormAction();
 	else if(command.equals("join") ) ac = new JoinAction();
 	else if(command.equals("idCheck") ) ac = new IdCheckAction();
-	else if(command.equals("findZip_num") ) ac = new FindZip_numAction();
+	else if(command.equals("findZipnum") ) ac = new FindZipnumAction();
 	//회원(member).mypage
 	else if(command.equals("memberQnaList") ) ac = new MemberQnaListAction();
 	else if(command.equals("memberCartList") ) ac = new MemberCartListAction();
@@ -166,46 +166,46 @@ public class ActionFactory {
 	//관리자(admin)
 
 	//관리자(admin).login
-	else if(command.equals("adminLoginFormAction") ) ac = new AdminLoginFormAction();
-	else if(command.equals("adminLoginAction") ) ac = new AdminLoginAction();
+	else if(command.equals("admin") ) ac = new AdminAction();
+	else if(command.equals("adminLogin") ) ac = new AdminLoginAction();
 	//관리자(admin).member
-	else if(command.equals("adminMemberListAction") ) ac = new AdminMemberListAction();
-	else if(command.equals("adminMemberDetailAction") ) ac = new AdminMemberDetailAction();
+	else if(command.equals("adminMemberList") ) ac = new AdminMemberListAction();
+	else if(command.equals("adminMemberDetail") ) ac = new AdminMemberDetailAction();
 	//관리자(admin).product
-	else if(command.equals("adminProductListAction") ) ac = new AdminProductListAction();
-	else if(command.equals("adminProductInsertFormAction") ) ac = new AdminProductInsertFormAction();
-	else if(command.equals("adminProductInsertAction") ) ac = new AdminProductInsertAction();
-	else if(command.equals("adminProductDeleteAction") ) ac = new AdminProductDeleteAction();
-	else if(command.equals("adminProductUpdateFormAction") ) ac = new AdminProductUpdateFormAction();
-	else if(command.equals("adminProductUpdateAction") ) ac = new AdminProductUpdateAction();
+	else if(command.equals("adminProductList") ) ac = new AdminProductListAction();
+	else if(command.equals("adminProductInsertForm") ) ac = new AdminProductInsertFormAction();
+	else if(command.equals("adminProductInsert") ) ac = new AdminProductInsertAction();
+	else if(command.equals("adminProductDelete") ) ac = new AdminProductDeleteAction();
+	else if(command.equals("adminProductUpdateForm") ) ac = new AdminProductUpdateFormAction();
+	else if(command.equals("adminProductUpdate") ) ac = new AdminProductUpdateAction();
 	//관리자(admin).order
-	else if(command.equals("adminOrderListAction") ) ac = new AdminOrderListAction();
-	else if(command.equals("adminOrderDetailAction") ) ac = new AdminOrder_detailAction();
+	else if(command.equals("adminOrderList") ) ac = new AdminOrderListAction();
+	else if(command.equals("adminOrderDetail") ) ac = new AdminOrder_detailAction();
 
 	//관리자(admin).board
 	
 	//관리자(admin).board.QnA
-	else if(command.equals("adminQnaListFormAction") ) ac = new AdminQnaListFormAction();
-	else if(command.equals("adminQnaListAction") ) ac = new AdminQnaListAction();
-	else if(command.equals("adminQnaDetailListFormAction") ) ac = new AdminQna_detailListFormAction();
-	else if(command.equals("adminQnaDetailListAction") ) ac = new AdminQna_detailListAction();
+	else if(command.equals("adminQnaListForm") ) ac = new AdminQnaListFormAction();
+	else if(command.equals("adminQnaList") ) ac = new AdminQnaListAction();
+	else if(command.equals("adminQnaDetailListForm") ) ac = new AdminQna_detailListFormAction();
+	else if(command.equals("adminQnaDetailList") ) ac = new AdminQna_detailListAction();
 	//관리자(admin).board.Notice
-	else if(command.equals("adminNoticeListFormAction") ) ac = new AdminNoticeListFormAction();
-	else if(command.equals("adminNoticeListAction") ) ac = new AdminNoticeListAction();
-	else if(command.equals("adminNoticeDetailFormAction") ) ac = new AdminNoticeDetailFormAction();
-	else if(command.equals("adminNoticeDetailAction") ) ac = new AdminNoticeDetailAction();
-	else if(command.equals("adminNoticeInsertFormAction") ) ac = new AdminNoticeInsertFormAction();
-	else if(command.equals("adminNoticeInsertAction") ) ac = new AdminNoticeInsertAction();
-	else if(command.equals("adminNoticeUpdateFormAction") ) ac = new AdminNoticeUpdateFormAction();
-	else if(command.equals("adminNoticeUpdateAction") ) ac = new AdminNoticeUpdateAction();
-	else if(command.equals("adminNoticeDeleteAction") ) ac = new AdminNoticeDeleteAction();
+	else if(command.equals("adminNoticeListForm") ) ac = new AdminNoticeListFormAction();
+	else if(command.equals("adminNoticeList") ) ac = new AdminNoticeListAction();
+	else if(command.equals("adminNoticeDetailForm") ) ac = new AdminNoticeDetailFormAction();
+	else if(command.equals("adminNoticeDetail") ) ac = new AdminNoticeDetailAction();
+	else if(command.equals("adminNoticeInsertForm") ) ac = new AdminNoticeInsertFormAction();
+	else if(command.equals("adminNoticeInsert") ) ac = new AdminNoticeInsertAction();
+	else if(command.equals("adminNoticeUpdateForm") ) ac = new AdminNoticeUpdateFormAction();
+	else if(command.equals("adminNoticeUpdate") ) ac = new AdminNoticeUpdateAction();
+	else if(command.equals("adminNoticeDelete") ) ac = new AdminNoticeDeleteAction();
 	//관리자(admin).board.Event
-	else if(command.equals("adminEventListFormAction") ) ac = new AdminEventListFormAction();
-	else if(command.equals("adminEventDetailFormAction") ) ac = new AdminEventDetailFormAction();
-	else if(command.equals("adminEventDetailAction") ) ac = new AdminEventDetailAction();
-	else if(command.equals("adminEventUpdateFormAction") ) ac = new AdminEventUpdateFormAction();
-	else if(command.equals("adminEventUpdateAction") ) ac = new AdminEventUpdateAction();
-	else if(command.equals("adminEventDeleteAction") ) ac = new AdminEventDeleteAction();
+	else if(command.equals("adminEventListForm") ) ac = new AdminEventListFormAction();
+	else if(command.equals("adminEventDetailForm") ) ac = new AdminEventDetailFormAction();
+	else if(command.equals("adminEventDetail") ) ac = new AdminEventDetailAction();
+	else if(command.equals("adminEventUpdateForm") ) ac = new AdminEventUpdateFormAction();
+	else if(command.equals("adminEventUpdate") ) ac = new AdminEventUpdateAction();
+	else if(command.equals("adminEventDelete") ) ac = new AdminEventDeleteAction();
 	
 	return ac;
 	}

@@ -14,7 +14,7 @@ author : BHS
 <div class="wrap login-form-wrap card-normal">
 	<div class="login-form">
 		<form method="post" action="pf.do" name="loginForm">
-				<input type="hidden" name="commmand" value="login" />
+				<input type="hidden" name="command" value="login" />
 				<div class="title">PhoneFly계정으로 로그인</div>
 				<fieldset>
 					<legend></legend>

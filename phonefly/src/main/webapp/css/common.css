@@ -81,7 +81,7 @@ button:active {
 
 .input-text {
 	display: inline-block;
-	font-size: 1.4em;
+	font-size: 1.05em;
 	color: black;
 	border-bottom: 1px solid black;
 	vertical-align: middle;
@@ -92,6 +92,15 @@ button:active {
 .input-text-font-normal {
 	font-size: 1em;
 }
+
+input::placeholder,
+textarea::placeholder {
+	color: #bbb;
+	font-size: 0.94em;
+	opacity: 1;
+}
+
+
 
 .submit {
 	display: inline-block;
@@ -105,7 +114,7 @@ button:active {
 }
 .submit-blue {
 	color: white;
-	background-color: CornflowerBlue !important;
+	background-color: RoyalBlue !important;
 }
 .cancel {
 	display: inline-block;
@@ -122,7 +131,7 @@ button:active {
 	width: 100px;
 	height: 34px;
 	border-radius: 16px;
-	background-color: #444;
+	background-color: #555;
 }
 
 
@@ -512,7 +521,7 @@ article h3 {
 	color: #f8f8f8;
 	font-size: 1.05em;
 	font-weight: bold;
-	background-color: CornflowerBlue;
+	background-color: RoyalBlue;
 }
 
 
@@ -520,13 +529,13 @@ article h3 {
 
 /* 가입 약관 */
 .contract-wrap {
-	width: 902px;
-	height: 600px;
-	margin: 0px auto;
+	width: 806px;
+	height: 591px;
+	margin: 0px auto 34px;
 }
 .contract-wrap p {
 	text-align: left;
-	padding: 0px 90px 4px;
+	padding: 0px 42px 4px;
 }
 .contract-wrap .submit {
 	margin: 20px;
@@ -540,36 +549,42 @@ article h3 {
 
 /* 회원 가입 */
 .join-form-wrap {
-	width: 890px;
-	height: 664px;
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%, -1.5%);
+	top: 150px;
+	width: 520px;
+	height: 797px;
 	margin-bottom: 34px;
+	opacity: 0.97;
 }
 .join-form {
 	position: relative;
 	text-align: left;
-	width: 800px;
-	height: 600px;
+	width:452px;
+	height: 800px;
 	margin: 0px auto;
-	padding-left: 50px;
+	padding-left: 0px;
 }
 .join-form legend {
 	display: inline-block;
 	font-size: 1.6em;
 	font-weight: bold;
-	padding-top: 45px;
-	padding-bottom: 8px;
+	padding-top: 29px;
 }
 .join-form label {
-	display: inline-block;
-	width: 150px;
-	height: 40px;
-	font-size: 1.1em;
-	margin-left: 3px;
-	vertical-align: middle;
+	display: block;
+	width: 100px;
+	height: 30px;
+	line-height: 42px;
+	font-size: 1.01em;
+	margin-left: -1px;
+	margin-top: 4px;
 }
 .join-form .join-form-input {
 	display: inline-block;
-	font-size: 1.4em;
+	font-size: 1.05em;
 	color: black;
 	border-bottom: 1px solid black;
 	vertical-align: middle;
@@ -585,4 +600,18 @@ article h3 {
 /* 아이디 체크 */
 .id-check-wrap {
 	padding-left: 20px;
+}
+
+
+
+
+/* 서브 배너 */
+.sub_banner {
+	text-align: center;
+	height: 795px;
+	z-index: -1;
+	margin-bottom: 30px
+}
+.sub_banner video {
+	width: 100%;
 }

@@ -12,7 +12,7 @@ import pf.controller.action.Action;
 import pf.dao.MemberDao;
 import pf.dto.AddressVO;
 
-public class FindZip_numAction implements Action {
+public class FindZipnumAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +28,7 @@ public class FindZip_numAction implements Action {
 
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("member/findZipNum.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("member/findZipnum.jsp");
 		rd.forward(request, response);
 	}
 
