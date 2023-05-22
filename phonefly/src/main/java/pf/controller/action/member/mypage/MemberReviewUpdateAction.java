@@ -22,7 +22,7 @@ public class MemberReviewUpdateAction implements Action {
 		HttpSession session = request.getSession();
 	    MemberVO mvo = (MemberVO) session.getAttribute("loginUser");    
 	    if (mvo == null) {
-	    	url = "shop.do?command=loginForm";
+	    	url = "pf.do?command=loginForm";
 	    }else{
 	    	ReviewVO rvo = new ReviewVO();
 	    	rvo.setRseq(Integer.parseInt(request.getParameter("rseq")));

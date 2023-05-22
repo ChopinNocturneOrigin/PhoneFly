@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import pf.controller.action.Action;
 import pf.dao.AdminDao;
 import pf.dto.AdminVO;
-import pf.dto.ProductVO;
+import pf.dto.MemberVO;
 import pf.util.Paging;
 
 public class AdminMemberListAction implements Action {
@@ -22,7 +22,7 @@ public class AdminMemberListAction implements Action {
 
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
-		if(avo==null) url="shop.do?command=admin";
+		if(avo==null) url="pf.do?command=admin";
 		else {
 			
 			if(request.getParameter("changeMenu")!=null) {
@@ -66,7 +66,7 @@ public class AdminMemberListAction implements Action {
 			
 			paging.setTotalCount(count);
 
-			ArrayList<ProductVO> adminMemberList = adao.adminMemberList(paging, key);
+			ArrayList<MemberVO> adminMemberList = adao.adminMemberList(paging, key);
 			request.setAttribute("adminMemberList", adminMemberList);
 			request.setAttribute("paging", paging);
 

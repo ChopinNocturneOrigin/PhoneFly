@@ -18,7 +18,7 @@ function go_next() {
 	if (document.contractFrm.okon[1].checked === true) {
 		alert("회원 약관에 동의 하셔야 회원으로 가입이 가능합니다.");
 	} else {
-		document.contractFrm.action = "pf.do?cmd=joinForm";
+		document.contractFrm.action = "pf.do?command=joinForm";
 		document.contractFrm.submit();
 		// contractFrm 폼에 action 도 없고 submit 버튼도 없는 것을 스크립트 명령으로 action 값을 설정하고 submit() 메서드로 이동까지 실행합니다.
 	}
@@ -30,7 +30,7 @@ function idcheck() {
 		document.joinForm.id.focus();
 		return;
 	}
-	let url = "shop.do?cmd=idCheckForm&id=" +  document.joinForm.id.value;
+	let url = "pf.do?command=idCheck&id=" +  document.joinForm.id.value;
 	let opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "IdCheck", opt);
 }
@@ -42,13 +42,13 @@ function idok(userid) {
 }
 
 function post_zip() {
-	let url = "shop.do?cmd=findZipNum";
+	let url = "pf.do?command=findZipnum";
 	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=300, top=300, left=300";
 	window.open(url, "우편번호 찾기", opt);
 }
 
 function result(zip_num, sido, gugun, dong) {
-	opener.document.joinForm.zip_num.value = zip_num;
+	opener.document.joinForm.zipnum.value = zip_num;
 	opener.document.joinForm.address1.value=sido + " " + gugun + " " + dong;
 	self.close();
 }
@@ -75,9 +75,9 @@ function go_save() {
 	} else if (document.joinForm.email.value === "") {
 		alert("이메일을 입력해 주세요.");
 		document.joinForm.email.focus();
-	} else if (document.joinForm.zip_num.value === "") {
+	} else if (document.joinForm.zipnum.value === "") {
 		alert("우편번호를 입력해 주세요.");
-		document.joinForm.zip_num.focus();
+		document.joinForm.zipnum.focus();
 	} else {
 		document.joinForm.action = "pf.do";
 		document.joinForm.submit();
@@ -100,11 +100,11 @@ function go_update() {
 	} else if (document.joinForm.email.value === "") {
 		alert("이메일을 입력해 주세요.");
 		document.joinForm.email.focus();
-	} else if (document.joinForm.zip_num.value === "") {
+	} else if (document.joinForm.zipnum.value === "") {
 		alert("우편번호를 입력해 주세요.");
-		document.joinForm.zip_num.focus();
+		document.joinForm.zipnum.focus();
 	} else {
-		document.joinForm.action = "shop.do";
+		document.joinForm.action = "pf.do";
 		document.joinForm.submit();
 	}
 }

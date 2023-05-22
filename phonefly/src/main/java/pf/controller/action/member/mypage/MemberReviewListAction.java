@@ -12,6 +12,7 @@ import pf.controller.action.Action;
 import pf.dao.ReviewDao;
 import pf.dto.MemberVO;
 import pf.dto.ReviewVO;
+import pf.util.Paging;
 
 public class MemberReviewListAction implements Action {
 

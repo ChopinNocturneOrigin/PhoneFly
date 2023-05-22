@@ -19,7 +19,7 @@ public class DeleteMemberAction implements Action {
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		String url="";
 		if(mvo==null) {
-			url="shop.do?command=loginForm";
+			url="pf.do?command=loginForm";
 		}else {
 			MemberDao mdao = MemberDao.getInstance();
 			mdao.deleteMember(mvo.getId());

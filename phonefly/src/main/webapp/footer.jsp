@@ -29,7 +29,7 @@
         <span>대표</span>강희준<i></i>
         <span>사업자번호</span>012-34-5678<i></i>
          통신판매업신고번호 : 제1234-서울서대문-5678호       </p>
-      <a href="pf.do?command=" target="_blank" class="ok">
+      <a href="#" target="_blank" class="ok">
                   <img style="cursor:pointer; height:77px !important;" src="images/common/20230201145252_3763.png">
               </a>
     </div>

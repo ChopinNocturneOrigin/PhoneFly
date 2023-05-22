@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import pf.controller.action.Action;
 
-public class AdminLoginFormAction implements Action {
+public class AdminAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/adminloginForm.jsp";
+		String url = "admin/admin.jsp";
 
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);

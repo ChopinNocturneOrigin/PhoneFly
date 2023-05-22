@@ -30,7 +30,7 @@ public class JoinAction implements Action {
 
 		mdao.insertMember( mvo );
 
-		response.sendRedirect("shop.do?command=loginForm");
+		response.sendRedirect("pf.do?command=loginForm");
 	}
 
 }

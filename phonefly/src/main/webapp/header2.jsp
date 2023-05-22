@@ -49,7 +49,7 @@ author : BHS
 								<li><a href="pf.do?command=">1:1 문의</a></li>
 							</c:otherwise>
 						</c:choose>
-						<!-- <li><a href="shop.do?cmd=admin">admin</a></li> -->
+						<!-- <li><a href="pf.do?command=admin">admin</a></li> -->
 					</ul>
 				</nav>
 				<nav id="menu">

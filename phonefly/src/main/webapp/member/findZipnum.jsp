@@ -5,16 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>우편번호 찾기</title>
-<link rel="stylesheet" type="text/css" href="../css/common.css">
-<script src="../script/common.js"></script>
-<script src="../script/member.js"></script>
-<script src="../script/mypage.js"></script>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="script/common.js"></script>
+<script src="script/member.js"></script>
+<script src="script/mypage.js"></script>
 </head>
 <body>
 <div class="zipnum-wrap id-check-wrap">
 	<h2>우편번호검색</h2>
-	<form method="post" name="formm" action="shop.do">
-		<input type="hidden" name="command" value="findZip_num" />
+	<form method="post" name="formm" action="pf.do">
+		<input type="hidden" name="command" value="findZipnum" />
 		<span>동 이름</span> &nbsp;<input type="text" name="dong" class="input-text input-text-bg-gray input-text-font-normal" />&nbsp;<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
 	</form>
 	<br />

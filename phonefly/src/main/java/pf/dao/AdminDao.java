@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import pf.dto.MemberVO;
-import pf.dto.ProductVO;
 import pf.util.DBM;
 import pf.util.Paging;
 
