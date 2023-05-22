@@ -14,6 +14,7 @@ public class ProductDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
 		int pseq = Integer.parseInt( request.getParameter("pseq") );
 		ProductDao pdao = ProductDao.getInstance();
