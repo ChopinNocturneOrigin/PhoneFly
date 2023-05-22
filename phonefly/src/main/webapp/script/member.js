@@ -18,7 +18,7 @@ function go_next() {
 	if (document.contractFrm.okon[1].checked === true) {
 		alert("회원 약관에 동의 하셔야 회원으로 가입이 가능합니다.");
 	} else {
-		document.contractFrm.action = "shop.do?cmd=joinForm";
+		document.contractFrm.action = "pf.do?cmd=joinForm";
 		document.contractFrm.submit();
 		// contractFrm 폼에 action 도 없고 submit 버튼도 없는 것을 스크립트 명령으로 action 값을 설정하고 submit() 메서드로 이동까지 실행합니다.
 	}
@@ -79,7 +79,7 @@ function go_save() {
 		alert("우편번호를 입력해 주세요.");
 		document.joinForm.zip_num.focus();
 	} else {
-		document.joinForm.action = "shop.do";
+		document.joinForm.action = "pf.do";
 		document.joinForm.submit();
 	}
 }

@@ -10,8 +10,8 @@
  -->
 
 <div class="clear"></div>
-<div id="wrap_main_banner">
-	<div id="main_banner">
+<div class="wrap_main_banner">
+	<div class="main_banner">
 		<ul>
 			<li>
 				<video class="movie_object" src="videos/movie1.mp4" autoplay muted loop preload="auto" ></video>

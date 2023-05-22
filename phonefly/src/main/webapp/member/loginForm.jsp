@@ -11,26 +11,26 @@ author : BHS
 
 
 <article>
-<div class="wrap loginFormWrap card-normal">
-	<div class="loginForm">
+<div class="wrap login-form-wrap card-normal">
+	<div class="login-form">
 		<form method="post" action="pf.do" name="loginForm">
 				<input type="hidden" name="commmand" value="login" />
 				<div class="title">PhoneFly계정으로 로그인</div>
 				<fieldset>
 					<legend></legend>
-					<div class="loginID loginBoxOutside">
+					<div class="loginID login-box-outside">
 					<label>User ID</label><br />
 					<input name="id" type="text" class="input-trans" />
 					</div>
-					<div class="loginPwd loginBoxOutside">
+					<div class="loginPwd login-box-outside">
 					<label>Password</label><br />
 					<input name="pwd" type="password" class="input-trans" />
 					</div>
 				</fieldset>
 				<div class="buttons">
 					<input type="submit" value="로그인" onclick="return loginCheck();" />
-					<input type="button" value="회원가입" onclick="" />
-					<input type="button" value="아이디 비밀번호 찾기" class="submit" />
+					<input type="button" value="회원가입" onclick="location.href='pf.do?command=contract';" />
+					<input type="button" value="아이디 비밀번호 찾기" onclick="javascript:;"/>
 				</div><br /><br />
 				<c:if test="${not empty param.message}">
 					<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
