@@ -79,6 +79,51 @@ button:active {
   box-shadow: none;
 }
 
+.input-text {
+	display: inline-block;
+	font-size: 1.4em;
+	color: black;
+	border-bottom: 1px solid black;
+	vertical-align: middle;
+}
+.input-text-bg-gray {
+	-webkit-box-shadow: 0 0 0px 1000px #F5F5F7 inset !important;
+}
+.input-text-font-normal {
+	font-size: 1em;
+}
+
+.submit {
+	display: inline-block;
+	width: 110px;
+	height: 45px;
+	border-radius: 22px;
+	font-size: 1em;
+	letter-spacing: -0.01em;
+	color: #eee;
+	background-color: #333;
+}
+.submit-blue {
+	color: white;
+	background-color: CornflowerBlue !important;
+}
+.cancel {
+	display: inline-block;
+	width: 120px;
+	height: 46px;
+	border-radius: 23px;
+	font-size: 1em;
+	letter-spacing: -0.01em;
+	color: #eee;
+	background-color: #888;
+}
+.dup-btn {
+	display: inline-block;
+	width: 100px;
+	height: 34px;
+	border-radius: 16px;
+	background-color: #444;
+}
 
 
 
@@ -403,12 +448,12 @@ article h3 {
 
 
 /* 로그인 */
-.loginFormWrap {
+.login-form-wrap {
 	width: 640px;
 	height: 650px;
 	margin: 20px auto;
 }
-.loginForm {
+.login-form {
 	width: 640px;
 	position: relative;
 	top: 50%;
@@ -428,17 +473,17 @@ article h3 {
 .input-trans::placeholder {
 	background: transparent;
 }
-.loginForm .title {
+.login-form .title {
 	font-size: 1.8em;
 	font-weight: bold;
 	padding-top: 80px;
 	margin-bottom: 80px;
 }
 
-.loginBoxOutside {
+.login-box-outside {
 	margin: 0px auto 40px;
 }
-.loginBoxOutside>label {
+.login-box-outside>label {
 	display: inline-block;
 	width: 300px;
 	font-size: 0.9em;
@@ -446,13 +491,13 @@ article h3 {
  	text-align: left;
  	margin-bottom: 10px;
 }
-.loginBoxOutside>input {
+.login-box-outside>input {
 	display: inline-block;
 	width: 300px;
 	font-size: 1.4em;
 	color: black;
 }
-.loginForm .buttons>input {
+.login-form .buttons>input {
 	display: block;
 	width: 306px;
 	height: 46px;
@@ -463,9 +508,81 @@ article h3 {
 	background-color: #ccc;
 	margin: 30px auto;
 }
-.loginForm .buttons>input:first-child {
+.login-form .buttons>input:first-child {
 	color: #f8f8f8;
 	font-size: 1.05em;
 	font-weight: bold;
 	background-color: CornflowerBlue;
+}
+
+
+
+
+/* 가입 약관 */
+.contract-wrap {
+	width: 902px;
+	height: 600px;
+	margin: 0px auto;
+}
+.contract-wrap p {
+	text-align: left;
+	padding: 0px 90px 4px;
+}
+.contract-wrap .submit {
+	margin: 20px;
+	transform: translate(-57%, -50%);
+}
+.contract-wrap .contract-agree {
+	text-align:center;
+	padding-top: 20px;
+}
+
+
+/* 회원 가입 */
+.join-form-wrap {
+	width: 890px;
+	height: 664px;
+	margin-bottom: 34px;
+}
+.join-form {
+	position: relative;
+	text-align: left;
+	width: 800px;
+	height: 600px;
+	margin: 0px auto;
+	padding-left: 50px;
+}
+.join-form legend {
+	display: inline-block;
+	font-size: 1.6em;
+	font-weight: bold;
+	padding-top: 45px;
+	padding-bottom: 8px;
+}
+.join-form label {
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	font-size: 1.1em;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.join-form .join-form-input {
+	display: inline-block;
+	font-size: 1.4em;
+	color: black;
+	border-bottom: 1px solid black;
+	vertical-align: middle;
+}
+.join-form .buttons {
+	text-align: center;
+	padding-top: 37px;
+}
+
+
+
+
+/* 아이디 체크 */
+.id-check-wrap {
+	padding-left: 20px;
 }

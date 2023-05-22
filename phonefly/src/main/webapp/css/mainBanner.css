@@ -14,7 +14,7 @@
 	z-index: 5;
 }
 
-#wrap_main_banner {
+.wrap_main_banner {
 	position: relative;
 	width: 1470px;
 	border-radius: 18px;
@@ -22,18 +22,18 @@
 	overflow: hidden;
 }
 
-#main_banner {
+.main_banner {
 	position: relative;
 	width: 4410px;
 }
 
-#main_banner h1,
-#main_banner p {
+.main_banner h1,
+.main_banner p {
 	color: white;
 	text-shadow: 1px 1px 5px rgba(0,0,0,.5), -1px -1px 5px rgba(0,0,0,.5), 1px -1px 5px rgba(0,0,0,.5), -1px 1px 5px rgba(0,0,0,.5);
 }
 
-#main_banner li {
+.main_banner li {
 	position: relative;
 	width: 1470px;
 	height: 500px;
