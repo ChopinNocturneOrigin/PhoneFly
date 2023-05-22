@@ -3,6 +3,7 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 <article>
+   <h1>상품 등록</h1>
 	<form name="frm" method="post" enctype="multipart/form-data" >
 		<table id="list">
 			<tr>

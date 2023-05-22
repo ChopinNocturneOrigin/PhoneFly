@@ -23,7 +23,13 @@
 </form>
 
 <table id="productList">
-	<tr><th>번호</th><th>상품명</th><th>원가</th><th>판매가</th><th>등록일</th><th>사용유무</th></tr>
+	<tr>
+	<th>번호</th>
+	<th>상품명</th>
+	<th>원가</th>
+	<th>판매가</th>
+	<th>등록일</th>	
+	</tr>
 	<c:forEach items="${productList}" var="productVO">
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${productVO.pseq}</td>
@@ -35,12 +41,6 @@
 			<td><fmt:formatNumber value="${productVO.price1}"/></td>
 			<td><fmt:formatNumber value="${productVO.price2}"/></td>
 			<td><fmt:formatDate value="${productVO.indate}"/></td>
-			<td>
-				<c:choose>
-	      			<c:when test='${productVO.useyn=="N"}'>미사용</c:when>
-	   	 			<c:otherwise>사용</c:otherwise> 
-				</c:choose>
-			</td>
 		</tr>
 	</c:forEach>
 </table>
