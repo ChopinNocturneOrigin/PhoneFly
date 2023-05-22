@@ -12,10 +12,10 @@
                              PhoneFly
                         </h4>
       <ul>
-        <li><a href="https://www.todayphone.net/board/list/qna">고객센터</a></li>
-                  <li><a href="https://www.todayphone.net/guide/guide1">이용약관</a></li>
-                          <li><a href="https://www.todayphone.net/guide/guide2">쇼핑몰 이용약관</a></li>
-                          <li><a href="https://www.todayphone.net/guide/guide3">개인정보 처리방침</a></li>
+        <li><a href="pf.do?command=FAQList">고객센터</a></li>
+                  <li><a href="pf.do?command=">이용약관</a></li>
+                          <li><a href="pf.do?command=">쇼핑몰 이용약관</a></li>
+                          <li><a href="pf.do?command=">개인정보 처리방침</a></li>
               </ul>
       <h5>회사정보</h5>
       
@@ -29,8 +29,8 @@
         <span>대표</span>강희준<i></i>
         <span>사업자번호</span>012-34-5678<i></i>
          통신판매업신고번호 : 제1234-서울서대문-5678호       </p>
-      <a href="https://www.todayphone.net/black" target="_blank" class="ok">
-                  <img style="cursor:pointer; height:77px !important;" src="https://storage.todayphone.net/upload/config/20230201145252_3763.png">
+      <a href="pf.do?command=" target="_blank" class="ok">
+                  <img style="cursor:pointer; height:77px !important;" src="images/common/20230201145252_3763.png">
               </a>
     </div>
     <div class="f_customer">
@@ -43,20 +43,21 @@
       <h5>Quick 메뉴</h5>
       <ul>
                   <li>
-            <a href="https://www.todayphone.net/login">
+            <a href="pf.do?command=loginForm">
               로그인
                           </a>
           </li>
                           <li>
-            <a href="https://www.todayphone.net/mypage">
+            <a href="pf.do?command=memberQnaList">
               마이페이지
                           </a>
           </li>
                           <li>
-            <a href="https://www.todayphone.net/board/list/qna">
+            <a href="pf.do?command=FAQList">
               F A Q 자주 묻는 질문
                           </a>
           </li>
+          <li><a href="pf.do?command=admin">admin</a></li>
                               </ul>
     </div>
   </div>

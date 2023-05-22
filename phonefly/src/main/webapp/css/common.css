@@ -29,7 +29,9 @@ table {
 div,
 table,
 tr,
-td {
+td,
+fieldset,
+input {
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
@@ -56,6 +58,31 @@ ul {
 .clear {
 	clear: both;
 }
+
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s;
+	-webkit-transition: background-color 9999s ease-out;
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+
+
 
 /* 
 p,
@@ -122,6 +149,14 @@ article h3 {
 	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
 	transition: all .3s cubic-bezier(0,0,.5,1);
 }
+
+.card-normal {
+	background-color: WHITE;
+	border-radius: 18px;
+	text-align: center;
+	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+}
+
 
 .card:hover {
 	box-shadow: 2px 4px 12px rgba(0,0,0,.2);
@@ -360,4 +395,77 @@ article h3 {
 	letter-spacing: -0.05em;
 	color: gray;
 	margin-bottom: 12px;
+}
+
+
+
+
+
+
+/* 로그인 */
+.loginFormWrap {
+	width: 640px;
+	height: 650px;
+	margin: 20px auto;
+}
+.loginForm {
+	width: 640px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.input-trans {
+	border: 0px;
+	background: transparent;
+	border-bottom: 0.5px solid #333;
+}
+.input-trans:focus {
+	background-color: white;
+	outline: none;
+}
+.input-trans::placeholder {
+	background: transparent;
+}
+.loginForm .title {
+	font-size: 1.8em;
+	font-weight: bold;
+	padding-top: 80px;
+	margin-bottom: 80px;
+}
+
+.loginBoxOutside {
+	margin: 0px auto 40px;
+}
+.loginBoxOutside>label {
+	display: inline-block;
+	width: 300px;
+	font-size: 0.9em;
+	color: #333;
+ 	text-align: left;
+ 	margin-bottom: 10px;
+}
+.loginBoxOutside>input {
+	display: inline-block;
+	width: 300px;
+	font-size: 1.4em;
+	color: black;
+}
+.loginForm .buttons>input {
+	display: block;
+	width: 306px;
+	height: 46px;
+	border-radius: 23px;
+	font-size: 1em;
+	letter-spacing: -0.05em;
+	color: #333;
+	background-color: #ccc;
+	margin: 30px auto;
+}
+.loginForm .buttons>input:first-child {
+	color: #f8f8f8;
+	font-size: 1.05em;
+	font-weight: bold;
+	background-color: CornflowerBlue;
 }

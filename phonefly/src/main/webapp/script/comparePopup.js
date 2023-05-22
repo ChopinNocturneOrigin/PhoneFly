@@ -1,7 +1,7 @@
 /**
  * author : BHS
  */
-"use strict"
+
 
 let compare_box_count = 0;
 
