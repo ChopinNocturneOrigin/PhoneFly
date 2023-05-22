@@ -1,7 +1,7 @@
 /**
  * author : BHS
  */
-"use strict"
+
 
 $(function(){
 	let imgIndex = 0;
