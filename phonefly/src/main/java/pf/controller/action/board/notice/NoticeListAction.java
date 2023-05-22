@@ -1,4 +1,4 @@
-package pf.controller.action.member.mypage;
+package pf.controller.action.board.notice;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,30 +6,21 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
-import pf.dao.QnaDao;
-import pf.dto.MemberVO;
-import pf.dto.QnaVO;
+import pf.dao.NoticeDao;
+import pf.dto.NoticeVO;
 import pf.util.Paging;
 
-public class MemberQnaListAction implements Action {
+public class NoticeListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "qna/qnaList.jsp";
 		
-		//로그인 확인
-		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		if(mvo==null) {
-			url="shop.do?command=loginForm";
-		}else {
-			
-		QnaDao qdao = QnaDao.getInstance();
-		
-		//페이지
+		String url = "notice/noticeList.jsp";
+
+		NoticeDao ndao = NoticeDao.getInstance();
+
 		int page = 1;
 		if(request.getParameter("page")!=null)
 			page=Integer.parseInt(request.getParameter("page"));
@@ -37,18 +28,15 @@ public class MemberQnaListAction implements Action {
 		Paging paging = new Paging();
 		paging.setPage(page);
 
-		int count = qdao.getAllCount();
+		int count = ndao.getAllCount();
 		paging.setTotalCount(count);
 
 
-		ArrayList<QnaVO>list = qdao.selectQna(paging);
-		request.setAttribute("qnaList", list);
+		ArrayList<NoticeVO>list = ndao.selectNotice(paging);
+		request.setAttribute("noticeList", list);
 		request.setAttribute("paging", paging);
-
-		}
+		
 		request.getRequestDispatcher(url).forward(request, response);
 
-
+		}
 	}
-
-}
