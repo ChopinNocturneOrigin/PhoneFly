@@ -30,8 +30,8 @@ function compareProduct(pseq_from) {
 	let image_list = document.getElementsByClassName('pdImg');
 	let name_list = document.getElementsByClassName('pdName');
 	let price_list = document.getElementsByClassName('pdPrice');
-	let compare_price_list = document.getElementsByClassName('card_compare_price');
-	let plus_btn_list = document.getElementsByClassName('plus_button');
+	let compare_price_list = document.getElementsByClassName('card-compare-price');
+	let plus_btn_list = document.getElementsByClassName('plus-button');
 	
 	let comp_image_list = document.getElementsByClassName('compare-box-image-real');
 	let comp_name_list = document.getElementsByClassName('compare-box-name');
@@ -91,8 +91,8 @@ function btnReset() {
 		$('.compare-box-xbtn').addClass('display-none');
 		$('.compare-popup').removeClass('compare-popup-close');
 		$('.compare-popup').removeClass('compare-popup-open');
-		$('.card_compare_price').removeClass('disabled');
-		$('.plus_button').removeClass('disabled');
+		$('.card-compare-price').removeClass('disabled');
+		$('.plus-button').removeClass('disabled');
 	});
 }
 
@@ -101,8 +101,8 @@ function btnReset() {
 function btnX(count) {
 	let local_count = 0;
 	let pseq_list = document.getElementsByClassName('pdPseq');
-	let compare_price_list = document.getElementsByClassName('card_compare_price');
-	let plus_btn_list = document.getElementsByClassName('plus_button');
+	let compare_price_list = document.getElementsByClassName('card-compare-price');
+	let plus_btn_list = document.getElementsByClassName('plus-button');
 	
 	let comp_image_list = document.getElementsByClassName('compare-box-image-real');
 	let comp_name_list = document.getElementsByClassName('compare-box-name');

@@ -21,7 +21,7 @@ author : PMS, BHS
 
 <h1>베스트 상품</h1>
 
-<div id="main_card_box">
+<div id="main-card-box">
 	<ul>
 		<c:forEach items="${mainBestList}" var="productVO" varStatus="status">
 
@@ -40,7 +40,7 @@ author : PMS, BHS
 
 
 				<!-- 이미지 -->
-				<div class="card_img card_img_${status.count}" onclick="${productDetailLH}">
+				<div class="card-img card-img-${status.count}" onclick="${productDetailLH}">
 					<ul>
  					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 						<c:choose>
@@ -58,14 +58,14 @@ author : PMS, BHS
 				
 				
 				<!-- 컬러 리스트 -->
-				<div class="card_color_buttons card_color_buttons_${status.count}">
+				<div class="card-color-buttons card-color-buttons-${status.count}">
 					<ul>
 						<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 							<li onclick="colorClick(${status.count}, ${statusColor.count});">
-								<div class="color_button" style="background-color:${colorVO.ccode}">
+								<div class="color-button" style="background-color:${colorVO.ccode}">
 								<c:choose>
 									<c:when test="${statusColor.count == 1}">
-										<div class="color_button_selector"></div>
+										<div class="color-button-selector"></div>
 									</c:when>
 									<c:otherwise>
 										<div></div>
@@ -81,7 +81,7 @@ author : PMS, BHS
 				
 				
 				<!-- 제품명 -->
-				<div class="card_name" onclick="${productDetailLH}">
+				<div class="card-name" onclick="${productDetailLH}">
 					<h3>
 						${productVO.name}
 					</h3>
@@ -90,7 +90,7 @@ author : PMS, BHS
 				
 				
 				<!-- 가격 -->
-				<div class="card_price" onclick="${productDetailLH}">
+				<div class="card-price" onclick="${productDetailLH}">
 					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
 				<!-- //가격 -->
@@ -102,8 +102,8 @@ author : PMS, BHS
 				
 				
 				<!-- 가격비교 -->
-				<div class="card_compare_price" onclick="compareProduct(${productVO.pseq});">
-					<div class="plus_button"><span>&nbsp;가격 비교하기</span></div>
+				<div class="card-compare-price" onclick="compareProduct(${productVO.pseq});">
+					<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
 				</div>
 				<!-- //가격비교 -->
 			</li>
@@ -119,7 +119,7 @@ author : PMS, BHS
 
 <!-- 메인 Apple 리스트 -->
 
-<div id="main_apple">
+<div id="main-apple">
 	<ul>
 		<li>
 			<div id="content1" class="card">
@@ -147,7 +147,7 @@ author : PMS, BHS
 					iPhone으로 갈아타기, 무척<br />
 					쉽습니다.
 				</div>
-			</div>
+ 			</div>
 		</li>
 	</ul>
 </div>
@@ -162,7 +162,7 @@ author : PMS, BHS
 <!-- 이벤트 상품 -->
 <h1>이벤트 상품</h1>
 
-<div id="main_card_box">
+<div id="main-card-box">
 	<ul>
 		<c:forEach items="${mainEventList}" var="productVO" varStatus="status">
 			
@@ -181,7 +181,7 @@ author : PMS, BHS
 
 
 				<!-- 이미지 -->
-				<div class="card_img card_img_${status.count + 4}" onclick="${productDetailLH}">
+				<div class="card-img card-img-${status.count + 4}" onclick="${productDetailLH}">
 					<ul>
  					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 						<c:choose>
@@ -199,14 +199,14 @@ author : PMS, BHS
 				
 				
 				<!-- 컬러 리스트 -->
-				<div class="card_color_buttons card_color_buttons_${status.count + 4}">
+				<div class="card-color-buttons card-color-buttons-${status.count + 4}">
 					<ul>
 						<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 							<li onclick="colorClick(${status.count + 4}, ${statusColor.count});">
-								<div class="color_button" style="background-color:${colorVO.ccode}">
+								<div class="color-button" style="background-color:${colorVO.ccode}">
 								<c:choose>
 									<c:when test="${statusColor.count == 1}">
-										<div class="color_button_selector"></div>
+										<div class="color-button-selector"></div>
 									</c:when>
 									<c:otherwise>
 										<div></div>
@@ -222,7 +222,7 @@ author : PMS, BHS
 				
 				
 				<!-- 제품명 -->
-				<div class="card_name" onclick="${productDetailLH}">
+				<div class="card-name" onclick="${productDetailLH}">
 					<h3>
 						${productVO.name}
 					</h3>
@@ -231,7 +231,7 @@ author : PMS, BHS
 				
 				
 				<!-- 가격 -->
-				<div class="card_price" onclick="${productDetailLH}">
+				<div class="card-price" onclick="${productDetailLH}">
 					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
 				<!-- //가격 -->
@@ -243,8 +243,8 @@ author : PMS, BHS
 				
 				
 				<!-- 가격비교 -->
-				<div class="card_compare_price" onclick="compareProduct(${productVO.pseq});">
-					<div class="plus_button"><span>&nbsp;가격 비교하기</span></div>
+				<div class="card-compare-price" onclick="compareProduct(${productVO.pseq});">
+					<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
 				</div>
 				<!-- //가격비교 -->
 			</li>

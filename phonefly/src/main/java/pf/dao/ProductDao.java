@@ -158,7 +158,7 @@ public class ProductDao {
 	public ArrayList<RplanVO> getRplanList() {
 		ArrayList<RplanVO>list = new ArrayList<>();
 		con = DBM.getConnection();
-		String sql = "SELECT * FROM rplan";
+		String sql = "SELECT * FROM rplan ORDER BY mseq, rseq";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
