@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import pf.dto.ReviewVO;
 import pf.util.DBM;
+import pf.util.Paging;
 
 
 public class ReviewDao {
@@ -60,7 +62,53 @@ public class ReviewDao {
 	    } finally { DBM.close(con, pstmt, rs); }   	
 		
 	}
-	
+
+	public ArrayList<ReviewVO> selectReview(Paging paging, String loggedInId) {
+		
+		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
+		String sql = " select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn, r.* from ((select * from review where id=? order by rseq desc) r) "
+				+ " ) where rn>=? "
+				+ " ) where rn<=? ";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  loggedInId);
+			pstmt.setInt(2,  paging.getStartNum() );
+			pstmt.setInt(3,  paging.getEndNum() );
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ReviewVO rvo = new ReviewVO();
+				rvo.setRseq(rs.getInt("rseq"));
+				rvo.setId(rs.getString("id"));
+				rvo.setSubject(rs.getString("subject"));
+				rvo.setContent(rs.getString("content"));
+				rvo.setIndate(rs.getTimestamp("indate"));		    	
+		    	list.add(rvo);
+		    }
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);  }
+		return list;
+	}
+
+	public void insertReview(ReviewVO rvo) {
+		
+		String sql = "insert into review (rseq, subject, content, id, pseq, indate) "
+				+ " values(rseq.nextval, ? , ? , ?, ?, ?)";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rvo.getSubject());
+		    pstmt.setString(2, rvo.getContent());
+		    pstmt.setString(3, rvo.getId());
+		    pstmt.setInt(4, rvo.getPseq());
+		    pstmt.executeUpdate();  
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {  DBM.close(con, pstmt, rs);  }
+		
+	}
+		
 		
 }
 

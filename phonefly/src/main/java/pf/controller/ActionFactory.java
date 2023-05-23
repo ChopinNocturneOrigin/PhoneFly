@@ -35,21 +35,10 @@ import pf.controller.action.admin.product.AdminProductUpdateAction;
 import pf.controller.action.admin.product.AdminProductUpdateFormAction;
 import pf.controller.action.board.event.EventDetailAction;
 import pf.controller.action.board.event.EventListAction;
+import pf.controller.action.board.faq.FAQListAction;
 import pf.controller.action.board.notice.NoticeDetailAction;
 import pf.controller.action.board.notice.NoticeListAction;
-import pf.controller.action.board.qna.FAQListAction;
-import pf.controller.action.board.qna.QnaDeleteAction;
-import pf.controller.action.board.qna.QnaDetailAction;
-import pf.controller.action.board.qna.QnaListAction;
-import pf.controller.action.board.qna.QnaUpdateAction;
-import pf.controller.action.board.qna.QnaUpdateformAction;
-import pf.controller.action.board.qna.QnaWriteAction;
-import pf.controller.action.board.qna.QnaWriteFormAction;
 import pf.controller.action.board.review.ReviewWriteAction;
-import pf.controller.action.board.review.ReviewWriteFormAction;
-import pf.controller.action.cart.CartDeleteAction;
-import pf.controller.action.cart.CartInsertAction;
-import pf.controller.action.cart.CartListAction;
 import pf.controller.action.member.DeleteMemberAction;
 import pf.controller.action.member.DeleteMemberFormAction;
 import pf.controller.action.member.MemberUpdateAction;
@@ -64,11 +53,16 @@ import pf.controller.action.member.login.LoginFormAction;
 import pf.controller.action.member.login.LogoutAction;
 import pf.controller.action.member.login.SelectIdAction;
 import pf.controller.action.member.login.SelectPwdAction;
-import pf.controller.action.member.mypage.MemberCartListAction;
-import pf.controller.action.member.mypage.MemberQnaListAction;
 import pf.controller.action.member.mypage.MemberReviewDeleteAction;
 import pf.controller.action.member.mypage.MemberReviewListAction;
 import pf.controller.action.member.mypage.MemberReviewUpdateAction;
+import pf.controller.action.member.mypage.QnaDeleteAction;
+import pf.controller.action.member.mypage.QnaDetailAction;
+import pf.controller.action.member.mypage.QnaListAction;
+import pf.controller.action.member.mypage.QnaUpdateAction;
+import pf.controller.action.member.mypage.QnaUpdateformAction;
+import pf.controller.action.member.mypage.QnaWriteAction;
+import pf.controller.action.member.mypage.QnaWriteFormAction;
 import pf.controller.action.order.OrderAction;
 import pf.controller.action.order.OrderFormAction;
 import pf.controller.action.order.OrderListAction;
@@ -110,12 +104,16 @@ public class ActionFactory {
 	else if(command.equals("idCheck") ) ac = new IdCheckAction();
 	else if(command.equals("findZipnum") ) ac = new FindZipnumAction();
 	//회원(member).mypage
-	else if(command.equals("memberQnaList") ) ac = new MemberQnaListAction();
-	else if(command.equals("memberCartList") ) ac = new MemberCartListAction();
 	else if(command.equals("memberReviewList") ) ac = new MemberReviewListAction();
 	else if(command.equals("memberReviewUpdate") ) ac = new MemberReviewUpdateAction();
 	else if(command.equals("memberReviewDelete") ) ac = new MemberReviewDeleteAction();
-		
+	else if(command.equals("qnaWriteForm") ) ac = new QnaWriteFormAction();
+	else if(command.equals("qnaWrite") ) ac = new QnaWriteAction();
+	else if(command.equals("qnaUpdateform") ) ac = new QnaUpdateformAction();
+	else if(command.equals("qnaUpdate") ) ac = new QnaUpdateAction();
+	else if(command.equals("qnaDelete") ) ac = new QnaDeleteAction();
+	else if(command.equals("qnaList") ) ac = new QnaListAction();
+	else if(command.equals("qnaDetail") ) ac = new QnaDetailAction();	
 	
 	//주문(order)
 	else if(command.equals("orderListForm") ) ac = new OrderListFormAction();
@@ -131,28 +129,13 @@ public class ActionFactory {
 	else if(command.equals("productDetail") ) ac = new ProductDetailAction();
 	else if(command.equals("productList") ) ac = new ProductListAction();
 	else if(command.equals("productCompare") ) ac = new ProductCompareAction();
-	
-	
-	//장바구니(cart)
-	else if(command.equals("cartInsert") ) ac = new CartInsertAction();
-	else if(command.equals("cartList") ) ac = new CartListAction();
-	else if(command.equals("cartDelete") ) ac = new CartDeleteAction();
-	
-	
+
 
 	//게시판(board)
 	
-	//게시판(board).QnA
-	else if(command.equals("qnaWriteForm") ) ac = new QnaWriteFormAction();
-	else if(command.equals("qnaWrite") ) ac = new QnaWriteAction();
-	else if(command.equals("qnaUpdateform") ) ac = new QnaUpdateformAction();
-	else if(command.equals("qnaUpdate") ) ac = new QnaUpdateAction();
-	else if(command.equals("qnaDelete") ) ac = new QnaDeleteAction();
-	else if(command.equals("qnaList") ) ac = new QnaListAction();
-	else if(command.equals("qnaDetail") ) ac = new QnaDetailAction();
+	//게시판(board).Faq
 	else if(command.equals("FAQList") ) ac = new FAQListAction();
 	//게시판(board).Review
-	else if(command.equals("reviewWriteForm") ) ac = new ReviewWriteFormAction();
 	else if(command.equals("reviewWrite") ) ac = new ReviewWriteAction();
 	//게시판(board).Event
 	else if(command.equals("eventList") ) ac = new EventListAction();

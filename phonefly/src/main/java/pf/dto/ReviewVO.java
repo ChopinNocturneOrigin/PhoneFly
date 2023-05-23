@@ -8,7 +8,14 @@ public class ReviewVO {
 	private String subject;
 	private String content;
 	private Timestamp indate;
-
+	private int pseq;
+	
+	public int getPseq() {
+		return pseq;
+	}
+	public void setPseq(int pseq) {
+		this.pseq = pseq;
+	}
 	public int getRseq() {
 		return rseq;
 	}

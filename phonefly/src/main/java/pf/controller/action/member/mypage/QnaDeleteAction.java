@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import pf.controller.action.Action;
 
-public class MemberCartListAction implements Action {
+public class QnaDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

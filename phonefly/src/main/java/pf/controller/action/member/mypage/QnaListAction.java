@@ -14,7 +14,7 @@ import pf.dto.MemberVO;
 import pf.dto.QnaVO;
 import pf.util.Paging;
 
-public class MemberQnaListAction implements Action {
+public class QnaListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
