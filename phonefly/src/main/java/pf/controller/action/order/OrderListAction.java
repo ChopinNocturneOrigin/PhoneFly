@@ -19,6 +19,7 @@ public class OrderListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "order/orderList.jsp";
+		
 		int oseq = Integer.parseInt(request.getParameter("oseq"));
 		
 		HttpSession session = request.getSession();
@@ -30,9 +31,10 @@ public class OrderListAction implements Action {
 			ArrayList<OrdersVO> list = odao.listOrderByOseq( oseq );
 			int totalPrice=0;
 			for(OrdersVO ovo : list)
-				totalPrice+=ovo.getPrice2() * ovo.getQuantity();	
-			
+				totalPrice += ovo.getPrice2() * ovo.getQuantity();
+				
 			request.setAttribute("orderList", list);
+			
 			request.setAttribute("totalPrice", totalPrice);	
 		}
 		request.getRequestDispatcher(url).forward(request, response);

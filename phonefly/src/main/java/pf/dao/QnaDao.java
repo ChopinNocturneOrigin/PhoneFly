@@ -62,4 +62,75 @@ public class QnaDao {
 	}
 		return list;
 	}
+
+	public QnaVO getQna(int qseq) {
+		QnaVO qvo = new QnaVO();
+		String sql = "select * from qna where qseq = ?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				qvo.setQseq(qseq);
+				qvo.setId(rs.getString("id"));
+				qvo.setSubject(rs.getString("subject"));
+				qvo.setContent(rs.getString("content"));
+				qvo.setReply(rs.getString("reply"));
+				qvo.setRep(rs.getString("rep"));
+				qvo.setIndate(rs.getTimestamp("indate"));
+			}
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);}
+		return qvo;
+	}
+
+	public void insertQna(QnaVO qvo) {
+		
+		String sql = "insert into qna (qseq, subject, content, id) "
+				+ " values(qna_seq.nextval , ? , ? , ? )";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, qvo.getSubject());
+		    pstmt.setString(2, qvo.getContent());
+		    pstmt.setString(3, qvo.getId());
+		    pstmt.executeUpdate();  
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {  DBM.close(con, pstmt, rs);  }
+		
+	}
+
+	public void updateQna(QnaVO qvo) {		
+		String sql = "UPDATE qna SET subject = ?, content = ? WHERE qseq = ?";
+		   con = DBM.getConnection();
+		   try {
+		      pstmt = con.prepareStatement(sql);
+		      pstmt.setString(1, qvo.getSubject());
+		      pstmt.setString(2, qvo.getContent());
+		      pstmt.setInt(3, qvo.getQseq());
+		      pstmt.executeUpdate();
+		   } catch (SQLException e) {
+		      e.printStackTrace();
+		   } finally {
+		      DBM.close(con, pstmt, rs);
+		   }
+		
+	}
+
+	public void deleteQna(int qseq) {
+		
+		String sql = "delete from qna where qseq=?";
+		con = DBM.getConnection();
+		try {
+		      pstmt = con.prepareStatement(sql); 
+		      pstmt.setInt(1, qseq);
+		      pstmt.executeUpdate();
+		} catch (Exception e) { e.printStackTrace();
+	    } finally { DBM.close(con, pstmt, rs); }   	
+				
+	}
+
+	
+	
 }

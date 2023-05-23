@@ -34,15 +34,14 @@ public class ReviewDao {
 	}
 
 	public void updateReview(ReviewVO rvo) {
-		String sql = "Update review set subject=?, content=?, id=?, indate=? where rseq = ?";
+		String sql = "Update review set subject=?, content=?, id=? where rseq = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getSubject());
 			pstmt.setString(2, rvo.getContent());
 			pstmt.setString(3, rvo.getId());
-			pstmt.setTimestamp(4, rvo.getIndate());
-			pstmt.setInt(5, rvo.getRseq());
+			pstmt.setInt(4, rvo.getRseq());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
