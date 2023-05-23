@@ -26,9 +26,14 @@
 	<tr>
 	<th>번호</th>
 	<th>상품명</th>
-	<th>원가</th>
-	<th>판매가</th>
-	<th>등록일</th>	
+	<th>제조사</th>	
+	<th>원가(입고가)</th>
+	<th>판매가(출고가)</th>
+	<th>상품 등록일</th>	
+	<th>제품 판매 유/무</th>
+	<th>이벤트 적용/미적용</th>
+	<th>베스트 적용/미적용</th>
+	
 	</tr>
 	<c:forEach items="${productList}" var="productVO">
 		<tr>
@@ -38,9 +43,28 @@
 					${productVO.name}
 				</a>
 			</td>
+			<td>${productVO.mfc}</td>
 			<td><fmt:formatNumber value="${productVO.price1}"/></td>
 			<td><fmt:formatNumber value="${productVO.price2}"/></td>
 			<td><fmt:formatDate value="${productVO.indate}"/></td>
+			<td>
+			<c:choose>
+			     <c:when test='${productVO.useyn=="N" }'>판매 불가</c:when>
+			     <c:otherwise>판매 가능</c:otherwise>
+			</c:choose>
+			</td>
+			<td>
+			<c:choose>
+			     <c:when test='${productVO.eventyn=="N" }'>이벤트 미적용</c:when>
+			     <c:otherwise>이벤트 적용</c:otherwise>
+			</c:choose>
+			</td>
+			<td>
+			<c:choose>
+			     <c:when test='${productVO.bestyn=="N" }'>베스트 미적용</c:when>
+			     <c:otherwise>베스트 적용</c:otherwise>
+			</c:choose>
+			</td>
 		</tr>
 	</c:forEach>
 </table>
