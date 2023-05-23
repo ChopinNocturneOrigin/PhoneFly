@@ -5,19 +5,7 @@
 <article>
    <h1>상품 등록</h1>
 	<form name="frm" method="post" enctype="multipart/form-data" >
-		<table id="list">
-			<tr>
-				<th>상품분류</th>
-				<td colspan="5">
-						<select name="kind">
-								<option value="">선택</option>
-								<c:forEach items="${kindList}" var="kind" varStatus="status">
-				    					<option value="${status.count}">${kind}</option>
-				   				</c:forEach>
-						</select>
-				</td>
-			</tr>
-			
+		<table id="list">			
 			<tr>
 				<th>상품명</th>
 				<td width="343" colspan="5">
@@ -43,6 +31,8 @@
 				<th>상품이미지</th>
 				<td width="343" colspan="5"><input type="file" name="image"></td>
 			</tr>  
+			
+			
 		</table>
 		<input class="btn" type="button" value="상품등록" onClick="go_save()">           
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">

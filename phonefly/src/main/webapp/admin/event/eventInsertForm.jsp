@@ -11,7 +11,7 @@
 			<tr>
 				<th>이벤트명</th>
 				<td width="343" colspan="5">
-		       	<input type="text" name="name" size="47" maxlength="100"></td>
+		       	<input type="text" name="subject" size="47" maxlength="100"></td>
 		    </tr>
 		    		  	
 		  	<tr>

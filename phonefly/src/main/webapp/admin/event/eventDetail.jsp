@@ -10,7 +10,7 @@
 </table>
 <input class="btn"  type="button" value="수정" onClick="go_mod_e('${eventVO.eseq}')">
 <input class="btn"  type="button" value="목록" onClick="go_mov_e()">
-<input class="btn"  type="button" value="삭제" onClick="go_del_e()">
+<input class="btn"  type="button" value="삭제" onClick="go_del_e('${eventVO.eseq}')">
 </article>
 
 <%@ include file="/admin/footer.jsp"%>
