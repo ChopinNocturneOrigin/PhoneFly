@@ -124,13 +124,13 @@ public class ProductDao {
 		return list;
 	}
 
-	public ProductVO getProduct(int pseq) {
+	public ProductVO getProduct(String mfc) {
 		ProductVO pvo = null;
 		String sql = "SELECT * FROM product WHERE pseq=?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, pseq);
+			pstmt.setString(1, mfc);
 			rs = pstmt.executeQuery();
 			if( rs.next() ) {
 				pvo = new ProductVO();
@@ -181,27 +181,75 @@ public class ProductDao {
 		return list;
 	}
 
-	public void insertProduct(ProductVO pvo) {
-		
-		String sql = "insert into product(pseq,name,price1,price2,price3,content,useyn,eventyn,bestyn,indate,mfc) "
-				+ " values(pseq.nextVal,?,?,?,?,?,?,?,?,?,?)";
+	public int insertProduct(ProductVO pvo) {
+		   int generatedPseq = 0; // 생성된 pseq 값을 저장할 변수
+
+		   String sql = "INSERT INTO product(pseq, name, price1, price2, price3, content, useyn, eventyn, bestyn, indate, mfc) "
+		         + "VALUES(pseq.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		   con = DBM.getConnection();
+		   try {
+		      pstmt = con.prepareStatement(sql, new String[]{"pseq"}); // 자동 생성된 pseq 값을 가져오기 위해 수정
+		      pstmt.setString(1, pvo.getName());
+		      pstmt.setInt(2, pvo.getPrice1());
+		      pstmt.setInt(3, pvo.getPrice2());
+		      pstmt.setInt(4, pvo.getPrice3());
+		      pstmt.setString(5, pvo.getContent());
+		      pstmt.setString(6, pvo.getUseyn());
+		      pstmt.setString(7, pvo.getEventyn());
+		      pstmt.setString(8, pvo.getBestyn());
+		      pstmt.setTimestamp(9, pvo.getIndate());
+		      pstmt.setString(10, pvo.getMfc());   
+
+		      pstmt.executeUpdate();
+
+		      // 자동 생성된 pseq 값을 가져옴
+		      ResultSet generatedKeys = pstmt.getGeneratedKeys();
+		      if (generatedKeys.next()) {
+		         generatedPseq = generatedKeys.getInt(1);
+		      }
+
+		      // 컬러 정보를 개별적으로 삽입
+		      ArrayList<ColorVO> colorList = pvo.getColorList();
+		      if (colorList != null && !colorList.isEmpty()) {
+		         insertColors(generatedPseq, colorList);
+		      }
+		   } catch (SQLException e) {
+		      e.printStackTrace();
+		   } finally {
+		      DBM.close(con, pstmt, rs);
+		   }
+		   
+		   return generatedPseq; // 생성된 pseq 값을 반환
+		}
+
+		private void insertColors(int pseq, ArrayList<ColorVO> colorList) {
+		   con2 = DBM.getConnection();
+		   String sql = "INSERT INTO color(cseq, pseq, name, ccode, image) VALUES(cseq.nextVal, ?, ?, ?, ?)";
+		   try {
+		      pstmt2 = con2.prepareStatement(sql);
+		      for (ColorVO cvo : colorList) {
+		         pstmt2.setInt(1, pseq);
+		         pstmt2.setString(2, cvo.getName());
+		         pstmt2.setString(3, cvo.getCcode());
+		         pstmt2.setString(4, cvo.getImage());
+		         pstmt2.executeUpdate(); // 개별적으로 컬러 정보를 삽입
+		      }
+		   } catch (SQLException e) {
+		      e.printStackTrace();
+		   } finally {
+		      DBM.close(con2, pstmt2, rs2);
+		   }
+		}
+
+	public void deleteProduct(int pseq) {
+		String sql = "delete from product where pseq=?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, pvo.getName());
-			pstmt.setInt(2, pvo.getPrice1());
-			pstmt.setInt(3, pvo.getPrice2());
-			pstmt.setInt(4, pvo.getPrice3());
-			pstmt.setString(5, pvo.getContent());
-			pstmt.setString(6, pvo.getUseyn());
-			pstmt.setString(7, pvo.getEventyn());
-			pstmt.setString(8, pvo.getBestyn());
-			pstmt.setTimestamp(9, pvo.getIndate());
-			pstmt.setString(8, pvo.getMfc());	
+			pstmt.setInt(1, pseq);
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
 		}
-		
 	}
 }
