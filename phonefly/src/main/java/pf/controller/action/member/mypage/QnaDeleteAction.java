@@ -5,31 +5,22 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
-import pf.dao.ProductDao;
-import pf.dto.ProductVO;
+import pf.dao.QnaDao;
 
 public class QnaDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		String qseq = request.getParameter("qseq");
+		QnaDao qdao = QnaDao.getInstance();
 		
-		String url="admin/product/adminProductList.jsp";
+		qdao.deleteQna( Integer.parseInt(qseq) );
 		
+		response.sendRedirect("pf.do?command=QnaList"); 
 		
-		HttpSession session = request.getSession();
-		ProductVO mvo = (ProductVO) session.getAttribute("loginUser");
-		String url="";
-		if(mvo==null) {
-			url="shop.do?command=loginForm";
-		}else {
-			ProductDao mdao = ProductDao.getInstance();
-			mdao.deleteProduct(mvo.getId());
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-
 	}
 
 }
