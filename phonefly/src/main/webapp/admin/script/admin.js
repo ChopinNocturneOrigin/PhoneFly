@@ -66,21 +66,21 @@ function go_total( comm ){
 
 
 function go_wrt(){
-	document.frm.action = "pf.do?command=adminProductWriteForm";
+	document.frm.action = "pf.do?command=adminProductInsertForm";
 	document.frm.submit();
 }
 
 
 
 function go_wrt_e(){
-	document.frm.action = "pf.do?command=adminEventWriteForm";
+	document.frm.action = "pf.do?command=adminEventInsertForm";
 	document.frm.submit();
 }
 
 
 
 function go_wrt_n(){
-	document.frm.action = "pf.do?command=adminNoticeWriteForm";
+	document.frm.action = "pf.do?command=adminNoticeInsertForm";
 	document.frm.submit();
 }
 
@@ -258,7 +258,7 @@ function go_del_e(eseq) {
   var confirmDelete = confirm("정말 이 이벤트를 삭제하시겠습니까?");
   if (confirmDelete) {  
     var url = "pf.do?command=adminEventDelete&eseq=" + eseq;   
-    location.href ="url";
+    location.href =url;
   }
 }
 
@@ -278,6 +278,13 @@ function go_del_n(nseq) {
   }
 }
 
+
+
+function go_col(pseq) {  
+ location.href = "pf.do?command=adminProductColorInsert&pseq=" + pseq;
+}
+
+  
 
 
 
