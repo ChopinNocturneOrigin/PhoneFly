@@ -61,7 +61,7 @@ author : BHS
 					<div class="card_color_buttons card_color_buttons_1">
 						<ul>
 							<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
-								<li onclick="colorClick(1, ${statusColor.count});">
+								<li onclick="pdDetailcolorClick(1, ${statusColor.count});">
 									<div class="color_button" style="background-color:${colorVO.ccode}">
 									<c:choose>
 										<c:when test="${statusColor.count == 1}">
@@ -76,8 +76,30 @@ author : BHS
 							</c:forEach>
 						</ul>
 					</div>
-					<!-- //컬러 리스트 -->
 					<div class="clear"></div>
+					<!-- //컬러 리스트 -->
+					<!-- 컬러 이름 -->
+					<div class="pdd-color-names">
+						<ul>
+							<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
+								<c:choose>
+									<c:when test="${statusColor.count == 1}">
+										<li class="pdd-color-name">
+											<span>${colorVO.name}</span>
+										</li>
+									</c:when>
+									<c:otherwise>
+										<li class="pdd-color-name display-none">
+											<span>${colorVO.name}</span>
+										</li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+					<!-- //컬러 이름 -->
 
 				</div>
 				<!-- //이미지 및 컬러 리스트 (제품상세 왼쪽) -->
@@ -123,8 +145,8 @@ author : BHS
 						<div class="pdd-left-name pdd-rplan-wrap chkborder-b">요금제</div>
 						<div class="pdd-left-content pdd-rplan-wrap chkborder-b">
 							<div class="pd-box pdd-rplan-content-wrap">
-								<div></div>
-								<div></div>
+								<div class="pd-rplan-cont-up down_btn"></div>
+								<div class="pd-rplan-cont-dn"></div>
 							</div>
 						</div>
 					</div>

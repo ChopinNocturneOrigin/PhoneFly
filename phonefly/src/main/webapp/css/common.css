@@ -59,6 +59,10 @@ ul {
 	display: flex;
 }
 
+.display-none {
+	visibility: hidden;
+}
+
 .clear {
 	clear: both;
 }
@@ -733,8 +737,8 @@ article h3 {
     display: flex;
 }
 .comm-ci img {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	margin: auto;
 }
 .pdd-rplan-wrap {
@@ -759,4 +763,31 @@ article h3 {
     width: 66px;
     height: 48px;
     margin: auto;
+}
+.pd-rplan-cont-up {
+	width: 100%;
+	height: 50%;
+	background-color: white;
+}
+.pd-rplan-cont-dn {
+	width: 100%;
+	height: 50%;
+	text-align: center;
+}
+
+.down_btn {
+    background: url(../images/common/btn_select.png) no-repeat 96% 50%;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+	background-color: white;
+}
+
+.pdd-color-name>span {
+	display: block;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }

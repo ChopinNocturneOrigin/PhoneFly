@@ -22,6 +22,7 @@ author : BHS
 <script src="script/mainBanner.js"></script>
 <script src="script/mainColorSelect.js"></script>
 <script src="script/comparePopup.js"></script>
+<script src="script/productDetail.js"></script>
 <!-- <script src="script/member.js"></script>
 <script src="script/mypage.js"></script> -->
 </head>
