@@ -3,30 +3,12 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 <article>
-	<h1>상품수정 - ${productVO.kind}</h1>
+	<h1>상품수정  ${productVO.kind}</h1>
 	<form name="frm" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="pseq" value="${productVO.pseq}">
 		<input type="hidden" name="oldImage" value="${productVO.image}">
 		
-		<table id="list">
-			<tr>
-					<th>상품분류</th>
-					<td colspan="5">
-						<select name="kind">
-							<c:forEach items="${kindList}" var="kind" varStatus="status">
-									<c:choose>
-											<c:when test="${productVO.kind==status.count}">
-												<option value="${status.count}" selected="selected">${kind}</option>
-											</c:when>
-						          			<c:otherwise>
-						          				<option value="${status.count}">${kind}</option>
-						          			</c:otherwise>
-									</c:choose>
-							</c:forEach>
-						</select>
-					</td>
-			</tr>
-			
+		<table id="list">			
 			<tr>
 				<th>상품명</th>
 				<td width="343" colspan="5">

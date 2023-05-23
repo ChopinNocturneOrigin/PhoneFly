@@ -189,7 +189,7 @@ function go_mod_save_e(){
 		  document.frm.content.focus();
 	 }else{
 		if( confirm('수정하시겠습니까?') ){
-			 document.frm.action = "pf.do?command=adminEventUpdate";
+			 document.frm.action = "pf.do";
 			 document.frm.submit();
 		}
 	}
@@ -255,15 +255,15 @@ function go_rep( qseq ){
 }
 
 function go_del_e(eseq) {  
-  var confirmDelete = confirm("Are you sure you want to delete this event?");
+  var confirmDelete = confirm("정말 이 이벤트를 삭제하시겠습니까?");
   if (confirmDelete) {  
     var url = "pf.do?command=adminEventDelete&eseq=" + eseq;   
-    location.href ="pf.do?command=adminEventDelete";
+    location.href ="url";
   }
 }
 
 function go_del(pseq) {  
-  var confirmDelete = confirm("?");
+  var confirmDelete = confirm("정말 이 상품을 삭제하시겠습니까?");
   if (confirmDelete) {  
     var url = "pf.do?command=adminProductDelete&pseq=" + pseq;   
     location.href =url;
@@ -271,10 +271,10 @@ function go_del(pseq) {
 }
 
 function go_del_n(nseq) {  
-  var confirmDelete = confirm("Are you sure you want to delete this event?");
+  var confirmDelete = confirm("정말 이 공지사항을 삭제하시겠습니까?");
   if (confirmDelete) {  
-    var url = "noticeDelete.jsp?nseq=" + nseq;   
-    location.href = "pf.do?command=adminNoticeDelete";
+    var url = "pf.do?command=adminNoticeDelete&nseq=" + nseq;   
+    location.href = url;
   }
 }
 

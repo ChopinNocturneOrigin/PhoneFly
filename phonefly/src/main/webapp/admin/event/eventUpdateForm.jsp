@@ -4,15 +4,15 @@
 
 <article>
 	<h1>이벤트 수정  </h1>
-	<form name="frm" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="nseq" value="${eventVO.eseq}">
-		<input type="hidden" name="oldImage" value="${eventVO.image}">
-		
+	<form name="frm" method="post" >
+		<input type="hidden" name="eseq" value="${eventVO.eseq}">
+		<input type="hidden" name="command" value= "adminEventUpdate">
+				
 		<table id="list">			
 			<tr>
 				<th>이벤트명</th>
 				<td width="343" colspan="5">
-					<input type="text" name="name" size="47" maxlength="100" value="${eventVO.name}">
+					<input type="text" name="subject" size="47" maxlength="100" value="${eventVO.name}">
 				</td>
 			</tr>
 						
