@@ -31,7 +31,7 @@
 		  		<th>판매가[B]</th>
 		  		<td width="70">
 		  			<input type="text" name="price2" size="11" onkeyup="cal();"></td>
-		  		<th>[B-A]</th>
+		  		<th>마진[B-A]</th>
 		  		<td width="72"><input type="text" name="price3" size="11" ></td>
 		  	</tr>
 		  	

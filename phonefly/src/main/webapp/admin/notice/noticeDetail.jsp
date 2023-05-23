@@ -10,6 +10,7 @@
 </table>
 <input class="btn"  type="button" value="수정" onClick="go_mod_n('${noticeVO.nseq}')">
 <input class="btn"  type="button" value="목록" onClick="go_mov_n()">
+<input class="btn"  type="button" value="삭제" onClick="go_del_n()">
 </article>
 
 <%@ include file="/admin/footer.jsp"%>

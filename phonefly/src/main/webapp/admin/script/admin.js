@@ -254,6 +254,29 @@ function go_rep( qseq ){
 	// 답변 글 등록 & rep 필드를 2로 업데이트
 }
 
+function go_del_e(eseq) {  
+  var confirmDelete = confirm("Are you sure you want to delete this event?");
+  if (confirmDelete) {  
+    var url = "pf.do?command=adminEventDelete&eseq=" + eseq;   
+    location.href ="pf.do?command=adminEventDelete";
+  }
+}
+
+function go_del(pseq) {  
+  var confirmDelete = confirm("?");
+  if (confirmDelete) {  
+    var url = "pf.do?command=adminProductDelete&pseq=" + pseq;   
+    location.href =url;
+  }
+}
+
+function go_del_n(nseq) {  
+  var confirmDelete = confirm("Are you sure you want to delete this event?");
+  if (confirmDelete) {  
+    var url = "noticeDelete.jsp?nseq=" + nseq;   
+    location.href = "pf.do?command=adminNoticeDelete";
+  }
+}
 
 
 
