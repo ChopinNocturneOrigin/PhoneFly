@@ -181,6 +181,27 @@ public class ProductDao {
 		return list;
 	}
 
-
-
+	public void insertProduct(ProductVO pvo) {
+		
+		String sql = "insert into product(pseq,name,price1,price2,price3,content,useyn,eventyn,bestyn,indate,mfc) "
+				+ " values(pseq.nextVal,?,?,?,?,?,?,?,?,?,?)";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pvo.getName());
+			pstmt.setInt(2, pvo.getPrice1());
+			pstmt.setInt(3, pvo.getPrice2());
+			pstmt.setInt(4, pvo.getPrice3());
+			pstmt.setString(5, pvo.getContent());
+			pstmt.setString(6, pvo.getUseyn());
+			pstmt.setString(7, pvo.getEventyn());
+			pstmt.setString(8, pvo.getBestyn());
+			pstmt.setTimestamp(9, pvo.getIndate());
+			pstmt.setString(8, pvo.getMfc());	
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);
+		}
+		
+	}
 }
