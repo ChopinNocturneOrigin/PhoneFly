@@ -15,21 +15,7 @@ public class QnaDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String url="admin/product/adminProductList.jsp";
-		
-		
-		HttpSession session = request.getSession();
-		ProductVO mvo = (ProductVO) session.getAttribute("loginUser");
-		String url="";
-		if(mvo==null) {
-			url="shop.do?command=loginForm";
-		}else {
-			ProductDao mdao = ProductDao.getInstance();
-			mdao.deleteProduct(mvo.getId());
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-
+	
 	}
 
 }
