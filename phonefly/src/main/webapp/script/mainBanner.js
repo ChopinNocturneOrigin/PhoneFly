@@ -8,7 +8,7 @@ $(function(){
 	let playFlag = false;
 	let setFunction;
 	function move(){
-		$("#main_banner").animate({left:(-imgIndex * 1470)}, 100);
+		$(".main_banner").animate({left:(-imgIndex * 1470)}, 100);
 	}
 	function run(){
 		imgIndex++;
