@@ -18,7 +18,6 @@ import pf.controller.action.admin.board.notice.AdminNoticeListFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
-import pf.controller.action.admin.board.qna.AdminQnaListFormAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListFormAction;
 import pf.controller.action.admin.login.AdminAction;
@@ -66,7 +65,6 @@ import pf.controller.action.member.mypage.QnaWriteFormAction;
 import pf.controller.action.order.OrderAction;
 import pf.controller.action.order.OrderFormAction;
 import pf.controller.action.order.OrderListAction;
-import pf.controller.action.product.CategoryAction;
 import pf.controller.action.product.ProductCompareAction;
 import pf.controller.action.product.ProductDetailAction;
 import pf.controller.action.product.ProductListAction;
@@ -123,7 +121,7 @@ public class ActionFactory {
 	
 
 	//상품(product)
-	else if(command.equals("category") ) ac = new CategoryAction();
+	//else if(command.equals("category") ) ac = new CategoryAction();
 	else if(command.equals("productDetail") ) ac = new ProductDetailAction();
 	else if(command.equals("productList") ) ac = new ProductListAction();
 	else if(command.equals("productCompare") ) ac = new ProductCompareAction();
@@ -166,7 +164,7 @@ public class ActionFactory {
 	//관리자(admin).board
 	
 	//관리자(admin).board.QnA
-	else if(command.equals("adminQnaListForm") ) ac = new AdminQnaListFormAction();
+	//else if(command.equals("adminQnaListForm") ) ac = new AdminQnaListFormAction();
 	else if(command.equals("adminQnaList") ) ac = new AdminQnaListAction();
 	else if(command.equals("adminQnaDetailListForm") ) ac = new AdminQna_detailListFormAction();
 	else if(command.equals("adminQnaDetailList") ) ac = new AdminQna_detailListAction();

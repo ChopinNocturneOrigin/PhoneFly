@@ -124,13 +124,13 @@ public class ProductDao {
 		return list;
 	}
 
-	public ProductVO getProduct(String mfc) {
+	public ProductVO getProduct(int pseq) {
 		ProductVO pvo = null;
 		String sql = "SELECT * FROM product WHERE pseq=?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, mfc);
+			pstmt.setInt(1, pseq);
 			rs = pstmt.executeQuery();
 			if( rs.next() ) {
 				pvo = new ProductVO();
