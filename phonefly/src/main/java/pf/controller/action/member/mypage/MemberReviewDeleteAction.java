@@ -20,7 +20,7 @@ public class MemberReviewDeleteAction implements Action {
 		rdao.deleteReview( Integer.parseInt(rseq) );
 		
 		response.sendRedirect("pf.do?command=memberReviewList"); 
-
+		
 	}
 
 }

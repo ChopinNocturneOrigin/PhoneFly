@@ -27,6 +27,8 @@ public class MemberReviewListAction implements Action {
 	    	url = "pf.do?command=loginForm";
 	    } else {
 	    	
+	    	String loggedInId = mvo.getId();
+	    	
 	    	ReviewDao rdao = ReviewDao.getInstance();
 	    	
 	    	int page = 1;
@@ -39,12 +41,13 @@ public class MemberReviewListAction implements Action {
 	    	int count = rdao.getAllCount();
 	    	paging.setTotalCount(count);
 	    	
-	    	ArrayList<ReviewVO> list = rdao.selectQna( paging );
+	    	ArrayList<ReviewVO> list = rdao.selectReview( paging, loggedInId );
 	    	
 	    	request.setAttribute("reviewList", list);
 	    	request.setAttribute("paging", paging);
 	    }
 	    request.getRequestDispatcher(url).forward(request, response);
+	    
 	}
 
 }

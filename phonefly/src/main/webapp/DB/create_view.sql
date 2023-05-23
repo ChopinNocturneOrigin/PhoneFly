@@ -30,3 +30,4 @@ from orders o, order_detail d, member m, product p
 where o.oseq=d.oseq and o.id=m.id and d.pseq=p.pseq;
 
 select * from order_view;
+

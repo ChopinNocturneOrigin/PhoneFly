@@ -1,4 +1,4 @@
-package pf.controller.action.board.qna;
+package pf.controller.action.member.mypage;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import pf.controller.action.Action;
 
-public class QnaWriteAction implements Action {
+public class QnaUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
