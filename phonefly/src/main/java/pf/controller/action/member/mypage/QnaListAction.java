@@ -33,22 +33,22 @@ public class QnaListAction implements Action {
 		int page = 1;
 		if(request.getParameter("page")!=null)
 			page=Integer.parseInt(request.getParameter("page"));
-
+		
 		Paging paging = new Paging();
 		paging.setPage(page);
-
+		
 		int count = qdao.getAllCount();
 		paging.setTotalCount(count);
-
-
+		
+		
 		ArrayList<QnaVO>list = qdao.selectQna(paging);
 		request.setAttribute("qnaList", list);
 		request.setAttribute("paging", paging);
-
+		
 		}
 		request.getRequestDispatcher(url).forward(request, response);
-
-
+		
+		
 	}
 
 }

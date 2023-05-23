@@ -22,7 +22,6 @@ public class ProductListAction implements Action {
 		String url = "product/productlist.jsp";
 		
 		request.getRequestDispatcher(url).forward(request, response);
-
 	}
 
 }
