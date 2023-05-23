@@ -35,6 +35,7 @@ input {
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
+	box-sizing: border-box;
 }
 
 ul {
@@ -53,6 +54,9 @@ ul {
 .wrap {
 	width: 1470px;
 	margin: 0px auto;
+}
+.flex-wrap {
+	display: flex;
 }
 
 .clear {
@@ -225,13 +229,13 @@ article h3 {
 	float: left;
 }
 
-#main_card_box li:first-child,
-#main_card_box li:nth-child(5) {
+#main_card_box li.card:first-child,
+#main_card_box li.card:nth-child(5) {
 	margin-left: 0px;
 }
 
-#main_card_box li:nth-child(4),
-#main_card_box li:nth-child(8) {
+#main_card_box li.card:nth-child(4),
+#main_card_box li.card:nth-child(8) {
 	margin-right: 0px;
 }
 
@@ -240,43 +244,51 @@ article h3 {
 
 /* Item box inside - position & effect */
 /* img */
-#main_card_box .card_img {
+/* #main_card_box */ 
+.card_img {
 	position: relative;
 	width: 352px;
 	height: 310px;
 	line-height: 310px;
 	text-align: center;
+	margin: 0px auto;
 }
 
-#main_card_box .card_img li {
+/* #main_card_box */ 
+.card_img li {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 } 
 
-#main_card_box .card_img img {
+/* #main_card_box */ 
+.card_img img {
 	height: 310px;
 	vertical-align: middle;
 }
 
 /* color buttons */
-#main_card_box .card_color_buttons {
+/* #main_card_box */ 
+.card_color_buttons {
 	display: inline-block;
 	margin: 0px auto;
 }
-#main_card_box .card_color_buttons li {
+/* #main_card_box */ 
+.card_color_buttons li {
 	margin: 0px 5px;
 	float: left;
 }
-#main_card_box .color_button {
+/* #main_card_box */ 
+.color_button {
 	width: 13px;
 	height: 13px;
 	border: 1px solid black;
 	border-radius: 50%;
 	cursor: pointer;
 }
-#main_card_box .color_button_selector {
+/* #main_card_box */ 
+.color_button_selector {
 	position: relative;
 	top: -4px;
 	left: -4px;
@@ -375,7 +387,12 @@ article h3 {
 	vertical-align: middle;
 }
 
-/* Main Apple */
+
+
+
+
+
+/* 메인화면 중단 애플 파트 */
 #main_apple {
 	margin-top: 50px;
 	margin-bottom: 30px;
@@ -614,4 +631,132 @@ article h3 {
 }
 .sub_banner video {
 	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* 제품 상세 페이지 */
+
+.product-detail-wrap {
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin: 0 auto;
+}
+/* 전체 프레임 안쪽 */
+.product-detail-inside-wrap {
+	margin:0px auto;
+}
+
+
+
+.product-detail-left-wrap {
+	float: left;
+	margin-right: 20px;
+}
+
+.product-detail-image-wrap {
+	text-align: center;
+	float: left;
+}
+
+/* 제품 디테일 이미지 */
+.pd-box {
+	border:1px solid #ddd;
+	border-radius: 3px;
+	background-color: #F5F5F7;
+}
+.card-img-pd {
+	position: relative;
+	width: 352px;
+	height: 310px;
+	line-height: 310px;
+	margin: 0px auto;
+}
+
+.card-img-pd li {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+} 
+
+.card-img-pd img {
+	height: 310px;
+	vertical-align: middle;
+}
+
+.product-detail-selectors {
+	width: 490px;
+	float: left;
+}
+.pdd-left-name {
+	width: 146px;
+	height: 60px;
+	line-height: 60px;
+	float: left;
+}
+.pdd-left-content {
+	display: flex;
+	width: 340px;
+	height: 60px;
+	float: left;
+}
+.pdd-small-wrap {
+	height: 30px;
+}
+.chkborder-b {
+	border:1px solid blue;
+}
+.chkborder-r {
+	border:1px solid red;
+}
+
+.product-detail-right-wrap {
+	float: left;
+}
+.product-detail-scrollbox-wrap {
+	width: 280px;
+	height: 678px;
+}
+.comm-ci {
+    float: left;
+    width: 97px;
+    height: 48px;
+    margin: auto;
+    display: flex;
+}
+.comm-ci img {
+	width: 30px;
+	height: 30px;
+	margin: auto;
+}
+.pdd-rplan-wrap {
+	height: 90px;
+}
+.pdd-rplan-content-wrap {
+	width: 320px;
+	height: 80px;
+	margin: auto;
+}
+.pdd-discount-wrap {
+	height: 78px;
+}
+.pdd-discount {
+    float: left;
+    width: 150px;
+    height: 68px;
+    margin: auto;
+}
+.pdd-mplan {
+    float: left;
+    width: 66px;
+    height: 48px;
+    margin: auto;
 }
