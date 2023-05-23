@@ -18,7 +18,7 @@ public class AdminMemberListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/adminMemberList.jsp";
+		String url = "admin/member/adminMemberList.jsp";
 
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
@@ -26,7 +26,6 @@ public class AdminMemberListAction implements Action {
 		else {
 			
 			if(request.getParameter("changeMenu")!=null) {
-			//  서브메뉴를 클릭할 때 저장된 세션값으로 값이 입력되어 메뉴에 옮겨가는 것을 막기 위한 코드
 				session.removeAttribute("page");
 				session.removeAttribute("key");
 			}
@@ -37,23 +36,18 @@ public class AdminMemberListAction implements Action {
 
 		if(request.getParameter("page")!=null) {
 			paging.setPage(Integer.parseInt(request.getParameter("page")));
-			//request에 전달된 파라미터중 page값이 있다면 세션에도 그 페이지값을 저장
 			session.setAttribute("page",Integer.parseInt(request.getParameter("page")));
 		}else if(session.getAttribute("page") != null){
-			//이전에 혹시 세션에 페이지 값을 저장한 적이 있다면 
 			paging.setPage((Integer)session.getAttribute("page"));
 		}else {
 			paging.setPage(1);
-			//session.removeAttribute("page");
 		}
 			
 			String key="";
 			if(request.getParameter("key") != null ) {
-				//검색할 단어가 같이 전달되었다면
 				key=request.getParameter("key");
 				session.setAttribute("key",key);
 			}else if(session.getAttribute("key")!=null) {
-				//전달된 key파라미터가 없다면 세션에 저장된 key값은 없는지 점검
 				key=(String)session.getAttribute("key");
 			}else {
 				key="";
