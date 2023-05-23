@@ -14,7 +14,7 @@
 </table>
 <input class="btn"  type="button" value="수정" onClick="go_mod_c('${colorVO.cseq}')">
 <input class="btn"  type="button" value="목록" onClick="go_mov_c()">
-<input class="btn"  type="button" value="삭제" onClick="go_del_c()">
+<input class="btn"  type="button" value="삭제" onClick="go_del_c('${colorVO.cseq}')">
 </article>
 
 <%@ include file="/admin/footer.jsp"%>
