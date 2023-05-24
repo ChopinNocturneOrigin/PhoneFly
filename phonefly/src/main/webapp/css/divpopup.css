@@ -18,15 +18,3 @@
 .layer-popup.show {
   display: block;
 }
-
-.modal-dialog {
-  width: 300px;
-  margin: 40px auto;
-  background-color: #fff;
-}
-
-.modal-content {
-  padding:10px 15px;
-  text-align: center;
-  line-height: 100px;
-}

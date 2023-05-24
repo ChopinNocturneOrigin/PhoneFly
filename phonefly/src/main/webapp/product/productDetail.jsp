@@ -180,9 +180,10 @@ author : BHS
 
 
 					<!-- 요금제 (rplanList) -->
-					<div class="pdd-selector-wrap">
+					<!-- 레이어 팝업 #layer-popup-kt skt lg-->
+					<div class="pdd-selector-wrap btn-divpopup-open" href="#layer-popup-kt">
 						<div class="pdd-selector-name pdd-rplan-wrap">요금제</div>
-						<div class="pdd-selector-content pdd-rplan-wrap" onclick="clickRplan();">
+						<div class="pdd-selector-content pdd-rplan-wrap">
 							<div class="pdd-box pdd-rplan-content-wrap">
 								<c:set var="rplancount" value="1" />
 								<c:forEach items="${rplanVO}" var="rplan" varStatus="status">
@@ -282,7 +283,7 @@ author : BHS
 	
 	<div class="pdd-right-wrap">
 		<!-- 스크롤 박스 wrap-->
-		<div class="pdd-scrollbox-wrap">
+		<div class="pdd-scrollbox-wrap" id="pdd-scroll-box">
 
 
 
@@ -425,37 +426,26 @@ author : BHS
 			<div class="pdd-review-inputarea">
 				<ul>
 					<li class="pdd-review-title">구매후기</li>
-					<li class="float-l"><textarea name="content" cols="90" rows="5"></textarea></li>
+					<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10&#10 구매후기를 입력하세요"></textarea></li>
 					<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue"type="submit" value="구매후기 작성" /></li>
 				</ul>
 			</div>
 		</form>
+		<div class="clear"></div>
 		<!-- //입력 파트 -->
 		
 		<!-- 출력 파트 -->
 		<div>
 			<ul>
 				<!-- 구매후기 테스트 더미 데이터 -->
-				<li class="pdd-review-line float-l">
-					<div>홍길동</div>
-					<div>혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 국가는 청원에 대하여 심사할 의무를 진다.
+			<c:forEach begin="1" end="8">
+				<li class="pdd-review-line">
+					<div class="float-l pdd-review-ln-name">홍길동</div>
+					<div class="float-l pdd-review-ln-content">혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 국가는 청원에 대하여 심사할 의무를 진다.
 이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을 지속한다. 모든 국민은 학문과 예술의 자유를 가진다. 대통령은 필요하다고 인정할 때에는 외교·국방·통일 기타 국가안위에 관한 중요정책을 국민투표에 붙일 수 있다.</div>
-					<div>2023. 5.24.</div>
+					<div class="float-l">2023. 5.24.</div>
 				</li>
-				<li class="pdd-review-line float-l">
-					<div>홍길동</div>
-					<div>혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 국가는 청원에 대하여 심사할 의무를 진다.
-
-이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을 지속한다. 모든 국민은 학문과 예술의 자유를 가진다. 대통령은 필요하다고 인정할 때에는 외교·국방·통일 기타 국가안위에 관한 중요정책을 국민투표에 붙일 수 있다.</div>
-					<div>2023. 5.24.</div>
-				</li>
-				<li class="pdd-review-line float-l">
-					<div>홍길동</div>
-					<div>혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 국가는 청원에 대하여 심사할 의무를 진다.
-
-이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을 지속한다. 모든 국민은 학문과 예술의 자유를 가진다. 대통령은 필요하다고 인정할 때에는 외교·국방·통일 기타 국가안위에 관한 중요정책을 국민투표에 붙일 수 있다.</div>
-					<div>2023. 5.24.</div>
-				</li>
+			</c:forEach>
 				<!-- //구매후기 테스트 더미 데이터 -->
 			<c:forEach items="${reviewList}" var="review" varStatus="statusReview">
 				<c:choose>
@@ -490,13 +480,13 @@ author : BHS
 
 <br /><br /><br /><br /><br />
 <!-- 팝업 KT (2)-->
-<div class="comm-kt pdd-popup-wrap card-normal">
+<div class="comm-kt pdd-popup-wrap card-normal layer-popup" id="layer-popup-kt">
 	<div class="pdd-popup-title"><img src="images/common/tong-kt.png" />&nbsp;<span>KT 요금표</span></div>
 	<table>
 		<tr><td class="pdd-popup-subtitle" colspan="2">5G 수퍼플랜</td><td class="pdd-popup-text" colspan="3">5G 데이터가 완전무제한에 해외에서 끊김없는 데이터!</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 2}">
-				<tr onclick='selectPlan("${plan.name}", \"<fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />\", "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
+				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
 					<td class="pdd-popup-content pdd-popup-left rplan-name" value="${plan.name}">${plan.name}</td>
 					<td class="pdd-popup-content rb-color rplan-charge" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
 					<td class="pdd-popup-content rplan-dataplan" value="${plan.dataplan}">${plan.dataplan}</td>
@@ -511,13 +501,13 @@ author : BHS
 
 
 <!-- 팝업 SKT (1)-->
-<div class="comm-skt pdd-popup-wrap card-normal">
+<div class="comm-skt pdd-popup-wrap card-normal layer-popup" id="layer-popup-skt">
 	<div class="pdd-popup-title"><img src="images/common/tong-skt.png" />&nbsp;<span>SKT 요금표</span></div>
 	<table>
 		<tr><td class="pdd-popup-subtitle" colspan="2">5GX 플랜</td><td class="pdd-popup-text" colspan="3">데이터 콘텐츠도 자유롭게! 초시대의 요금플랜</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 1}">
-				<tr onclick='selectPlan("${plan.name}", \"<fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />\", "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
+				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
 					<td class="pdd-popup-content pdd-popup-left rplan-name" value="${plan.name}">${plan.name}</td>
 					<td class="pdd-popup-content rb-color rplan-charge" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
 					<td class="pdd-popup-content rplan-dataplan" value="${plan.dataplan}">${plan.dataplan}</td>
@@ -532,13 +522,13 @@ author : BHS
 
 
 <!-- 팝업 LGU+ (3)-->
-<div class="comm-lg pdd-popup-wrap card-normal">
+<div class="comm-lg pdd-popup-wrap card-normal layer-popup" id="layer-popup-lg">
 	<div class="pdd-popup-title"><img src="images/common/tong-lg.png" />&nbsp;<span>LGU+ 요금표</span></div>
 	<table>
 		<tr><td class="pdd-popup-subtitle" colspan="2">5G 요금제</td><td class="pdd-popup-text" colspan="3">U+ 5G 서비스에 다양한 콘텐츠까지!</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 3}">
-				<tr onclick='selectPlan("${plan.name}", \"<fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />\", "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
+				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
 					<td class="pdd-popup-content pdd-popup-left rplan-name" value="${plan.name}">${plan.name}</td>
 					<td class="pdd-popup-content rb-color rplan-charge" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
 					<td class="pdd-popup-content rplan-dataplan" value="${plan.dataplan}">${plan.dataplan}</td>

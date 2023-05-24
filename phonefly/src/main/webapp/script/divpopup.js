@@ -6,7 +6,7 @@
 
 
 // 팝업 열기
-$(document).on("click", ".btn-open", function (e){
+$(document).on("click", ".btn-divpopup-open", function (e){
   var target = $(this).attr("href");
   $(target).addClass("show");
 });

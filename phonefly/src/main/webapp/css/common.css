@@ -59,6 +59,10 @@ ul {
 }
 
 .display-none {
+	display: none;
+}
+.vis-hidden,
+.blind {
 	visibility: hidden;
 }
 
@@ -177,6 +181,18 @@ textarea::placeholder {
 	float: right;
 }
 
+.abs {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+textarea {
+	resize: none;
+}
+
+
 /* 
 p,
 span,
@@ -204,6 +220,29 @@ h3 {
 	color: #3F51B5;
 }
 /* //맨 위로 돌아가기 */
+
+
+
+
+
+
+/* 레이어 팝업 */
+/* class="layer-popup show" */
+.layer-popup {
+  display: none;
+  position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.layer-popup.show {
+  display: block;
+}
+/* // 레이어 팝업 */
+
 
 
 
@@ -847,9 +886,13 @@ article h3 {
 }
 
 .pdd-popup-wrap {
-	width: 800px;
+	width: 730px;
 	padding: 30px;
 	text-align: center;
+	/* position: absolute; */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .pdd-popup-wrap>table {
 	margin: 0px auto;
@@ -882,6 +925,9 @@ article h3 {
 	height: 50px;
 	border-bottom: 0.1px solid gray;
 }
+.pdd-popup-wrap tr:first-child:hover {
+	background-color: white;
+}
 .pdd-popup-wrap tr:hover {
 	background-color: rgba(135, 206, 250, 0.2);
 }
@@ -895,7 +941,21 @@ article h3 {
 
 
 /* 제품상세 오른쪽 박스 */
+.abs {
+  position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0px);
+}
+
+.fixed {
+  position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0px);
+}
+
+
 .pdd-scrollbox-wrap {
+	position: relative;
 	font-size: 0.84em;
 	color: #666;
 }
@@ -920,6 +980,10 @@ article h3 {
 }
 .pdd-bg-black-label-big {
 	height: 90px;
+}
+.pdd-monthly-div-wrap,
+.pdd-monthly-comm-wrap {
+	background-color: white;
 }
 .pdd-monthly-total-wrap {
 	padding-top: 20px;
@@ -1006,6 +1070,7 @@ article h3 {
 	width: 842px;
 	margin: 20px 20px 20px 0px;
 	padding-left: 10px;
+	padding-bottom: 20px;
 	min-height: 187px;
 }
 .pdd-review-title {
@@ -1033,6 +1098,18 @@ article h3 {
 	height: 80px;
 	line-height: 116px;
 	margin-left: 10px;
+}
+.pdd-review-line {
+    height: 120px;
+    margin: 20px 0px;
+}
+.pdd-review-ln-name {
+    width: 86px;
+}
+.pdd-review-ln-content {
+    width: 569px;
+    text-align: left;
+    padding: 0px 16px;
 }
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
 .pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */
