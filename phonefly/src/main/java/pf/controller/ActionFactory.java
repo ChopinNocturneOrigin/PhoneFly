@@ -26,7 +26,15 @@ import pf.controller.action.admin.member.AdminMemberDetailAction;
 import pf.controller.action.admin.member.AdminMemberListAction;
 import pf.controller.action.admin.order.AdminOrderListAction;
 import pf.controller.action.admin.order.AdminOrder_detailAction;
+import pf.controller.action.admin.product.AdminColorDeleteAction;
+import pf.controller.action.admin.product.AdminColorDetailAction;
+import pf.controller.action.admin.product.AdminColorInsertAction;
+import pf.controller.action.admin.product.AdminColorInsertFormAction;
+import pf.controller.action.admin.product.AdminColorListAction;
+import pf.controller.action.admin.product.AdminColorUpdateAction;
+import pf.controller.action.admin.product.AdminColorUpdateFormAction;
 import pf.controller.action.admin.product.AdminProductDeleteAction;
+import pf.controller.action.admin.product.AdminProductDetailAction;
 import pf.controller.action.admin.product.AdminProductInsertAction;
 import pf.controller.action.admin.product.AdminProductInsertFormAction;
 import pf.controller.action.admin.product.AdminProductListAction;
@@ -152,11 +160,23 @@ public class ActionFactory {
 	else if(command.equals("adminMemberDetail") ) ac = new AdminMemberDetailAction();
 	//관리자(admin).product
 	else if(command.equals("adminProductList") ) ac = new AdminProductListAction();
+	else if(command.equals("adminProductDetail") ) ac = new AdminProductDetailAction();
 	else if(command.equals("adminProductInsertForm") ) ac = new AdminProductInsertFormAction();
 	else if(command.equals("adminProductInsert") ) ac = new AdminProductInsertAction();
 	else if(command.equals("adminProductDelete") ) ac = new AdminProductDeleteAction();
 	else if(command.equals("adminProductUpdateForm") ) ac = new AdminProductUpdateFormAction();
 	else if(command.equals("adminProductUpdate") ) ac = new AdminProductUpdateAction();
+	//product color
+	else if(command.equals("adminColorList") ) ac = new AdminColorListAction();
+	else if(command.equals("adminColorDetail") ) ac = new AdminColorDetailAction();
+	else if(command.equals("adminColorInsertForm") ) ac = new AdminColorInsertFormAction();
+	else if(command.equals("adminColorInsert") ) ac = new AdminColorInsertAction();
+	else if(command.equals("adminColorUpdateForm") ) ac = new AdminColorUpdateFormAction();
+	else if(command.equals("adminColorUpdate") ) ac = new AdminColorUpdateAction();
+	else if(command.equals("adminColorDelete") ) ac = new AdminColorDeleteAction();
+
+	
+	
 	//관리자(admin).order
 	else if(command.equals("adminOrderList") ) ac = new AdminOrderListAction();
 	else if(command.equals("adminOrderDetail") ) ac = new AdminOrder_detailAction();
