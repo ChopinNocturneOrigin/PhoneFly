@@ -35,7 +35,7 @@ th, td{  padding: 8px 5px; }
 
 table#productList {  border-collapse: collapse; /* border 사이의 간격 없앰 */  border-top: 2px solid #333;
  border-bottom: 1px solid #333; width: 80%; /* 전체 테이블 길이 설정 */ margin-left: 100px;
- margin-bottom: 20px; }
+ margin-bottom: 20px;  }
  
 nav#top_menu { float: right; width: 600px; margin: 50px 20px 0 0;}
 nav#top_menu ul { list-style: none; }
@@ -55,7 +55,7 @@ footer hr { width: 950px; border: 1px solid; }
 #main_img h1 {  text-align: center; font-size: 20pt; font-weight: bold; font-family: sans-serif; }
 #imgId {  width: 30px; height: 40px; }
 #productList td{  padding-right: 40px; text-align: right; }
-#list td{ padding: 8px 5px; text-align: left; }
+#list td{ padding: 8px 5px; text-align: left;}
 
 
 
