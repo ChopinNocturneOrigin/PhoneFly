@@ -14,7 +14,7 @@
        	
    	<tr><th>상세설명</th><td colspan="5"><pre>${productVO.content}</pre></td></tr>
    	<tr><th>상품이미지</th>	<td colspan="5" align="center">
-   		<img src="product_images/${productVO.image}" width="200pt"></td></tr>
+   		<img src="product_images/${colorVO.image}" width="200pt"></td></tr>
    		 		
 </table>
 <input class="btn"  type="button" value="수정" onClick="go_mod('${productVO.pseq}')">

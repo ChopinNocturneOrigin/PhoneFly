@@ -91,6 +91,13 @@ function cal(){
 }
 
 
+function go_save_c(){
+	document.frm.action = "pf.do?command=adminProductColorInsert";
+	document.frm.submit();
+}
+
+
+
 function go_save(){
 	var theForm = document.frm;
 	if( theForm.kind.value==""){     // if( document.frm.kind.value=="" )
@@ -108,11 +115,24 @@ function go_save(){
 	} else if (theForm.content.value == "") {
 		alert('상품상세를 입력하세요.'); 		
 		theForm.content.focus();
+	} else if (theForm.mfc.value == "") {
+		alert('제조사를 입력하세요.'); 		
+		theForm.mfc.focus();
+	
+		
+	} else if (theForm.name.value == "") {
+		alert('색상이름을 입력하세요.'); 		
+		theForm.name.focus();
+	} else if (theForm.ccode.value == "") {
+		alert('색상코드를 입력하세요.'); 		
+		theForm.ccode.focus();	
 	} else if (theForm.image.value == "") {
 		alert('상품이미지들 입력하세요.'); 	
 		theForm.image.focus();	
+		
+		
 	} else{
-		theForm.action = "pf.do?command=adminProductWrite";
+		theForm.action = "pf.do?command=adminProductInsert";
 		theForm.submit();
 	}
 }
@@ -126,7 +146,7 @@ function go_save_e(){
 		alert('이벤트상세를 입력하세요.'); 		
 		theForm.content.focus();
 	} else{
-		theForm.action = "pf.do?command=adminEventWrite";
+		theForm.action = "pf.do?command=adminEventInsert";
 		theForm.submit();
 	}
 }
@@ -157,10 +177,7 @@ function go_mod_n(nseq){
 
 
 function go_mod_save(){
-	if (document.frm.kind.value == '') {
-		  alert('상품분류를 선택하세요'); 	  
-		  document.frm.kind.focus();
-	 } else if (document.frm.name.value == '') {
+	if  (document.frm.name.value == '') {
 		  alert('상품명을 입력하세요');	  
 		  document.frm.name.focus();
 	 } else if (document.frm.price1.value == '') {
@@ -172,6 +189,21 @@ function go_mod_save(){
 	 } else if (document.frm.content.value == '') {
 		  alert('상품상세를 입력하세요');	  
 		  document.frm.content.focus();
+		  
+		  
+	 } else if (document.frm.bestyn.value == '') {
+		  alert('베스트 아이템 등록을 입력하세요');	  
+		  document.frm.bestyn.focus();
+	} else if (document.frm.eventyn.value == '') {
+		  alert('이벤트 아이템 등록을 입력하세요');	  
+		  document.frm.eventyn.focus();	  
+	} else if (document.frm.mfc.value == '') {
+		  alert('제조사를 입력하세요');	  
+		  document.frm.mfc.focus();	 	
+	} else if (document.frm.image.value == '') {
+		  alert('사진를 입력하세요');	  
+		  document.frm.image.focus();	 	  
+		  	    		  
 	 }else{
 		if( confirm('수정하시겠습니까?') ){
 			 document.frm.action = "pf.do?command=adminProductUpdate";
@@ -248,7 +280,7 @@ function go_view( qseq ){
 
 
 
-function go_rep( qseq ){
+function go_rep(qseq){
 	document.frm.action="pf.do?command=adminQnaRepSave";
 	document.frm.submit();
 	// 답변 글 등록 & rep 필드를 2로 업데이트
