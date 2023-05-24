@@ -252,4 +252,35 @@ public class ProductDao {
 		} finally { DBM.close(con, pstmt, rs);
 		}
 	}
+
+	public ProductVO getProduct(String mfc) {
+		ProductVO pvo = null;
+		String sql = "SELECT * FROM product WHERE mfc=?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mfc);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				pvo = new ProductVO();
+				pvo.setPseq(rs.getInt("pseq"));
+				pvo.setName(rs.getString("name"));
+				pvo.setPrice1(rs.getInt("price1"));
+				pvo.setPrice2(rs.getInt("price2"));
+				pvo.setPrice3(rs.getInt("price3"));
+				pvo.setContent(rs.getString("content"));
+				pvo.setUseyn(rs.getString("useyn"));
+				pvo.setEventyn(rs.getString("eventyn"));
+				pvo.setBestyn(rs.getString("bestyn"));
+				pvo.setIndate(rs.getTimestamp("indate"));
+				pvo.setMfc(rs.getString("mfc"));
+				
+				ArrayList<ColorVO> cvo = getColorList(pvo.getPseq());
+				pvo.setColorList(cvo);
+
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);  }
+		return pvo;
+	}
 }
