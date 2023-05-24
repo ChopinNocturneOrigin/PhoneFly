@@ -771,6 +771,7 @@ article h3 {
 
 .pdd-right-wrap {
 	float: left;
+	
 }
 .pdd-scrollbox-wrap {
 	width: 280px;
@@ -884,6 +885,9 @@ article h3 {
 }
 .ppd-submit {
 	width: 130px;
+	font-size: 1.2em;
+	margin: 0px auto;
+	text-align: center;
 }
 
 
@@ -904,3 +908,42 @@ article h3 {
 	background-color: #cb2935;
 	color: white;
 }
+.pdd-bg-black-label {
+	height: 50px;
+	background-color: black;
+	color: gray;
+	padding-top: 20px;
+	margin-bottom: 5px;
+}
+.pdd-bg-black-label-big {
+	height: 90px;
+}
+.pdd-monthly-total-wrap {
+	padding-top: 20px;
+}
+.pdd-right-inside-padding {
+	padding: 0px 10px;
+}
+.ppd-card-normal {
+	border-radius: 8px;
+	text-align: center;
+	box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+	overflow: hidden;
+}
+.pdd-text-middle {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	vertical-align: middle;
+}
+.pdd-big-inside {
+	font-size: 0.6em !important;
+	line-height: 74px;
+}
+.pdd-price-big {
+	font-size: 1.6em;
+	line-height: 68px;
+}
+
+/* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
+.pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */

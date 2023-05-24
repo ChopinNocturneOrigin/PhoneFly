@@ -223,73 +223,126 @@ author : BHS
 
 
 	<!-- 제품 상세 오른쪽 프레임 -->
+	
 	<div class="pdd-right-wrap">
 		<!-- 스크롤 박스 wrap-->
-		<div class="pdd-scrollbox-wrap card-normal">
+		<div class="pdd-scrollbox-wrap">
+
+
+
+
+			<ul>
 
 			<!-- 납부 금액 (A+B) -->
-			<div class="pdd-monthly-total-wrap">
-				<div class="pdd-text-middle">
-					<div class="txt-al-l float-l"><div class="red-circle float-l">A</div><div class="float-l">+</div><div class="red-circle float-l">B</div><div class="float-l"> 월 납부금액</div></div>
-					<div class="txt-al-r float-r"><div class="pdd-price-big">0,000</div><div>원</div></div>
-				</div>
-			</div>
-			<div class="clear"></div>
+			<li class="pdd-monthly-total-wrap pdd-text-middle pdd-bg-black-label pdd-bg-black-label-big ppd-card-normal">
+				<ul class="pdd-right-inside-padding">
+					<li>
+						<div class="float-l"><div class="red-circle float-l">A</div><div class="float-l">&nbsp;+&nbsp;</div><div class="red-circle float-l">B</div><div class="float-l">&nbsp; 월 납부금액</div></div><br />
+					</li>
+					<li>
+						<div class="txt-al-r float-r"><span class="float-r pdd-price-big"><span class="float-r pdd-big-inside">&nbsp;원</span>0,000</span></div>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</li>
+
 			
 			<!-- 월 할부금 (A) -->
-			<div class="pdd-monthly-div-wrap">
+			<li class="pdd-monthly-div-wrap ppd-card-normal">
+			
+			
+			
+				<ul>
 				<!-- 메인 (c / 구매방법(할부개월) = 월할부금) -->
-				<div class="pdd-text-middle">
-					<div class="txt-al-l"><div class="red-circle float-l">A</div><div class="float-l"> 월 할부금</div><div class="float-l"> (</div><div class="float-l">24</div><div class="float-l">개월)</div></div>
-					<div class="txt-al-r pdd-price-middle float-r">0,000</div><div class="float-r">원</div>
-				</div>
-				<div class="clear"></div>
+					<li class="pdd-text-middle pdd-bg-black-label">
+						<div class="pdd-right-inside-padding">
+							<div><div class="red-circle float-l">A</div><div class="float-l">&nbsp;월 할부금</div><div class="float-l"> (</div><div class="float-l">24</div><div class="float-l">개월)</div></div>
+							<div class="float-r">&nbsp;원</div><div class="txt-al-r pdd-price-middle float-r">0,000</div>
+						</div>
+					<div class="clear"></div>
+					</li>
+					
+					<!-- 출고가 (price2) -(a) -->
+					<li>
+						<div class="pdd-right-inside-padding">
+							<div class="txt-al-l float-l">출고가</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r">0,000</div>
+						</div>
+					<div class="clear"></div>
+					</li>
+					
+					<!-- 공시지원 할인 (hidden toggle) (고정) (b) -->
+					<li>
+						<div class="pdd-right-inside-padding">
+							<div class="txt-al-l float-l">공시지원할인</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r">0,000</div>
+						</div>
+					<div class="clear"></div>
+					</li>
+					
+					<!-- 할부원금 (a - b => c) -->
+					<li>
+						<div class="pdd-right-inside-padding">
+							<div class="txt-al-l float-l">할부원금</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r pdd-price-middle">0,000</div>
+						</div>
+					<div class="clear"></div>
+					</li>
 				
-				<!-- 출고가 (price2) -(a) -->
-				<div>
-					<div class="txt-al-l">출고가</div><div class="txt-al-r">0,000</div><div class="txt-al-r">원</div>
-				</div>
-				<div class="clear"></div>
+				</ul>
 				
-				<!-- 공시지원 할인 (hidden toggle) (고정) (b) -->
-				<div>
-					<div class="txt-al-l">공시지원할인</div><div class="txt-al-r">0,000</div><div class="txt-al-r">원</div>
-				</div>
-				<div class="clear"></div>
 				
-				<!-- 할부원금 (a - b => c) -->
-				<div>
-					<div class="txt-al-l">할부원금</div><div class="txt-al-r pdd-price-middle">0,000</div><div class="txt-al-r">원</div>
-				</div>
-				<div class="clear"></div>
-			</div>
+				
+				
+			</li>
 			
 			<!-- 월 통신요금 (B) -->
-			<div class="pdd-monthly-comm-wrap">
-				<!-- 메인 (a -b = 월 통신요금) -->
-				<div class="txt-al-r pdd-text-middle">
-					<div class="txt-al-l"><div class="red-circle">B</div> 월 통신요금</div>
-					<div class="pdd-price-middle">0,000</div><div class="txt-al-r">원</div>
-				</div>
+			<li class="pdd-monthly-comm-wrap ppd-card-normal">
+			
+			
+			
+				<ul>
+					<!-- 메인 (a -b = 월 통신요금) -->
+					<li class="txt-al-r pdd-text-middle pdd-bg-black-label">
+						<div class="pdd-right-inside-padding">
+							<div class="txt-al-l"><div class="red-circle float-l">B</div><div class="float-l"> 월 통신요금</div></div>
+							<div class="float-r">&nbsp;원</div><div class="pdd-price-middle float-r">0,000</div>
+						</div>
+					<div class="clear"></div>
+					</li>
+					<!-- 스탠다드 (요금제에서 가져옴) (a) -->
+					<li>
+						<div class="pdd-right-inside-padding">
+							<div class="txt-al-l float-l">세이브</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r">0,000</div>
+						</div>
+					<div class="clear"></div>
+					</li>
+					<!-- 선택약정 할인 (hidden toggle) (고정) (b) -->
+					<li>
+						<div class="pdd-right-inside-padding">
+							<div class="txt-al-l float-l">선택약정할인(25%)</div><div class="float-r pdd-text-red"></div>
+							<div class="float-r pdd-text-red">&nbsp;원</div><div class="float-r pdd-text-red">0,000</div><div class="float-r pdd-text-red">-</div>
+						</div>
+					</li>
+				</ul>
+				
+				
+				
 				<div class="clear"></div>
-				<!-- 스탠다드 (요금제에서 가져옴) (a) -->
-				<div>
-					<div class="txt-al-l">세이브</div><div class="txt-al-r">0,000</div><div class="txt-al-r">원</div>
-				</div>
-				<div class="clear"></div>
-				<!-- 선택약정 할인 (hidden toggle) (고정) (b) -->
-				<div>
-					<div class="txt-al-l">선택약정할인(25%)</div><div class="txt-al-r pdd-text-red"><div>-</div><div class="txt-al-r pdd-text-red">0,000</div><div>원</div>
-				</div>
-				<div class="clear"></div>
-			</div>
+			</li>
 			
 			<!-- 버튼 (온라인 신청하기) -->
-			<div>
+			<li>
 				<div class="submit submit-blue ppd-submit">온라인 신청하기</div>
-			</div>
+			</li>
+
+
+
+			</ul>
+
 		</div>
-		<!-- //스크롤 박스 -->
+		<!-- //스크롤 박스 (wrap) -->
 	</div>
 	<!-- //제품 상세 오른쪽 프레임 -->
 	</div>
