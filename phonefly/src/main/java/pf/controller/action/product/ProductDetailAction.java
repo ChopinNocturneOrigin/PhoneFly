@@ -23,13 +23,13 @@ public class ProductDetailAction implements Action {
 		ProductVO pvo = pdao.getProduct( pseq );
 		
 		ArrayList<RplanVO>rplanList = pdao.getRplanList();
-					
+		
 		request.setAttribute("productVO", pvo);
 		request.setAttribute("rplanVO", rplanList);
 		String url = "product/productDetail.jsp";
 		
 		request.getRequestDispatcher(url).forward(request, response);
-
+		
 	}
-
+	
 }
