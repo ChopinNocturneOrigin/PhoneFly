@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
-import pf.dao.OrdersDao;
+import pf.dao.OrderDetailDao;
 import pf.dto.MemberVO;
-import pf.dto.OrdersVO;
+import pf.dto.OrderDetailVO;
 
 public class OrderListAction implements Action {
 
@@ -20,22 +20,17 @@ public class OrderListAction implements Action {
 		
 		String url = "order/orderList.jsp";
 		
-		int oseq = Integer.parseInt(request.getParameter("oseq"));
+		int odseq = Integer.parseInt(request.getParameter("odseq"));
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if (mvo == null) {
 		    url = "pf.do?command=loginForm";
 		}else {
-			OrdersDao odao = OrdersDao.getInstance();
-			ArrayList<OrdersVO> list = odao.listOrderByOseq( oseq );
-			int totalPrice=0;
-			for(OrdersVO ovo : list)
-				totalPrice += ovo.getPrice2() * ovo.getQuantity();
-				
-			request.setAttribute("orderList", list);
-			
-			request.setAttribute("totalPrice", totalPrice);	
+			OrderDetailDao odao = OrderDetailDao.getInstance();
+			ArrayList<OrderDetailVO> list = odao.listOrderByOdseq( odseq );
+
+			request.setAttribute("orderList", list);	
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
