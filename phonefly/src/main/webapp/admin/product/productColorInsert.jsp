@@ -19,13 +19,14 @@
 		    </tr>
 		  	
 		  	<tr>
-		  		<th>색상 이미지</th><td colspan="5">
-				<textarea name="content" rows="8" cols="70"></textarea></td>
-			</tr>
+		  		<th>색상 이미지</th>
+		  		<td width="343" colspan="5">
+		       	<input type="file" name="image"></td>
+		    </tr>
 		
 						
 		</table>
-		<input class="btn" type="button" value="색상등록" onClick="go_save_c()">           
+		<input class="btn" type="button" value="상품등록" onClick="go_save()">           
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

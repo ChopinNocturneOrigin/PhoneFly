@@ -27,14 +27,36 @@
 		  		<th>상세설명</th><td colspan="5">
 				<textarea name="content" rows="8" cols="70"></textarea></td>
 			</tr>
+			
+			<td>
+			<c:choose>
+			     <c:when test='${productVO.useyn=="N" }'>판매 불가</c:when>
+			     <c:otherwise>판매 가능</c:otherwise>
+			</c:choose>
+			</td>
+			<td>
+			<c:choose>
+			     <c:when test='${productVO.eventyn=="N" }'>이벤트 미적용</c:when>
+			     <c:otherwise>이벤트 적용</c:otherwise>
+			</c:choose>
+			</td>
+			<td>
+			<c:choose>
+			     <c:when test='${productVO.bestyn=="N" }'>베스트 미적용</c:when>
+			     <c:otherwise>베스트 적용</c:otherwise>
+			</c:choose>
+			</td>		
 			<tr>
-				<th>상품이미지</th>
-				<td width="343" colspan="5"><input type="file" name="image"></td>
-			</tr>  
+				<th>제조사</th>
+				<td width="343" colspan="5">
+		       	<input type="text" name="mfc" size="47" maxlength="100"></td>
+		    </tr>
+			
+			
 			
 			
 		</table>
-		<input class="btn" type="button" value="상품등록" onClick="go_save()">           
+		<input class="btn" type="button" value="색상선택" onClick="go_save_c()">           
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

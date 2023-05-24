@@ -35,7 +35,7 @@
 	<th>베스트 적용/미적용</th>
 	
 	</tr>
-	<c:forEach items="${productList}" var="productVO">
+	<c:forEach items="${adminproductList}" var="productVO">
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${productVO.pseq}</td>
 			<td>
