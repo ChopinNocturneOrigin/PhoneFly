@@ -2,18 +2,57 @@ package pf.controller.action.admin.product;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import pf.controller.action.Action;
+import pf.dao.AdminDao;
+import pf.dto.AdminVO;
+import pf.dto.ColorVO;
 
 public class AdminColorUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		String url = "pf.do?command=productColorList";
+		
+		HttpSession session = request.getSession();
+		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
+		if( avo == null) { 
+			url = "pf.do?command=admin"; 
+		} else {
+			ColorVO cvo = new ColorVO();
+			ServletContext context = session.getServletContext();
+			String path = context.getRealPath("image");
+			
+			MultipartRequest multi = new MultipartRequest(
+					request, 
+					path, 
+					5*1024*1024,  
+					"UTF-8", 
+					new DefaultFileRenamePolicy()
+			);
+			cvo.setPseq(Integer.parseInt( multi.getParameter("cseq") ) );
+			cvo.setName( multi.getParameter("name"));
+			cvo.setCcode(multi.getParameter("ccode"));
+			cvo.setImage(multi.getFilesystemName("image"));
+			    
+			    if( multi.getFilesystemName("image") == null ) 
+			    	cvo.setImage(multi.getParameter("oldImage") );
+			    else 	
+			    	cvo.setImage( multi.getFilesystemName("image") );
+			    
+			    AdminDao adao = AdminDao.getInstance();
+			    adao.updateProduct(cvo);
+			    url = url + "&cseq=" + cvo.getCseq();
+			}
+			request.getRequestDispatcher(url).forward(request, response);
+	}
 	}
 
-}

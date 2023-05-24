@@ -20,13 +20,13 @@ public class AdminColorInsertFormAction implements Action { //수정중
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
-		if( avo== null ) 
-			url ="pf.do?command=admin";
+		if(avo==null) 
+			url="pf.do?command=admin";
 		else {
-			ProductDao pdao = ProductDao.getInstance();
-			ProductVO pvo = new ProductVO();
-			int pseq = pdao.insertProduct(pvo);
-			request.setAttribute("pseq", pseq); // 생성된 pseq값 반환
+			int pseq = Integer.parseInt(request.getParameter("pseq"));
+			ProductDao pdao=ProductDao.getInstance();
+			ProductVO pvo= pdao.getProduct(pseq);
+			request.setAttribute("ProductVO", pvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 
