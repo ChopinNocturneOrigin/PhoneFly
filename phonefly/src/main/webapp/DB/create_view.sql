@@ -31,3 +31,15 @@ where o.oseq=d.oseq and o.id=m.id and d.pseq=p.pseq;
 
 select * from order_view;
 
+
+create or replace view order_view
+as
+select  d.odseq, o.oseq, o.indate, o.id, 
+			m.name as mname, m.zip_num, m.address1, m.address2, m.phone,
+			d.pseq, p.price2, d.quantity, d.result, p.name as pname
+from orders o, order_detail d, member m, product p
+where o.oseq=d.oseq and o.id=m.id and d.pseq=p.pseq;
+
+select * from order_view;
+
+

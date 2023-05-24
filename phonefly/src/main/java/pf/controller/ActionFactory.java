@@ -19,7 +19,6 @@ import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
-
 import pf.controller.action.admin.login.AdminAction;
 import pf.controller.action.admin.login.AdminLoginAction;
 import pf.controller.action.admin.member.AdminMemberDetailAction;
@@ -71,7 +70,6 @@ import pf.controller.action.member.mypage.QnaUpdateformAction;
 import pf.controller.action.member.mypage.QnaWriteAction;
 import pf.controller.action.member.mypage.QnaWriteFormAction;
 import pf.controller.action.order.OrderAction;
-import pf.controller.action.order.OrderFormAction;
 import pf.controller.action.order.OrderListAction;
 import pf.controller.action.product.ProductCompareAction;
 import pf.controller.action.product.ProductDetailAction;
@@ -122,7 +120,6 @@ public class ActionFactory {
 	
 	//주문(order)
 	else if(command.equals("orderList") ) ac = new OrderListAction();
-	else if(command.equals("orderForm") ) ac = new OrderFormAction();
 	else if(command.equals("order") ) ac = new OrderAction();
 	else if(command.equals("orderDetailListForm") ) ac = new AdminOrder_detailAction();
 	else if(command.equals("orderDetailList") ) ac = new AdminOrderListAction();
@@ -186,8 +183,7 @@ public class ActionFactory {
 	//관리자(admin).board.QnA
 	//else if(command.equals("adminQnaListForm") ) ac = new AdminQnaListFormAction();
 	else if(command.equals("adminQnaList") ) ac = new AdminQnaListAction();
-	
-	else if(command.equals("adminQnaDetailList") ) ac = new AdminQna_detailListAction();
+	else if(command.equals("adminQnaDetail") ) ac = new AdminQna_detailListAction();
 	//관리자(admin).board.Notice
 	else if(command.equals("adminNoticeListForm") ) ac = new AdminNoticeListFormAction();
 	else if(command.equals("adminNoticeList") ) ac = new AdminNoticeListAction();

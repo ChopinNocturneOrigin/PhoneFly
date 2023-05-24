@@ -154,6 +154,77 @@ public class AdminDao {
 		}finally {DBM.close(con, pstmt, rs);
 		}
 	}
-	
-	
+
+	public void updateProduct(ProductVO pvo) {
+		String sql = "update product set eventyn=?, useyn=?, name=?, price1=?, price2=?, price3=? ,"
+				+ "	content=?, mfc=?, bestyn=? where pseq=? ";
+		con =DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pvo.getEventyn());
+		    pstmt.setString(2, pvo.getUseyn());
+		    pstmt.setString(3, pvo.getName());
+		    pstmt.setInt(4, pvo.getPrice1());
+		    pstmt.setInt(5, pvo.getPrice2());
+		    pstmt.setInt(6, pvo.getPrice3());
+		    pstmt.setString(7, pvo.getContent());
+		    pstmt.setString(8, pvo.getMfc());
+		    pstmt.setString(9, pvo.getBestyn());
+		    pstmt.setInt(10, pvo.getPseq());
+		    
+			pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {DBM.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public ArrayList<ColorVO> productColorList(Paging paging, String key) {
+		ArrayList<ColorVO> list = new ArrayList<ColorVO>();
+		con = DBM.getConnection();
+		String sql="select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn,c.*from "
+				+ " ((select*from color where name like'%'||?||'%' order by cseq desc) c)"
+				+ " ) where rn>=? "
+				+ " ) where rn<=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ColorVO cvo = new ColorVO();
+				cvo.setCseq(  rs.getInt("cseq") );
+				cvo.setPseq(  rs.getInt("pseq") );
+				cvo.setName(  rs.getString("name") );
+				cvo.setCcode(  rs.getString("ccode") );
+				cvo.setImage(  rs.getString("image") );
+				list.add(cvo);
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);
+		}
+		return list;
+	}
+
+	public void updateProduct(ColorVO cvo) {
+		String sql = " update color set pseq=?, name=?, ccode=?, image=? where cseq=? ";
+		con =DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cvo.getPseq());
+		    pstmt.setString(2, cvo.getName());
+		    pstmt.setString(3, cvo.getCcode());
+		    pstmt.setString(4, cvo.getImage());
+		    pstmt.setInt(5, cvo.getCseq());	    
+			pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {DBM.close(con, pstmt, rs);
+		}
+		
+	}
 }
