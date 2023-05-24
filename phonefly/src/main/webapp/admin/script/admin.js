@@ -263,7 +263,7 @@ function go_order_save(){
 	if (count == 0) {
 	    alert("주문처리할 항목을 선택해 주세요.");
 	}else{
-		document.frm.action = "pf.do?command=adminOrderSave";
+		document.frm.action = "pf.do?command=adminOrderUpdate";
 		document.frm.submit();
 	}
 	// 주문 처리하고(주문의 result 값을 '1' -> '2' 로 변경)    orderList.jsp 로 되돌아 갑니다.
@@ -281,7 +281,7 @@ function go_view( qseq ){
 
 
 function go_rep(qseq){
-	document.frm.action="pf.do?command=adminQnaRepSave";
+	document.frm.action="pf.do?command=adminQnaUpdate";
 	document.frm.submit();
 	// 답변 글 등록 & rep 필드를 2로 업데이트
 }
@@ -310,6 +310,13 @@ function go_del_n(nseq) {
   }
 }
 
+function go_del_c(cseq) {  
+  var confirmDelete = confirm("정말 이 색상을 삭제하시겠습니까?");
+  if (confirmDelete) {  
+    var url = "pf.do?command=adminColorDelete&cseq=" + cseq;   
+    location.href = url;
+  }
+}
 
 
 function go_col(pseq) {  
