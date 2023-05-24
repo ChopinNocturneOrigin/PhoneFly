@@ -31,7 +31,7 @@
 	<th>이미지(경로)</th>	
 	</tr>
 	
-	<c:forEach items="${productColorList}" var="colorVO">
+	<c:forEach items="${adminColorList}" var="colorVO">
 		<tr>		
 			<td style="text-align:left; padding-left:50px;">${colorVO.cseq}</td>
 			<td>

@@ -10,8 +10,8 @@
 <body>
 <div id="wrap">
 	<header>
-		<div id="logo"><img src="admin/images/bar_01.gif" style="float:left;">	
-		<img src="admin/images/text.gif"></div>
+		<div id="logo"><img src="admin/images/admin_01.png" style="float:left;">	
+		
 	</header>	<div class="clear"></div>
 	<article>
 		<div id="loginform">

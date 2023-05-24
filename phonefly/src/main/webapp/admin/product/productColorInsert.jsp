@@ -26,7 +26,7 @@
 		
 						
 		</table>
-		<input class="btn" type="button" value="상품등록" onClick="go_save()">           
+		<input class="btn" type="button" value="색상등록" onClick="go_save()">           
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

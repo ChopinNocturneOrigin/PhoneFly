@@ -26,7 +26,7 @@
 		  	 <tr>
 		  	 	<th>색상이미지</th>
 		  	 	<td colspan="5">
-		      		<img src="product_images/${colorVO.image}" width="200"><br>
+		      		<img src="color_images/${colorVO.image}" width="200"><br>
 		      		<input type="file" name="image">
 		      	</td>
 		      </tr>			

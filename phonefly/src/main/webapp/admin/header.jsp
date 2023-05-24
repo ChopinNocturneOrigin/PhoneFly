@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>admin</title>
 	<link rel="stylesheet" href="admin/css/admin.css" />
 	<script src="admin/script/admin.js"></script>
 </head>
@@ -13,8 +13,8 @@
 <div id="wrap">
 	<header>			
 		<div id="logo">
-			<img style="width:800px" src="admin/images/bar_01.gif">
-			<img src="admin/images/text.gif">
+			<img style="width:1000px" src="admin/images/admin_01.png">
+			
 		</div>	
 		<input class="btn" type="button" value="logout" style="float: right;" 
 			onClick="location.href='pf.do?command=adminLogout'">			
