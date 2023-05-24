@@ -33,18 +33,19 @@ public class QnaDao {
 		return count;
 	}
 
-	public ArrayList<QnaVO> selectQna(Paging paging) {
+	public ArrayList<QnaVO> selectQna(Paging paging, String loggedInId) {
 		ArrayList<QnaVO> list= new ArrayList<>();
 		String sql = " select*from( "
 				+ " select*from( "
-				+ " select rownum as rn, q.*from ((select*from qna order by qseq desc) q) "
+				+ " select rownum as rn, q.*from ((select*from qna where id=? order by qseq desc) q) "
 				+ " ) where rn>=? "
 				+ " ) where rn<=? ";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, paging.getStartNum());
-			pstmt.setInt(2,paging. getEndNum());
+			pstmt.setString(1, loggedInId);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while( rs.next() ) {
 				QnaVO qvo = new QnaVO();
@@ -131,6 +132,69 @@ public class QnaDao {
 				
 	}
 
+	public ArrayList<QnaVO> qnaList(Paging paging, String key) {
+		ArrayList<QnaVO> list = new ArrayList<QnaVO>();
+		String sql = " select * from ("
+				+ " select * from ("
+				+ " select rownum as rn, q.* from "
+				+ "(( select * from qna where subject like '%'||?||'%'"
+				+ " or content like '%'||?||'%'  order by qseq desc ) q)"
+				+ " ) where rn>=?"
+				+ " ) where rn<=?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  key);
+			pstmt.setString(2,  key);
+			pstmt.setInt(3, paging.getStartNum() );
+			pstmt.setInt(4, paging.getEndNum() );
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				QnaVO qvo = new QnaVO();
+				qvo.setContent( rs.getString("content") );
+				qvo.setId( rs.getString("id"));
+				qvo.setIndate( rs.getTimestamp("indate"));
+				qvo.setQseq( rs.getInt("qseq"));
+				qvo.setRep( rs.getString("rep"));
+				qvo.setReply( rs.getString("reply"));
+				qvo.setSubject( rs.getString("subject"));
+				list.add(qvo);
+			}
+		}catch (SQLException e) { e.printStackTrace(); 
+		} finally { DBM.close(con, pstmt, rs);  }
+		return list;
+		}
 	
+	public int getAllCountQna(String key) {
+		int count =0;
+		String sql = "select count(*) as cnt from qna "  
+				+ " where subject like '%'||?||'%' or content like '%'||?||'%' ";
+		con =DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  key);
+			pstmt.setString(2,  key);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				count = rs.getInt("cnt");
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {DBM.close(con, pstmt, rs); }
+		return count;
+	}
+
+	public void updateQnaAdmin(QnaVO qvo) {
+		
+		String sql = "update qna set reply=?, rep='2' where qseq=?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, qvo.getReply() );
+			pstmt.setInt(2,  qvo.getQseq() );
+			pstmt.executeUpdate();
+		} catch (SQLException e) {e.printStackTrace(); 
+		} finally { DBM.close(con, pstmt, rs);  }
+		
+	}	
 	
 }

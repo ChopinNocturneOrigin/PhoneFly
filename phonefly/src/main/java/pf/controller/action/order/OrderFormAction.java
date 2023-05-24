@@ -12,7 +12,17 @@ public class OrderFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		int pseq = Integer.parseInt( request.getParameter("pseq") );
+		int rseq = Integer.parseInt( request.getParameter("rseq") );
+		int discount = Integer.parseInt( request.getParameter("discount") );
+		int buyplan = Integer.parseInt( request.getParameter("buyplan") );
+		int dcmonth = Integer.parseInt( request.getParameter("dcmonth") );
+		int dctotal = Integer.parseInt( request.getParameter("dctotal") );
+		int mmonth = Integer.parseInt( request.getParameter("mmonth") );
+		int mtotal = Integer.parseInt( request.getParameter("mtotal") );
+		String cc = request.getParameter("cc");
+
 
 	}
 
