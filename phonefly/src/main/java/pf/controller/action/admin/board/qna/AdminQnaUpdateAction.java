@@ -12,22 +12,26 @@ import pf.dao.QnaDao;
 import pf.dto.AdminVO;
 import pf.dto.QnaVO;
 
-public class AdminQna_detailListAction implements Action {
+public class AdminQnaUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/qna/qnaDetail.jsp";
+	
+		String url = "pf.do?command=adminQna_detailList";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
-		if( avo == null) { 
-			url = "pf.do?command=admin"; 
-		} else {		
+		if( avo == null) {
+			url = "pf.do?command=admin";
+		}else {
 			QnaDao qdao = QnaDao.getInstance();
-			QnaVO qvo = qdao.getQna(Integer.parseInt(request.getParameter("qseq")));
+			QnaVO qvo = new QnaVO();
 			
-			request.setAttribute("qnaVO", qvo);
+			qvo.setQseq( Integer.parseInt( request.getParameter("qseq") ) );
+			qvo.setReply( request.getParameter("reply") );
+			qdao.updateQnaAdmin( qvo );
+			
+			url = url + "&qseq=" + qvo.getQseq();
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-
 }

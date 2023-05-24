@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
-import pf.dao.AdminDao;
+import pf.dao.QnaDao;
 import pf.dto.AdminVO;
 import pf.dto.QnaVO;
 import pf.util.Paging;
 
-public class AdminQnaListAction implements Action { //수정중
+public class AdminQnaListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,11 +53,11 @@ public class AdminQnaListAction implements Action { //수정중
 				session.removeAttribute("key");
 			}
 			
-			AdminDao adao = AdminDao.getInstance();
-			int count = adao.getAllCountQna( key );
+			QnaDao qdao = QnaDao.getInstance();
+			int count = qdao.getAllCountQna( key );
 			paging.setTotalCount(count);
 			
-			ArrayList<QnaVO> qnaList = adao.qnaList(paging, key);
+			ArrayList<QnaVO> qnaList = qdao.qnaList(paging, key);
 			request.setAttribute("qnaList", qnaList);
 			request.setAttribute("paging", paging);
 			request.setAttribute("key", key);

@@ -26,25 +26,28 @@ public class QnaListAction implements Action {
 		if(mvo==null) {
 			url="pf.do?command=loginForm";
 		}else {
+		
+			String loggedInId = mvo.getId();
 			
-		QnaDao qdao = QnaDao.getInstance();
+			QnaDao qdao = QnaDao.getInstance();
 		
-		//페이지
-		int page = 1;
-		if(request.getParameter("page")!=null)
-			page=Integer.parseInt(request.getParameter("page"));
-		
-		Paging paging = new Paging();
-		paging.setPage(page);
-		
-		int count = qdao.getAllCount();
-		paging.setTotalCount(count);
-		
-		
-		ArrayList<QnaVO>list = qdao.selectQna(paging);
-		request.setAttribute("qnaList", list);
-		request.setAttribute("paging", paging);
-		
+			//페이지
+			int page = 1;
+			if(request.getParameter("page")!=null)
+				page=Integer.parseInt(request.getParameter("page"));
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+			
+			int count = qdao.getAllCount();
+			paging.setTotalCount(count);
+			
+			
+			ArrayList<QnaVO>list = qdao.selectQna(paging, loggedInId);
+			
+			request.setAttribute("qnaList", list);
+			request.setAttribute("paging", paging);
+			
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 		
