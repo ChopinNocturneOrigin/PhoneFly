@@ -171,7 +171,7 @@ textarea::placeholder {
 	text-align: middle !important;
 }
 .float-l {
-	float: left;
+	float: left !important;
 }
 .float-r {
 	float: right;
@@ -688,19 +688,21 @@ article h3 {
 }
 /* 전체 프레임 안쪽 */
 .pdd-inside-wrap {
+	width:1200px;
 	margin:0px auto;
 }
 
 .pdd-left-wrap {
 	float: left;
 	width: 852px;
-	height: 2000px;
+	min-height: 800px;
 	margin-right: 20px;
 }
 
 .pdd-image-wrap {
 	text-align: center;
 	float: left;
+	height: 464px;
 }
 
 .pdd-card-name>h3 {
@@ -886,6 +888,7 @@ article h3 {
 .ppd-submit {
 	width: 130px;
 	font-size: 1.2em;
+	font-weight: bold;
 	margin: 0px auto;
 	text-align: center;
 }
@@ -977,6 +980,59 @@ article h3 {
 	height: 18px;
 	line-height: 18px;
 	border-radius: 5px;
+}
+
+
+/* 제품 상세 제품 설명 */
+.pdd-detail-hr {
+	width: 748px;
+}
+.pdd-detail-txt {
+	width: 748px;
+	margin: 0px auto;
+	font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+	font-size: 1.05em;
+	margin-bottom: 14px;
+	padding: 20px;
+	text-align: left;
+}
+
+
+
+
+/* 구매 후기 */
+.pdd-review-wrap {
+	float: left;
+	width: 842px;
+	margin: 20px 20px 20px 0px;
+	padding-left: 10px;
+	min-height: 187px;
+}
+.pdd-review-title {
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #444;
+	padding-top: 12px;
+	padding-bottom: 7px;
+}
+.pdd-review-inputarea {
+	text-align: left;
+	vertical-align: middle;
+	margin: 20px;
+}
+.pdd-review-inputarea input {
+	width: 130px;
+	height: 45px;
+	font-size: 1.02em;
+	letter-spacing: -0.05em;
+	font-weight: 900;
+	border-radius: 24px;
+	line-height: 47px;
+}
+.pdd-review-submit {
+	height: 80px;
+	line-height: 116px;
+	margin-left: 10px;
 }
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
 .pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */
