@@ -38,7 +38,7 @@ public class ProductCompareAction implements Action {
 		request.setAttribute("productList", productList);
 				
 		// 상품 비교 페이지로 이동합니다.
-		String url = "comparePopup.jsp";
+		String url = "productCompare.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

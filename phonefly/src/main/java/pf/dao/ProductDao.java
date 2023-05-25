@@ -283,4 +283,41 @@ public class ProductDao {
 		} finally { DBM.close(con, pstmt, rs);  }
 		return pvo;
 	}
+
+	public ArrayList<ProductVO> getProducts(String mfc) {
+		ArrayList<ProductVO> list = new ArrayList<>();
+		con = DBM.getConnection();
+		String sql = "SELECT * FROM product where mfc=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mfc);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ProductVO pvo = new ProductVO();
+				pvo.setPseq(rs.getInt("pseq"));
+				pvo.setName(rs.getString("name"));
+				pvo.setPrice1(rs.getInt("price1"));
+				pvo.setPrice2(rs.getInt("price2"));
+				pvo.setPrice3(rs.getInt("price3"));
+				pvo.setContent(rs.getString("content"));
+				pvo.setUseyn(rs.getString("useyn"));
+				pvo.setEventyn(rs.getString("eventyn"));
+				pvo.setBestyn(rs.getString("bestyn"));
+				pvo.setIndate(rs.getTimestamp("indate"));
+				pvo.setMfc(rs.getString("mfc"));
+
+				// 컬러 리스트 추가
+				ArrayList<ColorVO> cvo = getColorList(pvo.getPseq());
+				pvo.setColorList(cvo);
+
+				list.add(pvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return list;
+	
+	}
 }

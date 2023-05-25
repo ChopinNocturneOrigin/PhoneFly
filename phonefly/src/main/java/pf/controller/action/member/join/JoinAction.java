@@ -6,8 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.util.URLEncoder;
-
 import pf.controller.action.Action;
 import pf.dao.MemberDao;
 import pf.dto.MemberVO;
@@ -27,7 +25,7 @@ public class JoinAction implements Action {
 		mvo.setZipnum(request.getParameter("zipnum"));
 		mvo.setAddress1(request.getParameter("address1"));
 		mvo.setAddress2(request.getParameter("address2"));
-
+				
 		mdao.insertMember( mvo );
 
 		response.sendRedirect("pf.do?command=loginForm");
