@@ -7,8 +7,8 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%-- <%@ include file="../header.jsp"%> --%>
-<%@ include file="../header2.jsp"%>
+<%@ include file="../header.jsp"%>
+<%-- <%@ include file="../header2.jsp"%> --%>
 
 
 <article>

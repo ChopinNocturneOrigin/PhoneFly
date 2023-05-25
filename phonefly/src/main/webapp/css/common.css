@@ -712,6 +712,13 @@ article h3 {
 	z-index: -1;
 	margin-bottom: 30px
 }
+.sub-banner-notice {
+	height: 300px;
+}
+.sub-banner-notice video {
+	position: relative;
+	top: 0px;
+}
 .sub-banner video,
 .sub-video {
 	width: 100%;
@@ -1137,6 +1144,9 @@ article h3 {
 	margin: 20px;
 	font-size: 0.85em;
 }
+
+
+
 
 
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
