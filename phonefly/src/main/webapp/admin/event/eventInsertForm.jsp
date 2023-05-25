@@ -9,15 +9,18 @@
 			
 			
 			<tr>
-				<th>이벤트명</th>
+				<th>이벤트 제목</th>
 				<td width="343" colspan="5">
 		       	<input type="text" name="subject" size="47" maxlength="100"></td>
 		    </tr>
 		    		  	
 		  	<tr>
-		  		<th>상세설명</th><td colspan="5">
-				<textarea name="content" rows="8" cols="70"></textarea></td>
-			</tr>
+		  		<th>이벤트 이미지</th>
+		  		<td width="343" colspan="5">
+		       	<input type="file" name="image"></td>
+		    </tr>
+		
+			
 		
 		</table>
 		<input class="btn" type="button" value="이벤트등록" onClick="go_save_e()">           
