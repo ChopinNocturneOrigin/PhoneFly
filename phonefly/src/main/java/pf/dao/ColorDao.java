@@ -81,6 +81,19 @@ public class ColorDao {
 		return cvo;
 	}
 
+	public void deleteColor(int cseq) {
+		String sql = "delete from color where cseq=?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);
+		}
+		
+	}
+
 		
 		
 	}
