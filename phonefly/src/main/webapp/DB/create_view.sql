@@ -16,30 +16,19 @@ WHERE rownum <= 4;
 
 SELECT * FROM main_event_pro_view;
 
--- orders 와 order_detail 의 join 으로 
--- 1. 주문번호(oseq)에 따른 주문상품들의 표시 
--- 2. 상품번호에 따른 상품 이름과 가격 등의 정보 표시
--- 3. 아이디에 따른 고객 이름과 배송주소 등의 정보 표시
 
-create or replace view order_view
+
+-- order_detail_view 생성
+
+
+create or replace view order_detail_view
 as
-select  d.odseq, o.oseq, o.indate, o.id, 
-			m.name as mname, m.zip_num, m.address1, m.address2, m.phone,
-			d.pseq, p.price2, d.quantity, d.result, p.name as pname
-from orders o, order_detail d, member m, product p
-where o.oseq=d.oseq and o.id=m.id and d.pseq=p.pseq;
-
-select * from order_view;
-
-
-create or replace view order_view
-as
-select  d.odseq, o.oseq, o.indate, o.id, 
-			m.name as mname, m.zip_num, m.address1, m.address2, m.phone,
-			d.pseq, p.price2, d.quantity, d.result, p.name as pname
-from orders o, order_detail d, member m, product p
-where o.oseq=d.oseq and o.id=m.id and d.pseq=p.pseq;
-
-select * from order_view;
+select  d.odseq, d.pseq, d.id, d.result, d.discount,
+		d.buyplan, d.dcmonth, d.dctotal, d.mmonth, d.mtotal, d.cc, d.indate, d.cseq,
+			p.price2, p.name as pname,
+			c.name as cname, 
+			r.name as rname 
+from order_detail d, comm c, product p, rplan r
+where d.rseq=r.rseq and r.mseq=c.mseq and d.pseq=p.pseq;
 
 

@@ -16,7 +16,28 @@ public class OrderDetailVO {
 	private int dctotal;
 	private int mmonth;
 	private int mtotal;
+	private String pname;
+	private String cname;
+	private String rname;
 	
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+	public String getRname() {
+		return rname;
+	}
+	public void setRname(String rname) {
+		this.rname = rname;
+	}
 	public int getRseq() {
 		return rseq;
 	}

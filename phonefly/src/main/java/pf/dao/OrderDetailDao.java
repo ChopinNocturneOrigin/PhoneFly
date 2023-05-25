@@ -67,4 +67,40 @@ public class OrderDetailDao {
 		}
 		return list;
 	}
+
+	public OrderDetailVO getOrderDetails(int odseq) {
+		con = DBM.getConnection();
+		OrderDetailVO ovo = null;
+		String sql = "SELECT * FROM order_detail_view WHERE odseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			rs = pstmt.executeQuery();	
+			if (rs.next()) {
+				ovo = new OrderDetailVO();
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setPseq(rs.getInt("pseq"));
+				ovo.setId(rs.getString("id"));
+				ovo.setResult(rs.getString("result"));
+				ovo.setDiscount(rs.getInt("discount"));
+				ovo.setBuyplan(rs.getInt("buyplan"));
+				ovo.setDcmonth(rs.getInt("dcmonth"));
+				ovo.setDctotal(rs.getInt("dctotal"));
+				ovo.setMmonth(rs.getInt("mmonth"));
+				ovo.setMtotal(rs.getInt("mtotal"));
+				ovo.setCc(rs.getString("cc"));
+				ovo.setIndate(rs.getTimestamp("indate"));
+				ovo.setPname(rs.getString("pname"));
+				ovo.setCname(rs.getString("cname"));
+				ovo.setRname(rs.getString("rname"));
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        DBM.close(con, pstmt, rs);
+		    }
+		    return ovo;
+		}
+
+	
 }

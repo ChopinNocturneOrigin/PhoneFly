@@ -19,7 +19,7 @@ public class MemberDao {
 	ResultSet rs = null;
 	
 	public void insertMember(MemberVO mvo) {
-		String sql = "insert into member( id, pwd, name, zipnum, address1, address2, phone, email ) "
+		String sql = "insert into member( id, pwd, name, zipnum, address1, address2, phone, email) "
 				+ " values( ? , ? , ? , ? , ? , ? , ? , ?)";
 		con = DBM.getConnection();
 		try {
@@ -32,6 +32,7 @@ public class MemberDao {
 			pstmt.setString(6, mvo.getAddress2());
 			pstmt.setString(7, mvo.getPhone());
 			pstmt.setString(8, mvo.getEmail());
+	       
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);

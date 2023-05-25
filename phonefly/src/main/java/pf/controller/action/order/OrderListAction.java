@@ -27,6 +27,7 @@ public class OrderListAction implements Action {
 		if (mvo == null) {
 		    url = "pf.do?command=loginForm";
 		}else {
+			
 			OrderDetailDao odao = OrderDetailDao.getInstance();
 			ArrayList<OrderDetailVO> list = odao.listOrderByOdseq( odseq );
 
