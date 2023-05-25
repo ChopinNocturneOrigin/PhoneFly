@@ -81,7 +81,7 @@ rplan-textplan : 문자제한 (전체 문자 무제한) [rplanVO.textplan] -> x
 (+)rplan-name : 요금제 이름 (왼쪽필드 중복) -> 동시작업
 (+)rplan-charge : 요금제 금액 (왼쪽필드 중복) -> 동시 변경작업 -> d
 (+)rplan-discount : 선택약정 할인, 고정, on/off (1 : 600000) -> e / 24 => {discount} x 왼쪽필드에서 처리
-(calc)rplan-mmonth : 월 할부금 ( d - e / 24) -> B => {mmonth}
+(calc)rplan-mmonth : 월 통신요금 ( d - e / 24 ) -> B => {mmonth}
 
 (calc)rplan-mtotal : 월 총 납부금액 ( A - B ) => {mtotal}
 

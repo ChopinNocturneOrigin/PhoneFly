@@ -32,18 +32,18 @@
 						<input type="hidden" class="compare-box-xbtn-h" value="" />
 						<div class="compare-box disabled">
 							<div>
-								<div class="compare-box-image display-none">
+								<div class="compare-box-image visibility-hidden">
 									<img src="images/productImage/Aippr1401.png" class="compare-box-image-real" />
 								</div>
-								<div class="compare-box-text display-none">
+								<div class="compare-box-text visibility-hidden">
 									<div class="compare-box-name">
 									iPhone 14 Pro
 									</div>
-									<div class="compare-box-price display-none">
+									<div class="compare-box-price visibility-hidden">
 									0원
 									</div>
 								</div>
-								<div class="compare-box-xbtn display-none" onclick="btnX(${status.index-1});">
+								<div class="compare-box-xbtn visibility-hidden" onclick="btnX(${status.index-1});">
 								</div>
 							</div>
 						</div>

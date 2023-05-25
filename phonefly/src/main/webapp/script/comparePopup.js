@@ -61,10 +61,10 @@ function compareProduct(pseq_from) {
 
 			$(function(){
 				$('.compare-box').eq(compare_box_count-1).removeClass('disabled');
-				$('.compare-box-image').eq(compare_box_count-1).removeClass('display-none');
-				$('.compare-box-text').eq(compare_box_count-1).removeClass('display-none');
-				$('.compare-box-price').eq(compare_box_count-1).removeClass('display-none');
-				$('.compare-box-xbtn').eq(compare_box_count-1).removeClass('display-none');
+				$('.compare-box-image').eq(compare_box_count-1).removeClass('visibility-hidden');
+				$('.compare-box-text').eq(compare_box_count-1).removeClass('visibility-hidden');
+				$('.compare-box-price').eq(compare_box_count-1).removeClass('visibility-hidden');
+				$('.compare-box-xbtn').eq(compare_box_count-1).removeClass('visibility-hidden');
 			});
 
 			compare_box_count++;
@@ -133,10 +133,10 @@ function btnX(count) {
 
 	$(function(){
 		$('.compare-box').eq(compare_box_count).addClass('disabled');
-		$('.compare-box-image').eq(compare_box_count).addClass('display-none');
-		$('.compare-box-text').eq(compare_box_count).addClass('display-none');
-		$('.compare-box-price').eq(compare_box_count).addClass('display-none');
-		$('.compare-box-xbtn').eq(compare_box_count).addClass('display-none');
+		$('.compare-box-image').eq(compare_box_count).addClass('visibility-hidden');
+		$('.compare-box-text').eq(compare_box_count).addClass('visibility-hidden');
+		$('.compare-box-price').eq(compare_box_count).addClass('visibility-hidden');
+		$('.compare-box-xbtn').eq(compare_box_count).addClass('visibility-hidden');
 	});
 
 	compare_box_count--;
