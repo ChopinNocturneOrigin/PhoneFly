@@ -9,7 +9,7 @@
 	<table>
 		<tr>
 			<td width="642">
-				이벤트명 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
+				이벤트 제목 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
 				<input class="btn" type="button" name="btn_search" value="검색" 
 						onClick="go_search('adminEventList');">&nbsp;&nbsp;&nbsp;
 						
@@ -25,8 +25,8 @@
 <table id="eventList">
 	<tr>
 	<th>번호</th>
-	<th>이벤트명</th>
-	<th>이벤트등록일</th>
+	<th>이벤트 제목</th>
+	<th>이벤트 등록일</th>
 	</tr>
 	<c:forEach items="${eventList}" var="eventVO">
 		<tr>
