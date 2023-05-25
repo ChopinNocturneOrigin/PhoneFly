@@ -12,12 +12,15 @@ import pf.controller.action.Action;
 import pf.dao.AdminDao;
 import pf.dto.AdminVO;
 import pf.dto.ColorVO;
+import pf.dto.ProductVO;
 import pf.util.Paging;
 
 public class AdminColorListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int pseq = Integer.parseInt(request.getParameter("pseq"));
+	
 		String url = "admin/product/productColorList.jsp";
 
 		HttpSession session = request.getSession();
@@ -56,13 +59,14 @@ public class AdminColorListAction implements Action {
 			
 			AdminDao adao = AdminDao.getInstance();
 			
-			int count = adao.getAllcount("product","name",key);
+			int count = adao.getAllcount("color","name",key);
 			
 			paging.setTotalCount(count);
 
-			ArrayList<ColorVO> productColorList = adao.productColorList(paging, key);
-			request.setAttribute("productColorList", productColorList);
+			ArrayList<ColorVO> ProductColorList = adao.productColorList(paging, key, pseq);
+			request.setAttribute("ProductColorList", ProductColorList);
 			request.setAttribute("paging", paging);
+
 
 		}
 	     request.getRequestDispatcher(url).forward(request, response);
