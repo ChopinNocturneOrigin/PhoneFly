@@ -10,11 +10,9 @@ import pf.controller.action.admin.board.event.AdminEventUpdateAction;
 import pf.controller.action.admin.board.event.AdminEventUpdateFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDeleteAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
-import pf.controller.action.admin.board.notice.AdminNoticeDetailFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeInsertAction;
 import pf.controller.action.admin.board.notice.AdminNoticeInsertFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeListAction;
-import pf.controller.action.admin.board.notice.AdminNoticeListFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
@@ -74,6 +72,7 @@ import pf.controller.action.order.OrderListAction;
 import pf.controller.action.product.ProductCompareAction;
 import pf.controller.action.product.ProductDetailAction;
 import pf.controller.action.product.ProductListAction;
+import pf.controller.action.product.ProductReviewListAction;
 
 public class ActionFactory {
 
@@ -130,7 +129,7 @@ public class ActionFactory {
 	else if(command.equals("productDetail") ) ac = new ProductDetailAction();
 	else if(command.equals("productList") ) ac = new ProductListAction();
 	else if(command.equals("productCompare") ) ac = new ProductCompareAction();
-
+	else if(command.equals("productListReview") ) ac = new ProductReviewListAction();	
 
 	//게시판(board)
 	
@@ -185,9 +184,7 @@ public class ActionFactory {
 	else if(command.equals("adminQnaList") ) ac = new AdminQnaListAction();
 	else if(command.equals("adminQnaDetail") ) ac = new AdminQna_detailListAction();
 	//관리자(admin).board.Notice
-	else if(command.equals("adminNoticeListForm") ) ac = new AdminNoticeListFormAction();
 	else if(command.equals("adminNoticeList") ) ac = new AdminNoticeListAction();
-	else if(command.equals("adminNoticeDetailForm") ) ac = new AdminNoticeDetailFormAction();
 	else if(command.equals("adminNoticeDetail") ) ac = new AdminNoticeDetailAction();
 	else if(command.equals("adminNoticeInsertForm") ) ac = new AdminNoticeInsertFormAction();
 	else if(command.equals("adminNoticeInsert") ) ac = new AdminNoticeInsertAction();

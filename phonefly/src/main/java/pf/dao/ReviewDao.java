@@ -34,14 +34,13 @@ public class ReviewDao {
 	}
 
 	public void updateReview(ReviewVO rvo) {
-		String sql = "Update review set subject=?, content=?, id=? where rseq = ?";
+		String sql = "Update review set content=?, id=? where rseq = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, rvo.getSubject());
-			pstmt.setString(2, rvo.getContent());
-			pstmt.setString(3, rvo.getId());
-			pstmt.setInt(4, rvo.getRseq());
+			pstmt.setString(1, rvo.getContent());
+			pstmt.setString(2, rvo.getId());
+			pstmt.setInt(3, rvo.getRseq());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
@@ -81,7 +80,6 @@ public class ReviewDao {
 				ReviewVO rvo = new ReviewVO();
 				rvo.setRseq(rs.getInt("rseq"));
 				rvo.setId(rs.getString("id"));
-				rvo.setSubject(rs.getString("subject"));
 				rvo.setContent(rs.getString("content"));
 				rvo.setIndate(rs.getTimestamp("indate"));		    	
 		    	list.add(rvo);
@@ -93,20 +91,64 @@ public class ReviewDao {
 
 	public void insertReview(ReviewVO rvo) {
 		
-		String sql = "insert into review (rseq, subject, content, id, pseq, indate) "
-				+ " values(rseq.nextval, ? , ? , ?, ?, ?)";
+		String sql = "insert into review (rseq, content, id, pseq, indate) "
+				+ " values(rseq.nextval, ?, ?, ?, ?)";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, rvo.getSubject());
-		    pstmt.setString(2, rvo.getContent());
-		    pstmt.setString(3, rvo.getId());
-		    pstmt.setInt(4, rvo.getPseq());
+		    pstmt.setString(1, rvo.getContent());
+		    pstmt.setString(2, rvo.getId());
+		    pstmt.setInt(3, rvo.getPseq());
+		    pstmt.setTimestamp(4, rvo.getIndate());
 		    pstmt.executeUpdate();  
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {  DBM.close(con, pstmt, rs);  }
 		
 	}
+
+	public ArrayList<ReviewVO> listReviewBypseq(int pseq) {
+		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
+		String sql = "SELECT r.*, m.NAME "
+				+ "FROM REVIEW "
+				+ "JOIN MEMBER m ON r.ID = m.ID "
+				+ "WHERE r.PSEQ = ?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,  pseq);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ReviewVO rvo = new ReviewVO();
+				rvo.setRseq(rs.getInt("rseq"));
+				rvo.setId(rs.getString("id"));
+				rvo.setContent(rs.getString("content"));
+				rvo.setIndate(rs.getTimestamp("indate"));
+		    	list.add(rvo);
+		    }
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);  }
+		return list;
+	}
+
+	public boolean checkIfPurchased(String id, int pseq) {
+		 String sql = "SELECT COUNT(*) AS cnt FROM Purchase WHERE id = ? AND pseq = ?";
+	        con = DBM.getConnection();
+	        try {
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, id);
+	            pstmt.setInt(2, pseq);
+	            rs = pstmt.executeQuery();
+	            if (rs.next()) {
+	                int count = rs.getInt("cnt");
+	                return count > 0;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            DBM.close(con, pstmt, rs);
+	        }
+	        return false;
+	    }
 		
 		
 }
