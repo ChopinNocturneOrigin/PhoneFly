@@ -12,7 +12,7 @@
 	<table id="orderList">
 		<tr><th>아이디(탈퇴여부)</th><th> 이름 </th><th>이메일</th><th>우편번호</th><th>주소</th>
 		<th>전화</th><th>가입일</th></tr>
-	    <c:forEach items="${memberList}" var="memberVO">  
+	    <c:forEach items="${adminMemberList}" var="memberVO">  
 		    <tr><td>${memberVO.id} 
 		    	<c:choose>
 		      		<c:when test='${memberVO.useyn=="y"}'>

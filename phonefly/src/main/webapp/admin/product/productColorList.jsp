@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header2.jsp"%>
-<%@ include file="/admin/sub_menu2.jsp"%>
+<%@ include file="/admin/header.jsp"%>
+<%@ include file="/admin/sub_menu.jsp"%>
 
 <article>
 <h1>상품 색상 리스트</h1>
@@ -31,17 +31,17 @@
 	<th>이미지(경로)</th>	
 	</tr>
 	
-	<c:forEach items="${adminColorList}" var="colorVO">
+	<c:forEach items="${ProductColorList}" var="ColorVO">
 		<tr>		
-			<td style="text-align:left; padding-left:50px;">${colorVO.cseq}</td>
+			<td style="text-align:left; padding-left:50px;">${ColorVO.cseq}</td>
 			<td>
-				<a href="#" onClick="go_detail_c( '${colorVO.cseq}');">
-					${colorVO.name}
+				<a href="#" onClick="go_detail_c( '${ColorVO.cseq}');">
+					${ColorVO.name}
 				</a>
 			</td>
-			<td>${productVO.pseq}</td>
-			<td>${colorVO.ccode}</td>
-			<td>${colorVO.image}</td>
+			<td>${ColorVO.pseq}</td>
+			<td>${ColorVO.ccode}</td>
+			<td>${ColorVO.image}</td>
 			<td>		
 			</td>
 		</tr>

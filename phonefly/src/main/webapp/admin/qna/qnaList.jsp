@@ -13,7 +13,7 @@
 </form>
 <table id="orderList">
 	<tr><th>번호(답변여부)</th> <th>제목</th> <th>작성자</th><th>작성일</th></tr>
-  	<c:forEach items="${adminQnaList}" var="qnaVO">
+  	<c:forEach items="${qnaList}" var="qnaVO">
     	<tr><td>${qnaVO.qseq}  
       		<c:choose>          
         		<c:when test='${qnaVO.rep=="1"}'>(미처리)</c:when>
