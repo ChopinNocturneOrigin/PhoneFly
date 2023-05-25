@@ -84,16 +84,17 @@ $(window).scroll( function () {
 /* 제품 상세 */ 
 
 // 페이지 로딩시 기본값 세팅
+var varPrice2 = 0;
 var varCommOld = 2;
 var varCommNew = 2;
 var arrayCommArray = ["", "SKT", "KT", "LGT"];
 var varDiscount = 0;  // 결과값에 포함
 var arrayDiscountText = ["공시지원할인", "선택약정할인"];
-var arrayDiscountValue = [200000, 300000];
+var arrayDiscountValue = [200000, 0];
 var varDiscountValueA = arrayDiscountValue[0];
 var varDiscountValueB = arrayDiscountValue[1] / 24;
 var varBuyplan = 1;
-var varBuyplanValue = [1, 24, 30, 36]; // 결과값에 포함
+var buyplanArray = [1, 24, 30, 36]; // 결과값에 포함
 
 
 // 결과 값들
@@ -110,8 +111,15 @@ var var_rplan_dataplan = "";
 var var_rplan_timeplan = "";
 var var_rplan_textplan = "";
 
+var var_pdd_dctotal = 0;
+var var_pdd_dcmonth = 0;
+var var_pdd_mmonth = 0;
+var var_pdd_mtotal = 0;
 
 $(document).ready(function() {
+	var price2_array = document.getElementsByClassName("pdd-price2-in");
+	varPrice2 = price2_array[0].value;
+
 	selectPlan("스페셜", 100000, "무제한", "유무선 무제한", "문자 무제한", "15");
 	setFields();
 });
@@ -215,7 +223,7 @@ function clickDiscountMethod(nDiscount) {
 // 구매방법
 function clickBuyType(nBuyplan, nBuyplanValue) {
 	varBuyplan = nBuyplan;
-	varBuyplanValue = nBuyplanValue;
+	buyplanArray[varBuyplan] = nBuyplanValue;
 
 	$(function(){
 		$(".buy-type").removeClass("pdd-box-selected");
@@ -245,6 +253,19 @@ function setFields () {
 	var discount_text_array = document.getElementsByClassName("discount-text");
 	var discount_value_a_array = document.getElementsByClassName("discount-value-a-text");
 	var discount_value_b_array = document.getElementsByClassName("discount-value-b-text");
+
+	var buyplan_value_array = document.getElementsByClassName("pdd-buyplan");
+
+	var price2_array = document.getElementsByClassName("pdd-price2-out");
+	
+	var pdd_dctotal = document.getElementsByClassName("pdd-dctotal");
+	var pdd_dctotal_out = document.getElementsByClassName("pdd-dctotal-out");
+	var pdd_dcmonth = document.getElementsByClassName("pdd-dcmonth");
+	var pdd_dcmonth_out = document.getElementsByClassName("pdd-dcmonth-out");
+	var pdd_mmonth = document.getElementsByClassName("pdd-mmonth");
+	var pdd_mmonth_out = document.getElementsByClassName("pdd-mmonth-out");
+	var pdd_mtotal = document.getElementsByClassName("pdd-mtotal");
+	var pdd_mtotal_out = document.getElementsByClassName("pdd-mtotal-out");
 
 	for (var i = 0; i < rplan_name_array.length; i++) {
 		rplan_name_array[i].innerText = var_rplan_name;
@@ -290,8 +311,6 @@ function setFields () {
 	for (var i = 0; i < discount_text_array.length; i++) {
 		discount_text_array[i].innerHTML = varDiscountTextString;
 	}
-	discount_value_a_array
-	discount_value_b_array
 	for (var i = 0; i < discount_value_a_array.length; i++) {
 		discount_value_a_array[i].innerText = '-' + toCurrencyString(varDiscountValueA);
 	}
@@ -299,6 +318,54 @@ function setFields () {
 		varDiscountValueB = arrayDiscountValue[1] / 24;
 		discount_value_b_array[i].innerText = '-' + toCurrencyString(varDiscountValueB);
 	}
+
+	for (var i = 0; i < buyplan_value_array.length; i++) {
+		var tempString = '&nbsp;(' + buyplanArray[varBuyplan] + '개월)';
+		if (varBuyplan === 0) {
+			tempString = '&nbsp;';
+		}
+		buyplan_value_array[i].innerHTML = tempString;
+		buyplan_value_array[i].value = buyplanArray[varBuyplan];
+	}
+
+	for (var i = 0; i < price2_array.length; i++) {
+		price2_array[i].innerText = toCurrencyString(varPrice2);
+	}
+
+
+
+	var_pdd_dctotal = varPrice2 - arrayDiscountValue[0];
+	var_pdd_dcmonth = parseInt(var_pdd_dctotal / buyplanArray[varBuyplan] / 10) * 10;
+	var_pdd_mmonth = var_rplan_charge - parseInt(arrayDiscountValue[1] / 24);
+	var_pdd_mtotal = var_pdd_dcmonth + var_pdd_mmonth;
+
+
+
+	for (var i = 0; i < pdd_dctotal.length; i++) {
+		pdd_dctotal[i].value = var_pdd_dctotal;
+	}
+	for (var i = 0; i < pdd_dctotal_out.length; i++) {
+		pdd_dctotal_out[i].innerText = toCurrencyString(var_pdd_dctotal);
+	}
+	for (var i = 0; i < pdd_dcmonth.length; i++) {
+		pdd_dcmonth[i].value = var_pdd_dcmonth;
+	}
+	for (var i = 0; i < pdd_dcmonth_out.length; i++) {
+		pdd_dcmonth_out[i].innerText = toCurrencyString(var_pdd_dcmonth);
+	}
+	for (var i = 0; i < pdd_mmonth.length; i++) {
+		pdd_mmonth[i].value = var_pdd_mmonth;
+	}
+	for (var i = 0; i < pdd_mmonth_out.length; i++) {
+		pdd_mmonth_out[i].innerText = toCurrencyString(var_pdd_mmonth);
+	}
+	for (var i = 0; i < pdd_mtotal.length; i++) {
+		pdd_mtotal[i].value = var_pdd_mtotal;
+	}
+	for (var i = 0; i < pdd_mtotal_out.length; i++) {
+		pdd_mtotal_out[i].innerText = toCurrencyString(var_pdd_mtotal);
+	}
+
 
 }
 

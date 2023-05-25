@@ -38,6 +38,7 @@ function compareProduct(pseq_from) {
 	let comp_price_list = document.getElementsByClassName('compare-box-price');
 	let comp_x_btn_list = document.getElementsByClassName('compare-box-xbtn');
 
+	let comp_pseq_h_list = document.getElementsByClassName('compare-box-pseq-h');
 	let comp_image_h_list = document.getElementsByClassName('compare-box-image-real-h');
 	let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
 	let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
@@ -53,6 +54,7 @@ function compareProduct(pseq_from) {
 			comp_price_list[compare_box_count].innerHTML = price_list[i].value;
 			comp_x_btn_list[compare_box_count].value = pseq_from;
 
+			comp_pseq_h_list[compare_box_count].value = pseq_from;
 			comp_image_h_list[compare_box_count].value = 'images/productImage/' + image_list[i].value;
 			comp_name_h_list[compare_box_count].value = name_list[i].value;
 			comp_price_h_list[compare_box_count].value = price_list[i].value;

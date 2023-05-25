@@ -49,7 +49,7 @@ rplan-textplan : 문자제한 (전체 문자 무제한) [rplanVO.textplan] -> x
 		2-5. 재 계산
 			2-5-1. rplan-mmonth		=> B
 			2-5-2. rplan-mtotal		=> A+B
-(-)할인방법 : rplan-discount-method (0: 100000, 1: 200000) => {discount}
+(-)할인방법 : rplan-discount-method (0: 100000, 1: 200000) => {discount} (type 0 or 1)
 	1. 오른쪽 필드 on/off
 	2. 재 계산
 		2-1. rplan-dctotal -> rplan-dcmonth
@@ -57,7 +57,7 @@ rplan-textplan : 문자제한 (전체 문자 무제한) [rplanVO.textplan] -> x
 		2-4. rplan-mtotal
 	3. 자체 pdd-box-selected class 변경 (discount-0, 1으로 선택) << clickDiscountMethod(0); >>
 
-(-)구매방법 : rplan-buy-type (0: 1, 1: 24, 2: 30, 3: 36) => {buyplan}
+(-)구매방법 : rplan-buy-type (0: 1, 1: 24, 2: 30, 3: 36) => {buyplan} (1, 24, 30, 36)
 	1. 오른쪽 필드 내용변경 : rplan-buy-type-dest
 	2. 재 계산
 		2-1. rplan-dcmonth
@@ -66,7 +66,7 @@ rplan-textplan : 문자제한 (전체 문자 무제한) [rplanVO.textplan] -> x
 
 
 ++ 선택사항을 선택하면 변동될 tag class들 (+)
-(+)기기변경, 통신사이동 : rplan-comm-cc (g == h: 기기변경(1), g != h: 통신사이동(0)) => {cc}
+(+)기기변경, 통신사이동 : rplan-comm-cc (g == h: 기기변경(1), g != h: 통신사이동(0)) => {cc} (0, 1)
 	0. 최초 기기변경
 
 
@@ -81,7 +81,7 @@ rplan-textplan : 문자제한 (전체 문자 무제한) [rplanVO.textplan] -> x
 (+)rplan-name : 요금제 이름 (왼쪽필드 중복) -> 동시작업
 (+)rplan-charge : 요금제 금액 (왼쪽필드 중복) -> 동시 변경작업 -> d
 (+)rplan-discount : 선택약정 할인, 고정, on/off (1 : 600000) -> e / 24 => {discount} x 왼쪽필드에서 처리
-(calc)rplan-mmonth : 월 통신요금 ( d - e / 24 ) -> B => {mmonth}
+(calc)rplan-mmonth : 월 통신요금 ( d - (e / 24) ) -> B => {mmonth}
 
-(calc)rplan-mtotal : 월 총 납부금액 ( A - B ) => {mtotal}
+(calc)rplan-mtotal : 월 총 납부금액 ( A + B ) => {mtotal}
 

@@ -15,24 +15,25 @@ author : BHS
 <div class="wrap pdd-wrap">
 <form name="productForm" method="post" action="pf.do">
 	<input type="hidden" name="command" value="order" />
+
+	<input type="hidden" class="pdd-pseq pdPseq" name="pseq" value="${productVO.pseq}" />
 	<input type="hidden" class="pdImg" value="${productVO.colorList[0].image}" />
 	<input type="hidden" class="pdName" value="${productVO.name}" />
 	<input type="hidden" class="pdPrice" value="<fmt:formatNumber value='${productVO.price2}' type='number' maxFractionDigits='3' />원" />
-	
-	
-	
+
+
 	<!-- 온라인 신청하기 submit 전달 값 정리 -->
-	<input type="hidden" class="pdPseq" name="pseq" value="${productVO.pseq}" />
+	<input type="hidden" class="pdd-price2-in" value="${productVO.price2}" />
 	<input type="hidden" name="id" value="${id}" />
-	<input type="hidden" name="cseq" value="" />
+	<input type="hidden" name="cseq" value="" /> <!-- V -->
 	<input type="hidden" name="rseq" class="rseq" value="" /> <!-- KT 첫번째 뽑아내기 필요 -->
 	<input type="hidden" name="discount" class="discount-id" value="0" /> <!-- (0: 500000, 1: 600000) 금액 / 24 -->
-	<input type="hidden" name="buyplan" value="24" /> <!-- (0: 1, 1: 24, 2: 30, 3: 36) -->
+	<input type="hidden" name="buyplan" class="pdd-buyplan" value="24" /> <!-- (0: 1, 1: 24, 2: 30, 3: 36) -->
 	<input type="hidden" name="cc" class="cc-value" value="" /> <!-- (g == h: 기기변경(1), g != h: 통신사이동(0)) -->
-	<input type="hidden" name="dctotal" value="" />
-	<input type="hidden" name="dcmonth" value="" />
-	<input type="hidden" name="mmonth" value="" />
-	<input type="hidden" name="mtotal" value="" />
+	<input type="hidden" name="dctotal" class="pdd-dctotal" value="" /> <!-- V -->
+	<input type="hidden" name="dcmonth" class="pdd-dcmonth" value="" /> <!-- V -->
+	<input type="hidden" name="mmonth" class="pdd-mmonth" value="" /> <!-- V -->
+	<input type="hidden" name="mtotal" class="pdd-mtotal" value="" /> <!-- V -->
 	<!-- //온라인 신청하기 submit 전달 값 정리 -->
 
 	<!-- 온라인 신청하기 가져오는 값 정리 --> <!-- KT 첫번째 뽑아내기 필요 -->
@@ -206,11 +207,11 @@ author : BHS
 						<div class="pdd-selector-content pdd-discount-wrap">
 							<div class="pdd-box pdd-box-selected pdd-discount cntr-i discount-0" onclick="clickDiscountMethod(0);">
 								공시지원할인<br />
-								총 500,000원
+								총 200,000원
 							</div>
 							<div class="pdd-box pdd-discount cntr-i discount-1" onclick="clickDiscountMethod(1);">
 								선택약정할인<br />
-								총 600,000원
+								총 300,000원
 							</div>
 						</div>
 					</div>
@@ -293,7 +294,7 @@ author : BHS
 						<div class="float-l"><div class="red-circle float-l">A</div><div class="float-l">&nbsp;+&nbsp;</div><div class="red-circle float-l">B</div><div class="float-l">&nbsp; 월 납부금액</div></div><br />
 					</li>
 					<li>
-						<div class="txt-al-r float-r"><span class="float-r pdd-price-big"><span class="float-r pdd-big-inside">&nbsp;원</span>0,000</span></div>
+						<div class="txt-al-r float-r"><span class="float-r pdd-price-big"><span class="float-r pdd-big-inside">&nbsp;원</span><span class="pdd-mtotal-out">0,000</span></span></div>
 					</li>
 				</ul>
 				<div class="clear"></div>
@@ -309,8 +310,8 @@ author : BHS
 				<!-- 메인 (c / 구매방법(할부개월) = 월할부금) -->
 					<li class="pdd-text-middle pdd-bg-black-label">
 						<div class="pdd-right-inside-padding">
-							<div><div class="red-circle float-l">A</div><div class="float-l">&nbsp;월 할부금</div><div class="float-l"> (</div><div class="float-l">24</div><div class="float-l">개월)</div></div>
-							<div class="float-r">&nbsp;원</div><div class="txt-al-r pdd-price-middle float-r">0,000</div>
+							<div><div class="red-circle float-l">A</div><div class="float-l">&nbsp;월 할부금</div><div class="float-l pdd-right-inside-month-text pdd-buyplan">&nbsp;(24개월)</div></div>
+							<div class="float-r">&nbsp;원</div><div class="txt-al-r pdd-price-middle float-r pdd-dcmonth-out">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>
@@ -319,7 +320,7 @@ author : BHS
 					<li>
 						<div class="pdd-right-inside-padding pdd-right-inside-padding-white">
 							<div class="txt-al-l float-l">출고가</div>
-							<div class="float-r">&nbsp;원</div><div class="float-r">0,000</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r pdd-price2-out">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>
@@ -337,7 +338,7 @@ author : BHS
 					<li>
 						<div class="pdd-right-inside-padding pdd-right-inside-padding-white">
 							<div class="txt-al-l float-l">할부원금</div>
-							<div class="float-r">&nbsp;원</div><div class="float-r pdd-price-middle">0,000</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r pdd-price-middle pdd-dctotal-out">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>
@@ -359,7 +360,7 @@ author : BHS
 					<li class="txt-al-r pdd-text-middle pdd-bg-black-label">
 						<div class="pdd-right-inside-padding">
 							<div class="txt-al-l"><div class="red-circle float-l">B</div><div class="float-l">&nbsp;월 통신요금</div></div>
-							<div class="float-r">&nbsp;원</div><div class="pdd-price-middle float-r">0,000</div>
+							<div class="float-r">&nbsp;원</div><div class="pdd-price-middle float-r pdd-mmonth-out">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>
