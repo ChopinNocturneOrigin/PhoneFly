@@ -13,7 +13,7 @@ author : BHS
 <article>
 
 <!-- 서브 배너 불러오기 -->
-<%@ include file="sub_image_menu.html"%>
+<%@ include file="sub_image_menu.jsp"%>
 
  
 <!-- 상품 비교 -->
@@ -21,7 +21,7 @@ author : BHS
 
 <h1>상품 비교</h1>
 
-<div id="main-card-box">
+<div id="compare-card-box">
 	<ul>
 		<c:forEach items="${productList}" var="productVO" varStatus="status">
 
@@ -30,7 +30,7 @@ author : BHS
 			
 			
 			<!-- 제품 아이템 시작 -->
-			<li class="card">
+			<li class="card card-compare">
 
 
 				<input type="hidden" class="pdPseq" value="${productVO.pseq}" />
@@ -97,14 +97,14 @@ author : BHS
 				
 				
 				<!-- 구매하기 버튼 -->
-				<div class="card_buy" onclick="#">구매하기</div>
+				<div class="card_buy" onclick="${productDetailLH}">구매하기</div>
 				<!-- //구매하기 버튼 -->
 				
 				
 				<!-- 가격비교 -->
-				<div class="card-compare-price" onclick="compareProduct(${productVO.pseq});">
+<%-- 				<div class="card-compare-price" onclick="compareProduct(${productVO.pseq});">
 					<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
-				</div>
+				</div> --%>
 				<!-- //가격비교 -->
 			</li>
 		</c:forEach>

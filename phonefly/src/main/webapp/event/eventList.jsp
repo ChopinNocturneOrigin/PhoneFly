@@ -16,32 +16,31 @@ author : BHS
 <%@ include file="sub_image_menu.jsp"%>
 
  
-<!-- 공지사항 리스트 -->
+<!-- 이벤트 리스트 -->
 <div class="board-inner-wrap card-normal">
 
-<h1>공지사항</h1>
+<h1>이벤트</h1>
 
 <table id="board-table">
 	<tr>
 		<th>번호</th><th>제목</th><th>작성일자</th>
 	</tr>
 <%-- 	<c:forEach begin="1" end="10" varStatus="status"> --%>
-	<c:forEach items="${noticeList}" var="board" varStatus="status">
+	<c:forEach items="${eventList}" var="board" varStatus="status">
 		<tr>
-			<td>${board.nseq}</td>
+			<td>${board.eseq}</td>
 			<td class="board-title">${board.subject}</td>
 			<td><fmt:formatDate value="${board.indate}" /></td>
 		</tr>
 	</c:forEach>
-<!-- 	<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-submit" value="작성하기" /></td></tr> -->
 </table>
 <div id="board-paging">
 	<jsp:include page="/paging/paging.jsp">
-	<jsp:param name="command" value="pf.do?command=noticeList" />
+	<jsp:param name="command" value="pf.do?command=eventList" />
 	</jsp:include>
 </div>
 <div id="board-bottom"></div>
-<!-- //공지사항 리스트 -->
+<!-- //이벤트 리스트 -->
 
 
 <!-- 페이징 -->

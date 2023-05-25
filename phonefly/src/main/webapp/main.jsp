@@ -97,7 +97,7 @@ author : PMS, BHS
 				
 				
 				<!-- 구매하기 버튼 -->
-				<div class="card_buy" onclick="#">구매하기</div>
+				<div class="card_buy" onclick="${productDetailLH}">구매하기</div>
 				<!-- //구매하기 버튼 -->
 				
 				
@@ -238,7 +238,7 @@ author : PMS, BHS
 				
 				
 				<!-- 구매하기 버튼 -->
-				<div class="card_buy" onclick="#">구매하기</div>
+				<div class="card_buy" onclick="${productDetailLH}">구매하기</div>
 				<!-- //구매하기 버튼 -->
 				
 				

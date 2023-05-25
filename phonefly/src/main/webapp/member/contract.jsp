@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../header.jsp" %>
-
+<script src="script/removeMenuSession.js"></script>
 <article>
 <div class="contract-wrap card-normal">
 	<br />

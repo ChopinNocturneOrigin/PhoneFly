@@ -22,7 +22,7 @@ author : BHS
 <script src="script/mainBanner.js"></script>
 <script src="script/mainColorSelect.js"></script>
 <script src="script/comparePopup.js"></script>
-<script src="script/productDetail.js"></script>
+<!-- <script src="script/productDetail.js"></script> -->
 <!-- <script src="script/member.js"></script>
 <script src="script/mypage.js"></script> -->
 </head>
@@ -61,7 +61,7 @@ author : BHS
 						<li><div class="main_menu"></div><a href="pf.do?command=productList&mfc=Samsung">삼성</a></li>
  						<li><div class="main_menu"></div><a href="pf.do?command=eventList">이벤트</a></li>
 						<li><div class="main_menu"></div><a href="pf.do?command=productCompare">상품비교</a></li>
-						<li><div class="main_menu"></div><a href="pf.do?command=FAQList">자주묻는질문</a></li>
+						<li><div class="main_menu"></div><a href="pf.do?command=faqList">자주묻는질문</a></li>
 						<li><div class="main_menu"></div><a href="pf.do?command=noticeList">공지사항</a></li>
 					</ul>
 				</nav>

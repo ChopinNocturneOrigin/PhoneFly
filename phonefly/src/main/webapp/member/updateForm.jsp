@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <%@ include file="sub_image_menu.html" %>
+<script src="script/removeMenuSession.js"></script>
 
 <article>
 <div class="wrap join-form-wrap card-normal">

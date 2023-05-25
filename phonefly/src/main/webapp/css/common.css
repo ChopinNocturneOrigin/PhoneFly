@@ -59,7 +59,7 @@ ul {
 }
 
 .display-none {
-	display: none;
+	display: none !important;
 }
 .visibility-hidden,
 .blind {
@@ -712,12 +712,17 @@ article h3 {
 	z-index: -1;
 	margin-bottom: 30px
 }
-.sub-banner-notice {
-	height: 300px;
+.sub-banner-notice,
+.sub-banner-product {
+	height: 360px;
 }
 .sub-banner-notice video {
 	position: relative;
-	top: 0px;
+	top: -148px;
+}
+.sub-banner-product video {
+	position: relative;
+	top: -193px;
 }
 .sub-banner video,
 .sub-video {
@@ -1134,6 +1139,74 @@ article h3 {
 
 
 
+
+
+
+/* 제품 비교 */
+
+#compare-card-box .card {
+	width: 352px;
+	height: 537px;
+	margin: 0px 10px 30px;
+	float: left;
+}
+
+#compare-card-box li.card:first-child,
+#compare-card-box li.card:nth-child(5) {
+	margin-left: 0px;
+}
+
+#compare-card-box li.card:nth-child(4),
+#compare-card-box li.card:nth-child(8) {
+	margin-right: 0px;
+}
+
+/* color title */
+#compare-card-box .card-name {
+	margin-top: 26px;
+	letter-spacing: -0.05em;
+}
+
+/* price text */
+#compare-card-box .card-price {
+	margin-top: 20px;
+}
+
+#compare-card-box .card-price h3,
+#compare-card-box .card-price h4 {
+	display: inline;
+}
+
+#compare-card-box .card-price h3 {
+	margin-left: 14px;
+}
+
+#compare-card-box .card-price h4 {
+	margin-left: 1px;
+}
+
+/* buy button */
+#compare-card-box .card_buy {
+	color: white;
+	background-color: #212425;
+	width: 276px;
+	height: 37px;
+	line-height: 37px;
+	border-radius: 20px;
+	margin: 16px auto 16px;
+	font-size: 0.78em;
+	font-weight: bold;
+	letter-spacing: -0.08em;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
 /* 이용약관 */
 #guide-title {
 	margin-left: 70px;
@@ -1145,6 +1218,62 @@ article h3 {
 	font-size: 0.85em;
 }
 
+
+/* 공지사항 */
+.board-inner-wrap {
+	width: 100%;
+	margin: 20px 0px;
+}
+.board-inner-wrap h1 {
+	margin: 20px;
+	padding: 20px;
+	margin-top: 50px;
+}
+#board-table {
+	margin: 0px auto;
+}
+/* #board-table * {
+	border: 1px dashed red;
+} */
+#board-table th:nth-child(1) {
+	width: 150px;
+}
+#board-table th:nth-child(2) {
+	width: 1000px;
+}
+#board-table th:nth-child(3) {
+	width: 150px;
+}
+#board-table th,
+#board-table td {
+	height: 44px;
+	font-size: 1.05em;
+}
+#board-table th {
+	font-weight: bold;
+}
+#board-table th {
+	border-bottom: 2px solid black;
+}
+#board-table td {
+	border-bottom: 1px solid black;
+}
+#board-table .board-submit-line {
+	border: none;
+}
+#board-table .board-title {
+	text-align: left;
+	padding-left: 20px;
+}
+#board-table .board-submit {
+	margin: 21px;
+	float: right;
+}
+#board-bottom {
+	width: 100%;
+	height: 20px;
+	margin: 30px;
+}
 
 
 

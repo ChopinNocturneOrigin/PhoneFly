@@ -21,7 +21,7 @@ public class ProductListAction implements Action {
 		ProductDao pdao = ProductDao.getInstance();
 		ArrayList<ProductVO> list = pdao.getProducts( mfc );
 		
-		request.setAttribute("productVO", list);
+		request.setAttribute("productList", list);
 		request.setAttribute("mfc", mfc);
 		
 		String url = "product/productList.jsp";

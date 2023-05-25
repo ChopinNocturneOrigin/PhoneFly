@@ -13,7 +13,7 @@ author : BHS
 <article>
 
 <!-- 서브 배너 불러오기 -->
-<%@ include file="sub_image_menu.html"%>
+<%@ include file="sub_image_menu.jsp"%>
 
  
 <!-- 상품 리스트 -->
@@ -97,7 +97,7 @@ author : BHS
 				
 				
 				<!-- 구매하기 버튼 -->
-				<div class="card_buy" onclick="#">구매하기</div>
+				<div class="card_buy" onclick="${productDetailLH}">구매하기</div>
 				<!-- //구매하기 버튼 -->
 				
 				

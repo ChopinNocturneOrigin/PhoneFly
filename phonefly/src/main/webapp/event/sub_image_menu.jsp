@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="sub-banner sub-banner-notice wrap_main_banner">
 	<video class="sub-video" src="videos/movie6.mp4" autoplay muted loop preload="auto"></video>
 </div>

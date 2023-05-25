@@ -8,7 +8,7 @@ author : BHS
 
 <!-- 헤더 불러오기 -->
 <%@ include file="../header.jsp"%>
-
+<script src="script/productDetail.js"></script>
 
 <article>
 <!-- 제품 상세 전체 프레임 -->
@@ -92,7 +92,7 @@ author : BHS
 					<div class="card-color-buttons card-color-buttons-1">
 						<ul>
 							<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
-								<li onclick="pdDetailcolorClick(1, ${statusColor.count});">
+								<li onclick="pddColorClick(1, ${statusColor.count});">
 									<div class="color-button" style="background-color:${colorVO.ccode}">
 									<c:choose>
 										<c:when test="${statusColor.count == 1}">
@@ -291,7 +291,7 @@ author : BHS
 			<li class="pdd-monthly-total-wrap pdd-text-middle pdd-bg-black-label pdd-bg-black-label-big ppd-card-normal">
 				<ul class="pdd-right-inside-padding">
 					<li>
-						<div class="float-l"><div class="red-circle float-l">A</div><div class="float-l">&nbsp;+&nbsp;</div><div class="red-circle float-l">B</div><div class="float-l">&nbsp; 월 납부금액</div></div><br />
+						<div class="float-l"><div class="red-circle float-l">A</div><div class="float-l pdd-plan-chk">&nbsp;+&nbsp;</div><div class="red-circle float-l pdd-plan-chk">B</div><div class="float-l">&nbsp;월 납부금액</div></div><br />
 					</li>
 					<li>
 						<div class="txt-al-r float-r"><span class="float-r pdd-price-big"><span class="float-r pdd-big-inside">&nbsp;원</span><span class="pdd-mtotal-out">0,000</span></span></div>
@@ -310,8 +310,8 @@ author : BHS
 				<!-- 메인 (c / 구매방법(할부개월) = 월할부금) -->
 					<li class="pdd-text-middle pdd-bg-black-label">
 						<div class="pdd-right-inside-padding">
-							<div><div class="red-circle float-l">A</div><div class="float-l">&nbsp;월 할부금</div><div class="float-l pdd-right-inside-month-text pdd-buyplan">&nbsp;(24개월)</div></div>
-							<div class="float-r">&nbsp;원</div><div class="txt-al-r pdd-price-middle float-r pdd-dcmonth-out">0,000</div>
+ 							<div><div class="red-circle float-l">A</div><div class="float-l pdd-buyplan">&nbsp;월 할부금<div class="float-l pdd-right-inside-month-text">&nbsp;(24개월)</div></div></div>
+							<div class="float-r pdd-plan-chk">&nbsp;원</div><div class="txt-al-r pdd-price-middle float-r pdd-dcmonth-out pdd-plan-chk">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>

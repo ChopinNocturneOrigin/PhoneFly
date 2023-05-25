@@ -28,7 +28,9 @@
 }
 
 .main_banner h1,
-.main_banner p {
+.main_banner p,
+.sub-banner h1,
+.sub-banner p {
 	color: white;
 	text-shadow: 1px 1px 5px rgba(0,0,0,.5), -1px -1px 5px rgba(0,0,0,.5), 1px -1px 5px rgba(0,0,0,.5), -1px 1px 5px rgba(0,0,0,.5);
 }
@@ -42,7 +44,8 @@
 
 #banner_text1,
 #banner_text2,
-#banner_text3 {
+#banner_text3,
+#banner_text4 {
 	position: absolute;
 	color: white;
 	text-align: left;
@@ -55,10 +58,15 @@
 	left:50px;
 }
 
-#banner_text3 {
+#banner_text3,
+#banner_text4 {
 	top: -30px;
 	left:900px;
 }
+#banner_text4 h1 {
+	color: white;
+}
+
 
 #banner_btns {
 	position: absolute;

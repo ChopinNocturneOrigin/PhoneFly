@@ -12,10 +12,10 @@
                              PhoneFly
                         </h4>
       <ul>
-        <li><a href="pf.do?command=FAQList">고객센터</a></li>
-                  <li><a href="pf.do?command=">이용약관</a></li>
-                          <li><a href="pf.do?command=">쇼핑몰 이용약관</a></li>
-                          <li><a href="pf.do?command=">개인정보 처리방침</a></li>
+        <li><a href="pf.do?command=faqList">고객센터</a></li>
+                  <li><a href="pf.do?command=guide1">이용약관</a></li>
+                          <li><a href="pf.do?command=guide2">쇼핑몰 이용약관</a></li>
+                          <li><a href="pf.do?command=guide3">개인정보 처리방침</a></li>
               </ul>
       <h5>회사정보</h5>
       
@@ -53,7 +53,7 @@
                           </a>
           </li>
                           <li>
-            <a href="pf.do?command=FAQList">
+            <a href="pf.do?command=faqList">
               F A Q 자주 묻는 질문
                           </a>
           </li>

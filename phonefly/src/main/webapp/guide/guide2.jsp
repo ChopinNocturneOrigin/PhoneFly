@@ -8,6 +8,7 @@ author : BHS
 
 <!-- 헤더 불러오기 -->
 <%@ include file="../header.jsp"%>
+<script src="script/removeMenuSession.js"></script>
 
 
 <article>
