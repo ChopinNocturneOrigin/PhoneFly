@@ -10,19 +10,19 @@ author : BHS
 <head>
 <meta charset="UTF-8">
 <title>PhoneFly</title>
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/mainBanner.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
-<link rel="stylesheet" type="text/css" href="css/comparePopup.css">
-<script src="script/jquery-3.6.4.min.js"></script>
-<script src="script/common.js"></script>
-<script src="script/member.js"></script>
-<script src="script/mainMenu.js"></script>
-<script src="script/mainBanner.js"></script>
-<script src="script/mainColorSelect.js"></script>
-<script src="script/comparePopup.js"></script>
-<script src="script/productDetail.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+<link rel="stylesheet" type="text/css" href="../css/mainBanner.css">
+<link rel="stylesheet" type="text/css" href="../css/footer.css">
+<link rel="stylesheet" type="text/css" href="../css/comparePopup.css">
+<script src="../script/jquery-3.6.4.min.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/member.js"></script>
+<script src="../script/mainMenu.js"></script>
+<script src="../script/mainBanner.js"></script>
+<script src="../script/mainColorSelect.js"></script>
+<script src="../script/comparePopup.js"></script>
+<script src="../script/productDetail.js"></script>
 <!-- <script src="script/member.js"></script>
 <script src="script/mypage.js"></script> -->
 </head>
@@ -45,7 +45,7 @@ author : BHS
 								<li>${loginUser.name}(${loginUser.id})</li>
 								<li><a href="pf.do?command=memberUpdateForm">정보수정</a></li>
 								<li><a href="pf.do?command=logout">로그아웃</a></li>
-								<!-- <li><a href="pf.do?command=cartList">장바구니</a></li> -->
+								<li><a href="pf.do?command=cartList">장바구니</a></li>
 								<li><a href="pf.do?command=orderList">마이페이지</a></li>
 								<li><a href="pf.do?command=qnaList">1:1 문의</a></li>
 							</c:otherwise>

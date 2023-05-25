@@ -701,13 +701,19 @@ article h3 {
 
 
 /* 서브 배너 */
-.sub_banner {
+.sub-banner {
+	text-align: center;
+	height: 795px;
+	margin-bottom: 30px
+}
+.sub-banner-join {
 	text-align: center;
 	height: 795px;
 	z-index: -1;
 	margin-bottom: 30px
 }
-.sub_banner video {
+.sub-banner video,
+.sub-video {
 	width: 100%;
 }
 
@@ -997,6 +1003,10 @@ article h3 {
 .pdd-right-inside-padding-white {
 	padding: 8px 10px 30px;
 }
+.pdd-right-inside-month-text {
+	font-size: 13px;
+	line-height: 27px;
+}
 .ppd-card-normal {
 	border-radius: 8px;
 	text-align: center;
@@ -1113,5 +1123,21 @@ article h3 {
     text-align: left;
     padding: 0px 16px;
 }
+
+
+
+
+/* 이용약관 */
+#guide-title {
+	margin-left: 70px;
+}
+#guide-box {
+	text-align: left;
+	padding: 50px;
+	margin: 20px;
+	font-size: 0.85em;
+}
+
+
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
 .pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */
