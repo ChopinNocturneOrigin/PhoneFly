@@ -320,7 +320,7 @@ function go_del_c(cseq) {
 
 
 function go_col(pseq) {  
- location.href = "pf.do?command=adminProductColorInsert&pseq=" + pseq;
+ location.href = "pf.do?command=adminColorList&pseq=" + pseq;
 }
 
   

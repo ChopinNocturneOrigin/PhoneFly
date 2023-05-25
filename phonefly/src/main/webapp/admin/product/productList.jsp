@@ -32,9 +32,10 @@
 	<th>상품 등록일</th>	
 	<th>제품 판매 유/무</th>
 	<th>이벤트 적용/미적용</th>
-	<th>베스트 적용/미적용</th>
-	
+	<th>베스트 적용/미적용</th>	
 	</tr>
+	
+	
 	<c:forEach items="${adminproductList}" var="productVO">
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${productVO.pseq}</td>
