@@ -13,7 +13,8 @@ author : BHS
 <article>
 <!-- 제품 상세 전체 프레임 -->
 <div class="wrap pdd-wrap">
-<form name="productForm" method="post">
+<form name="productForm" method="post" action="pf.do">
+	<input type="hidden" name="command" value="order" />
 	<input type="hidden" class="pdImg" value="${productVO.colorList[0].image}" />
 	<input type="hidden" class="pdName" value="${productVO.name}" />
 	<input type="hidden" class="pdPrice" value="<fmt:formatNumber value='${productVO.price2}' type='number' maxFractionDigits='3' />원" />
@@ -23,10 +24,11 @@ author : BHS
 	<!-- 온라인 신청하기 submit 전달 값 정리 -->
 	<input type="hidden" class="pdPseq" name="pseq" value="${productVO.pseq}" />
 	<input type="hidden" name="id" value="${id}" />
+	<input type="hidden" name="cseq" value="" />
 	<input type="hidden" name="rseq" class="rseq" value="" /> <!-- KT 첫번째 뽑아내기 필요 -->
-	<input type="hidden" name="discount" value="0" /> <!-- (0: 500000, 1: 600000) -->
+	<input type="hidden" name="discount" class="discount-id" value="0" /> <!-- (0: 500000, 1: 600000) 금액 / 24 -->
 	<input type="hidden" name="buyplan" value="24" /> <!-- (0: 1, 1: 24, 2: 30, 3: 36) -->
-	<input type="hidden" name="cc" value="" /> <!-- (g == h: 기기변경(1), g != h: 통신사이동(0)) -->
+	<input type="hidden" name="cc" class="cc-value" value="" /> <!-- (g == h: 기기변경(1), g != h: 통신사이동(0)) -->
 	<input type="hidden" name="dctotal" value="" />
 	<input type="hidden" name="dcmonth" value="" />
 	<input type="hidden" name="mmonth" value="" />
@@ -34,11 +36,11 @@ author : BHS
 	<!-- //온라인 신청하기 submit 전달 값 정리 -->
 
 	<!-- 온라인 신청하기 가져오는 값 정리 --> <!-- KT 첫번째 뽑아내기 필요 -->
-	<input type="hidden" name="rplan-name" class="rplan-name" value="" />
+<!-- 	<input type="hidden" name="rplan-name" class="rplan-name" value="" />
 	<input type="hidden" name="rplan-charge" class="rplan-charge" value="" />
 	<input type="hidden" name="rplan-dataplan" class="rplan-dataplan" value="" />
 	<input type="hidden" name="rplan-timeplan" class="rplan-timeplan" value="" />
-	<input type="hidden" name="rplan-textplan" class="rplan-textplan" value="" />
+	<input type="hidden" name="rplan-textplan" class="rplan-textplan" value="" /> -->
 	<!-- //온라인 신청하기 가져오는 값 정리 -->
 
 
@@ -149,9 +151,9 @@ author : BHS
 					<div class="pdd-selector-wrap">
 						<div class="pdd-selector-name">사용중인 통신사</div>
 						<div class="pdd-selector-content">
-							<div class="pdd-box pdd-box-selected comm-ci comm-ci-1 comm-old-2" onclick="clickOldComm(2);"><img src="images/common/tong-kt.png" /></div>
-							<div class="pdd-box comm-ci comm-ci-2 comm-old-1" onclick="clickOldComm(1);"><img src="images/common/tong-skt.png" /></div>
-							<div class="pdd-box comm-ci comm-ci-3  comm-old-3" onclick="clickOldComm(3);"><img src="images/common/tong-lg.png" /></div>
+							<div class="pdd-box pdd-box-selected comm-ci comm-ci-1 comm-old comm-old-2" onclick="clickOldComm(2);"><img src="images/common/tong-kt.png" /></div>
+							<div class="pdd-box comm-ci comm-ci-2 comm-old comm-old-1" onclick="clickOldComm(1);"><img src="images/common/tong-skt.png" /></div>
+							<div class="pdd-box comm-ci comm-ci-3 comm-old comm-old-3" onclick="clickOldComm(3);"><img src="images/common/tong-lg.png" /></div>
 						</div>
 					</div>
 					
@@ -159,9 +161,9 @@ author : BHS
 					<div class="pdd-selector-wrap">
 						<div class="pdd-selector-name">사용하실 통신사</div>
 						<div class="pdd-selector-content">
-							<div class="pdd-box pdd-box-selected comm-ci comm-ci-1 comm-new-2" onclick="clickNewComm(2);"><img src="images/common/tong-kt.png" /></div>
-							<div class="pdd-box comm-ci comm-ci-2 comm-new-1" onclick="clickNewComm(1);"><img src="images/common/tong-skt.png" /></div>
-							<div class="pdd-box comm-ci comm-ci-3 comm-new-3" onclick="clickNewComm(3);"><img src="images/common/tong-lg.png" /></div>
+							<div class="pdd-box pdd-box-selected comm-ci comm-ci-1 comm-new comm-new-2" onclick="clickNewComm(2);"><img src="images/common/tong-kt.png" /></div>
+							<div class="pdd-box comm-ci comm-ci-2 comm-new comm-new-1" onclick="clickNewComm(1);"><img src="images/common/tong-skt.png" /></div>
+							<div class="pdd-box comm-ci comm-ci-3 comm-new comm-new-3" onclick="clickNewComm(3);"><img src="images/common/tong-lg.png" /></div>
 						</div>
 					</div>
 
@@ -170,8 +172,8 @@ author : BHS
 					<div class="pdd-selector-wrap pdd-small pdd-small-wrap">
 						<div class="pdd-selector-name pdd-small"></div>
 						<div class="pdd-selector-content pdd-small">
-							<div class="pdd-small-blk-wrap pdd-small-txt">통신사이동</div>
-							<div class="pdd-small-txt">&nbsp;쓰던번호 그대로 <span class="comm-txt">KT</span>로 통신사만 바꿀래요</div>
+							<div class="pdd-small-blk-wrap pdd-small-txt cc-title">통신사이동</div>
+							<div class="pdd-small-txt cc-text">&nbsp;쓰던번호 그대로 <span class="comm-txt">KT</span>로 통신사만 바꿀래요</div>
 						</div>
 					</div>
 
@@ -181,23 +183,17 @@ author : BHS
 
 					<!-- 요금제 (rplanList) -->
 					<!-- 레이어 팝업 #layer-popup-kt skt lg-->
-					<div class="pdd-selector-wrap btn-divpopup-open" href="#layer-popup-kt">
+					<div id="btn-popup-open" class="pdd-selector-wrap btn-divpopup-open" href="#layer-popup-kt">
 						<div class="pdd-selector-name pdd-rplan-wrap">요금제</div>
 						<div class="pdd-selector-content pdd-rplan-wrap">
 							<div class="pdd-box pdd-rplan-content-wrap">
-								<c:set var="rplancount" value="1" />
-								<c:forEach items="${rplanVO}" var="rplan" varStatus="status">
-									<c:if test="${rplan.mseq == 2 && rplancount == 1}">
-										<div class="pdd-rplan-cont-up down_btn">
-										<span></span> | 월 <span></span>원
-										</div>
-										<div class="pdd-rplan-cont-dn">
-										데이터 <span></span> / 음성 유무선 <span></span> 
-										문자 <span></span>
-										</div>
-									</c:if>
-									<c:set var="rplancount" value="2" /> 
-								</c:forEach>
+								<div class="pdd-rplan-cont-up down_btn">
+								<span class="rplan-name"></span> | 월 <span class="rplan-charge"></span>원
+								</div>
+								<div class="pdd-rplan-cont-dn">
+								데이터 <span class="rplan-dataplan"></span> / 음성 <span class="rplan-timeplan"></span> 
+								<span class="rplan-textplan"></span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -222,8 +218,8 @@ author : BHS
 					<div class="pdd-selector-wrap pdd-small pdd-small-wrap">
 						<div class="pdd-selector-name pdd-small"></div>
 						<div class="pdd-selector-content pdd-small">
-							<div class="pdd-small-blk-wrap">단말기 할인</div>
-							<div class="pdd-small-txt">&nbsp;개통당시 1회 단말기 구매 비용 할인</div>
+							<div class="pdd-small-blk-wrap discount-title">단말기 할인</div>
+							<div class="pdd-small-txt discount-text">&nbsp;개통당시 1회 단말기 구매 비용 할인</div>
 							<input type="hidden" name="rplan-discount" value="0" />
 						</div>
 					</div>
@@ -235,10 +231,10 @@ author : BHS
 					<div class="pdd-selector-wrap">
 						<div class="pdd-selector-name">구매방법</div>
 						<div class="pdd-selector-content">
-							<div class="pdd-box pdd-mplan cntr-i buy-type-1" class="clickBuyType(1);"><span>일시불</span></div>
-							<div class="pdd-box pdd-box-selected pdd-mplan cntr-i buy-type-2" class="clickBuyType(24);"><span>24개월</span></div>
-							<div class="pdd-box pdd-mplan cntr-i buy-type-3" class="clickBuyType(30);"><span>30개월</span></div>
-							<div class="pdd-box pdd-mplan cntr-i buy-type-4" class="clickBuyType(36);"><span>36개월</span></div>
+							<div class="pdd-box pdd-mplan cntr-i buy-type buy-type-0" onclick="clickBuyType(0, 1);"><span>일시불</span></div>
+							<div class="pdd-box pdd-box-selected pdd-mplan cntr-i buy-type buy-type-1" onclick="clickBuyType(1, 24);"><span>24개월</span></div>
+							<div class="pdd-box pdd-mplan cntr-i buy-type buy-type-2" onclick="clickBuyType(2, 30);"><span>30개월</span></div>
+							<div class="pdd-box pdd-mplan cntr-i buy-type buy-type-3" onclick="clickBuyType(3, 36);"><span>36개월</span></div>
 						</div>
 					</div>
 				</div>
@@ -329,10 +325,10 @@ author : BHS
 					</li>
 					
 					<!-- 공시지원 할인 (hidden toggle) (고정) (b) -->
-					<li>
+					<li class="discount-method-1">
 						<div class="pdd-right-inside-padding pdd-right-inside-padding-white">
 							<div class="txt-al-l float-l">공시지원할인</div>
-							<div class="float-r">&nbsp;원</div><div class="float-r pdd-text-red">0,000</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r pdd-text-red discount-value-a-text">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>
@@ -370,16 +366,16 @@ author : BHS
 					<!-- 스탠다드 (요금제에서 가져옴) (a) -->
 					<li>
 						<div class="pdd-right-inside-padding pdd-right-inside-padding-white">
-							<div class="txt-al-l float-l">세이브</div>
-							<div class="float-r">&nbsp;원</div><div class="float-r">0,000</div>
+							<div class="txt-al-l float-l rplan-name">세이브</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r rplan-charge">0,000</div>
 						</div>
 					<div class="clear"></div>
 					</li>
 					<!-- 선택약정 할인 (hidden toggle) (고정) (b) -->
-					<li>
+					<li class="discount-method-2 display-none">
 						<div class="pdd-right-inside-padding pdd-right-inside-padding-white">
 							<div class="txt-al-l float-l">선택약정할인(25%)</div>
-							<div class="float-r pdd-text-red">&nbsp;원</div><div class="float-r pdd-text-red">0,000</div>
+							<div class="float-r">&nbsp;원</div><div class="float-r pdd-text-red discount-value-b-text">0,000</div>
 						</div>
 					</li>
 				</ul>
@@ -420,17 +416,20 @@ author : BHS
 <div class="pdd-inside-wrap">
 	<div class="pdd-review-wrap card-normal">
 		<!-- 입력 파트 -->
-		<form name="reviewForm" method="post">
-			<input type="hidden" name="id" value="${id}" />
-			<input type="hidden" name="pseq" value="${pseq}" />
-			<div class="pdd-review-inputarea">
-				<ul>
-					<li class="pdd-review-title">구매후기</li>
-					<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10&#10 구매후기를 입력하세요"></textarea></li>
-					<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue"type="submit" value="구매후기 작성" /></li>
-				</ul>
-			</div>
-		</form>
+		<c:if test="${orderPseqCount > 0}">
+			<form name="reviewForm" method="post"  action="pf.do">
+			<input type="hidden" name="command" value="reviewWrite" />
+				<input type="hidden" name="id" value="${id}" />
+				<input type="hidden" name="pseq" value="${pseq}" />
+				<div class="pdd-review-inputarea">
+					<ul>
+						<li class="pdd-review-title">구매후기</li>
+						<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10&#10 구매후기를 입력하세요"></textarea></li>
+						<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue"type="submit" value="구매후기 작성" /></li>
+					</ul>
+				</div>
+			</form>
+		</c:if>
 		<div class="clear"></div>
 		<!-- //입력 파트 -->
 		
@@ -438,7 +437,8 @@ author : BHS
 		<div>
 			<ul>
 				<!-- 구매후기 테스트 더미 데이터 -->
-			<c:forEach begin="1" end="8">
+
+<%-- 			<c:forEach begin="1" end="8">
 				<li class="pdd-review-line">
 					<div class="float-l pdd-review-ln-name">홍길동</div>
 					<div class="float-l pdd-review-ln-content">혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 국가는 청원에 대하여 심사할 의무를 진다.
@@ -446,6 +446,7 @@ author : BHS
 					<div class="float-l">2023. 5.24.</div>
 				</li>
 			</c:forEach>
+ --%>
 				<!-- //구매후기 테스트 더미 데이터 -->
 			<c:forEach items="${reviewList}" var="review" varStatus="statusReview">
 				<c:choose>
@@ -486,12 +487,12 @@ author : BHS
 		<tr><td class="pdd-popup-subtitle" colspan="2">5G 수퍼플랜</td><td class="pdd-popup-text" colspan="3">5G 데이터가 완전무제한에 해외에서 끊김없는 데이터!</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 2}">
-				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
-					<td class="pdd-popup-content pdd-popup-left rplan-name" value="${plan.name}">${plan.name}</td>
-					<td class="pdd-popup-content rb-color rplan-charge" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
-					<td class="pdd-popup-content rplan-dataplan" value="${plan.dataplan}">${plan.dataplan}</td>
-					<td class="pdd-popup-content rplan-timeplan" value="${plan.timeplan}">${plan.timeplan}</td>
-					<td class="pdd-popup-content rplan-textplan" value="${plan.textplan}">${plan.textplan}</td>
+				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
+					<td class="pdd-popup-content pdd-popup-left" value="${plan.name}">${plan.name}</td>
+					<td class="pdd-popup-content rb-color" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
+					<td class="pdd-popup-content" value="${plan.dataplan}">${plan.dataplan}</td>
+					<td class="pdd-popup-content" value="${plan.timeplan}">${plan.timeplan}</td>
+					<td class="pdd-popup-content" value="${plan.textplan}">${plan.textplan}</td>
 				</tr>
 			</c:if>
 		</c:forEach>
@@ -507,12 +508,12 @@ author : BHS
 		<tr><td class="pdd-popup-subtitle" colspan="2">5GX 플랜</td><td class="pdd-popup-text" colspan="3">데이터 콘텐츠도 자유롭게! 초시대의 요금플랜</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 1}">
-				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
-					<td class="pdd-popup-content pdd-popup-left rplan-name" value="${plan.name}">${plan.name}</td>
-					<td class="pdd-popup-content rb-color rplan-charge" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
-					<td class="pdd-popup-content rplan-dataplan" value="${plan.dataplan}">${plan.dataplan}</td>
-					<td class="pdd-popup-content rplan-timeplan" value="${plan.timeplan}">${plan.timeplan}</td>
-					<td class="pdd-popup-content rplan-textplan" value="${plan.textplan}">${plan.textplan}</td>
+				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
+					<td class="pdd-popup-content pdd-popup-left" value="${plan.name}">${plan.name}</td>
+					<td class="pdd-popup-content rb-color" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
+					<td class="pdd-popup-content" value="${plan.dataplan}">${plan.dataplan}</td>
+					<td class="pdd-popup-content" value="${plan.timeplan}">${plan.timeplan}</td>
+					<td class="pdd-popup-content" value="${plan.textplan}">${plan.textplan}</td>
 				</tr>
 			</c:if>
 		</c:forEach>
@@ -528,12 +529,12 @@ author : BHS
 		<tr><td class="pdd-popup-subtitle" colspan="2">5G 요금제</td><td class="pdd-popup-text" colspan="3">U+ 5G 서비스에 다양한 콘텐츠까지!</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 3}">
-				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}");'>
-					<td class="pdd-popup-content pdd-popup-left rplan-name" value="${plan.name}">${plan.name}</td>
-					<td class="pdd-popup-content rb-color rplan-charge" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
-					<td class="pdd-popup-content rplan-dataplan" value="${plan.dataplan}">${plan.dataplan}</td>
-					<td class="pdd-popup-content rplan-timeplan" value="${plan.timeplan}">${plan.timeplan}</td>
-					<td class="pdd-popup-content rplan-textplan" value="${plan.textplan}">${plan.textplan}</td>
+				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
+					<td class="pdd-popup-content pdd-popup-left" value="${plan.name}">${plan.name}</td>
+					<td class="pdd-popup-content rb-color" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
+					<td class="pdd-popup-content" value="${plan.dataplan}">${plan.dataplan}</td>
+					<td class="pdd-popup-content" value="${plan.timeplan}">${plan.timeplan}</td>
+					<td class="pdd-popup-content" value="${plan.textplan}">${plan.textplan}</td>
 				</tr>
 			</c:if>
 		</c:forEach>
