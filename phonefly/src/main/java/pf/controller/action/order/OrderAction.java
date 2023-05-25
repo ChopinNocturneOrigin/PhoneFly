@@ -28,6 +28,7 @@ public class OrderAction implements Action {
 		int dctotal = Integer.parseInt( request.getParameter("dctotal") );
 		int mmonth = Integer.parseInt( request.getParameter("mmonth") );
 		int mtotal = Integer.parseInt( request.getParameter("mtotal") );
+		int cseq = Integer.parseInt( request.getParameter("cseq") );
 		String cc = request.getParameter("cc");
 		
 		HttpSession session = request.getSession();
@@ -39,7 +40,8 @@ public class OrderAction implements Action {
 	    }else {
 	    	
 	    	OrderDetailDao odao = OrderDetailDao.getInstance();
-	    	odao.insertOrder( pseq, rseq, id, mseq, charge, discount, buyplan, dcmonth, dctotal, mmonth, mtotal, cc );
+	    	odao.insertOrder( pseq, rseq, id, mseq, charge, discount, 
+	    			buyplan, dcmonth, dctotal, mmonth, mtotal, cc, cseq );
 	    	url = "pf.do?command=orderList&odseq=" + odseq;
 	    	
 	    } 

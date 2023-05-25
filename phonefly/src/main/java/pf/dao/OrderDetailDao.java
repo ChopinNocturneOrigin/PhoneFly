@@ -19,10 +19,10 @@ public class OrderDetailDao {
 	ResultSet rs = null;
 	
 	public void insertOrder(int pseq, int rseq, String id, int mseq, int charge, int discount, 
-			int buyplan, int dcmonth, int dctotal, int mmonth, int mtotal, String cc) {
+			int buyplan, int dcmonth, int dctotal, int mmonth, int mtotal, String cc, int cseq) {
 		con = DBM.getConnection();
 		String sql = "insert into order_detail(odseq, pseq, rseq, id, mseq, charge, discount,"
-				+ " buyplan, dcmonth, dctotal, mmonth, mtotal, cc) "
+				+ " buyplan, dcmonth, dctotal, mmonth, mtotal, cc, cseq) "
 				+ " values(odseq.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -38,6 +38,7 @@ public class OrderDetailDao {
 			pstmt.setInt(10,  mmonth);
 			pstmt.setInt(11,  mtotal);
 			pstmt.setString(12,  cc);
+			pstmt.setInt(13,  cseq);
 			pstmt.executeUpdate();		
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);		}		

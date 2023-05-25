@@ -29,8 +29,7 @@ public class EventListAction implements Action {
 
 		int count = edao.getAllCount();
 		paging.setTotalCount(count);
-
-
+		
 		ArrayList<EventVO>list = edao.selectNotice(paging);
 		request.setAttribute("eventList", list);
 		request.setAttribute("paging", paging);
