@@ -20,7 +20,7 @@ public class AdminColorUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "pf.do?command=productColorList";
+		String url = "pf.do?command=adminColorDetail";
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");

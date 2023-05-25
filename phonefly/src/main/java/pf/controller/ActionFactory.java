@@ -4,10 +4,10 @@ import pf.controller.action.Action;
 import pf.controller.action.IndexAction;
 import pf.controller.action.admin.board.event.AdminEventDeleteAction;
 import pf.controller.action.admin.board.event.AdminEventDetailAction;
-import pf.controller.action.admin.board.event.AdminEventDetailFormAction;
-import pf.controller.action.admin.board.event.AdminEventListFormAction;
+import pf.controller.action.admin.board.event.AdminEventInsertAction;
+import pf.controller.action.admin.board.event.AdminEventInsertFormAction;
+import pf.controller.action.admin.board.event.AdminEventListAction;
 import pf.controller.action.admin.board.event.AdminEventUpdateAction;
-import pf.controller.action.admin.board.event.AdminEventUpdateFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDeleteAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDetailFormAction;
@@ -195,12 +195,12 @@ public class ActionFactory {
 	else if(command.equals("adminNoticeUpdate") ) ac = new AdminNoticeUpdateAction();
 	else if(command.equals("adminNoticeDelete") ) ac = new AdminNoticeDeleteAction();
 	//관리자(admin).board.Event
-	else if(command.equals("adminEventListForm") ) ac = new AdminEventListFormAction();
-	else if(command.equals("adminEventDetailForm") ) ac = new AdminEventDetailFormAction();
+	else if(command.equals("adminEventList") ) ac = new AdminEventListAction();
 	else if(command.equals("adminEventDetail") ) ac = new AdminEventDetailAction();
-	else if(command.equals("adminEventUpdateForm") ) ac = new AdminEventUpdateFormAction();
 	else if(command.equals("adminEventUpdate") ) ac = new AdminEventUpdateAction();
 	else if(command.equals("adminEventDelete") ) ac = new AdminEventDeleteAction();
+	else if(command.equals("adminEventInsertForm") ) ac = new AdminEventInsertFormAction();
+	else if(command.equals("adminEventInsert") ) ac = new AdminEventInsertAction();
 	
 	return ac;
 	}

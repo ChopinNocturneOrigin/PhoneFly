@@ -180,20 +180,21 @@ public class AdminDao {
 		
 	}
 
-	public ArrayList<ColorVO> productColorList(Paging paging, String key) {
+	public ArrayList<ColorVO> productColorList(Paging paging, String key, int pseq) {
 		ArrayList<ColorVO> list = new ArrayList<ColorVO>();
 		con = DBM.getConnection();
 		String sql="select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn,c.*from "
-				+ " ((select*from color where name like'%'||?||'%' order by cseq desc) c)"
+				+ " ((select*from color where name like'%'||?||'%'&&pseq=?order by cseq desc) c)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, key);
-			pstmt.setInt(2, paging.getStartNum());
-			pstmt.setInt(3, paging.getEndNum());
+			pstmt.setInt(2, pseq);
+			pstmt.setInt(3, paging.getStartNum());
+			pstmt.setInt(4, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ColorVO cvo = new ColorVO();

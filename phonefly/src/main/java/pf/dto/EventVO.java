@@ -6,7 +6,7 @@ public class EventVO {
 	private int eseq;
 	private String id;
 	private String subject;
-	private String content;
+	private String image;
 	private Timestamp indate;
 
 	public int getEseq() {
@@ -27,11 +27,11 @@ public class EventVO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public String getContent() {
-		return content;
+	public String getImage() {
+		return image;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public Timestamp getIndate() {
 		return indate;
