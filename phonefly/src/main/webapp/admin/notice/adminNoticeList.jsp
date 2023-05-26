@@ -28,7 +28,7 @@
 	<th>공지사항명</th>
 	<th>공지등록일</th>
 	</tr>
-	<c:forEach items="${noticeList}" var="noticeVO">
+	<c:forEach items="${adminnoticeList}" var="noticeVO">
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${noticeVO.nseq}</td>
 			<td>

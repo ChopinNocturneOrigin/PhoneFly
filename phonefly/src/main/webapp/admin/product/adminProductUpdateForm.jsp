@@ -40,7 +40,7 @@
 				  			</c:when>
 							<c:otherwise>
 								<input type="radio" name="bestyn" value="Y">사용
-								<input type="radio" name="bestyn" value="N" checked="checkd">미사용
+								<input type="radio" name="bestyn" value="N" checked="checked">미사용
 							</c:otherwise>
 						</c:choose>
 					</td>	
@@ -49,12 +49,12 @@
 				 	<td>
 				 		<c:choose>
 				  			<c:when test='${productVO.eventyn=="Y"}'>
-				  				<input type="radio" name="bestyn" value="Y" checked="checked">사용
-				  				<input type="radio" name="bestyn" value="N">미사용
+				  				<input type="radio" name="eventyn" value="Y" checked="checked">사용
+				  				<input type="radio" name="eventyn" value="N">미사용
 				  			</c:when>
 							<c:otherwise>
-								<input type="radio" name="bestyn" value="Y">사용
-								<input type="radio" name="bestyn" value="N" checked="checkd">미사용
+								<input type="radio" name="eventyn" value="Y">사용
+								<input type="radio" name="eventyn" value="N" checked="checked">미사용
 							</c:otherwise>
 						</c:choose>
 					</td>				

@@ -30,6 +30,12 @@ function go_detail_n( nseq ){
 }
 
 
+function go_detail_c( cseq ){
+	document.frm.action = "pf.do?command=adminColorDetail&cseq=" + cseq; 
+	document.frm.submit();
+	// location.href="pf.do?command=adminColorDetail&cseq=" + cseq;
+}
+
 function go_mov(){
 	location.href = "pf.do?command=adminProductList";
 }
@@ -41,6 +47,12 @@ function go_mov_e(){
 function go_mov_n(){
 	location.href = "pf.do?command=adminNoticeList";
 }
+
+function go_mov_c(){
+	location.href = "pf.do?command=adminColorList";
+}
+
+
 
 
 function go_search( comm ){
@@ -84,6 +96,10 @@ function go_wrt_n(){
 	document.frm.submit();
 }
 
+function go_wrt_c(){
+	document.frm.action = "pf.do?command=adminColorInsertForm";
+	document.frm.submit();
+}
 
 function cal(){
 	if( document.frm.price2.value == "" || document.frm.price1.value=="") return; 
@@ -92,7 +108,7 @@ function cal(){
 
 
 function go_save_c(){
-	document.frm.action = "pf.do?command=adminProductColorInsert";
+	document.frm.action = "pf.do?command=adminColorInsert";
 	document.frm.submit();
 }
 
@@ -152,6 +168,36 @@ function go_save_e(){
 }
 
 
+function go_save_n(){
+	var theForm = document.frm;
+	if( theForm.name.value == "") {
+		alert('공지사항명을 입력하세요.'); 	
+		theForm.name.focus();	
+	} else if (theForm.content.value == "") {
+		alert('공지사항상세를 입력하세요.'); 		
+		theForm.content.focus();
+	} else{
+		theForm.action = "pf.do?command=adminNoticeInsert";
+		theForm.submit();
+	}
+}
+
+function go_save_c(){
+	var theForm = document.frm;	
+	if( theForm.name.value == "") {
+		alert('색상이름을 입력하세요.'); 	
+		theForm.name.focus();	
+	} else if (theForm.ccode.value == "") {
+		alert('색상코드를 입력하세요.'); 		
+		theForm.ccode.focus();
+	} else if (theForm.image.value == "") {
+		alert('색상 이미지를 입력하세요.'); 		
+		theForm.image.focus();	
+	} else{
+		theForm.action = "pf.do?command=adminColorInsert";
+		theForm.submit();
+	}
+}
 
 
 function go_mod(pseq){
@@ -170,6 +216,13 @@ function go_mod_e(eseq){
 
 function go_mod_n(nseq){
 	var url = "pf.do?command=adminNoticeUpdateForm&nseq=" + nseq;
+	location.href=url;
+	// document.frm.action = url;
+	// document.frm.submit();
+}
+
+function go_mod_c(cseq){
+	var url = "pf.do?command=adminColorUpdateForm&cseq=" + cseq;
 	location.href=url;
 	// document.frm.action = url;
 	// document.frm.submit();
