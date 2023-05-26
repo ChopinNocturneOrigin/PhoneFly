@@ -44,13 +44,13 @@ public class OrderDetailDao {
 		} finally { DBM.close(con, pstmt, rs);		}		
 	}
 
-	public ArrayList<OrderDetailVO> listOrderByOdseq(int odseq) {
+	public ArrayList<OrderDetailVO> listOrderByOdseq(String id) {
 		ArrayList<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
-		String sql = "select * from order_detail where odseq=?";
+		String sql = "select * from order_detail where id=?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, odseq);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				OrderDetailVO ovo = new OrderDetailVO();	
@@ -101,5 +101,7 @@ public class OrderDetailDao {
 		    }
 		    return ovo;
 		}
+
+
 	
 }

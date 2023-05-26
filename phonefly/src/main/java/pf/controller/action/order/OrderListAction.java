@@ -20,7 +20,7 @@ public class OrderListAction implements Action {
 		
 		String url = "order/orderList.jsp";
 		
-		int odseq = Integer.parseInt(request.getParameter("odseq"));
+		String id = request.getParameter("id");
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
@@ -29,7 +29,7 @@ public class OrderListAction implements Action {
 		}else {
 			
 			OrderDetailDao odao = OrderDetailDao.getInstance();
-			ArrayList<OrderDetailVO> list = odao.listOrderByOdseq( odseq );
+			ArrayList<OrderDetailVO> list = odao.listOrderByOdseq( mvo.getId() );
 
 			request.setAttribute("orderList", list);	
 		}
