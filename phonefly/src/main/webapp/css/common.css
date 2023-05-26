@@ -963,11 +963,14 @@ article h3 {
 }
 .pdd-popup-wrap tr:hover {
 	background-color: rgba(135, 206, 250, 0.2);
-}.ppd-submit {
+}
+#pdd-li-submit-wrap {
+	text-align: center;
+}
+.ppd-submit {
 	width: 130px;
 	font-size: 1.2em;
 	font-weight: bold;
-	margin: 0px auto;
 	text-align: center;
 }
 
@@ -1339,6 +1342,10 @@ article h3 {
 #board-detail-content-inner-wrap {
 	text-align: left;
 }
+#board-nd-wrap-inner pre {
+	font-size: 15px;
+	font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+}
 /* 이벤트 디테일 */
 .board-notice-detail-inner-warp,
 .board-event-detail-inner-warp {
@@ -1358,7 +1365,14 @@ article h3 {
 }
 #board-event-detail-content-title {
 	vertical-align: top;
+	padding-top: 18px;
 }
+.board-detail-content {
+	padding-top: 18px;
+}
+
+
+
 
 
 /* 페이징 */
@@ -1366,6 +1380,94 @@ article h3 {
 #board-paging a,
 #board-paging span {
 	font-size: 19px;
+}
+
+
+
+
+
+
+/* 자주묻는질문 (FAQ) */
+.submit-faq {
+	width: 200px;
+}
+#faq-sub-wrap {
+	display: inline-block;
+}
+#faq-sub-menu input {
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 49px;
+}
+#faq-sub-menu li {
+	float: left;
+	margin: 0px 32px;
+}
+
+/* faq 메인 */
+#faq-main-wrap {
+	margin-top: 20px;
+}
+.faq-inner-wrap {
+	width: 1200px;
+}
+.faq-part {
+	width: 1030px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	margin: 0px auto;
+}
+.faq-big-letter {
+	display: inline-block;
+	width: 60px;
+	font-size: 20px;
+	font-weight: bold;
+	vertical-align: top;
+	padding-top: 13px;
+}
+.faq-content {
+	display: inline-block;
+	width: 940px;
+	text-align: left;
+}
+.faq-button,
+.faq-answer {
+	padding: 10px 0px;
+	border-top: 1px solid lightgray;
+}
+.faq-button {
+}
+.faq-answer {
+	height: auto;
+	padding: 10px;
+	transition: all .5s cubic-bezier(0,0,.5,1);
+	overflow: hidden;
+	background-color: #f4f4f4;
+}
+.faqdisabled {
+	/* display: none !important; */
+	display: block;
+	height: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+
+
+
+
+/* 부가 메뉴 페이지 - QnA 리스트 */
+.support-left-menu {
+	width: 300px;
+	height: 600px;
+	margin-right: 20px;
+	float: left;
+}
+
+.support-right-content {
+	width: 1150px;
+	height: 1200px;
+	float: right;
 }
 
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}

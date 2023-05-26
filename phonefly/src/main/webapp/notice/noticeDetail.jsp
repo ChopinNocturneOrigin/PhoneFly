@@ -35,7 +35,7 @@ author : BHS
 		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${NoticeVO.subject}<hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
-		<th id="board-event-detail-content-title">내용<hr class="board-event-hr-left"/></th><td class="board-detail-content"><div id="board-detail-content-inner-wrap">${NoticeVO.content}</div></td>
+		<th id="board-event-detail-content-title">내용<hr class="board-event-hr-left"/></th><td class="board-detail-content"><div id="board-detail-content-inner-wrap"><pre>${NoticeVO.content}</pre></div></td>
 	</tr>
 	<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=noticeList';" /></td></tr>
 

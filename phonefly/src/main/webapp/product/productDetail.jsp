@@ -291,7 +291,7 @@ author : BHS
 			<li class="pdd-monthly-total-wrap pdd-text-middle pdd-bg-black-label pdd-bg-black-label-big ppd-card-normal">
 				<ul class="pdd-right-inside-padding">
 					<li>
-						<div class="float-l"><div class="red-circle float-l">A</div><div class="float-l pdd-plan-chk">&nbsp;+&nbsp;</div><div class="red-circle float-l pdd-plan-chk">B</div><div class="float-l">&nbsp;월 납부금액</div></div><br />
+						<div class="float-l"><div class="red-circle float-l pdd-plan-chk">A</div><div class="float-l pdd-plan-chk">&nbsp;+&nbsp;</div><div class="red-circle float-l">B</div><div class="float-l">&nbsp;월 납부금액</div></div><br />
 					</li>
 					<li>
 						<div class="txt-al-r float-r"><span class="float-r pdd-price-big"><span class="float-r pdd-big-inside">&nbsp;원</span><span class="pdd-mtotal-out">0,000</span></span></div>
@@ -387,8 +387,8 @@ author : BHS
 			</li>
 			
 			<!-- 버튼 (온라인 신청하기) -->
-			<li>
-				<div class="submit submit-blue ppd-submit">온라인 신청하기</div>
+			<li id="pdd-li-submit-wrap">
+				<input type="submit" class="submit submit-blue ppd-submit" value="온라인 신청하기" />
 			</li>
 
 

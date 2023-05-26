@@ -31,7 +31,8 @@ author : BHS
 				<div class="buttons">
 					<input type="submit" value="로그인" onclick="return loginCheck();" />
 					<input type="button" value="회원가입" onclick="location.href='pf.do?command=contract';" />
-					<input type="button" value="아이디 비밀번호 찾기" onclick="javascript:;"/>
+					<input type="button" value="아이디 찾기" onclick="findId();" />
+					<input type="button" value="비밀번호 찾기" onclick="findPwd();"/>
 				</div><br /><br />
 				<c:if test="${not empty param.message}">
 					<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
