@@ -1,4 +1,4 @@
-package pf.controller.action.admin.product;
+package pf.controller.action.admin.order;
 
 import java.io.IOException;
 
@@ -8,28 +8,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
-import pf.dao.ProductDao;
+import pf.dao.AdminDao;
 import pf.dto.AdminVO;
-import pf.dto.ProductVO;
 
-public class AdminProductDetailAction implements Action {
+public class AdminOrderUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/product/adminProductDetail.jsp";
+		String url = "pf.do?command=adminOrderList";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		if( avo == null) { 
 			url = "pf.do?command=admin"; 
 		} else {
-			int pseq = Integer.parseInt( request.getParameter("pseq") );
-			ProductDao pdao = ProductDao.getInstance();
-			ProductVO pvo = pdao.getProduct( pseq ); 
-						
-			request.setAttribute("productVO", pvo);
+			String [] odseqs = request.getParameterValues("result");
+			AdminDao adao = AdminDao.getInstance();
+			for( String odseq : odseqs) {
+				adao.updateOrderResult( Integer.parseInt( odseq ) );
+			}
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
-	}
-
+}

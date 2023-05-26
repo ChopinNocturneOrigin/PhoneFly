@@ -7,7 +7,6 @@ public class OrderDetailVO {
 	private int odseq;
 	private int pseq;
 	private int rseq;
-	private int quantity;
 	private String result;
 	private String id;
 	private int discount;
@@ -113,12 +112,6 @@ public class OrderDetailVO {
 	}
 	public void setPseq(int pseq) {
 		this.pseq = pseq;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 	public String getResult() {
 		return result;

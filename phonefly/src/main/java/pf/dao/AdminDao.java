@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import pf.dto.AdminVO;
 import pf.dto.ColorVO;
 import pf.dto.MemberVO;
+import pf.dto.OrderDetailVO;
 import pf.dto.ProductVO;
 import pf.util.DBM;
 import pf.util.Paging;
@@ -44,7 +45,7 @@ public class AdminDao {
 		String sql="select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn,m.*from "
-				+ " ((select*from member where name like'%'||?||'%' order by mseq desc) m)"
+				+ " ((select*from member where name like'%'||?||'%') m)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {
@@ -56,7 +57,14 @@ public class AdminDao {
 			while(rs.next()) {
 				MemberVO mvo = new MemberVO();
 				mvo.setId(rs.getString("id") );
-				
+				mvo.setPwd(rs.getString("pwd") );
+				mvo.setName(rs.getString("name") );
+				mvo.setEmail(rs.getString("email") );
+				mvo.setZipnum(rs.getString("zipnum") );
+				mvo.setAddress1(rs.getString("address1") );
+				mvo.setAddress2(rs.getString("address2") );
+				mvo.setPhone(rs.getString("phone") );
+				mvo.setUseyn(rs.getString("useyn") );
 				list.add(mvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
@@ -186,7 +194,7 @@ public class AdminDao {
 		String sql="select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn,c.*from "
-				+ " ((select*from color where name like'%'||?||'%'&&pseq=?order by cseq desc) c)"
+				+ " ((select*from color where name like'%'||?||'%'and pseq=?order by cseq desc) c)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {
@@ -227,5 +235,55 @@ public class AdminDao {
 		}finally {DBM.close(con, pstmt, rs);
 		}
 		
+	}
+
+	public ArrayList<OrderDetailVO> selectOrder(Paging paging, String key) {
+		ArrayList<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
+		con = DBM.getConnection();
+		String sql="select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn,o.*from "
+				+ " ((select*from order_detail where name like'%'||?||'%'order by odseq desc) o)"
+				+ " ) where rn>=? "
+				+ " ) where rn<=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				OrderDetailVO odvo = new OrderDetailVO();
+				odvo.setOdseq(  rs.getInt("odseq") );
+				odvo.setPseq(  rs.getInt("pseq") );
+				odvo.setRseq(  rs.getInt("rseq") );
+				odvo.setResult(  rs.getString("result") );
+				odvo.setId(  rs.getString("id") );
+				odvo.setDiscount(  rs.getInt("discount") );
+				odvo.setBuyplan(  rs.getInt("buyplan") );
+				odvo.setDcmonth(  rs.getInt("dcmonth") );
+				odvo.setDctotal(  rs.getInt("dctotal") );
+				odvo.setMmonth(  rs.getInt("mmonth") );
+				odvo.setMtotal(  rs.getInt("mtotal") );
+				odvo.setPname(  rs.getString("pname") );
+				odvo.setCname(  rs.getString("cname") );
+				odvo.setRname(  rs.getString("rname") );
+				list.add(odvo);
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);
+		}
+		return list;
+	}
+
+	public void updateOrderResult(int odseq) {
+		con = DBM.getConnection();
+		String sql = "update order_detail set result='2' where odseq=? ";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			pstmt.executeUpdate();
+		}catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);  }
 	}
 }

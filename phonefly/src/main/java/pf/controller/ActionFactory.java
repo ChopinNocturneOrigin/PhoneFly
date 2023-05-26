@@ -16,12 +16,14 @@ import pf.controller.action.admin.board.notice.AdminNoticeListAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
-import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
+import pf.controller.action.admin.board.qna.AdminQna_detailAction;
 import pf.controller.action.admin.login.AdminAction;
 import pf.controller.action.admin.login.AdminLoginAction;
+import pf.controller.action.admin.login.AdminLogoutAction;
 import pf.controller.action.admin.member.AdminMemberDetailAction;
 import pf.controller.action.admin.member.AdminMemberListAction;
 import pf.controller.action.admin.order.AdminOrderListAction;
+import pf.controller.action.admin.order.AdminOrderUpdateAction;
 import pf.controller.action.admin.order.AdminOrder_detailAction;
 import pf.controller.action.admin.product.AdminColorDeleteAction;
 import pf.controller.action.admin.product.AdminColorDetailAction;
@@ -44,7 +46,6 @@ import pf.controller.action.board.notice.NoticeDetailAction;
 import pf.controller.action.board.notice.NoticeListAction;
 import pf.controller.action.board.review.ReviewWriteAction;
 import pf.controller.action.member.DeleteMemberAction;
-import pf.controller.action.member.DeleteMemberFormAction;
 import pf.controller.action.member.MemberUpdateAction;
 import pf.controller.action.member.MemberUpdateFormAction;
 import pf.controller.action.member.join.ContractAction;
@@ -89,7 +90,6 @@ public class ActionFactory {
 	//회원(member)
 	else if(command.equals("memberUpdateForm") ) ac = new MemberUpdateFormAction();
 	else if(command.equals("memberUpdate") ) ac = new MemberUpdateAction();
-	else if(command.equals("deleteMemberForm") ) ac = new DeleteMemberFormAction();
 	else if(command.equals("deleteMember") ) ac = new DeleteMemberAction();
 	//회원(member).login
 	else if(command.equals("loginForm") ) ac = new LoginFormAction();
@@ -151,6 +151,8 @@ public class ActionFactory {
 	//관리자(admin).login
 	else if(command.equals("admin") ) ac = new AdminAction();
 	else if(command.equals("adminLogin") ) ac = new AdminLoginAction();
+	else if(command.equals("adminLogout") ) ac = new AdminLogoutAction();
+
 	//관리자(admin).member
 	else if(command.equals("adminMemberList") ) ac = new AdminMemberListAction();
 	else if(command.equals("adminMemberDetail") ) ac = new AdminMemberDetailAction();
@@ -176,13 +178,15 @@ public class ActionFactory {
 	//관리자(admin).order
 	else if(command.equals("adminOrderList") ) ac = new AdminOrderListAction();
 	else if(command.equals("adminOrderDetail") ) ac = new AdminOrder_detailAction();
+	else if(command.equals("adminOrderUpdate") ) ac = new AdminOrderUpdateAction();
+
 
 	//관리자(admin).board
 	
 	//관리자(admin).board.QnA
 	//else if(command.equals("adminQnaListForm") ) ac = new AdminQnaListFormAction();
 	else if(command.equals("adminQnaList") ) ac = new AdminQnaListAction();
-	else if(command.equals("adminQnaDetail") ) ac = new AdminQna_detailListAction();
+	else if(command.equals("adminQnaDetail") ) ac = new AdminQna_detailAction();
 	//관리자(admin).board.Notice
 	else if(command.equals("adminNoticeList") ) ac = new AdminNoticeListAction();
 	else if(command.equals("adminNoticeDetail") ) ac = new AdminNoticeDetailAction();

@@ -17,14 +17,14 @@ public class DeleteMemberAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		String url="";
+		String url="pf.do?command=index";
 		if(mvo==null) {
 			url="pf.do?command=loginForm";
 		}else {
 			MemberDao mdao = MemberDao.getInstance();
 			mdao.deleteMember(mvo.getId());
 		}
-		request.getRequestDispatcher("member/login.jsp").forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }

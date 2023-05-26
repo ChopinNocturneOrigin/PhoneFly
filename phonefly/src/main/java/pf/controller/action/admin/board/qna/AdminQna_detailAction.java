@@ -12,11 +12,11 @@ import pf.dao.QnaDao;
 import pf.dto.AdminVO;
 import pf.dto.QnaVO;
 
-public class AdminQna_detailListAction implements Action {
+public class AdminQna_detailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/qna/qnaDetail.jsp";
+		String url = "admin/qna/adminQnaDetail.jsp";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		if( avo == null) { 
