@@ -16,34 +16,59 @@ author : BHS
 <%@ include file="sub_image_menu.jsp"%>
 
  
-<!-- 공지사항 리스트 -->
-<div class="board-inner-wrap card-normal">
+<!-- 자주묻는질문 (FAQ) -->
+<div class="board-inner-wrap card-normal faq-inner-wrap">
 <div id="board"></div>
 <h1>자주묻는질문 (FAQ)</h1>
 
-<table id="board-table">
-	<tr>
-		<th>번호</th><th>제목</th><th>작성일자</th>
-	</tr>
-		<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
-			<td>${board.nseq}</td>
-			<td class="board-title">${board.subject}</td>
-			<td><fmt:formatDate value="${board.indate}" /></td>
-		</tr>
-<!-- 	<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-submit" value="작성하기" /></td></tr> -->
-</table>
+<!-- 메뉴 -->
+<div id="faq-sub-wrap">
+	<div id="faq-sub-menu">
+		<ul>
+			<li><input class="submit submit-blue submit-faq" type="button" value="신청 / 개통문의" onclick="faqMenu(1);" /></li>
+			<li><input class="submit submit-blue submit-faq" type="button" value="배송문의" onclick="faqMenu(2);" /></li>
+			<li><input class="submit submit-blue submit-faq" type="button" value="취소 / 반품문의" onclick="faqMenu(3);" /></li>
+		</ul>
+	</div>
+</div>
+<div class="clear"></div>
+<!-- //메뉴 -->
+
+
+
+
+
+<div id="faq-main-wrap">
+	<div id="faq-main-inner-wrap">
+
+	<%@ include file="faq_part1.jsp"%>
+	<%@ include file="faq_part2.jsp"%>
+	<%@ include file="faq_part3.jsp"%>
+
+	</div>
+</div>
+
+
+
+
+
+
 <div id="board-bottom"></div>
-<!-- //공지사항 리스트 -->
+
+
+<!-- 자주묻는질문 (FAQ) -->
+
+
 
 
 <!-- 페이징 -->
-<div class="paging">
+<%-- <div class="paging">
 	<div id="board-paging">
 		<jsp:include page="/paging/paging.jsp">
 		<jsp:param name="command" value="pf.do?command=faq" />
 		</jsp:include>
 	</div>
-</div>
+</div> --%>
 <!-- //페이징 -->
 <div id="board-list-paging-bottom-margin"></div>
 
