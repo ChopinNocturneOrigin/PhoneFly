@@ -37,6 +37,19 @@ input {
 	padding: 0px;
 }
 
+a,
+a:hover,
+a:visited,
+a:hover,
+a:active {
+	color: black;
+	text-decoration: none;
+}
+/* a:link 방문 전 링크
+a:visited 방문했던 링크
+a:hover 커서가 링크위에 있을 때
+a:active 클릭시 */
+
 ul {
 	list-style: none;
 	margin: 0px;
@@ -950,8 +963,7 @@ article h3 {
 }
 .pdd-popup-wrap tr:hover {
 	background-color: rgba(135, 206, 250, 0.2);
-}
-.ppd-submit {
+}.ppd-submit {
 	width: 130px;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -1219,17 +1231,25 @@ article h3 {
 }
 
 
+
+
+
+
+
+
 /* 공지사항 */
 .board-inner-wrap {
 	width: 100%;
-	margin: 20px 0px;
+	margin: 20px auto;
 }
 .board-inner-wrap h1 {
 	margin: 20px;
 	padding: 20px;
-	margin-top: 50px;
+	margin-top: 60px;
+	padding-top: 44px;
 }
-#board-table {
+#board-table,
+#board-table-detail {
 	margin: 0px auto;
 }
 /* #board-table * {
@@ -1265,18 +1285,88 @@ article h3 {
 	text-align: left;
 	padding-left: 20px;
 }
-#board-table .board-submit {
+#board-table .board-submit,
+#board-table-detail .board-submit {
 	margin: 21px;
 	float: right;
 }
+
+.board-detail-submit {
+	margin: 21px;
+	float: right;
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 47px;
+}
+
 #board-bottom {
+	width: 100%;
+	height: 20px;
+	margin: 10px;
+}
+#board-list-paging-bottom-margin {
 	width: 100%;
 	height: 20px;
 	margin: 30px;
 }
+#board-table .board-table-line-mouseover:hover {
+	background-color: rgba(135, 206, 250, 0.2);
+}
 
 
 
+/* 공지사항 디테일 */
+#board-table-detail {
+	font-size: 1.23em;
+}
+#board-nd-wrap-inner {
+	margin-left: 14px;
+	margin-right: 57px;
+}
+#board-detail-title-hr {
+	width: 180px;
+	margin-top: -39px;
+	margin-bottom: 30px;
+}
+#board-table-detail th {
+	font-weight: bold;
+	width: 150px;
+	height: 50px;
+}
+#board-table-detail .board-detail-no {
+	width: 80%;
+}
+#board-detail-content-inner-wrap {
+	text-align: left;
+}
+/* 이벤트 디테일 */
+.board-notice-detail-inner-warp,
+.board-event-detail-inner-warp {
+	width: 75%;
+}
+#board-event-content-image {
+	width: 800px;
+	height: auto;
+}
+#board-table-detail .board-event-hr-left {
+	width: 86px;
+	margin-top: -1px;
+}
+#board-table-detail .board-event-hr-right {
+	width: 482px;
+	margin-top: -1px;
+}
+#board-event-detail-content-title {
+	vertical-align: top;
+}
+
+
+/* 페이징 */
+
+#board-paging a,
+#board-paging span {
+	font-size: 19px;
+}
 
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
 .pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */

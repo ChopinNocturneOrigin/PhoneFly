@@ -18,7 +18,7 @@ author : BHS
  
 <!-- 공지사항 리스트 -->
 <div class="board-inner-wrap card-normal">
-
+<div id="board"></div>
 <h1>공지사항</h1>
 
 <table id="board-table">
@@ -27,7 +27,7 @@ author : BHS
 	</tr>
 <%-- 	<c:forEach begin="1" end="10" varStatus="status"> --%>
 	<c:forEach items="${noticeList}" var="board" varStatus="status">
-		<tr>
+		<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
 			<td>${board.nseq}</td>
 			<td class="board-title">${board.subject}</td>
 			<td><fmt:formatDate value="${board.indate}" /></td>
@@ -48,10 +48,9 @@ author : BHS
 	</div>
 </div>
 <!-- //페이징 -->
-
+<div id="board-list-paging-bottom-margin"></div>
 
 </div>
-<!-- //공지사항 리스트 -->
 
 
 
