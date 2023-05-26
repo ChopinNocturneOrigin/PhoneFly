@@ -220,7 +220,7 @@ $(document).ready(function() {
 	let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
 	let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');*/
 
-	let data = JSON.parse(sessionStorage.getItem("comparePseqs"));
+/*	let data = JSON.parse(sessionStorage.getItem("comparePseqs"));
 	/*compare_box_count = data.pop().count;*/
 	for (let key in sessionStorage) {
 		if (!sessionStorage.hasOwnProperty(key)) {
@@ -228,7 +228,7 @@ $(document).ready(function() {
 		}
 		alert(`${key}: ${sessionStorage.getItem(key)}`);
 	}
-
+*/
 /*	for (let i = 0; i < comp_pseq_list.length; i++) {
 		comp_pseq_list[i].value = comp_pseq_h_list[i].value;
 		comp_image_list[i].src = comp_image_h_list[i].value;
@@ -236,7 +236,9 @@ $(document).ready(function() {
 		comp_price_list[i].innerHTML = comp_price_h_list[i].value;
 	}
 */
+/*
 	$(function(){
 		$('.compare-popup').removeClass('compare-popup-close');
 	});
+*/
 });
