@@ -48,12 +48,12 @@
                           </a>
           </li>
                           <li>
-            <a href="pf.do?command=memberQnaList">
+            <a href="pf.do?command=orderList">
               마이페이지
                           </a>
           </li>
                           <li>
-            <a href="pf.do?command=faqList">
+            <a href="pf.do?command=FAQList">
               F A Q 자주 묻는 질문
                           </a>
           </li>
