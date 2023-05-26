@@ -36,7 +36,11 @@ nav#sub_menu { float: left; margin-right: 10px;
 ul{
 	padding-left: 0;
 }
-nav#sub_menu ul li { list-style-type: none; margin-top: 0px; left: 0; height: 50px; }
+nav#sub_menu ul li { list-style-type: none; 
+margin-top: 0px; 
+left: 0; 
+height: 50px;
+float:left; }
 nav#sub_menu a { text-decoration: none; color: #666; border-bottom: 1px dotted #999;
   width: 100px; height: 25px; padding: 5px; background: #fff; }
 nav#sub_menu a:hover { text-decoration: underline;  border-right: 1px solid #ddd;}
@@ -65,12 +69,14 @@ margin-left:auto;
 #productList {padding:0;
 margin-left:auto;
 margin-right:auto;
+border-top: 2px solid #333;
+ border-bottom: 1px solid #333; 
 }
 
 #productList td{ background-color:  none;
 	
 }
 
-#productList th{ background-color:  gray;
+#productList th{ background-color:  #d3d3d3;
 	
 }

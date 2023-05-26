@@ -19,7 +19,6 @@
 		<th>주문번호(처리)</th>
 		<th>주문자</th>
 		<th>상품명</th>
-		<th>수량</th>
 		<th>우편</th>
 		<th>주소</th>
 		<th>전화</th>
@@ -37,7 +36,7 @@
 			      			(<input type="checkbox" checked="checked" disabled="disabled">처리완료)</c:otherwise>
 					</c:choose>
 				</td>
-				<td>${orderVO.mname}</td><td>${orderVO.pname}</td><td>${orderVO.quantity}</td>
+				<td>${orderVO.mname}</td><td>${orderVO.pname}</td>
 				<td>${orderVO.zip_num}</td><td>${orderVO.address1}</td><td>${orderVO.phone}</td>
 				<td><fmt:formatDate value="${orderVO.indate}" /></td>
 			</tr>
