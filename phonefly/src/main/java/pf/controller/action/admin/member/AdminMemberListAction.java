@@ -63,6 +63,8 @@ public class AdminMemberListAction implements Action {
 			ArrayList<MemberVO> adminMemberList = adao.adminMemberList(paging, key);
 			request.setAttribute("adminMemberList", adminMemberList);
 			request.setAttribute("paging", paging);
+			request.setAttribute("key", key);
+
 
 		}
 	     request.getRequestDispatcher(url).forward(request, response);

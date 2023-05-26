@@ -18,7 +18,7 @@ public class AdminProductListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/product/productList.jsp";
+		String url = "admin/product/adminProductList.jsp";
 
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
