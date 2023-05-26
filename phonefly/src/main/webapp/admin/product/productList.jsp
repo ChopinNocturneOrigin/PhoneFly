@@ -40,7 +40,7 @@
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${productVO.pseq}</td>
 			<td>
-				<a href="#" onClick="go_detail( '${productVO.pseq}');">
+				<a href="#" onClick="go_detail( '${productVO.pseq}');" style="cursor: pointer;">
 					${productVO.name}
 				</a>
 			</td>
