@@ -11,7 +11,7 @@
 	</table><br>
 	<table id="orderList">
 		<tr><th>아이디(탈퇴여부)</th><th> 이름 </th><th>이메일</th><th>우편번호</th><th>주소</th>
-		<th>전화</th><th>가입일</th></tr>
+		<th>전화</th></tr>
 	    <c:forEach items="${adminMemberList}" var="memberVO">  
 		    <tr><td>${memberVO.id} 
 		    	<c:choose>
@@ -23,8 +23,8 @@
 			        </c:otherwise>
 		    	</c:choose></td>
 		    	<td>${memberVO.name}</td><td>${memberVO.email}</td>
-		    	<td>${memberVO.zip_num}</td><td>${memberVO.address1}</td>
-		    	<td>${memberVO.phone}</td><td><fmt:formatDate value="${memberVO.indate}"/></td></tr>
+		    	<td>${memberVO.zipnum}</td><td>${memberVO.address1}</td>
+		    	<td>${memberVO.phone}</td></tr>
 	  </c:forEach>
 	</table>
 	<jsp:include page="/admin/paging/page.jsp">   

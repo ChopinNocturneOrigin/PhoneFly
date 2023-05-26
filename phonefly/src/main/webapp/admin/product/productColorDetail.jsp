@@ -8,7 +8,7 @@
 	<tr><th align="center" >상품 색상 명</th><td colspan="5">${colorVO.name}</td></tr>      	
    	<tr><th>색상 코드</th><td colspan="5">${colorVO.ccode}</td></tr>  	
    	<tr><th>색상 이미지</th><td colspan="5" align="center">
-   		<img src="color_images/${colorVO.image}" width="200pt"></td></tr>
+   		<img src="image/productImage/${colorVO.image}" width="200pt"></td></tr>
    		
    		
 </table>

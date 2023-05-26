@@ -22,7 +22,7 @@
 	</table>
 </form>
 
-<table id="productList">
+<table id="productList" style= "none;">
 	<tr>
 	<th>번호</th>
 	<th>상품명</th>
@@ -38,7 +38,7 @@
 	
 	<c:forEach items="${adminproductList}" var="productVO">
 		<tr>
-			<td style="text-align:left; padding-left:50px;">${productVO.pseq}</td>
+			<td style="text-align:; padding:0px; ">${productVO.pseq}</td>
 			<td>
 				<a href="#" onClick="go_detail( '${productVO.pseq}');" style="cursor: pointer;">
 					${productVO.name}

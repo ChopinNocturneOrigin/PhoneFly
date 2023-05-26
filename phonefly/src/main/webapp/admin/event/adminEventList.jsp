@@ -3,48 +3,50 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 <article>
-<h1>공지사항리스트</h1>
+<h1>이벤트 리스트</h1>
 
 <form name="frm"  method="post">
 	<table>
 		<tr>
 			<td width="642">
-				공지사항명 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
+				이벤트 제목 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
 				<input class="btn" type="button" name="btn_search" value="검색" 
-						onClick="go_search('adminNoticeList');">&nbsp;&nbsp;&nbsp;
+						onClick="go_search('adminEventList');">&nbsp;&nbsp;&nbsp;
 						
 				<input class="btn" type="button" name="btn_total" value="전체보기 " 
-						onClick="go_total('adminNoticeList');">&nbsp;&nbsp;&nbsp;
+						onClick="go_total('adminEventList');">&nbsp;&nbsp;&nbsp;
 
-				<input class="btn" type="button" name="btn_write" value="공지사항등록"  onClick="go_wrt_n();">
+				<input class="btn" type="button" name="btn_write" value="이벤트등록"  onClick="go_wrt_e();">
 			</td>
 		</tr>
 	</table>
 </form>
 
-<table id="noticeList">
+<table id="eventList">
 	<tr>
 	<th>번호</th>
-	<th>공지사항명</th>
-	<th>공지등록일</th>
+	<th>이벤트 제목</th>
+	<th>이벤트 등록일</th>
 	</tr>
-	<c:forEach items="${noticeList}" var="noticeVO">
+	<c:forEach items="${admineventList}" var="eventVO">
 		<tr>
-			<td style="text-align:left; padding-left:50px;">${noticeVO.nseq}</td>
+			<td style="text-align:left; padding-left:50px;">${eventVO.eseq}</td>
 			<td>
-				<a href="#" onClick="go_detail_n( '${noticetVO.nseq}');">
-					${noticeVO.name}
+				<a href="#" onClick="go_detail_e( '${eventVO.eseq}');">
+					${eventVO.name}
 				</a>
 			</td>
-			<td><fmt:formatDate value="${noticeVO.indate}"/></td>
+			<td><fmt:formatDate value="${eventVO.indate}"/></td>
 			
 		</tr>
 	</c:forEach>
+	
+	
 </table>
 
 <br /><br />
 <jsp:include page="/admin/paging/page.jsp">
-	<jsp:param name="command" value="pf.do?command=adminNoticeList" />
+	<jsp:param name="command" value="pf.do?command=adminEventList" />
 </jsp:include>
 <!-- jsp:param 으로 필요한 내용을 전달하고 완성된 페이지를  include 합니다 -->
 

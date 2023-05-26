@@ -66,6 +66,7 @@ public class AdminColorListAction implements Action {
 			ArrayList<ColorVO> ProductColorList = adao.productColorList(paging, key, pseq);
 			request.setAttribute("ProductColorList", ProductColorList);
 			request.setAttribute("paging", paging);
+			request.setAttribute("key", key);
 
 
 		}

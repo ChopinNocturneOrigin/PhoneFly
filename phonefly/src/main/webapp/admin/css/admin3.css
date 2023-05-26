@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+article{padding:0;
+margin:0;}
+
+
 
 /* 헤더 */
 
@@ -17,11 +21,26 @@ h1.home {
 
 
 /* 좌측 메뉴바 */
-nav#sub_menu { float: left; margin-right: 10px;}
+nav#sub_menu { float: left; margin-right: 10px;
+    left: 0;
+	top: 0;
+	bottom: 0;	
+	height: 455px;
+	width: 220px;
+	padding: 10px;
+	overflow: auto;
+	box-sizing: border-box;
+	border-right: 1px solid #ddd;
+	background: #fff;}
+	
 ul{
 	padding-left: 0;
 }
-nav#sub_menu ul li { list-style-type: none; margin-top: 10px; left: 0;height: 50px; }
+nav#sub_menu ul li { list-style-type: none; 
+margin-top: 0px; 
+left: 0; 
+height: 50px;
+float:left; }
 nav#sub_menu a { text-decoration: none; color: #666; border-bottom: 1px dotted #999;
   width: 100px; height: 25px; padding: 5px; background: #fff; }
 nav#sub_menu a:hover { text-decoration: underline;  border-right: 1px solid #ddd;}
@@ -31,7 +50,33 @@ nav#sub_menu h1 { padding: 5px; border-bottom: double;}
 
 
 /* 풋터  */
+#footer {
+   left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	border-top: 1px solid #ddd;
+}
+
+/* productList */
+#List{ 
+top:-30px;
+margin-left:auto;
+
+}
 
 
+#productList {padding:0;
+margin-left:auto;
+margin-right:auto;
+border-top: 2px solid #333;
+ border-bottom: 1px solid #333; 
+}
 
+#productList td{ background-color:  none;
+	
+}
 
+#productList th{ background-color:  #d3d3d3;
+	
+}
