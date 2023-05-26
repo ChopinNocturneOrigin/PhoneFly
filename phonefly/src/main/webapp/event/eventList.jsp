@@ -34,17 +34,18 @@ author : BHS
 		</tr>
 	</c:forEach>
 </table>
-<div id="board-paging">
-	<jsp:include page="/paging/paging.jsp">
-	<jsp:param name="command" value="pf.do?command=eventList" />
-	</jsp:include>
-</div>
 <div id="board-bottom"></div>
 <!-- //이벤트 리스트 -->
 
 
 <!-- 페이징 -->
-<div class="paging"></div>
+<div class="paging">
+	<div id="board-paging">
+		<jsp:include page="/paging/paging.jsp">
+		<jsp:param name="command" value="pf.do?command=eventList" />
+		</jsp:include>
+	</div>
+</div>
 <!-- //페이징 -->
 
 

@@ -35,17 +35,18 @@ author : BHS
 	</c:forEach>
 <!-- 	<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-submit" value="작성하기" /></td></tr> -->
 </table>
-<div id="board-paging">
-	<jsp:include page="/paging/paging.jsp">
-	<jsp:param name="command" value="pf.do?command=noticeList" />
-	</jsp:include>
-</div>
 <div id="board-bottom"></div>
 <!-- //공지사항 리스트 -->
 
 
 <!-- 페이징 -->
-<div class="paging"></div>
+<div class="paging">
+	<div id="board-paging">
+		<jsp:include page="/paging/paging.jsp">
+		<jsp:param name="command" value="pf.do?command=noticeList" />
+		</jsp:include>
+	</div>
+</div>
 <!-- //페이징 -->
 
 
