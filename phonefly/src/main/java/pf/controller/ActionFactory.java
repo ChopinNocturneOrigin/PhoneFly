@@ -16,6 +16,8 @@ import pf.controller.action.admin.board.notice.AdminNoticeListAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
+import pf.controller.action.admin.board.qna.AdminQnaUpdateAction;
+import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailAction;
 import pf.controller.action.admin.login.AdminAction;
 import pf.controller.action.admin.login.AdminLoginAction;
@@ -185,6 +187,7 @@ public class ActionFactory {
 	
 	//관리자(admin).board.QnA
 	//else if(command.equals("adminQnaListForm") ) ac = new AdminQnaListFormAction();
+	else if(command.equals("adminQnaUpdate") ) ac = new AdminQnaUpdateAction();
 	else if(command.equals("adminQnaList") ) ac = new AdminQnaListAction();
 	else if(command.equals("adminQnaDetail") ) ac = new AdminQna_detailAction();
 	//관리자(admin).board.Notice
