@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+
+/* 헤더 */
+
+h1.home { 
+	position: relative;		
+	background: #09F;
+	text-align:left;
+	color:white;
+	height: 55px;
+	font-size: 24px;
+	margin: 0 10px 0 0;
+	font-weight: bold;
+    margin-top:0;
+}
+
+
+/* 좌측 메뉴바 */
+nav#sub_menu { float: left; margin-right: 10px;}
+ul{
+	padding-left: 0;
+}
+nav#sub_menu ul li { list-style-type: none; margin-top: 10px; left: 0;height: 50px; }
+nav#sub_menu a { text-decoration: none; color: #666; border-bottom: 1px dotted #999;
+  width: 100px; height: 25px; padding: 5px; background: #fff; }
+nav#sub_menu a:hover { text-decoration: underline;  border-right: 1px solid #ddd;}
+
+
+nav#sub_menu h1 { padding: 5px; border-bottom: double;}
+
+
+/* 풋터  */
+
+
+
+

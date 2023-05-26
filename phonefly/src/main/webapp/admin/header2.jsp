@@ -6,19 +6,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>admin</title>
-	<link rel="stylesheet" href="admin/css/admin2.css" />
+	<link rel="stylesheet" href="admin/css/admin3.css" />
 	<script src="admin/script/admin.js"></script>
 </head>
 <body>
 <div id="wrap">
-	<header>			
-		<div id="header">
-			<div class="gnb-wrap">
-				<div class="gnb-tit">
+	<header>									
 					<h1 class="home">
 						phoneFly AdminPage
 					</h1>					
-				</div>			
+				</div>	
+						
 		<input class="btn" type="button" value="logout" style="float: right;" 
 			onClick="location.href='pf.do?command=adminLogout'">			
 	</header>

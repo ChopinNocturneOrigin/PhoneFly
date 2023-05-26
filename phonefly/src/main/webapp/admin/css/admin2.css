@@ -75,16 +75,16 @@ a:hover {
 	position: absolute;
 	top: 55px;
 	bottom: 31px;
-	width: 100%;
 	
 }
 
 #aside {
-	position: absolute;
+	position: relative;
 	left: 0;
 	top: 45px;
 	bottom: 50px;
 	width: 110px;
+	height:au;
 	padding: 10px;
 	overflow: auto;
 	box-sizing: border-box;
@@ -180,7 +180,9 @@ a:hover {
 	
 }
 
-
+table#List { text-align:center;
+	float:right;	
+}
 
 
 

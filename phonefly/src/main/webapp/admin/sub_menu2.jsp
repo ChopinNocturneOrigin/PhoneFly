@@ -6,7 +6,7 @@
 <div id="container">
 			<div id="aside">
 				<div class="aside-menu">
-					<ul>
+					<ul >
 						<li><a href='pf.do?command=adminProductList&changeMenu=1'>상품리스트</a></li>
 						<li><a href='pf.do?command=adminOrderList&changeMenu=1'>주문리스트</a></li>
 						<li><a href='pf.do?command=adminMemberList&changeMenu=1'>회원리스트</a></li>
