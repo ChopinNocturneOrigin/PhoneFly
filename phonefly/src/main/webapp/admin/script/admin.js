@@ -96,6 +96,10 @@ function go_wrt_n(){
 	document.frm.submit();
 }
 
+function go_wrt_c(){
+	document.frm.action = "pf.do?command=adminColorInsertForm";
+	document.frm.submit();
+}
 
 function cal(){
 	if( document.frm.price2.value == "" || document.frm.price1.value=="") return; 
@@ -174,6 +178,23 @@ function go_save_n(){
 		theForm.content.focus();
 	} else{
 		theForm.action = "pf.do?command=adminNoticeInsert";
+		theForm.submit();
+	}
+}
+
+function go_save_c(){
+	var theForm = document.frm;	
+	if( theForm.name.value == "") {
+		alert('색상이름을 입력하세요.'); 	
+		theForm.name.focus();	
+	} else if (theForm.ccode.value == "") {
+		alert('색상코드를 입력하세요.'); 		
+		theForm.ccode.focus();
+	} else if (theForm.image.value == "") {
+		alert('색상 이미지를 입력하세요.'); 		
+		theForm.image.focus();	
+	} else{
+		theForm.action = "pf.do?command=adminColorInsert";
 		theForm.submit();
 	}
 }
