@@ -278,7 +278,7 @@ function go_view( qseq ){
 }
 
 
-
+	
 
 function go_rep(qseq){
 	document.frm.action="pf.do?command=adminQnaUpdate";
