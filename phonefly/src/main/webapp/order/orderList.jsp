@@ -37,32 +37,41 @@ author : BHS
 	<div class="support-right-content card-normal">
 		<div class="support-inner-wrap">
 			<div id="board"></div>
-			<h1>1:1 문의</h1>
+			<h1>주문내역</h1>
 			
 			<table id="board-table">
 				<tr>
-					<th>번호</th><th>제목</th><th>작성일자</th><th>상태</th>
+					<th>번호</th><th>기종 및 요금제</th><th>주문일자</th><th>상태</th>
 				</tr>
-				<c:forEach items="${qnaList}" var="board" varStatus="status">
-				
-					<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=qnaDetail&qseq=${board.qseq}';">
-						<td>${board.qseq}</td>
-						<td class="board-title">${board.subject}</td>
-						<td><fmt:formatDate value="${board.indate}" /></td>
-						<td>
-							<c:choose>
-								<c:when test="${board.rep == '1'}">접수중</c:when>
-								<c:otherwise>상담완료</c:otherwise>
-							</c:choose>
-						</td>
-					</tr>
-				</c:forEach>
-				<tr><td class="board-submit-line" colspan="4"><input type="button" class="submit submit-blue board-submit" value="작성하기" onclick="location.href='pf.do?command=qnaWriteForm';" /></td></tr>
+				<c:choose>
+					<c:when test="${not empty orderList}">
+						<c:forEach items="${orderList}" var="order" varStatus="status">
+						
+							<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=orderDetail&odseq=${order.odseq}';">
+								<td>${order.odseq}</td>
+								<td class="board-title">[${order.mfc}] ${order.pname}&nbsp; -&nbsp; [${order.cname}] ${order.rname} 요금제</td>
+								<td><fmt:formatDate value="${order.indate}" /></td>
+								<td>
+									<c:choose>
+										<c:when test="${order.result == '1'}">접수중</c:when>
+										<c:when test="${order.result == '2'}">발송중</c:when>
+										<c:otherwise>처리완료</c:otherwise>
+									</c:choose>
+								</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="4">현재 주문내역이 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</table>
 			<div id="board-bottom"></div>
 			
 		
-			
+<%-- 
 			<!-- 페이징 -->
 			<div class="paging">
 				<div id="board-paging">
@@ -72,6 +81,8 @@ author : BHS
 				</div>
 			</div>
 			<!-- //페이징 -->
+ --%>
+
 			<!-- <div id="board-list-paging-bottom-margin"></div> -->
 		</div>
 	</div>

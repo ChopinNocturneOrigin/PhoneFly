@@ -32,3 +32,17 @@ from order_detail d, comm c, product p, rplan r
 where d.rseq=r.rseq and r.mseq=c.mseq and d.pseq=p.pseq;
 
 
+
+
+
+-- Order detail 처리용   order_detail_view2
+CREATE OR REPLACE VIEW order_detail_view2 AS
+SELECT O.*, P.price2 price, P.name pname, P.mfc, R.name rname, R.charge, R.dataplan, R.timeplan, R.textplan, C.name cname, CC.name ccname
+FROM order_detail O, product P, rplan R, comm C, color CC
+WHERE O.rseq = R.rseq AND R.mseq = C.mseq AND O.pseq = P.pseq AND O.cseq = CC.cseq;
+
+
+-- Product detail의  review 조회용
+CREATE OR REPLACE VIEW review_view AS
+SELECT R.*, M.name FROM review R, member M WHERE R.id = M.id ORDER BY rvseq DESC;
+

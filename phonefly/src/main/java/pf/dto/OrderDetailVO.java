@@ -7,18 +7,78 @@ public class OrderDetailVO {
 	private int odseq;
 	private int pseq;
 	private int rseq;
-	private String result;
 	private String id;
+	private String result;
 	private int discount;
 	private int buyplan;
 	private int dcmonth;
 	private int dctotal;
 	private int mmonth;
 	private int mtotal;
+	private String cc;
+	private Timestamp indate;
+
 	private String pname;
 	private String cname;
+	private String ccname;
 	private String rname;
+
+	private int cseq;
+	private int price;
+	private String mfc;
+	private int charge;
+	private String dataplan;
+	private String timeplan;
+	private String textplan;
 	
+	public String getCcname() {
+		return ccname;
+	}
+	public void setCcname(String ccname) {
+		this.ccname = ccname;
+	}
+	public String getMfc() {
+		return mfc;
+	}
+	public void setMfc(String mfc) {
+		this.mfc = mfc;
+	}
+	public int getCharge() {
+		return charge;
+	}
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+	public String getDataplan() {
+		return dataplan;
+	}
+	public void setDataplan(String dataplan) {
+		this.dataplan = dataplan;
+	}
+	public String getTimeplan() {
+		return timeplan;
+	}
+	public void setTimeplan(String timeplan) {
+		this.timeplan = timeplan;
+	}
+	public String getTextplan() {
+		return textplan;
+	}
+	public void setTextplan(String textplan) {
+		this.textplan = textplan;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getCseq() {
+		return cseq;
+	}
+	public void setCseq(int cseq) {
+		this.cseq = cseq;
+	}
 	public String getPname() {
 		return pname;
 	}
@@ -49,9 +109,6 @@ public class OrderDetailVO {
 	public void setMtotal(int mtotal) {
 		this.mtotal = mtotal;
 	}
-	private String cc;
-	private Timestamp indate;
-	
 
 	public String getId() {
 		return id;

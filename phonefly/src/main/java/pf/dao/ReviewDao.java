@@ -40,7 +40,7 @@ public class ReviewDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getContent());
 			pstmt.setString(2, rvo.getId());
-			pstmt.setInt(3, rvo.getRseq());
+			pstmt.setInt(3, rvo.getRvseq());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
@@ -78,7 +78,7 @@ public class ReviewDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ReviewVO rvo = new ReviewVO();
-				rvo.setRseq(rs.getInt("rseq"));
+				rvo.setRvseq(rs.getInt("rvseq"));
 				rvo.setId(rs.getString("id"));
 				rvo.setContent(rs.getString("content"));
 				rvo.setIndate(rs.getTimestamp("indate"));		    	
@@ -90,20 +90,22 @@ public class ReviewDao {
 	}
 
 	public void insertReview(ReviewVO rvo) {
-		
-		String sql = "insert into review (rseq, content, id, pseq, indate) "
-				+ " values(rseq.nextval, ?, ?, ?, ?)";
+		// 수정 : bhs
+		//String sql = "insert into review (rseq, content, id, pseq, indate) "
+				//+ " values(rseq.nextval, ?, ?, ?, ?)";
+		String sql = "INSERT INTO review (rvseq, id, content, pseq) VALUES (rvseq.nextVal, ?, ?, ?)";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-		    pstmt.setString(1, rvo.getContent());
-		    pstmt.setString(2, rvo.getId());
-		    pstmt.setInt(3, rvo.getPseq());
-		    pstmt.setTimestamp(4, rvo.getIndate());
-		    pstmt.executeUpdate();  
-		} catch (SQLException e) {e.printStackTrace();
-		} finally {  DBM.close(con, pstmt, rs);  }
-		
+			pstmt.setString(1, rvo.getId());
+			pstmt.setString(2, rvo.getContent());
+			pstmt.setInt(3, rvo.getPseq());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
 	}
 
 	public ArrayList<ReviewVO> listReviewBypseq(int pseq) {
@@ -119,7 +121,7 @@ public class ReviewDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ReviewVO rvo = new ReviewVO();
-				rvo.setRseq(rs.getInt("rseq"));
+				rvo.setRvseq(rs.getInt("rvseq"));
 				rvo.setId(rs.getString("id"));
 				rvo.setContent(rs.getString("content"));
 				rvo.setIndate(rs.getTimestamp("indate"));
@@ -131,7 +133,8 @@ public class ReviewDao {
 	}
 
 	public boolean checkIfPurchased(String id, int pseq) {
-		 String sql = "SELECT COUNT(*) AS cnt FROM Purchase WHERE id = ? AND pseq = ?";
+		boolean result = false;
+		 String sql = "SELECT COUNT(*) AS cnt FROM order_detail_view2 WHERE id = ? AND pseq = ?";
 	        con = DBM.getConnection();
 	        try {
 	            pstmt = con.prepareStatement(sql);
@@ -139,15 +142,16 @@ public class ReviewDao {
 	            pstmt.setInt(2, pseq);
 	            rs = pstmt.executeQuery();
 	            if (rs.next()) {
-	                int count = rs.getInt("cnt");
-	                return count > 0;
+	                if (rs.getInt("cnt") > 0) {
+	                	result = true;
+	                }
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        } finally {
 	            DBM.close(con, pstmt, rs);
 	        }
-	        return false;
+	        return result;
 	    }
 		
 		

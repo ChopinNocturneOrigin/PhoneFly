@@ -157,6 +157,19 @@ function qna_write() {
 	}
 }
 
+function review_write() {
+	if (document.reviewForm.content.value === "") {
+		alert("내용을 입력해 주세요.");
+		document.reviewForm.content.focus();
+	} else if (!fn_chk_byte2(document.reviewForm.content, 3000)) {
+		alert("내용은 3000바이트 까지 입력 가능합니다.");
+		document.reviewForm.content.focus();
+	} else {
+		document.reviewForm.action = "pf.do";
+		document.reviewForm.submit();
+	}
+}
+
 
 function fn_chk_byte(obj){
     totalByte = 0;
@@ -189,5 +202,16 @@ function fn_chk_byte2(obj, nn){
 		return false;
 	} else {
 		return true;
+	}
+}
+
+
+
+function cancelOrder(odseq) {
+	let bool = confirm("정말로 주문접수를 취소 하시겠습니까?");
+	if (bool) {
+		location.href = 'pf.do?command=orderCancel&odseq='+odseq;
+	} else {
+		return;
 	}
 }

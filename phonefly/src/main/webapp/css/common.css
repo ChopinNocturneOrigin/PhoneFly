@@ -1114,7 +1114,8 @@ article h3 {
 	width: 842px;
 	margin: 20px 20px 20px 0px;
 	padding-left: 10px;
-	padding-bottom: 20px;
+	padding-top: 10px;
+/* 	padding-bottom: 20px; */
 	min-height: 187px;
 }
 .pdd-review-title {
@@ -1140,12 +1141,16 @@ article h3 {
 }
 .pdd-review-submit {
 	height: 80px;
-	line-height: 116px;
+	line-height: 166px;
 	margin-left: 10px;
 }
 .pdd-review-line {
-    height: 120px;
-    margin: 20px 0px;
+	min-height: 40px;
+	margin: 20px 20px;
+}
+.pdd-review-line pre {
+	margin: 0px;
+	font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
 }
 .pdd-review-ln-name {
     width: 86px;
@@ -1480,6 +1485,7 @@ article h3 {
 	height: 388px;
 	margin-right: 20px;
 	float: left;
+	margin-bottom: 30px;
 }
 .board-menu {
 	height: 270px;

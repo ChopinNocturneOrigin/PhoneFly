@@ -3,7 +3,7 @@
  */
 
  
- function pddColorClick(i, j) {
+ function pddColorClick(i, j, cseq) {
 	$(function(){
 		$(".card-color-buttons-"+i+" li>div>div").removeClass("color-button-selector");
 		$(".card-color-buttons-"+i+" li>div>div").eq(j-1).addClass("color-button-selector");
@@ -12,6 +12,7 @@
 		$(".pdd-color-names li").addClass("display-none");
 		$(".pdd-color-names li").eq(j-1).removeClass("display-none");
 	});
+	varCseq = cseq;
 }
 
 
@@ -34,6 +35,7 @@ var buyplanArray = [1, 24, 30, 36]; // 결과값에 포함
 
 // 결과 값들
 var varRseq = 0;
+var varCseq = 0;
 var varCc = 1;
 var varCcTitleString = "기기변경";
 var varCcTextString = "&nbsp;통신사는 그대로, 휴대폰만 바꾸고 싶어요.";
@@ -185,6 +187,7 @@ function setFields () {
 	var rplan_textplan_array = document.getElementsByClassName("rplan-textplan");
 
 	var rseq_array = document.getElementsByClassName("rseq");
+	var cseq_array = document.getElementsByClassName("cseq");
 	
 	var cc_array = document.getElementsByClassName("cc-value");
 	var cc_title_array = document.getElementsByClassName("cc-title");
@@ -231,7 +234,10 @@ function setFields () {
 	}
 
 	for (var i = 0; i < rseq_array.length; i++) {
-		rplan_textplan_array[i].value = varRseq;
+		rseq_array[i].value = varRseq;
+	}
+	for (var i = 0; i < cseq_array.length; i++) {
+		cseq_array[i].value = varCseq;
 	}
 
 	for (var i = 0; i < cc_array.length; i++) {
@@ -314,5 +320,6 @@ function setFields () {
 
 
 }
+
 
 /* // 제품 상세 */ 

@@ -36,9 +36,11 @@ author : BHS
 	<div class="support-right-content card-normal">
 		<div id="qna-wrap-inner"class="support-inner-wrap">
 			<div id="board"></div>
-			<h1>1:1 문의 보기</h1>
+			<h1>주문 상세보기</h1>
 			
 			<table id="board-table-detail">
+
+
 
 
 
@@ -73,12 +75,13 @@ author : BHS
 
 
 
+
+
 				<tr><td class="board-submit-line" colspan="3">
-					<input type="button" class="submit submit-blue board-submit" value="삭제하기" onclick="confirmDeleteQna(${qnaVO.qseq});" />
-					<c:if test="${qnaVO.rep == '1'}">
-						<input type="button" class="submit submit-blue board-submit" value="수정하기" onclick="location.href='pf.do?command=qnaUpdateform&qseq=${qnaVO.qseq}';" />
+					<c:if test="${orderVO.result == '1'}">
+						<input type="button" class="submit submit-blue board-submit" value="주문취소" onclick="cancelOrder(${orderVO.odseq});" />
 					</c:if>
-					<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=qnaList';" />				</td></tr>
+					<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=orderList';" />				</td></tr>
 			</table>
 			<!-- <div id="board-bottom"></div> -->
 

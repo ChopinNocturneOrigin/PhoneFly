@@ -3,24 +3,31 @@ package pf.dto;
 import java.sql.Timestamp;
 
 public class ReviewVO {
-	private int rseq;
+	private int rvseq;
 	private String id;
 	private String subject;
 	private String content;
 	private Timestamp indate;
 	private int pseq;
+	private String name;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getRvseq() {
+		return rvseq;
+	}
+	public void setRvseq(int rvseq) {
+		this.rvseq = rvseq;
+	}
 	public int getPseq() {
 		return pseq;
 	}
 	public void setPseq(int pseq) {
 		this.pseq = pseq;
-	}
-	public int getRseq() {
-		return rseq;
-	}
-	public void setRseq(int rseq) {
-		this.rseq = rseq;
 	}
 	public String getId() {
 		return id;

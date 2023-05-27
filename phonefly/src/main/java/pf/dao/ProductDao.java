@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import pf.dto.ColorVO;
 import pf.dto.ProductVO;
+import pf.dto.ReviewVO;
 import pf.dto.RplanVO;
 import pf.util.DBM;
 
@@ -319,5 +320,73 @@ public class ProductDao {
 		}
 		return list;
 	
+	}
+
+	public int countProductOrders(int pseq) {
+		// author : BHS
+		int count = 0;
+		con = DBM.getConnection();
+		String sql = "SELECT COUNT(*) cnt FROM order_detail WHERE pseq = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pseq);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return count;
+	}
+
+	public int countOrderById(String id, int pseq) {
+		// author : BHS
+		int count = 0;
+		con = DBM.getConnection();
+		String sql = "SELECT COUNT(*) cnt FROM order_detail WHERE id = ? AND pseq = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, pseq);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return count;
+	}
+
+	public ArrayList<ReviewVO> getReviews(int pseq) {
+		// author : BHS
+		ArrayList<ReviewVO> list = new ArrayList<>();
+		con = DBM.getConnection();
+		String sql = "SELECT * FROM review_view WHERE pseq = ? ORDER BY rvseq DESC";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pseq);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReviewVO vo = new ReviewVO();
+				vo.setRvseq(rs.getInt("rvseq"));
+				vo.setId(rs.getString("id"));
+				vo.setContent(rs.getString("content"));
+				vo.setIndate(rs.getTimestamp("indate"));
+				vo.setPseq(rs.getInt("pseq"));
+				vo.setName(rs.getString("name"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return list;
 	}
 }

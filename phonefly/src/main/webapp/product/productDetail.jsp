@@ -25,7 +25,7 @@ author : BHS
 	<!-- 온라인 신청하기 submit 전달 값 정리 -->
 	<input type="hidden" class="pdd-price2-in" value="${productVO.price2}" />
 	<input type="hidden" name="id" value="${id}" />
-	<input type="hidden" name="cseq" value="" /> <!-- V -->
+	<input type="hidden" name="cseq" value="${productVO.colorList[0].cseq}" /> <!-- V -->
 	<input type="hidden" name="rseq" class="rseq" value="" /> <!-- KT 첫번째 뽑아내기 필요 -->
 	<input type="hidden" name="discount" class="discount-id" value="0" /> <!-- (0: 500000, 1: 600000) 금액 / 24 -->
 	<input type="hidden" name="buyplan" class="pdd-buyplan" value="24" /> <!-- (0: 1, 1: 24, 2: 30, 3: 36) -->
@@ -92,7 +92,7 @@ author : BHS
 					<div class="card-color-buttons card-color-buttons-1">
 						<ul>
 							<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
-								<li onclick="pddColorClick(1, ${statusColor.count});">
+								<li onclick="pddColorClick(1, ${statusColor.count}, ${colorVO.cseq});">
 									<div class="color-button" style="background-color:${colorVO.ccode}">
 									<c:choose>
 										<c:when test="${statusColor.count == 1}">
@@ -413,20 +413,20 @@ author : BHS
 
 
 <!-- 구매 후기 프레임 -->
+<c:if test="${countOrderPseq > 0 || countOrderById > 0}">
 <div class="wrap pdd-wrap">
 <div class="pdd-inside-wrap">
 	<div class="pdd-review-wrap card-normal">
 		<!-- 입력 파트 -->
-		<c:if test="${orderPseqCount > 0}">
+		<c:if test="${countOrderById > 0}">
 			<form name="reviewForm" method="post"  action="pf.do">
 			<input type="hidden" name="command" value="reviewWrite" />
-				<input type="hidden" name="id" value="${id}" />
-				<input type="hidden" name="pseq" value="${pseq}" />
+				<input type="hidden" name="pseq" value="${productVO.pseq}" />
 				<div class="pdd-review-inputarea">
 					<ul>
 						<li class="pdd-review-title">구매후기</li>
-						<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10&#10 구매후기를 입력하세요"></textarea></li>
-						<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue"type="submit" value="구매후기 작성" /></li>
+						<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10 구매후기를 입력하세요"></textarea></li>
+						<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue" type="button" value="구매후기 작성" onclick="review_write();" /></li>
 					</ul>
 				</div>
 			</form>
@@ -435,7 +435,7 @@ author : BHS
 		<!-- //입력 파트 -->
 		
 		<!-- 출력 파트 -->
-		<div>
+		<div id="review-lists">
 			<ul>
 				<!-- 구매후기 테스트 더미 데이터 -->
 
@@ -450,17 +450,19 @@ author : BHS
  --%>
 				<!-- //구매후기 테스트 더미 데이터 -->
 			<c:forEach items="${reviewList}" var="review" varStatus="statusReview">
-				<c:choose>
-					<c:when test="not empty review">
-						<li class="pdd-review-line float-l">
-							<div>${review.name}</div>
-							<div>${review.content}</div>
-							<div><fmt:formatDate value="${review.indate}" /></div>
-						</li>
-					</c:when>
-					<c:otherwise>
-					</c:otherwise>
-				</c:choose>
+				<li class="pdd-review-line">
+					<div>
+						<ul>
+							<li class="pdd-review-ln-name float-l">${review.name}</li>
+							<li class="pdd-review-ln-content float-l"><pre>${review.content}</pre></li>
+							<li class="float-l"><fmt:formatDate value="${review.indate}" /></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+					<c:if test="${not statusReview.last}">
+						<hr />
+					</c:if>
+				</li>
 			</c:forEach>
 			</ul>
 		</div>
@@ -469,6 +471,7 @@ author : BHS
 	</div>
 </div>
 </div>
+</c:if>
 <!-- //구매 후기 프레임 -->
 
 

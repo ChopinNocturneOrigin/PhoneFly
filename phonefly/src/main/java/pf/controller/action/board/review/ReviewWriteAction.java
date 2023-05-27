@@ -27,6 +27,8 @@ public class ReviewWriteAction implements Action {
             url = "pf.do?command=loginForm";
         } else {
             ReviewDao rdao = ReviewDao.getInstance();
+
+            /*
             boolean isPurchased = rdao.checkIfPurchased(mvo.getId(), pseq);
             if (isPurchased) {
                 ReviewVO rvo = new ReviewVO();
@@ -38,6 +40,16 @@ public class ReviewWriteAction implements Action {
             } else {
                 url = "pf.do?command=productDetail&pseq=" + pseq;
             }
+			*/
+
+			ReviewVO rvo = new ReviewVO();
+			rvo.setContent(request.getParameter("content"));
+			rvo.setId(mvo.getId());
+			rvo.setPseq(pseq);
+			
+			rdao.insertReview(rvo);
+
+
         }
         response.sendRedirect(url);
     }

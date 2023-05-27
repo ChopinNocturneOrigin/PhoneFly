@@ -73,6 +73,7 @@ import pf.controller.action.member.mypage.QnaUpdateformAction;
 import pf.controller.action.member.mypage.QnaWriteAction;
 import pf.controller.action.member.mypage.QnaWriteFormAction;
 import pf.controller.action.order.OrderAction;
+import pf.controller.action.order.OrderDetailAction;
 import pf.controller.action.order.OrderListAction;
 import pf.controller.action.product.ProductCompareAction;
 import pf.controller.action.product.ProductDetailAction;
@@ -124,8 +125,9 @@ public class ActionFactory {
 	//주문(order)
 	else if(command.equals("orderList") ) ac = new OrderListAction();
 	else if(command.equals("order") ) ac = new OrderAction();
-	else if(command.equals("orderDetailListForm") ) ac = new AdminOrder_detailAction();
-	else if(command.equals("orderDetailList") ) ac = new AdminOrderListAction();
+	else if(command.equals("orderDetail") ) ac = new OrderDetailAction();
+	//else if(command.equals("orderDetailListForm") ) ac = new AdminOrder_detailAction();
+	//else if(command.equals("orderDetailList") ) ac = new AdminOrderListAction();
 	
 
 	//상품(product)

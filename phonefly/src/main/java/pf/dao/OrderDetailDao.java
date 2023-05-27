@@ -46,7 +46,9 @@ public class OrderDetailDao {
 
 	public ArrayList<OrderDetailVO> listOrderByOdseq(String id) {
 		ArrayList<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
-		String sql = "select * from order_detail where id=?";
+		// 수정 : bhs
+		//String sql = "select * from order_detail where id=?";
+		String sql = "SELECT * FROM order_detail_view2 WHERE id=?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -54,13 +56,32 @@ public class OrderDetailDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				OrderDetailVO ovo = new OrderDetailVO();	
+				
 				ovo.setOdseq(rs.getInt("odseq"));					ovo.setPseq(rs.getInt("pseq"));
 				ovo.setRseq(rs.getInt("rseq"));						ovo.setId(rs.getString("id"));
 				ovo.setResult(rs.getString("result"));				ovo.setDiscount(rs.getInt("discount"));
 				ovo.setBuyplan(rs.getInt("buyplan"));				ovo.setDcmonth(rs.getInt("dcmonth"));
 				ovo.setDctotal(rs.getInt("dctotal"));				ovo.setMmonth(rs.getInt("mmonth"));
 				ovo.setMtotal(rs.getInt("mtotal"));					ovo.setCc(rs.getString("cc"));
-				ovo.setIndate(rs.getTimestamp("indate"));			list.add(ovo);
+				ovo.setIndate(rs.getTimestamp("indate"));			
+
+				//
+				ovo.setPname(rs.getString("pname"));
+				ovo.setCname(rs.getString("cname"));
+				ovo.setCcname(rs.getString("ccname"));
+				ovo.setRname(rs.getString("rname"));
+
+				ovo.setCseq(rs.getInt("cseq"));
+				ovo.setPrice(rs.getInt("price"));
+				ovo.setMfc(rs.getString("mfc"));
+				ovo.setCharge(rs.getInt("charge"));
+				ovo.setDataplan(rs.getString("dataplan"));
+				ovo.setTimeplan(rs.getString("timeplan"));
+				ovo.setTextplan(rs.getString("textplan"));
+				//
+
+
+				list.add(ovo);
 			} 
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
@@ -101,6 +122,75 @@ public class OrderDetailDao {
 		    }
 		    return ovo;
 		}
+
+	public void insertOrder(OrderDetailVO odvo) {
+		con = DBM.getConnection();
+		String sql = "INSERT INTO order_detail (odseq, pseq, rseq, discount, buyplan, dcmonth, dctotal, mmonth, mtotal, cc, id, cseq) VALUES (odseq.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odvo.getPseq());
+			pstmt.setInt(2, odvo.getRseq());
+			pstmt.setInt(3, odvo.getDiscount());
+			pstmt.setInt(4, odvo.getBuyplan());
+			pstmt.setInt(5, odvo.getDcmonth());
+			pstmt.setInt(6, odvo.getDctotal());
+			pstmt.setInt(7, odvo.getMmonth());
+			pstmt.setInt(8, odvo.getMtotal());
+			pstmt.setString(9, odvo.getCc());
+			pstmt.setString(10, odvo.getId());
+			pstmt.setInt(11, odvo.getCseq());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+	}
+
+	public OrderDetailVO getOrderDetail(int odseq, String id) {
+		// author : bhs
+		OrderDetailVO ovo = null;
+		String sql = "SELECT * FROM order_detail_view2 WHERE odseq =? AND id = ?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ovo = new OrderDetailVO();	
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setPseq(rs.getInt("pseq"));
+				ovo.setRseq(rs.getInt("rseq"));
+				ovo.setId(rs.getString("id"));
+				ovo.setResult(rs.getString("result"));
+				ovo.setDiscount(rs.getInt("discount"));
+				ovo.setBuyplan(rs.getInt("buyplan"));
+				ovo.setDcmonth(rs.getInt("dcmonth"));
+				ovo.setDctotal(rs.getInt("dctotal"));
+				ovo.setMmonth(rs.getInt("mmonth"));
+				ovo.setMtotal(rs.getInt("mtotal"));
+				ovo.setCc(rs.getString("cc"));
+				ovo.setIndate(rs.getTimestamp("indate"));
+				ovo.setPname(rs.getString("pname"));
+				ovo.setCname(rs.getString("cname"));
+				ovo.setCcname(rs.getString("ccname"));
+				ovo.setRname(rs.getString("rname"));
+				ovo.setCseq(rs.getInt("cseq"));
+				ovo.setPrice(rs.getInt("price"));
+				ovo.setMfc(rs.getString("mfc"));
+				ovo.setCharge(rs.getInt("charge"));
+				ovo.setDataplan(rs.getString("dataplan"));
+				ovo.setTimeplan(rs.getString("timeplan"));
+				ovo.setTextplan(rs.getString("textplan"));
+			} 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return ovo;
+	}
 
 
 	
