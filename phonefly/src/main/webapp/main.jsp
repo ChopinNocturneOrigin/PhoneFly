@@ -7,15 +7,15 @@ author : PMS, BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="header.jsp"%>
+<%@ include file="sub/header.jsp"%>
 <script src="script/removeMenuSession.js"></script>
 
 <article>
 
 <!-- 메인 배너 불러오기 -->
-<%@ include file="mainBanner.jsp"%>
+<%@ include file="sub/mainBanner.jsp"%>
 
- 
+
 <!-- 베스트 상품 -->
 
 
@@ -130,7 +130,7 @@ author : PMS, BHS
 			</div>
 		</li>
 		<li>
-			<div id="content2" class="card" onclick="location.href='#'">
+			<div id="content2" class="card" onclick="location.href='pf.do?command=productList&mfc=Apple';">
 				<img src="images/main/iphone-card-50-compare-202209.jpg" />
 				<div>
 					<span>Apple iPhone 모든 모델 보기</span><br />
@@ -140,7 +140,7 @@ author : PMS, BHS
 			</div>
 		</li>
 		<li>
-			<div id="content3" class="card" onclick="location.href='#'">
+			<div id="content3" class="card" onclick="location.href='pf.do?command=productList&mfc=Apple';">
 				<img src="images/main/iphone-card-50-whyswitch-202209_GEO_KR.jpg" />
 				<div>
 					<span>iPhone으로 갈아타기</span><br />
@@ -267,8 +267,8 @@ author : PMS, BHS
 
 
 <!-- 비교 상자 불러오기 -->
-<%@ include file="comparePopup.jsp"%>
+<%@ include file="sub/comparePopup.jsp"%>
 
 
 <!-- footer 불러오기 -->
-<%@ include file="footer.jsp"%>
+<%@ include file="sub/footer.jsp"%>

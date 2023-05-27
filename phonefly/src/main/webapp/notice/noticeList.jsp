@@ -7,13 +7,13 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 
 
 <article>
 
 <!-- 서브 배너 불러오기 -->
-<%@ include file="sub_image_menu.jsp"%>
+<%@ include file="../sub/sub_image_menu6.jsp"%>
 
  
 <!-- 공지사항 리스트 -->
@@ -61,9 +61,7 @@ author : BHS
 <!-- //MAIN -->
 
 
-<!-- 비교 상자 불러오기 -->
-<%@ include file="../comparePopup.jsp"%>
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

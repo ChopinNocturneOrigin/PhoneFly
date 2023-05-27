@@ -18,20 +18,15 @@
 			<th>이름&nbsp;</th><td><input type="text" name="name" class="input-text input-text-bg-gray input-text-font-normal" /></td>
 			</tr>
 			<tr>
-			<th>이메일&nbsp;</th><td><input type="text" name="email" class="input-text input-text-bg-gray input-text-font-normal" /></td>
+			<th>전화번호&nbsp;</th><td><input type="text" name="phone" class="input-text input-text-bg-gray input-text-font-normal" /></td>
 			</tr>
 		</table>
+		<br />
+		<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
 	</form>
 	<br />
-	<c:if test="${result == 1}">
-		<c:choose>
-			<c:when test="${not empty idResult}">
-				<h2>확인된 아이디는 ${idResult} 입니다.</h2>
-			</c:when>
-			<c:otherwise>
-				<h2>아이디를 찾을 수 없습니다. 다시 검색해주세요.</h2>
-			</c:otherwise>
-		</c:choose>
+	<c:if test="${not empty member}">
+		<h2>확인된 아이디는 ${member.id} 입니다.</h2>
 	</c:if>
 </div>
 </body>

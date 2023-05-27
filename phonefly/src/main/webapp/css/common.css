@@ -577,6 +577,7 @@ article h3 {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
+	height: 747px;
 }
 .input-trans {
 	border: 0px;
@@ -623,7 +624,7 @@ article h3 {
 	letter-spacing: -0.05em;
 	color: #333;
 	background-color: #ccc;
-	margin: 30px auto;
+	margin: 20px auto;
 }
 .login-form .buttons>input:first-child {
 	color: #f8f8f8;
@@ -680,6 +681,7 @@ article h3 {
 	font-size: 1.6em;
 	font-weight: bold;
 	padding-top: 29px;
+	margin-left: -3px;
 }
 .join-form label {
 	display: block;
@@ -1258,14 +1260,12 @@ article h3 {
 /* #board-table * {
 	border: 1px dashed red;
 } */
-#board-table th:nth-child(1) {
+#board-table th:nth-child(1),
+#board-table th:nth-child(3) {
 	width: 150px;
 }
 #board-table th:nth-child(2) {
 	width: 1000px;
-}
-#board-table th:nth-child(3) {
-	width: 150px;
 }
 #board-table th,
 #board-table td {
@@ -1435,8 +1435,6 @@ article h3 {
 	padding: 10px 0px;
 	border-top: 1px solid lightgray;
 }
-.faq-button {
-}
 .faq-answer {
 	height: auto;
 	padding: 10px;
@@ -1457,17 +1455,44 @@ article h3 {
 
 
 /* 부가 메뉴 페이지 - QnA 리스트 */
+.support-left-menu,
+.support-right-content {
+	display: flex;
+}
+.support-left-menu>div,
+.support-right-content>div {
+	margin: auto;
+}
 .support-left-menu {
 	width: 300px;
-	height: 600px;
+	height: 388px;
 	margin-right: 20px;
 	float: left;
 }
-
+.support-left-menu li {
+	font-size: 1.25em;
+	font-weight: bold;
+	text-decoration: 1px solid #777 underline;
+	margin: 28px 0px;
+}
+.support-inner-wrap {
+	padding: 40px;
+}
+.support-inner-wrap h1 {
+	margin: 20px;
+}
 .support-right-content {
 	width: 1150px;
-	height: 1200px;
 	float: right;
+	margin-bottom: 30px;
+}
+.support-inner-wrap #board-table th:nth-child(1),
+.support-inner-wrap #board-table th:nth-child(3),
+.support-inner-wrap #board-table th:nth-child(4) {
+	width: 150px;
+}
+.support-inner-wrap #board-table th:nth-child(2) {
+	width: 850px;
 }
 
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}

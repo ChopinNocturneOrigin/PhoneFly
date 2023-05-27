@@ -21,9 +21,11 @@
 			<th>이름&nbsp;</th><td><input type="text" name="name" class="input-text input-text-bg-gray input-text-font-normal" /></td>
 			</tr>
 			<tr>
-			<th>이메일&nbsp;</th><td><input type="text" name="email" class="input-text input-text-bg-gray input-text-font-normal" /></td>
+			<th>전화번호&nbsp;</th><td><input type="text" name="phone" class="input-text input-text-bg-gray input-text-font-normal" /></td>
 			</tr>
 		</table>
+		<br />
+		<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
 	</form>
 	<br />
 	<c:if test="${result == 1}">
@@ -35,9 +37,10 @@
 			</fieldset>
 			<div class="clear"></div>
 			<div class="buttons">
-				<input type="button" value="회원가입" class="submit submit-blue" onclick="checkPwd();" />&nbsp;
+				<input type="button" value="암호변경" class="submit submit-blue" onclick="checkPwd();" />&nbsp;
 				<input type="reset" value="취소" class="cancel" />
 			</div>
+			<br />
 		</form>
 	</c:if>
 </div>

@@ -1,7 +1,6 @@
 package pf.controller.action.member.login;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,7 +25,7 @@ public class SelectIdAction implements Action {
 			 request.setAttribute("member", member);
 		}
 		
-		RequestDispatcher dp = request.getRequestDispatcher("login.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("member/findId.jsp");
 		dp.forward(request, response); 
 
 	}

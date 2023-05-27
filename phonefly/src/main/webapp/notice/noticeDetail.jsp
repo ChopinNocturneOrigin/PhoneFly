@@ -7,13 +7,13 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 
 
 <article>
 
 <!-- 서브 배너 불러오기 -->
-<%@ include file="sub_image_menu.jsp"%>
+<%@ include file="../sub/sub_image_menu6.jsp"%>
 
  
 <!-- 공지사항 상세보기 -->
@@ -29,15 +29,15 @@ author : BHS
 		<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">${NoticeVO.nseq}<hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
-		<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${NoticeVO.indate}" /><hr class="board-event-hr-right"/></td>
+		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${NoticeVO.subject}<hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
-		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${NoticeVO.subject}<hr class="board-event-hr-right"/></td>
+		<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${NoticeVO.indate}" /><hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
 		<th id="board-event-detail-content-title">내용<hr class="board-event-hr-left"/></th><td class="board-detail-content"><div id="board-detail-content-inner-wrap"><pre>${NoticeVO.content}</pre></div></td>
 	</tr>
-	<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=noticeList';" /></td></tr>
+	<tr><td class="board-submit-line" colspan="2"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=noticeList';" /></td></tr>
 
 
 
@@ -84,9 +84,7 @@ author : BHS
 <!-- //MAIN -->
 
 
-<!-- 비교 상자 불러오기 -->
-<%@ include file="../comparePopup.jsp"%>
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

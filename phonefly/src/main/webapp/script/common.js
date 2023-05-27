@@ -113,3 +113,16 @@ function checkPwd() {
 		document.joinForm.submit();
 	}
 }
+
+
+
+
+/* 회원 탈퇴 */
+function withdrawalConfirm() {
+	let bool = confirm("정말로 탈퇴하시겠습니까?");
+	if (bool) {
+		location.href = 'pf.do?command=deleteMember';
+	} else {
+		return;
+	}
+}

@@ -7,7 +7,7 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 <script src="script/productDetail.js"></script>
 
 <article>
@@ -551,7 +551,7 @@ author : BHS
 
 
 <!-- 비교 상자 불러오기 -->
-<%@ include file="../comparePopup.jsp"%>
+<%@ include file="../sub/comparePopup.jsp"%>
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

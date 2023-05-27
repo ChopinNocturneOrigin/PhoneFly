@@ -7,7 +7,7 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 <script src="script/removeMenuSession.js"></script>
 
 
@@ -51,4 +51,4 @@ author : BHS
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

@@ -7,7 +7,7 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 <script src="script/removeMenuSession.js"></script>
 
 
@@ -138,9 +138,7 @@ o 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에
 <!-- //MAIN -->
 
 
-<!-- 비교 상자 불러오기 -->
-<%@ include file="../comparePopup.jsp"%>
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

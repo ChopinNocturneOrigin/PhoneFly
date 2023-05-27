@@ -7,7 +7,7 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 <script src="script/removeMenuSession.js"></script>
 
 
@@ -26,11 +26,11 @@ author : BHS
 
 
     <p>제1조(목적)<br />
-이 약관은 주식회사 이루다 (전자상거래 사업자)가 운영하는 PhoneFly&nbsp;사이버 몰(이하 &ldquo;몰&rdquo;이라 한다)에서 제공하는 인터넷 관련 서비스(이하 &ldquo;서비스&rdquo;라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.<br />
+이 약관은 주식회사 PhoneFly (전자상거래 사업자)가 운영하는 PhoneFly&nbsp;사이버 몰(이하 &ldquo;몰&rdquo;이라 한다)에서 제공하는 인터넷 관련 서비스(이하 &ldquo;서비스&rdquo;라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.<br />
 ※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」<br />
 <br />
 제2조(정의)<br />
-① &ldquo;몰&rdquo;이란 주식회사 이루다 회사가 재화 또는 용역(이하 &ldquo;재화 등&rdquo;이라 함)을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 등을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버몰을 운영하는 사업자의 의미로도 사용합니다.<br />
+① &ldquo;몰&rdquo;이란 주식회사 PhoneFly 회사가 재화 또는 용역(이하 &ldquo;재화 등&rdquo;이라 함)을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 등을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버몰을 운영하는 사업자의 의미로도 사용합니다.<br />
 ② &ldquo;이용자&rdquo;란 &ldquo;몰&rdquo;에 접속하여 이 약관에 따라 &ldquo;몰&rdquo;이 제공하는 서비스를 받는 회원 및 비회원을 말합니다.<br />
 ③ &lsquo;회원&rsquo;이라 함은 &ldquo;몰&rdquo;에 (삭제) 회원등록을 한 자로서, 계속적으로 &ldquo;몰&rdquo;이 제공하는 서비스를 이용할 수 있는 자를 말합니다.<br />
 ④ &lsquo;비회원&rsquo;이라 함은 회원에 가입하지 않고 &ldquo;몰&rdquo;이 제공하는 서비스를 이용하는 자를 말합니다.<br />
@@ -206,9 +206,7 @@ author : BHS
 <!-- //MAIN -->
 
 
-<!-- 비교 상자 불러오기 -->
-<%@ include file="../comparePopup.jsp"%>
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

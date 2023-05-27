@@ -17,7 +17,6 @@ import pf.controller.action.admin.board.notice.AdminNoticeUpdateAction;
 import pf.controller.action.admin.board.notice.AdminNoticeUpdateFormAction;
 import pf.controller.action.admin.board.qna.AdminQnaListAction;
 import pf.controller.action.admin.board.qna.AdminQnaUpdateAction;
-import pf.controller.action.admin.board.qna.AdminQna_detailListAction;
 import pf.controller.action.admin.board.qna.AdminQna_detailAction;
 import pf.controller.action.admin.login.AdminAction;
 import pf.controller.action.admin.login.AdminLoginAction;
@@ -44,6 +43,9 @@ import pf.controller.action.admin.product.AdminProductUpdateFormAction;
 import pf.controller.action.board.event.EventDetailAction;
 import pf.controller.action.board.event.EventListAction;
 import pf.controller.action.board.faq.FAQListAction;
+import pf.controller.action.board.faq.Guide1Action;
+import pf.controller.action.board.faq.Guide2Action;
+import pf.controller.action.board.faq.Guide3Action;
 import pf.controller.action.board.notice.NoticeDetailAction;
 import pf.controller.action.board.notice.NoticeListAction;
 import pf.controller.action.board.review.ReviewWriteAction;
@@ -146,6 +148,10 @@ public class ActionFactory {
 	else if(command.equals("noticeList") ) ac = new NoticeListAction();
 	else if(command.equals("noticeDetail") ) ac = new NoticeDetailAction();
 	
+	//하단링크
+	else if(command.equals("guide1") ) ac = new Guide1Action();
+	else if(command.equals("guide2") ) ac = new Guide2Action();
+	else if(command.equals("guide3") ) ac = new Guide3Action();
 	
 	
 	//관리자(admin)

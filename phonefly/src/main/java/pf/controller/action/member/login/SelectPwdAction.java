@@ -25,7 +25,7 @@ public class SelectPwdAction implements Action {
 			 request.setAttribute("member", member);
 		}
 		
-		RequestDispatcher dp = request.getRequestDispatcher("login.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("member/findPwd.jsp");
 		dp.forward(request, response);
 		
 	}

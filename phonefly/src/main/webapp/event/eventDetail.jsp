@@ -7,13 +7,13 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../header.jsp"%>
+<%@ include file="../sub/header.jsp"%>
 
 
 <article>
 
 <!-- 서브 배너 불러오기 -->
-<%@ include file="sub_image_menu.jsp"%>
+<%@ include file="../sub/sub_image_menu6.jsp"%>
 
  
 <!-- 이벤트 상세보기 -->
@@ -29,15 +29,15 @@ author : BHS
 		<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">${EventVO.eseq}<hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
-		<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${EventVO.indate}" /><hr class="board-event-hr-right"/></td>
+		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${EventVO.subject}<hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
-		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${EventVO.subject}<hr class="board-event-hr-right"/></td>
+		<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${EventVO.indate}" /><hr class="board-event-hr-right"/></td>
 	</tr>
 	<tr>
 		<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${EventVO.image}" /></td>
 	</tr>
-<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=eventList';" /></td></tr>
+<tr><td class="board-submit-line" colspan="2"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=eventList';" /></td></tr>
 
 
 <!--  템플릿 
@@ -72,9 +72,7 @@ author : BHS
 <!-- //MAIN -->
 
 
-<!-- 비교 상자 불러오기 -->
-<%@ include file="../comparePopup.jsp"%>
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../footer.jsp"%>
+<%@ include file="../sub/footer.jsp"%>

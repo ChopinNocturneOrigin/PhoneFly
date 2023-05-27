@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
-<%@ include file="sub_image_menu.html" %>
+<%@ include file="../sub/header.jsp" %>
+<%@ include file="../sub/sub_image_menu5.jsp"%>
+
 <script src="script/removeMenuSession.js"></script>
 
 <article>
@@ -38,4 +39,4 @@
 </div>
 </article>
 
-<%@ include file="../footer.jsp" %>
+<%@ include file="../sub/footer.jsp" %>
