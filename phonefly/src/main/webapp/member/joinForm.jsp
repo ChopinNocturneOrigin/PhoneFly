@@ -5,7 +5,7 @@
 <article>
 <div class="wrap join-form-wrap card-normal">
 	<div class="join-form">
-	<form method="post" name="joinForm">
+	<form method="post" name="joinForm" action="pf.do">
 		<input type="hidden" name="command" value="join" />
 		
 		<fieldset>

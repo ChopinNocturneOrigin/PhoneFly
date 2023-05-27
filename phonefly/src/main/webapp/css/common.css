@@ -120,7 +120,7 @@ button:active {
 input::placeholder,
 textarea::placeholder {
 	color: #bbb;
-	font-size: 0.94em;
+	font-size: 17px;
 	opacity: 1;
 }
 
@@ -203,6 +203,8 @@ textarea::placeholder {
   position: fixed;
 }
 textarea {
+	font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+	font-size: 14px;
 	resize: none;
 }
 
@@ -639,7 +641,7 @@ article h3 {
 /* 가입 약관 */
 .contract-wrap {
 	width: 806px;
-	height: 591px;
+	height: 668px;
 	margin: 0px auto 34px;
 }
 .contract-wrap p {
@@ -692,7 +694,8 @@ article h3 {
 	margin-left: -1px;
 	margin-top: 4px;
 }
-.join-form .join-form-input {
+.join-form .join-form-input,
+.join-form-input {
 	display: inline-block;
 	font-size: 1.05em;
 	color: black;
@@ -1506,10 +1509,26 @@ article h3 {
 .support-inner-wrap #board-table th:nth-child(2) {
 	width: 850px;
 }
-#qna-wrap-inner input {
+#qna-wrap-inner input,
+#qna-detail-wrap-inner input {
 	font-size: 17px;
 	font-weight: bold;
 	line-height: 47px;
+}
+#qna-detail-wrap-inner {
+	width: 88%;
+}
+#qna-detail-wrap-inner td {
+	text-align: left;
+}
+#qna-detail-wrap-inner .join-form-input {
+	line-height: 17px;
+}
+#qna-detail-wrap-inner .qna-th {
+	padding-top: 12px;
+}
+#qna-detail-wrap-inner .qna-textarea-wrap {
+	padding-bottom: 10px;
 }
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
 .pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */

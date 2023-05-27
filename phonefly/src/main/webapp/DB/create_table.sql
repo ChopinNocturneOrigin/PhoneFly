@@ -60,7 +60,7 @@ CREATE TABLE notice (
 	nseq	number(5)		NOT NULL,
 	id	varchar2(20)		NOT NULL,
 	subject	varchar2(100)		NOT NULL,
-	content	varchar2(1000)		NOT NULL,
+	content	varchar2(3000)		NOT NULL,
 	indate	date	DEFAULT SYSDATE
 );
 
@@ -108,7 +108,7 @@ CREATE TABLE qna (
 	qseq	number(5)		NOT NULL,
 	id	varchar2(20)		NOT NULL,
 	subject	varchar2(100)		NOT NULL,
-	content	varchar2(1000)		NOT NULL,
+	content	varchar2(3000)		NOT NULL,
 	reply	varchar2(1000)		NULL,
 	rep	char(1)	DEFAULT '1',
 	indate	date	DEFAULT SYSDATE

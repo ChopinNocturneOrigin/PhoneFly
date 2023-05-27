@@ -88,15 +88,19 @@ public class QnaDao {
 
 	public void insertQna(QnaVO qvo) {
 		
-		String sql = "insert into qna (qseq, subject, content, id, indate) "
-				+ " values(qna_seq.nextval , ? , ? , ? , ? )";
+		/* 수정 : bhs
+		 * String sql = "insert into qna (qseq, subject, content, id, indate) " +
+		 * " values(qna_seq.nextval , ? , ? , ? , ? )";
+		 */
+		String sql = "INSERT INTO qna (qseq, subject, content, id) VALUES (qseq.nextval , ? , ? , ?)";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, qvo.getSubject());
 		    pstmt.setString(2, qvo.getContent());
 		    pstmt.setString(3, qvo.getId());
-		    pstmt.setTimestamp(4, qvo.getIndate());
+			/* 수정 : bhs
+			pstmt.setTimestamp(4, qvo.getIndate()); */
 		    pstmt.executeUpdate();  
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {  DBM.close(con, pstmt, rs);  }

@@ -17,7 +17,9 @@ public class QnaUpdateAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "pf.do?command=QnaList";
+		// 수정 : bhs
+		//String url = "pf.do?command=QnaList";
+		String url = "pf.do?command=qnaList";
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
@@ -29,7 +31,9 @@ public class QnaUpdateAction implements Action {
 			qvo.setQseq(Integer.parseInt(request.getParameter("qseq")));
 			qvo.setId(mvo.getId());
 			qvo.setSubject(request.getParameter("subject"));
-			qvo.setContent(request.getParameter("conent"));
+			// 수정 : bhs
+			// qvo.setContent(request.getParameter("conent"));
+			qvo.setContent(request.getParameter("content"));
 			
 			QnaDao qdao = QnaDao.getInstance();
 			qdao.updateQna(qvo);

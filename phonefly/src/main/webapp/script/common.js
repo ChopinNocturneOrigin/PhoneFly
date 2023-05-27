@@ -129,11 +129,65 @@ function withdrawalConfirm() {
 
 
 /* Q & A */
-function confirmDeleteQna() {
+function confirmDeleteQna(qseq) {
 	let bool = confirm("정말로 삭제 하시겠습니까?");
 	if (bool) {
-		location.href = 'pf.do?command=qnaDelete';
+		location.href = 'pf.do?command=qnaDelete&qseq='+qseq;
 	} else {
 		return;
+	}
+}
+
+function qna_write() {
+	if (document.qnafrm.subject.value === "") {
+		alert("제목을 입력해 주세요.");
+		document.qnafrm.subject.focus();
+	} else if (!fn_chk_byte2(document.qnafrm.subject, 100)) {
+		alert("제목은 100바이트 까지 입력 가능합니다.");
+		document.qnafrm.subject.focus();
+	} else if (document.qnafrm.content.value === "") {
+		alert("내용을 입력해 주세요.");
+		document.qnafrm.content.focus();
+	} else if (!fn_chk_byte2(document.qnafrm.content, 3000)) {
+		alert("내용은 3000바이트 까지 입력 가능합니다.");
+		document.qnafrm.content.focus();
+	} else {
+		document.qnafrm.action = "pf.do";
+		document.qnafrm.submit();
+	}
+}
+
+
+function fn_chk_byte(obj){
+    totalByte = 0;
+    var message = $(obj).val();
+
+    for(var i =0; i < message.length; i++) {
+            var currentByte = message.charCodeAt(i);
+            if(currentByte > 128){
+            	totalByte += 2;
+            }else {
+            	totalByte++;
+            }
+    }
+    $("#messagebyte").text(totalByte);
+}
+
+function fn_chk_byte2(obj, nn){
+    totalByte = 0;
+    var message = $(obj).val();
+
+    for(var i =0; i < message.length; i++) {
+            var currentByte = message.charCodeAt(i);
+            if(currentByte > 128){
+            	totalByte += 2;
+            }else {
+            	totalByte++;
+            }
+    }
+    if (totalByte > nn) {
+		return false;
+	} else {
+		return true;
 	}
 }

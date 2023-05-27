@@ -19,7 +19,8 @@ public class QnaDeleteAction implements Action {
 		
 		qdao.deleteQna( Integer.parseInt(qseq) );
 		
-		response.sendRedirect("pf.do?command=QnaList"); 
+		// 수정 bhs : response.sendRedirect("pf.do?command=QnaList"); 
+		response.sendRedirect("pf.do?command=qnaList"); 
 		
 	}
 

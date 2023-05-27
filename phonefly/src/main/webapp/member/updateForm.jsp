@@ -7,13 +7,13 @@
 <article>
 <div class="wrap join-form-wrap card-normal">
 	<div class="join-form">
-	<form method="post" name="joinForm">
+	<form method="post" name="joinForm" action="pf.do">
 		<input type="hidden" name="command" value="memberUpdate" />
 		<fieldset>
 			<legend>기본 정보</legend>
 			<label>아이디</label>
 			<input type="text" name="id" size="20" class="join-form-input" placeholder=" 아이디를 입력하세요" value="${loginUser.id}" readonly /><input type="hidden" name="reid" /><br />
-			<label>암호</label><input type="password" name="pwd" class="join-form-input" placeholder=" 암호를 입력하세요"  /><br />
+			<label>암호</label><input type="password" name="pwd" class="join-form-input" placeholder=" 암호를 입력하세요" /><br />
 			<label>암호 재입력</label><input type="password" name="pwdCheck" class="join-form-input" placeholder=" 암호를 입력하세요" /><br />
 			<label>성명</label><input type="text" name="name" class="join-form-input" placeholder=" 성명을 입력하세요" value="${loginUser.name}" /><br />
 			<label>전화번호</label><input type="text" name="phone" class="join-form-input" placeholder=" 전화번호를 입력하세요" value="${loginUser.phone}" /><br />
