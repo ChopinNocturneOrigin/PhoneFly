@@ -25,7 +25,7 @@ public class MemberReviewUpdateAction implements Action {
 	    	url = "pf.do?command=loginForm";
 	    }else{
 	    	ReviewVO rvo = new ReviewVO();
-	    	rvo.setRseq(Integer.parseInt(request.getParameter("rseq")));
+	    	rvo.setRvseq(Integer.parseInt(request.getParameter("rvseq")));
 	    	rvo.setId( mvo.getId() );
 	    	rvo.setSubject(request.getParameter("subject"));
 	    	rvo.setContent(request.getParameter("content"));

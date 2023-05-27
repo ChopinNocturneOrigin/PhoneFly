@@ -66,7 +66,7 @@ public class ReviewDao {
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		String sql = " select * from ( "
 				+ " select * from ( "
-				+ " select rownum as rn, r.* from ((select * from review where id=? order by rseq desc) r) "
+				+ " select rownum as rn, r.* from ((select * from review where id=? order by rvseq desc) r) "
 				+ " ) where rn>=? "
 				+ " ) where rn<=? ";
 		con = DBM.getConnection();
