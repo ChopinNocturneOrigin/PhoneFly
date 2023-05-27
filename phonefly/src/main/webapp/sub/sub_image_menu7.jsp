@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="sub-banner sub-banner-product wrap_main_banner">
-	<video class="sub-video" src="videos/movie7.mp4" autoplay muted loop preload="auto"></video>
+	<video class="sub-video" src="videos/movie7.webm" autoplay muted loop preload="auto"></video>
 	<c:choose>
 		<c:when test="${mfc == 'Samsung'}">
 			<div id="banner_text4">
