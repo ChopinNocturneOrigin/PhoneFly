@@ -61,7 +61,7 @@ author : BHS
 						<li><div class="main_menu" onclick="location.href='pf.do?command=productList&mfc=Samsung';"></div><a href="pf.do?command=productList&mfc=Samsung">삼성</a></li>
  						<li><div class="main_menu" onclick="location.href='pf.do?command=eventList';"></div><a href="pf.do?command=eventList">이벤트</a></li>
 						<li><div class="main_menu" onclick="location.href='pf.do?command=productCompare';"></div><a href="pf.do?command=productCompare">상품비교</a></li>
-						<li><div class="main_menu" onclick="location.href='pf.do?command=FAQList';"></div><a href="pf.do?command=FAQList">자주묻는질문</a></li>
+						<li><div class="main_menu" onclick="location.href='pf.do?command=FAQList';"></div><a href="pf.do?command=FAQList">자주하는질문</a></li>
 						<li><div class="main_menu" onclick="location.href='pf.do?command=noticeList';"></div><a href="pf.do?command=noticeList">공지사항</a></li>
 					</ul>
 				</nav>

@@ -8,6 +8,7 @@ author : BHS
 
 <!-- 헤더 불러오기 -->
 <%@ include file="../sub/header.jsp"%>
+<script src="script/removeMenuSession.js"></script>
 
 
 <article>
@@ -56,7 +57,7 @@ author : BHS
 						</td>
 					</tr>
 				</c:forEach>
-				<tr><td class="board-submit-line" colspan="4"><input type="button" class="submit submit-blue board-submit" value="작성하기" onclick="location.href='pf.do?command=';" /></td></tr>
+				<tr><td class="board-submit-line" colspan="4"><input type="button" class="submit submit-blue board-submit" value="작성하기" onclick="location.href='pf.do?command=qnaWriteForm';" /></td></tr>
 			</table>
 			<div id="board-bottom"></div>
 			

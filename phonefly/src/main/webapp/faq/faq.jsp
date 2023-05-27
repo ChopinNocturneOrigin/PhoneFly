@@ -16,47 +16,59 @@ author : BHS
 <%@ include file="../sub/sub_image_menu6.jsp"%>
 
  
-<!-- 자주묻는질문 (FAQ) -->
-<div class="board-inner-wrap card-normal faq-inner-wrap">
-<div id="board"></div>
-<h1>자주묻는질문 (FAQ)</h1>
+<!-- 자주하는질문 (FAQ) -->
 
-<!-- 메뉴 -->
-<div id="faq-sub-wrap">
-	<div id="faq-sub-menu">
-		<ul>
-			<li><input class="submit submit-blue submit-faq" type="button" value="신청 / 개통문의" onclick="faqMenu(1);" /></li>
-			<li><input class="submit submit-blue submit-faq" type="button" value="배송문의" onclick="faqMenu(2);" /></li>
-			<li><input class="submit submit-blue submit-faq" type="button" value="취소 / 반품문의" onclick="faqMenu(3);" /></li>
-		</ul>
-	</div>
-</div>
-<div class="clear"></div>
-<!-- //메뉴 -->
+	<!-- 게시판 페이지 왼쪽 메뉴 -->
+	<div class="support-left-menu board-menu card-normal">
 
-
-
-
-
-<div id="faq-main-wrap">
-	<div id="faq-main-inner-wrap">
-
-	<%@ include file="faq_part1.jsp"%>
-	<%@ include file="faq_part2.jsp"%>
-	<%@ include file="faq_part3.jsp"%>
+	<%@ include file="../sub/sub_board_menu.jsp"%>
 
 	</div>
-</div>
+	<!-- //게시판 페이지 왼쪽 메뉴 -->
 
 
+	<!-- 게시판 페이지 오른쪽 내용 -->
+	<div class="support-right-content card-normal">
+		<div class="support-inner-wrap">
 
 
+<!-- 		<div class="board-inner-wrap faq-inner-wrap"> -->
+		<div id="board"></div>
+		<h1>자주하는질문 (FAQ)</h1>
+		
+		<!-- 메뉴 -->
+		<div id="faq-sub-wrap">
+			<div id="faq-sub-menu">
+				<ul>
+					<li><input class="submit submit-blue submit-faq" type="button" value="신청 / 개통문의" onclick="faqMenu(1);" /></li>
+					<li><input class="submit submit-blue submit-faq" type="button" value="배송문의" onclick="faqMenu(2);" /></li>
+					<li><input class="submit submit-blue submit-faq" type="button" value="취소 / 반품문의" onclick="faqMenu(3);" /></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!-- //메뉴 -->
+		
+		<div id="faq-main-wrap">
+			<div id="faq-main-inner-wrap">
+		
+			<%@ include file="faq_part1.jsp"%>
+			<%@ include file="faq_part2.jsp"%>
+			<%@ include file="faq_part3.jsp"%>
+		
+			</div>
+		</div>
+		
+		<div id="board-bottom"></div>
 
 
-<div id="board-bottom"></div>
+	</div>
+	<div class="clear"></div>
+	<!-- //게시판 페이지 오른쪽 내용 -->
 
 
-<!-- 자주묻는질문 (FAQ) -->
+		
+<!-- 자주하는질문 (FAQ) -->
 
 
 

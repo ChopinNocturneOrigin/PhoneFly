@@ -17,50 +17,59 @@ author : BHS
 
  
 <!-- 이벤트 상세보기 -->
-<div class="board-inner-wrap board-event-detail-inner-warp card-normal">
 
-<h1>이벤트</h1>
-<hr id="board-detail-title-hr"/>
+	<!-- 게시판 페이지 왼쪽 메뉴 -->
+	<div class="support-left-menu board-menu card-normal">
 
-<table id="board-table-detail">
+	<%@ include file="../sub/sub_board_menu.jsp"%>
 
-
-	<tr>
-		<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">${EventVO.eseq}<hr class="board-event-hr-right"/></td>
-	</tr>
-	<tr>
-		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${EventVO.subject}<hr class="board-event-hr-right"/></td>
-	</tr>
-	<tr>
-		<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${EventVO.indate}" /><hr class="board-event-hr-right"/></td>
-	</tr>
-	<tr>
-		<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${EventVO.image}" /></td>
-	</tr>
-<tr><td class="board-submit-line" colspan="2"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=eventList';" /></td></tr>
+	</div>
+	<!-- //게시판 페이지 왼쪽 메뉴 -->
 
 
-<!--  템플릿 
-	<tr>
-		<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">11<hr class="board-event-hr-right"/></td>
-	</tr>
-	<tr>
-		<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date">2023.05.26.<hr class="board-event-hr-right"/></td>
-	</tr>
-	<tr>
-		<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">제목제목제목<hr class="board-event-hr-right"/></td>
-	</tr>
-	<tr>
-		<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/productImage/Aip1403.png" /></td>
-	</tr>
--->
-
-</table>
-<div id="board-bottom"></div>
-<div id="board-list-paging-bottom-margin"></div>
+	<!-- 게시판 페이지 오른쪽 내용 -->
+	<div class="support-right-content card-normal">
+		<div class="support-inner-wrap board-notice-detail-inner-warp">
 
 
-</div>
+
+
+		<!-- <div class="board-inner-wrap board-event-detail-inner-warp card-normal"> -->
+		
+			<h1>이벤트</h1>
+			<hr id="board-detail-title-hr"/>
+			
+			<table id="board-table-detail">
+			
+			
+				<tr>
+					<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">${EventVO.eseq}<hr class="board-event-hr-right"/></td>
+				</tr>
+				<tr>
+					<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${EventVO.subject}<hr class="board-event-hr-right"/></td>
+				</tr>
+				<tr>
+					<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${EventVO.indate}" /><hr class="board-event-hr-right"/></td>
+				</tr>
+				<tr class="board-table-before-btns">
+					<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${EventVO.image}" /></td>
+				</tr>
+			<tr><td class="board-submit-line" colspan="2"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=eventList';" /></td></tr>
+			
+			
+			</table>
+			<div id="board-bottom"></div>
+			<div id="board-list-paging-bottom-margin"></div>
+		
+		
+		</div>
+
+
+
+	</div>
+	<div class="clear"></div>
+	<!-- //게시판 페이지 오른쪽 내용 -->
+
 <!-- //이벤트 상세보기 -->
 
 

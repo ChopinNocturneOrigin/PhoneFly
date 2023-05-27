@@ -1255,6 +1255,7 @@ article h3 {
 }
 #board-table,
 #board-table-detail {
+	width: 100%;
 	margin: 0px auto;
 }
 /* #board-table * {
@@ -1290,7 +1291,7 @@ article h3 {
 }
 #board-table .board-submit,
 #board-table-detail .board-submit {
-	margin: 21px;
+	margin: 21px 11px;
 	float: right;
 }
 
@@ -1310,7 +1311,7 @@ article h3 {
 #board-list-paging-bottom-margin {
 	width: 100%;
 	height: 20px;
-	margin: 30px;
+	/* margin: 30px; */
 }
 #board-table .board-table-line-mouseover:hover {
 	background-color: rgba(135, 206, 250, 0.2);
@@ -1321,35 +1322,43 @@ article h3 {
 /* 공지사항 디테일 */
 #board-table-detail {
 	font-size: 1.23em;
+	border-top: 2px solid;
+	/* margin: 0px 22px; */
 }
-#board-nd-wrap-inner {
-	margin-left: 14px;
-	margin-right: 57px;
+#board-table-detail .board-detail-th,
+#board-table-detail .board-detail-no {
+	padding-top: 20px;
 }
+#board-table-detail .board-table-before-btns {
+	border-bottom: 1px solid;
+}
+
 #board-detail-title-hr {
 	width: 180px;
-	margin-top: -39px;
+	margin-top: -21px;
 	margin-bottom: 30px;
 }
 #board-table-detail th {
 	font-weight: bold;
-	width: 150px;
+	width: 100px;
 	height: 50px;
-}
-#board-table-detail .board-detail-no {
-	width: 80%;
+	padding-left: 13px;
+	padding-right: 30px;
 }
 #board-detail-content-inner-wrap {
 	text-align: left;
 }
-#board-nd-wrap-inner pre {
+#board-nd-wrap-inner pre,
+#qna-wrap-inner pre {
 	font-size: 15px;
 	font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+	white-space: pre-wrap;
 }
 /* 이벤트 디테일 */
 .board-notice-detail-inner-warp,
 .board-event-detail-inner-warp {
-	width: 75%;
+	width: 100%;
+	padding: 40px 70px !important;
 }
 #board-event-content-image {
 	width: 800px;
@@ -1368,7 +1377,7 @@ article h3 {
 	padding-top: 18px;
 }
 .board-detail-content {
-	padding-top: 18px;
+	padding-top: 5px;
 }
 
 
@@ -1387,7 +1396,7 @@ article h3 {
 
 
 
-/* 자주묻는질문 (FAQ) */
+/* 자주하는질문 (FAQ) */
 .submit-faq {
 	width: 200px;
 }
@@ -1469,6 +1478,9 @@ article h3 {
 	margin-right: 20px;
 	float: left;
 }
+.board-menu {
+	height: 270px;
+}
 .support-left-menu li {
 	font-size: 1.25em;
 	font-weight: bold;
@@ -1494,6 +1506,10 @@ article h3 {
 .support-inner-wrap #board-table th:nth-child(2) {
 	width: 850px;
 }
-
+#qna-wrap-inner input {
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 47px;
+}
 /* .pdd-scrollbox-wrap * {border: 1px dashed red;box-sizing: border-box;}
 .pdd-scrollbox-wrap>* {border: 1px dashed blue;box-sizing: border-box;} */
