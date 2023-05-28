@@ -158,14 +158,8 @@ author : BHS
 							<th>구매방법</th>
 							<td>
 								<c:choose>
-									<c:when test="${orderVO.buyplan == 24}">
-										24개월
-									</c:when>
-									<c:when test="${orderVO.buyplan == 30}">
-										30개월
-									</c:when>
-									<c:when test="${orderVO.buyplan == 36}">
-										24개월
+									<c:when test="${orderVO.buyplan > 1}">
+										${orderVO.buyplan}개월
 									</c:when>
 									<c:otherwise>
 										일시불
@@ -224,18 +218,41 @@ author : BHS
 							<!-- 메인 (c / 구매방법(할부개월) = 월할부금) -->
 								<li class="pdd-text-middle pdd-bg-black-label">
 									<div class="pdd-right-inside-padding">
-			 							<div>
-			 								<div class="red-circle float-l">A</div>
-		 									<div class="float-l pdd-buyplan">
-		 										<div class="float-l">
-		 											&nbsp;월 할부금
-		 										</div>
-		 										<div class="float-l pdd-right-inside-month-text">
-		 											&nbsp;(${orderVO.buyplan}개월)
-		 										</div>
-		 									</div>
-			 							</div>
-										<div class="float-r pdd-plan-chk">&nbsp;원</div><div class="txt-al-r pdd-price-middle float-r pdd-dcmonth-out pdd-plan-chk"><fmt:formatNumber value="${orderVO.dcmonth}" type="number" /></div>
+										<div>
+											<div class="red-circle float-l">A</div>
+											<div class="float-l pdd-buyplan">
+
+
+												<c:choose>
+													<c:when test="${orderVO.buyplan == 1}">
+														&nbsp;일시불
+													</c:when>
+													<c:otherwise>
+														<div class="float-l">
+															&nbsp;월 할부금
+														</div>
+														<div class="float-l pdd-right-inside-month-text">
+															&nbsp;(${orderVO.buyplan}개월)
+														</div>
+													</c:otherwise>
+												</c:choose>
+
+
+											</div>
+										</div>
+										<div class="float-r pdd-plan-chk">&nbsp;원</div>
+										<div class="txt-al-r pdd-price-middle float-r pdd-dcmonth-out pdd-plan-chk">
+
+											<c:choose>
+												<c:when test="${orderVO.buyplan == 1}">
+													0
+												</c:when>
+												<c:otherwise>
+													<fmt:formatNumber value="${orderVO.dcmonth}" type="number" />
+												</c:otherwise>
+											</c:choose>
+
+										</div>
 									</div>
 								<div class="clear"></div>
 								</li>
