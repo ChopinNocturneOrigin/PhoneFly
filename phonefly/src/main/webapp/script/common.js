@@ -161,8 +161,8 @@ function writeReview() {
 	if (document.reviewForm.content.value === "") {
 		alert("내용을 입력해 주세요.");
 		document.reviewForm.content.focus();
-	} else if (!fn_chk_byte2(document.reviewForm.content, 3000)) {
-		alert("내용은 3000바이트 까지 입력 가능합니다.");
+	} else if (!fn_chk_byte2(document.reviewForm.content, 1000)) {
+		alert("내용은 1000바이트 까지 입력 가능합니다.");
 		document.reviewForm.content.focus();
 	} else {
 		document.reviewForm.action = "pf.do";
@@ -219,6 +219,22 @@ function cancelOrder(odseq) {
 
 
 /* 내가 작성한 후기 */
+function modifyReview(rvseq, objString) {
+	let real_content = document.getElementById('real-content');
+	document.getElementById('real-rvseq').value = rvseq;
+	document.getElementById('real-content').value = document.getElementById(objString).value;
+
+	if (real_content.value === "") {
+		alert("내용을 입력해 주세요.");
+		real_content.focus();
+	} else if (!fn_chk_byte2(real_content, 1000)) {
+		alert("내용은 1000바이트 까지 입력 가능합니다.");
+		real_content.focus();
+	} else {
+		document.reviewForm.submit();
+	}
+}
+
 function deleteReview(rvseq) {
 	let bool = confirm("정말로 댓글을 삭제 하시겠습니까?");
 	if (bool) {

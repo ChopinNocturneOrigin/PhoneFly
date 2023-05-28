@@ -56,6 +56,10 @@ ul {
 	padding: 0px;
 }
 
+pre {
+	white-space: pre-wrap;
+}
+
 #logo {
 	width: 330px;
 	height: 140px;
@@ -1146,11 +1150,12 @@ article h3 {
 }
 .pdd-review-line {
 	min-height: 40px;
-	margin: 20px 20px;
+	margin: 20px 0px;
 }
 .pdd-review-line pre {
 	margin: 0px;
 	font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+	white-space: pre-wrap;
 }
 .pdd-review-ln-name {
     width: 86px;
@@ -1160,7 +1165,9 @@ article h3 {
     text-align: left;
     padding: 0px 16px;
 }
-
+#pdd-review-date {
+	width: 129px;
+}
 
 
 

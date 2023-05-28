@@ -57,12 +57,24 @@ author : BHS
 				</nav>
 				<nav id="menu">
 					<ul>
-						<li><div class="main_menu" onclick="location.href='pf.do?command=productList&mfc=Apple';"></div><a href="pf.do?command=productList&mfc=Apple">Apple</a></li>
-						<li><div class="main_menu" onclick="location.href='pf.do?command=productList&mfc=Samsung';"></div><a href="pf.do?command=productList&mfc=Samsung">삼성</a></li>
- 						<li><div class="main_menu" onclick="location.href='pf.do?command=eventList';"></div><a href="pf.do?command=eventList">이벤트</a></li>
-						<li><div class="main_menu" onclick="location.href='pf.do?command=productCompare';"></div><a href="pf.do?command=productCompare">상품비교</a></li>
-						<li><div class="main_menu" onclick="location.href='pf.do?command=FAQList';"></div><a href="pf.do?command=FAQList">자주하는질문</a></li>
-						<li><div class="main_menu" onclick="location.href='pf.do?command=noticeList';"></div><a href="pf.do?command=noticeList">공지사항</a></li>
+						<li onclick="location.href='pf.do?command=productList&mfc=Apple';">
+							<div class="main_menu"></div><a href="javascript:void(0);">Apple</a>
+						</li>
+						<li onclick="location.href='pf.do?command=productList&mfc=Samsung';">
+							<div class="main_menu"></div><a href="javascript:void(0);">삼성</a>
+						</li>
+ 						<li onclick="location.href='pf.do?command=eventList';">
+ 							<div class="main_menu"></div><a href="javascript:void(0);">이벤트</a>
+ 						</li>
+						<li onclick="location.href='pf.do?command=productCompare';">
+							<div class="main_menu"></div><a href="javascript:void(0);">상품비교</a>
+						</li>
+						<li onclick="location.href='pf.do?command=FAQList';">
+							<div class="main_menu"></div><a href="javascript:void(0);">자주하는질문</a>
+						</li>
+						<li onclick="location.href='pf.do?command=noticeList';">
+							<div class="main_menu"></div><a href="javascript:void(0);">공지사항</a>
+						</li>
 					</ul>
 				</nav>
 </header>

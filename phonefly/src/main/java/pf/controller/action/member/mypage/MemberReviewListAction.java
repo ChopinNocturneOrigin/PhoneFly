@@ -38,7 +38,7 @@ public class MemberReviewListAction implements Action {
 	    	Paging paging = new Paging();
 	    	paging.setPage(page);
 	    	
-	    	int count = rdao.getAllCount();
+	    	int count = rdao.getAllCount(loggedInId);
 	    	paging.setTotalCount(count);
 	    	
 	    	ArrayList<ReviewVO> list = rdao.selectReview( paging, loggedInId );

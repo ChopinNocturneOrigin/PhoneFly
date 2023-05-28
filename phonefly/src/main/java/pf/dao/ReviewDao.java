@@ -20,12 +20,14 @@ public class ReviewDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public int getAllCount() {
+	public int getAllCount(String id) {
 		int count= 0;
-		String sql = "select count(*) as cnt from review";
+		//String sql = "select count(*) as cnt from review";
+		String sql = "SELECT COUNT(*) cnt FROM review WHERE id = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if( rs.next() ) count = rs.getInt("cnt");
 		} catch (SQLException e) { e.printStackTrace();
@@ -34,13 +36,15 @@ public class ReviewDao {
 	}
 
 	public void updateReview(ReviewVO rvo) {
-		String sql = "Update review set content=?, id=? where rseq = ?";
+		// String sql = "Update review set content=?, id=? where rvseq = ?";
+		String sql = "UPDATE review SET content=? WHERE rvseq = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getContent());
-			pstmt.setString(2, rvo.getId());
-			pstmt.setInt(3, rvo.getRvseq());
+			//pstmt.setString(2, rvo.getId());
+			//pstmt.setInt(3, rvo.getRvseq());
+			pstmt.setInt(2, rvo.getRvseq());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);
@@ -50,7 +54,7 @@ public class ReviewDao {
 
 	public void deleteReview(int rseq) {
 		
-		String sql = "delete from review where rseq=?";
+		String sql = "delete from review where rvseq=?";
 		con = DBM.getConnection();
 		try {
 		      pstmt = con.prepareStatement(sql); 

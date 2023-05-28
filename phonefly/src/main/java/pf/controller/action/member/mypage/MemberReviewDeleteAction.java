@@ -14,10 +14,10 @@ public class MemberReviewDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String rseq = request.getParameter("rseq");
+		String rvseq = request.getParameter("rvseq");
 		ReviewDao rdao = ReviewDao.getInstance();
 		
-		rdao.deleteReview( Integer.parseInt(rseq) );
+		rdao.deleteReview( Integer.parseInt(rvseq) );
 		
 		response.sendRedirect("pf.do?command=memberReviewList"); 
 		

@@ -455,7 +455,9 @@ author : BHS
 						<ul>
 							<li class="pdd-review-ln-name float-l">${review.name}</li>
 							<li class="pdd-review-ln-content float-l"><pre>${review.content}</pre></li>
-							<li class="float-l"><fmt:formatDate value="${review.indate}" /></li>
+							<li class="float-l">
+								<div id="pdd-review-date"><fmt:formatDate value="${review.indate}" /></div>
+							</li>
 						</ul>
 					</div>
 					<div class="clear"></div>
