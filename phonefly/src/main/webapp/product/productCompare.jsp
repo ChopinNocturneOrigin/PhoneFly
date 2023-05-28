@@ -14,8 +14,10 @@ author : BHS
 
 <!-- 서브 배너 불러오기 -->
 <%@ include file="../sub/sub_image_menu7.jsp"%>
+<c:if test="${compareFlag == 1}">
+	<script src="script/removeCompareSession.js"></script> 
+</c:if>
 
- 
 <!-- 상품 비교 -->
 
 

@@ -23,6 +23,8 @@ let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
 let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
 
 
+
+
 /* 비교하기 카드(펼치기 숨기기) */
 function openCloseArrow(){// console.log("비교하기 카드(펼치기 숨기기)");
 	$(function(){
@@ -80,6 +82,8 @@ function compareProduct(pseq_from) {
 		});
 	}
 
+	document.getElementsByClassName('compare-counts').value = compare_box_count;
+
 	setCompareSession();
 }
 
@@ -100,6 +104,7 @@ function btnReset() {
 		$('.plus-button').removeClass('disabled');
 	});
 
+	document.getElementsByClassName('compare-counts').value = compare_box_count;
 	sessionStorage.removeItem("comparePseqs");
 }
 
@@ -107,19 +112,6 @@ function btnReset() {
 
 function btnX(count) {
 	let local_count = 0;
-/*	let pseq_list = document.getElementsByClassName('pdPseq');
-	let compare_price_list = document.getElementsByClassName('card-compare-price');
-	let plus_btn_list = document.getElementsByClassName('plus-button');
-	
-	let comp_pseq_list = document.getElementsByClassName('compare-box-pseq-real');
-	let comp_image_list = document.getElementsByClassName('compare-box-image-real');
-	let comp_name_list = document.getElementsByClassName('compare-box-name');
-	let comp_price_list = document.getElementsByClassName('compare-box-price');
-
-	let comp_pseq_h_list = document.getElementsByClassName('compare-box-pseq-h');
-	let comp_image_h_list = document.getElementsByClassName('compare-box-image-real-h');
-	let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
-	let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');*/
 
 	for (let i = 0; i < pseq_list.length; i++) {
 		if (comp_pseq_list[count].value == pseq_list[i].value) {
@@ -182,22 +174,16 @@ function setCompareSession() {
 	let comp_image_h_list = document.getElementsByClassName('compare-box-image-real-h');
 	let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
 	let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
-*/	let data_set2 = new Array();
-	
+*/	
+	let data_set2 = new Array();
 	for (let i = 0; i < compare_box_count; i++) {
-		let data1 = new Object();
-		let data2 = new Object();
-		let data3 = new Object();
-		let data4 = new Object();
+		let data = new Object();
 		let data_set = new Array();
-		data1.pseq = comp_pseq_h_list[i].value;
-		data2.image = comp_image_h_list[i].value;
-		data3.name = comp_name_h_list[i].value;
-		data4.price = comp_price_h_list[i].value;
-		data_set.push(data1);
-		data_set.push(data2);
-		data_set.push(data3);
-		data_set.push(data4);
+		data.pseq = comp_pseq_h_list[i].value;
+		data.image = comp_image_h_list[i].value;
+		data.name = comp_name_h_list[i].value;
+		data.price = comp_price_h_list[i].value;
+		data_set.push(data);
 		data_set2.push(data_set);
 	}
 	let data_last = new Object();
@@ -207,3 +193,50 @@ function setCompareSession() {
 	sessionStorage.setItem("comparePseqs", json_data);	
 }
 
+
+
+
+
+$(document).ready(function() {
+
+	let data = JSON.parse(sessionStorage.getItem("comparePseqs"));
+	compare_box_count = data.pop().count;
+	document.getElementsByClassName('compare-counts').value = compare_box_count;
+	for (let i = 0; i < data.length; i++) {
+		let temp = data[i];
+		let temp2 = temp.pop();
+		let pseq = temp2.pseq;
+		let image = temp2.image;
+		let nname = temp2.name;
+		let price = temp2.price;
+		comp_pseq_h_list[i].value = pseq;
+		comp_image_h_list[i].value = image;
+		comp_name_h_list[i].value = nname;
+		comp_price_h_list[i].value = price;
+		comp_pseq_list[i].value = pseq;
+		comp_image_list[i].src = image;
+		comp_name_list[i].innerHTML = nname;
+		comp_price_list[i].innerHTML = price;
+		$('.compare-box').eq(i).removeClass('disabled');
+		$('.compare-box-image').eq(i).removeClass('visibility-hidden');
+		$('.compare-box-text').eq(i).removeClass('visibility-hidden');
+		$('.compare-box-price').eq(i).removeClass('visibility-hidden');
+		$('.compare-box-xbtn').eq(i).removeClass('visibility-hidden');
+
+		for (let j = 0; j < pseq_list.length; j++) {
+			if (pseq == pseq_list[j].value) {
+				compare_price_list[j].classList.add('disabled');
+				plus_btn_list[j].classList.add('disabled');
+			}
+		}
+		//alert(pseq+","+image+","+nname+","+price);
+	}
+
+	if (compare_box_count > 0) {
+		$('.compare-popup').removeClass('compare-popup-open');
+		$('.compare-popup').addClass('compare-popup-close');
+		$('.arrow-i').removeClass('disabled');
+	} else {
+		btnReset();
+	}
+});
