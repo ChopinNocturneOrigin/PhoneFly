@@ -60,6 +60,8 @@ function pddColorClick(i, j, cseq) {
 $(document).ready(function() {
 	var price2_array = document.getElementsByClassName("pdd-price2-in");
 	varPrice2 = price2_array[0].value;
+	cseq_array = document.getElementsByClassName("cseq");
+	varCseq = cseq_array[0].value;
 
 	selectPlan("스페셜", 100000, "무제한", "유무선 무제한", "문자 무제한", "15");
 	setFields();

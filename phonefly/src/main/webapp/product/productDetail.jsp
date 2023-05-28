@@ -25,7 +25,7 @@ author : BHS
 	<!-- 온라인 신청하기 submit 전달 값 정리 -->
 	<input type="hidden" class="pdd-price2-in" value="${productVO.price2}" />
 	<input type="hidden" name="id" value="${id}" />
-	<input type="hidden" name="cseq" value="${productVO.colorList[0].cseq}" />
+	<input type="hidden" name="cseq" class="cseq" value="${productVO.colorList[0].cseq}" />
 	<input type="hidden" name="rseq" class="rseq" value="" /> <!-- KT 첫번째 뽑아내기 필요 -->
 	<input type="hidden" name="discount" class="discount-id" value="0" /> <!-- (0: 500000, 1: 600000) 금액 / 24 -->
 	<input type="hidden" name="buyplan" class="pdd-buyplan" value="24" /> <!-- (0: 1, 1: 24, 2: 30, 3: 36) -->
