@@ -42,7 +42,10 @@ FROM order_detail O, product P, rplan R, comm C, color CC
 WHERE O.rseq = R.rseq AND R.mseq = C.mseq AND O.pseq = P.pseq AND O.cseq = CC.cseq;
 
 
--- Product detail의  review 조회용
+-- Product detail의 review 조회용 (pseq의 전체 review)
 CREATE OR REPLACE VIEW review_view AS
 SELECT R.*, M.name FROM review R, member M WHERE R.id = M.id ORDER BY rvseq DESC;
 
+-- reviewList의 내가 작성한 후기 조회용 (제품 이름 조회)
+CREATE OR REPLACE VIEW review_for_member_view AS
+SELECT R.*, P.name pname FROM review R, product P WHERE R.pseq = P.pseq ORDER BY rvseq DESC;

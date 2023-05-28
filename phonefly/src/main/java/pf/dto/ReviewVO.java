@@ -10,7 +10,14 @@ public class ReviewVO {
 	private Timestamp indate;
 	private int pseq;
 	private String name;
+	private String pname;
 	
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
 	public String getName() {
 		return name;
 	}

@@ -66,7 +66,7 @@ public class ReviewDao {
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		String sql = " select * from ( "
 				+ " select * from ( "
-				+ " select rownum as rn, r.* from ((select * from review where id=? order by rvseq desc) r) "
+				+ " select rownum as rn, r.* from ((select * from review_for_member_view where id=? order by rvseq desc) r) "
 				+ " ) where rn>=? "
 				+ " ) where rn<=? ";
 		con = DBM.getConnection();
@@ -81,7 +81,8 @@ public class ReviewDao {
 				rvo.setRvseq(rs.getInt("rvseq"));
 				rvo.setId(rs.getString("id"));
 				rvo.setContent(rs.getString("content"));
-				rvo.setIndate(rs.getTimestamp("indate"));		    	
+				rvo.setIndate(rs.getTimestamp("indate"));
+				rvo.setPname(rs.getString("pname"));
 		    	list.add(rvo);
 		    }
 		} catch (SQLException e) {e.printStackTrace();

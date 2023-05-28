@@ -53,7 +53,7 @@ author : BHS
 						</div></td>
 					</tr>
 					<tr><td class="board-submit-line" colspan="3">
-						<input type="button" class="submit submit-blue board-submit" value="수정하기" onclick="qna_write();" />
+						<input type="button" class="submit submit-blue board-submit" value="수정하기" onclick="writeQna();" />
 						<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=qnaList';" />				</td></tr>
 				</table>
 			</form>

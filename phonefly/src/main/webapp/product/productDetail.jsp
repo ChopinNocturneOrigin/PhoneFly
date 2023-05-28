@@ -426,7 +426,7 @@ author : BHS
 					<ul>
 						<li class="pdd-review-title">구매후기</li>
 						<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10 구매후기를 입력하세요"></textarea></li>
-						<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue" type="button" value="구매후기 작성" onclick="review_write();" /></li>
+						<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue" type="button" value="구매후기 작성" onclick="writeReview();" /></li>
 					</ul>
 				</div>
 			</form>

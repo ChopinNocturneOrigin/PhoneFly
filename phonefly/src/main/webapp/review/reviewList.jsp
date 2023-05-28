@@ -35,25 +35,25 @@ author : BHS
 
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
-		<div class="support-inner-wrap">
+		<div class="support-inner-wrap review-inner-wrap">
 			<div id="board"></div>
 			<h1>내가 작성한 후기</h1>
-			
+
 			<table id="board-table">
 				<tr>
-					<th>번호</th><th>제목</th><th>작성일자</th><th>상태</th>
+					<th>구매하신 휴대폰</th><th>후기 내용</th><th>작성일자</th><th>수정</th><th>삭제</th>
 				</tr>
 				<c:forEach items="${reviewList}" var="review" varStatus="status">
 				
-					<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=qnaDetail&qseq=${board.qseq}';">
-						<td>${board.qseq}</td>
-						<td class="board-title">${board.subject}</td>
-						<td><fmt:formatDate value="${board.indate}" /></td>
+					<tr class="board-table-line-mouseover">
+						<td>${review.pname}</td>
+						<td class="board-content"><textarea name="content" cols="80" rows="3">${review.content}</textarea></td>
+						<td><fmt:formatDate value="${review.indate}" /></td>
 						<td>
-							<c:choose>
-								<c:when test="${board.rep == '1'}">접수중</c:when>
-								<c:otherwise>상담완료</c:otherwise>
-							</c:choose>
+							<input type="button" class="submit submit-blue board-submit" value="수정" onclick="location.href='pf.do?command=qnaWriteForm';" />
+						</td>
+						<td>
+							<input type="button" class="cancel board-submit" value="삭제" onclick="deleteReview(rvseq);" />
 						</td>
 					</tr>
 				</c:forEach>
@@ -67,7 +67,7 @@ author : BHS
 			<div class="paging">
 				<div id="board-paging">
 					<jsp:include page="/paging/paging.jsp">
-					<jsp:param name="command" value="pf.do?command=qnaList" />
+					<jsp:param name="command" value="pf.do?command=reviewList" />
 					</jsp:include>
 				</div>
 			</div>

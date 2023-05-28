@@ -138,7 +138,7 @@ function confirmDeleteQna(qseq) {
 	}
 }
 
-function qna_write() {
+function writeQna() {
 	if (document.qnafrm.subject.value === "") {
 		alert("제목을 입력해 주세요.");
 		document.qnafrm.subject.focus();
@@ -157,7 +157,7 @@ function qna_write() {
 	}
 }
 
-function review_write() {
+function writeReview() {
 	if (document.reviewForm.content.value === "") {
 		alert("내용을 입력해 주세요.");
 		document.reviewForm.content.focus();
@@ -206,7 +206,7 @@ function fn_chk_byte2(obj, nn){
 }
 
 
-
+/* 주문 내역 보기 */
 function cancelOrder(odseq) {
 	let bool = confirm("정말로 주문접수를 취소 하시겠습니까?");
 	if (bool) {
@@ -215,3 +215,16 @@ function cancelOrder(odseq) {
 		return;
 	}
 }
+
+
+
+/* 내가 작성한 후기 */
+function deleteReview(rvseq) {
+	let bool = confirm("정말로 댓글을 삭제 하시겠습니까?");
+	if (bool) {
+		location.href = 'pf.do?command=memberReviewDelete&rvseq='+rvseq;
+	} else {
+		return;
+	}
+}
+

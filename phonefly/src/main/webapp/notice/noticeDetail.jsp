@@ -47,7 +47,7 @@ author : BHS
 				<tr>
 					<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${NoticeVO.subject}<hr class="board-event-hr-right"/></td>
 				</tr>
-				<tr>
+				<tr class="board-table-before-btns-gray">
 					<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${NoticeVO.indate}" /><hr class="board-event-hr-right"/></td>
 				</tr>
 				<tr class="board-table-before-btns">
