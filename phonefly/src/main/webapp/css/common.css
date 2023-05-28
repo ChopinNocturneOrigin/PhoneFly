@@ -1527,6 +1527,9 @@ article h3 {
 .support-inner-wrap #board-table th:nth-child(2) {
 	width: 850px;
 }
+#qna-wrap-inner {
+	width: 100%;
+}
 #qna-wrap-inner input,
 #qna-detail-wrap-inner input {
 	font-size: 17px;
@@ -1558,7 +1561,7 @@ article h3 {
 	width: 680px;
 }
 .review-inner-wrap #board-table th:nth-child(3) {
-	width: 120px;
+	width: 130px;
 }
 .review-inner-wrap #board-table th:nth-child(4),
 .review-inner-wrap #board-table th:nth-child(5) {

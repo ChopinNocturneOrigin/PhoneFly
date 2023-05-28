@@ -324,10 +324,10 @@ author : BHS
 						<li id="od-li-submit-wrap">
 							<!-- 버튼 -->
 							<div>
+								<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=orderList';" />
 								<c:if test="${orderVO.result == '1'}">
 									<input type="button" class="cancel board-submit" value="주문취소" onclick="cancelOrder(${orderVO.odseq});" />
 								</c:if>
-								<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=orderList';" />
 							</div>
 							<!-- //버튼 -->
 						</li>
