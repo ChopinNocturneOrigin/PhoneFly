@@ -2,20 +2,6 @@
  * author : BHS
  */
 
- 
- function pddColorClick(i, j, cseq) {
-	$(function(){
-		$(".card-color-buttons-"+i+" li>div>div").removeClass("color-button-selector");
-		$(".card-color-buttons-"+i+" li>div>div").eq(j-1).addClass("color-button-selector");
-		$(".card-img-"+i+" li img").fadeOut(100);
-		$(".card-img-"+i+" li img").eq(j-1).fadeIn(0);
-		$(".pdd-color-names li").addClass("display-none");
-		$(".pdd-color-names li").eq(j-1).removeClass("display-none");
-	});
-	varCseq = cseq;
-}
-
-
 
 
 /* 제품 상세 */ 
@@ -54,6 +40,21 @@ var var_pdd_dctotal = 0;
 var var_pdd_dcmonth = 0;
 var var_pdd_mmonth = 0;
 var var_pdd_mtotal = 0;
+
+
+function pddColorClick(i, j, cseq) {
+	$(function(){
+		$(".card-color-buttons-"+i+" li>div>div").removeClass("color-button-selector");
+		$(".card-color-buttons-"+i+" li>div>div").eq(j-1).addClass("color-button-selector");
+		$(".card-img-"+i+" li img").fadeOut(100);
+		$(".card-img-"+i+" li img").eq(j-1).fadeIn(0);
+		$(".pdd-color-names li").addClass("display-none");
+		$(".pdd-color-names li").eq(j-1).removeClass("display-none");
+	});
+	varCseq = parseInt(cseq);
+	setFields();
+}
+
 
 // 페이지 준비되면 최초 실행하여 기본값 설정
 $(document).ready(function() {
