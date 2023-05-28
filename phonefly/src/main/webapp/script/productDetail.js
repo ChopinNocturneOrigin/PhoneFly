@@ -2,20 +2,6 @@
  * author : BHS
  */
 
- 
- function pddColorClick(i, j, cseq) {
-	$(function(){
-		$(".card-color-buttons-"+i+" li>div>div").removeClass("color-button-selector");
-		$(".card-color-buttons-"+i+" li>div>div").eq(j-1).addClass("color-button-selector");
-		$(".card-img-"+i+" li img").fadeOut(100);
-		$(".card-img-"+i+" li img").eq(j-1).fadeIn(0);
-		$(".pdd-color-names li").addClass("display-none");
-		$(".pdd-color-names li").eq(j-1).removeClass("display-none");
-	});
-	varCseq = cseq;
-}
-
-
 
 
 /* 제품 상세 */ 
@@ -28,10 +14,12 @@ var arrayCommArray = ["", "SKT", "KT", "LGT"];
 var varDiscount = 0;  // 결과값에 포함
 var arrayDiscountText = ["공시지원할인", "선택약정할인"];
 var arrayDiscountValue = [200000, 0];
-var varDiscountValueA = arrayDiscountValue[0];
-var varDiscountValueB = arrayDiscountValue[1] / 24;
 var varBuyplan = 1;
+var varBuyplanMul = 1;
 var buyplanArray = [1, 24, 30, 36]; // 결과값에 포함
+var varDiscountValueA = arrayDiscountValue[0];
+var varDiscountValueB = arrayDiscountValue[1] / buyplanArray[varBuyplan];
+var varDiscountArray1 = var_rplan_charge / 4 * buyplanArray[varBuyplan];
 
 // 결과 값들
 var varRseq = 0;
@@ -53,10 +41,27 @@ var var_pdd_dcmonth = 0;
 var var_pdd_mmonth = 0;
 var var_pdd_mtotal = 0;
 
+
+function pddColorClick(i, j, cseq) {
+	$(function(){
+		$(".card-color-buttons-"+i+" li>div>div").removeClass("color-button-selector");
+		$(".card-color-buttons-"+i+" li>div>div").eq(j-1).addClass("color-button-selector");
+		$(".card-img-"+i+" li img").fadeOut(100);
+		$(".card-img-"+i+" li img").eq(j-1).fadeIn(0);
+		$(".pdd-color-names li").addClass("display-none");
+		$(".pdd-color-names li").eq(j-1).removeClass("display-none");
+	});
+	varCseq = parseInt(cseq);
+	setFields();
+}
+
+
 // 페이지 준비되면 최초 실행하여 기본값 설정
 $(document).ready(function() {
 	var price2_array = document.getElementsByClassName("pdd-price2-in");
 	varPrice2 = price2_array[0].value;
+	cseq_array = document.getElementsByClassName("cseq");
+	varCseq = cseq_array[0].value;
 
 	selectPlan("스페셜", 100000, "무제한", "유무선 무제한", "문자 무제한", "15");
 	setFields();
@@ -123,6 +128,15 @@ function selectPlan(n_rplan_name, n_rplan_charge, n_rplan_dataplan, n_rplan_time
 	var_rplan_timeplan = n_rplan_timeplan;
 	var_rplan_textplan = n_rplan_textplan;
 	varRseq = n_rseq;
+	var_rplan_charge = n_rplan_charge;
+	varBuyplanMul = 1;
+	if (varBuyplan === 0) {
+		varBuyplanMul = 0;
+	}
+	varDiscountArray1 = var_rplan_charge / 4 * buyplanArray[varBuyplan] * varBuyplanMul;
+	arrayDiscountValue[1] = varDiscountArray1;
+	varDiscountValueA = arrayDiscountValue[0];
+	varDiscountValueB = arrayDiscountValue[1] / buyplanArray[varBuyplan];
 	setFields();
 	$(".layer-popup").removeClass("show");
 }
@@ -141,7 +155,7 @@ function clickDiscountMethod(nDiscount) {
 		});
 	} else {
 		arrayDiscountValue[0] = 0;
-		arrayDiscountValue[1] = 300000;
+		arrayDiscountValue[1] = varDiscountArray1;
 		varDiscountTitleString = "25% 요금할인";
 		varDiscountTextString = "&nbsp;약정기간동안 매월 기본료 25%할인";
 		$(function(){
@@ -162,6 +176,13 @@ function clickDiscountMethod(nDiscount) {
 function clickBuyType(nBuyplan, nBuyplanValue) {
 	varBuyplan = nBuyplan;
 	buyplanArray[varBuyplan] = nBuyplanValue;
+	varBuyplanMul = 1;
+	if (varBuyplan === 0) {
+		varBuyplanMul = 0;
+	}
+	varDiscountArray1 = var_rplan_charge / 4 * buyplanArray[varBuyplan] * varBuyplanMul;
+	arrayDiscountValue[1] = varDiscountArray1;
+	varDiscountValueB = arrayDiscountValue[1] / buyplanArray[varBuyplan];
 	
 	if (nBuyplan == 0) {
 		$(".pdd-plan-chk").addClass("display-none");
@@ -182,6 +203,7 @@ function setFields () {
 	//document.getElementById("rplan-name").innerText = var_rplan_name;
 	var rplan_name_array = document.getElementsByClassName("rplan-name");
 	var rplan_charge_array = document.getElementsByClassName("rplan-charge");
+	var rplan_charge_2_array = document.getElementsByClassName("rplan-charge-2");
 	var rplan_dataplan_array = document.getElementsByClassName("rplan-dataplan");
 	var rplan_timeplan_array = document.getElementsByClassName("rplan-timeplan");
 	var rplan_textplan_array = document.getElementsByClassName("rplan-textplan");
@@ -219,6 +241,10 @@ function setFields () {
 	for (var i = 0; i < rplan_charge_array.length; i++) {
 		rplan_charge_array[i].innerText = toCurrencyString(var_rplan_charge);
 		rplan_charge_array[i].value = var_rplan_charge;
+	}
+	for (var i = 0; i < rplan_charge_2_array.length; i++) {
+		rplan_charge_2_array[i].innerText = toCurrencyString(varDiscountArray1);
+		rplan_charge_2_array[i].value = varDiscountArray1
 	}
 	for (var i = 0; i < rplan_dataplan_array.length; i++) {
 		rplan_dataplan_array[i].innerText = var_rplan_dataplan;
@@ -263,7 +289,6 @@ function setFields () {
 		discount_value_a_array[i].innerText = '-' + toCurrencyString(varDiscountValueA);
 	}
 	for (var i = 0; i < discount_value_b_array.length; i++) {
-		varDiscountValueB = arrayDiscountValue[1] / 24;
 		discount_value_b_array[i].innerText = '-' + toCurrencyString(varDiscountValueB);
 	}
 
@@ -280,17 +305,20 @@ function setFields () {
 		price2_array[i].innerText = toCurrencyString(varPrice2);
 	}
 
-	var pdd_factor_by_buyplan = 1;
+	var pdd_factor_by_buyplan_1 = 1;
+	var pdd_factor_by_buyplan_2 = 1;
 	
 	if (varBuyplan === 0) {
-		pdd_factor_by_buyplan = 0;
+		pdd_factor_by_buyplan_1 = 0;
+	}
+	if (varDiscount === 0) {
+		pdd_factor_by_buyplan_2 = 0;
 	}
 
 	var_pdd_dctotal = varPrice2 - arrayDiscountValue[0];
-	var_pdd_dcmonth = parseInt(var_pdd_dctotal / buyplanArray[varBuyplan] / 10) * 10;
-	var_pdd_mmonth = var_rplan_charge - parseInt(arrayDiscountValue[1] / 24);
-	var_pdd_mtotal = var_pdd_dcmonth * pdd_factor_by_buyplan + var_pdd_mmonth;
-
+	var_pdd_dcmonth = Math.round(var_pdd_dctotal / buyplanArray[varBuyplan] / 10) * 10;
+	var_pdd_mmonth = var_rplan_charge - parseInt(varDiscountValueB * pdd_factor_by_buyplan_2);
+	var_pdd_mtotal = var_pdd_dcmonth * pdd_factor_by_buyplan_1 + var_pdd_mmonth;
 
 
 	for (var i = 0; i < pdd_dctotal.length; i++) {

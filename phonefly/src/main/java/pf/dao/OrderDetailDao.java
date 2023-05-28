@@ -48,7 +48,7 @@ public class OrderDetailDao {
 		ArrayList<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
 		// 수정 : bhs
 		//String sql = "select * from order_detail where id=?";
-		String sql = "SELECT * FROM order_detail_view2 WHERE id=?";
+		String sql = "SELECT * FROM order_detail_view2 WHERE id = ? ORDER BY odseq DESC";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -172,11 +172,12 @@ public class OrderDetailDao {
 				ovo.setMtotal(rs.getInt("mtotal"));
 				ovo.setCc(rs.getString("cc"));
 				ovo.setIndate(rs.getTimestamp("indate"));
+				ovo.setCseq(rs.getInt("cseq"));
 				ovo.setPname(rs.getString("pname"));
 				ovo.setCname(rs.getString("cname"));
 				ovo.setCcname(rs.getString("ccname"));
 				ovo.setRname(rs.getString("rname"));
-				ovo.setCseq(rs.getInt("cseq"));
+				ovo.setImage(rs.getString("image"));
 				ovo.setPrice(rs.getInt("price"));
 				ovo.setMfc(rs.getString("mfc"));
 				ovo.setCharge(rs.getInt("charge"));
@@ -190,6 +191,20 @@ public class OrderDetailDao {
 			DBM.close(con, pstmt, rs);
 		}
 		return ovo;
+	}
+
+	public void deleteOrder(int odseq) {
+		String sql = "DELETE FROM order_detail WHERE odseq =?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
 	}
 
 

@@ -19,7 +19,7 @@ author : BHS
 <!-- 자주하는질문 (FAQ) -->
 
 	<!-- 게시판 페이지 왼쪽 메뉴 -->
-	<div class="support-left-menu board-menu card-normal">
+	<div class="support-left-menu board-menu card-normal" id="sub-scroll-box">
 
 	<%@ include file="../sub/sub_board_menu.jsp"%>
 

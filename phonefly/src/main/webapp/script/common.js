@@ -49,15 +49,23 @@ $(document).mouseup(function (e){
 
 
 /* 스크롤 */
-$(window).scroll( function () {
-	var
-	$floater = $('#pdd-scroll-box'),
-	startPoint = 140,
-	scrollPoint = parseInt( $(window).scrollTop() );
-	if (parseInt( scrollPoint ) > parseInt( startPoint ) ) {
+$(window).scroll(function() {
+	let scrollPoint = parseInt( $(window).scrollTop());
+
+	// 제품상세용
+	let $floater = $('#pdd-scroll-box'), startPoint = 140;
+	if (parseInt(scrollPoint) > parseInt(startPoint)) {
 		$floater.css("top", ($(window).scrollTop() - startPoint));
-	} else {
+	} else if (parseInt(scrollPoint) <= parseInt(startPoint)) {
 		$floater.css("top", 0);
+	}
+
+	// 서브메뉴용
+	let $floater2 = $('#sub-scroll-box'), startPoint2 = 532;
+	if (parseInt(scrollPoint) > parseInt(startPoint2)) {
+		$floater2.css("top", ($(window).scrollTop() - startPoint2));
+	} else if (parseInt(scrollPoint) <= parseInt(startPoint2)) {
+		$floater2.css("top", 0);
 	}
 });
 /* // 스크롤*/

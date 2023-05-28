@@ -102,9 +102,11 @@ author : BHS
 				
 				
 				<!-- 가격비교 -->
-<%-- 				<div class="card-compare-price" onclick="compareProduct(${productVO.pseq});">
-					<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
-				</div> --%>
+				<c:if test="${compareFlag == 0}">
+					<div class="card-compare-price" onclick="compareProduct(${productVO.pseq});">
+						<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
+					</div>
+				</c:if>
 				<!-- //가격비교 -->
 			</li>
 		</c:forEach>
