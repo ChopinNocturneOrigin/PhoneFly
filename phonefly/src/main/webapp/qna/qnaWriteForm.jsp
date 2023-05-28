@@ -24,7 +24,7 @@ author : BHS
 
 
 	<!-- 고객지원 페이지 왼쪽 메뉴 -->
-	<div class="support-left-menu card-normal">
+	<div class="support-left-menu card-normal" id="sub-scroll-box">
 
 	<%@ include file="../sub/sub_support_menu.jsp"%>
 
@@ -34,7 +34,7 @@ author : BHS
 
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
-		<div id="qna-detail-wrap-inner"class="support-inner-wrap">
+		<div id="qna-detail-wrap-inner" class="support-inner-wrap">
 			<div id="board"></div>
 			<h1>1:1 문의 작성</h1>
 			<form name="qnafrm" method="post" action="pf.do">

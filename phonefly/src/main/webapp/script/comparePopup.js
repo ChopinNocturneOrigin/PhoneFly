@@ -5,22 +5,22 @@
 
 let compare_box_count = 0;
 
-	let pseq_list = document.getElementsByClassName('pdPseq');
-	let image_list = document.getElementsByClassName('pdImg');
-	let name_list = document.getElementsByClassName('pdName');
-	let price_list = document.getElementsByClassName('pdPrice');
-	let compare_price_list = document.getElementsByClassName('card-compare-price');
-	let plus_btn_list = document.getElementsByClassName('plus-button');
-	
-	let comp_pseq_list = document.getElementsByClassName('compare-box-pseq-real');
-	let comp_image_list = document.getElementsByClassName('compare-box-image-real');
-	let comp_name_list = document.getElementsByClassName('compare-box-name');
-	let comp_price_list = document.getElementsByClassName('compare-box-price');
+let pseq_list = document.getElementsByClassName('pdPseq');
+let image_list = document.getElementsByClassName('pdImg');
+let name_list = document.getElementsByClassName('pdName');
+let price_list = document.getElementsByClassName('pdPrice');
+let compare_price_list = document.getElementsByClassName('card-compare-price');
+let plus_btn_list = document.getElementsByClassName('plus-button');
 
-	let comp_pseq_h_list = document.getElementsByClassName('compare-box-pseq-h');
-	let comp_image_h_list = document.getElementsByClassName('compare-box-image-real-h');
-	let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
-	let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
+let comp_pseq_list = document.getElementsByClassName('compare-box-pseq-real');
+let comp_image_list = document.getElementsByClassName('compare-box-image-real');
+let comp_name_list = document.getElementsByClassName('compare-box-name');
+let comp_price_list = document.getElementsByClassName('compare-box-price');
+
+let comp_pseq_h_list = document.getElementsByClassName('compare-box-pseq-h');
+let comp_image_h_list = document.getElementsByClassName('compare-box-image-real-h');
+let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
+let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
 
 
 /* 비교하기 카드(펼치기 숨기기) */
@@ -46,7 +46,6 @@ function compareProduct(pseq_from) {
 		return;
 	}
 
-	
 	for (let i = 0; i < pseq_list.length; i++) {
 		if (pseq_from == pseq_list[i].value) {
 			compare_price_list[i].classList.add('disabled');

@@ -25,15 +25,15 @@ author : BHS
 	<!-- 온라인 신청하기 submit 전달 값 정리 -->
 	<input type="hidden" class="pdd-price2-in" value="${productVO.price2}" />
 	<input type="hidden" name="id" value="${id}" />
-	<input type="hidden" name="cseq" value="${productVO.colorList[0].cseq}" /> <!-- V -->
+	<input type="hidden" name="cseq" value="${productVO.colorList[0].cseq}" />
 	<input type="hidden" name="rseq" class="rseq" value="" /> <!-- KT 첫번째 뽑아내기 필요 -->
 	<input type="hidden" name="discount" class="discount-id" value="0" /> <!-- (0: 500000, 1: 600000) 금액 / 24 -->
 	<input type="hidden" name="buyplan" class="pdd-buyplan" value="24" /> <!-- (0: 1, 1: 24, 2: 30, 3: 36) -->
 	<input type="hidden" name="cc" class="cc-value" value="" /> <!-- (g == h: 기기변경(1), g != h: 통신사이동(0)) -->
-	<input type="hidden" name="dctotal" class="pdd-dctotal" value="" /> <!-- V -->
-	<input type="hidden" name="dcmonth" class="pdd-dcmonth" value="" /> <!-- V -->
-	<input type="hidden" name="mmonth" class="pdd-mmonth" value="" /> <!-- V -->
-	<input type="hidden" name="mtotal" class="pdd-mtotal" value="" /> <!-- V -->
+	<input type="hidden" name="dctotal" class="pdd-dctotal" value="" />
+	<input type="hidden" name="dcmonth" class="pdd-dcmonth" value="" />
+	<input type="hidden" name="mmonth" class="pdd-mmonth" value="" />
+	<input type="hidden" name="mtotal" class="pdd-mtotal" value="" />
 	<!-- //온라인 신청하기 submit 전달 값 정리 -->
 
 	<!-- 온라인 신청하기 가져오는 값 정리 --> <!-- KT 첫번째 뽑아내기 필요 -->
@@ -70,7 +70,7 @@ author : BHS
 					
 					
 					<!-- 이미지 -->
-					<div class="pdd-card-img card-img-1" onclick="${productDetailLH}">
+					<div class="pdd-card-img card-img-1">
 						<ul>
 	 					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 							<c:choose>
@@ -193,7 +193,7 @@ author : BHS
 								</div>
 								<div class="pdd-rplan-cont-dn">
 								데이터 <span class="rplan-dataplan"></span> / 음성 <span class="rplan-timeplan"></span> 
-								<span class="rplan-textplan"></span>
+								 / <span class="rplan-textplan"></span>
 								</div>
 							</div>
 						</div>
@@ -210,8 +210,8 @@ author : BHS
 								총 200,000원
 							</div>
 							<div class="pdd-box pdd-discount cntr-i discount-1" onclick="clickDiscountMethod(1);">
-								선택약정할인<br />
-								총 300,000원
+								<div>선택약정할인<br />
+								총 <span class="rplan-charge-2">300,000</span>원</div>
 							</div>
 						</div>
 					</div>
@@ -400,7 +400,7 @@ author : BHS
 	</div>
 	<!-- //제품 상세 오른쪽 프레임 -->
 	</div>
-	<!-- 전체 프레임 안쪽 - 중앙 정렬용 -->
+	<!-- //전체 프레임 안쪽 - 중앙 정렬용 -->
 </form>
 </div>
 <!-- //제품 상세 전체 프레임 -->

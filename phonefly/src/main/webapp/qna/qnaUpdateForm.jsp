@@ -24,7 +24,7 @@ author : BHS
 
 
 	<!-- 고객지원 페이지 왼쪽 메뉴 -->
-	<div class="support-left-menu card-normal">
+	<div class="support-left-menu card-normal" id="sub-scroll-box">
 
 	<%@ include file="../sub/sub_support_menu.jsp"%>
 
@@ -34,9 +34,9 @@ author : BHS
 
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
-		<div id="qna-detail-wrap-inner"class="support-inner-wrap">
+		<div id="qna-detail-wrap-inner" class="support-inner-wrap">
 			<div id="board"></div>
-			<h1>1:1 문의 작성</h1>
+			<h1>1:1 문의 수정</h1>
 			<form name="qnafrm" method="post" action="pf.do">
 				<input type="hidden" name="command" value="qnaUpdate" />
 				<input type="hidden" name="qseq" value="${qnaVO.qseq}" />
@@ -53,8 +53,8 @@ author : BHS
 						</div></td>
 					</tr>
 					<tr><td class="board-submit-line" colspan="3">
-						<input type="button" class="submit submit-blue board-submit" value="수정하기" onclick="writeQna();" />
-						<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=qnaList';" />				</td></tr>
+						<input type="button" class="submit submit-blue board-submit" value="수정완료" onclick="writeQna();" />
+						<input type="button" class="cancel board-submit" value="목록으로" onclick="location.href='pf.do?command=qnaList';" />				</td></tr>
 				</table>
 			</form>
 			<!-- <div id="board-bottom"></div> -->

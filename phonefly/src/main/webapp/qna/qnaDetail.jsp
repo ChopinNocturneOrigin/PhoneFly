@@ -24,7 +24,7 @@ author : BHS
 
 
 	<!-- 고객지원 페이지 왼쪽 메뉴 -->
-	<div class="support-left-menu card-normal">
+	<div class="support-left-menu card-normal" id="sub-scroll-box">
 
 	<%@ include file="../sub/sub_support_menu.jsp"%>
 
@@ -34,7 +34,7 @@ author : BHS
 
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
-		<div id="qna-wrap-inner"class="support-inner-wrap">
+		<div id="qna-wrap-inner" class="support-inner-wrap">
 			<div id="board"></div>
 			<h1>1:1 문의 보기</h1>
 			
@@ -74,7 +74,7 @@ author : BHS
 
 
 				<tr><td class="board-submit-line" colspan="3">
-					<input type="button" class="submit submit-blue board-submit" value="삭제하기" onclick="confirmDeleteQna(${qnaVO.qseq});" />
+					<input type="button" class="cancel board-submit" value="삭제하기" onclick="confirmDeleteQna(${qnaVO.qseq});" />
 					<c:if test="${qnaVO.rep == '1'}">
 						<input type="button" class="submit submit-blue board-submit" value="수정하기" onclick="location.href='pf.do?command=qnaUpdateform&qseq=${qnaVO.qseq}';" />
 					</c:if>

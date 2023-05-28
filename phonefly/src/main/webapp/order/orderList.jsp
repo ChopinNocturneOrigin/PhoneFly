@@ -25,7 +25,7 @@ author : BHS
 
 
 	<!-- 고객지원 페이지 왼쪽 메뉴 -->
-	<div class="support-left-menu card-normal">
+	<div class="support-left-menu card-normal" id="sub-scroll-box">
 
 	<%@ include file="../sub/sub_support_menu.jsp"%>
 

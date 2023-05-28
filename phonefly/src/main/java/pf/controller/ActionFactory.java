@@ -29,6 +29,7 @@ import pf.controller.action.admin.member.AdminMemberListAction;
 import pf.controller.action.admin.order.AdminOrderListAction;
 import pf.controller.action.admin.order.AdminOrderUpdateAction;
 import pf.controller.action.admin.order.AdminOrder_detailAction;
+import pf.controller.action.admin.order.OrderCancelAction;
 import pf.controller.action.admin.product.AdminColorDeleteAction;
 import pf.controller.action.admin.product.AdminColorDetailAction;
 import pf.controller.action.admin.product.AdminColorInsertAction;
@@ -126,6 +127,7 @@ public class ActionFactory {
 	else if(command.equals("orderList") ) ac = new OrderListAction();
 	else if(command.equals("order") ) ac = new OrderAction();
 	else if(command.equals("orderDetail") ) ac = new OrderDetailAction();
+	else if(command.equals("orderCancel") ) ac = new OrderCancelAction();
 	//else if(command.equals("orderDetailListForm") ) ac = new AdminOrder_detailAction();
 	//else if(command.equals("orderDetailList") ) ac = new AdminOrderListAction();
 	
