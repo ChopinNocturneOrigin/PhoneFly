@@ -18,6 +18,7 @@ public class ProductCompareAction implements Action {
 
 		// 선택한 상품의 pseq를 파라미터로 받아옵니다.
 		String[] pseqArr = request.getParameterValues("pseq");
+		//int counts = Integer.parseInt(request.getParameter("counts"));
 
 		ProductDao pdao = ProductDao.getInstance();
 		ArrayList<ProductVO> productList = new ArrayList<>();
