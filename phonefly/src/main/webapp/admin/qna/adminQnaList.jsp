@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="/admin/header2.jsp"%>
+<%@ include file="/admin/sub_menu2.jsp"%>
 <article>
 <h1>Q&amp;A 게시글 리스트</h1>  
 <form name="frm" method="post">
@@ -11,7 +11,7 @@
 	    </td></tr>
 </table>
 </form>
-<table id="orderList">
+<table id="QnaList">
 	<tr><th>번호(답변여부)</th> <th>제목</th> <th>작성자</th><th>작성일</th></tr>
   	<c:forEach items="${qnaList}" var="qnaVO">
     	<tr><td>${qnaVO.qseq}  

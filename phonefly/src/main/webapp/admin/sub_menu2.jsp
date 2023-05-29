@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 
 <nav id="sub_menu">
-
+<h1>Admin Page</h1>
 <ul>
 	<li><a href='pf.do?command=adminProductList&changeMenu=1'>상품리스트</a></li>
 	<li><a href='pf.do?command=adminOrderList&changeMenu=1'>주문리스트</a></li>
