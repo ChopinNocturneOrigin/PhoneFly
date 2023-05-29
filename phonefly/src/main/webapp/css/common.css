@@ -1453,10 +1453,20 @@ article h3 {
 	vertical-align: top;
 	padding-top: 13px;
 }
+.faq-content-q {
+	display: inline-block;
+	width: 876px;
+	text-align: left;
+}
 .faq-content {
 	display: inline-block;
 	width: 940px;
 	text-align: left;
+}
+.arrow-i {
+	display: inline-block;
+	height: 20px;
+	width: 60px;
 }
 .faq-button,
 .faq-answer {

@@ -6,9 +6,10 @@
 				<li>
 					<div class="faq-button faq-button-11" onclick="faqToggle(1,1);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>부모님(가족) 혹은 지인 대신 신청하려고 합니다 어떻게 하나요?</p>
 						</span>
+						<span class="arrow-i arrow-11 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-11 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -17,14 +18,16 @@
 						<p>추가연락처에 대신 신청해주시는분 번호 작성후 메모에 대신신청하는거라고 말씀해주시면 추가연락처로 연락드려서 내용안내 해드릴예정입니다.</p>
 						</span>
 					</div>
+					
 				</li>
 
 				<li>
 					<div class="faq-button faq-button-12" onclick="faqToggle(1,2);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>개통은 어떻게 이루어지나요?</p>
 						</span>
+						<span class="arrow-i arrow-12 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-12 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -40,9 +43,10 @@
 				<li>
 					<div class="faq-button faq-button-13" onclick="faqToggle(1,3);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>휴대폰 데이터 옮기는 방법</p>
 						</span>
+						<span class="arrow-i arrow-13 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-13 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -62,9 +66,10 @@
 				<li>
 					<div class="faq-button faq-button-14" onclick="faqToggle(1,4);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>(공식신청서 작성시) 유심은 어떻게 체크해야 할까요?</p>
 						</span>
+						<span class="arrow-i arrow-14 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-14 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -89,9 +94,10 @@
 				<li>
 					<div class="faq-button faq-button-15" onclick="faqToggle(1,5);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>(공식신청서 작성시) 공식 신청서의 금액/색상이 다르게 나옵니다. 어떻게 해야 되나요?</p>
 						</span>
+						<span class="arrow-i arrow-15 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-15 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -108,9 +114,10 @@
 				<li>
 					<div class="faq-button faq-button-16" onclick="faqToggle(1,6);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>(공식신청서 작성시) 통신사 이동(번호이동) 신청서 작성시 본인인증 방법은 어떻게 되나요?</p>
 						</span>
+						<span class="arrow-i arrow-16 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-16 faqdisabled">
 						<span class="faq-big-letter">A</span>

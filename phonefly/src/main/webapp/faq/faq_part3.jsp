@@ -6,9 +6,10 @@
 				<li>
 					<div class="faq-button faq-button-31" onclick="faqToggle(3,1);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>제품불량시 교환안내</p>
 						</span>
+						<span class="arrow-i arrow-31 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-31 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -24,9 +25,10 @@ Apple사 제품의 경우 대리점에서 교환은 불가능하오며, 새제�
 				<li>
 					<div class="faq-button faq-button-32" onclick="faqToggle(3,2);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>취소안내</p>
 						</span>
+						<span class="arrow-i arrow-32 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-32 faqdisabled">
 						<span class="faq-big-letter">A</span>

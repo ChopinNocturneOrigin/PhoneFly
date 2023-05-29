@@ -18,7 +18,7 @@
 	<input type="radio" name="okon" /> 동의함 &nbsp; &nbsp; &nbsp;
 	<input type="radio" name="okon" checked /> 동의안함
 	</div></br />
-	<input type="button" value="Next" class="submit submit-blue" onclick="go_next();" style="float:right;" />
+	<input type="button" value="가입하기" class="submit submit-blue" onclick="go_next();" style="float:right;" />
 	</form>
 </div>
 </article>

@@ -91,6 +91,7 @@ function faqMenu(nn) {
 
 function faqToggle(n1,n2) {
 	$('.faq-answer-'+n1+''+n2).toggleClass('faqdisabled');
+	$('.arrow-'+n1+''+n2).toggleClass('disabled');
 }
 
 

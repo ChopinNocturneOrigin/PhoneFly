@@ -6,9 +6,10 @@
 				<li>
 					<div class="faq-button faq-button-21" onclick="faqToggle(2,1);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>배송은 몇시까지가 마감인가요?</p>
 						</span>
+						<span class="arrow-i arrow-21 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-21 faqdisabled">
 						<span class="faq-big-letter">A</span>
@@ -23,9 +24,10 @@
 				<li>
 					<div class="faq-button faq-button-22" onclick="faqToggle(2,2);">
 						<span class="faq-big-letter">Q</span>
-						<span class="faq-content">
+						<span class="faq-content-q">
 						<p>당일수령(방문수령) 가능한가요?</p>
 						</span>
+						<span class="arrow-i arrow-22 disabled"></span>
 					</div>
 					<div class="faq-answer faq-answer-22 faqdisabled">
 						<span class="faq-big-letter">A</span>

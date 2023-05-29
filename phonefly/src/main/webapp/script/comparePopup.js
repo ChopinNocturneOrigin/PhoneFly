@@ -4,7 +4,7 @@
 
 
 let compare_box_count = 0;
-
+let check_compare_box = 0;
 let pseq_list = document.getElementsByClassName('pdPseq');
 let image_list = document.getElementsByClassName('pdImg');
 let name_list = document.getElementsByClassName('pdName');
@@ -29,6 +29,7 @@ let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
 function openCloseArrow(){// console.log("비교하기 카드(펼치기 숨기기)");
 	$(function(){
 		if ($('.compare-popup').hasClass('compare-popup-open')) {
+		//if (check_compare_box === 0) {
 			$('.compare-popup').removeClass('compare-popup-open');
 			$('.compare-popup').addClass('compare-popup-close');
 			$('.arrow-i').removeClass('disabled');
@@ -38,6 +39,9 @@ function openCloseArrow(){// console.log("비교하기 카드(펼치기 숨기�
 			$('.arrow-i').addClass('disabled');
 		}
 	});
+	check_compare_box++;
+	check_compare_box %= 2;
+	setCompareSession();
 }
 
 
@@ -47,6 +51,7 @@ function compareProduct(pseq_from) {
 		alert("비교는 4개까지 가능합니다.");
 		return;
 	}
+	check_compare_box = 1;
 
 	for (let i = 0; i < pseq_list.length; i++) {
 		if (pseq_from == pseq_list[i].value) {
@@ -186,6 +191,9 @@ function setCompareSession() {
 		data_set.push(data);
 		data_set2.push(data_set);
 	}
+	let data_cpbox = new Object();
+	data_cpbox.chkbox = check_compare_box;
+	data_set2.push(data_cpbox);
 	let data_last = new Object();
 	data_last.count = compare_box_count;
 	data_set2.push(data_last);
@@ -201,6 +209,7 @@ $(document).ready(function() {
 
 	let data = JSON.parse(sessionStorage.getItem("comparePseqs"));
 	compare_box_count = data.pop().count;
+	check_compare_box = data.pop().chkbox;
 	document.getElementsByClassName('compare-counts').value = compare_box_count;
 	for (let i = 0; i < data.length; i++) {
 		let temp = data[i];
@@ -233,9 +242,15 @@ $(document).ready(function() {
 	}
 
 	if (compare_box_count > 0) {
-		$('.compare-popup').removeClass('compare-popup-open');
-		$('.compare-popup').addClass('compare-popup-close');
-		$('.arrow-i').removeClass('disabled');
+		if (check_compare_box === 0) {
+			$('.compare-popup').removeClass('compare-popup-open');
+			$('.compare-popup').addClass('compare-popup-close');
+			$('.arrow-i').removeClass('disabled');
+		} else {
+			$('.compare-popup').removeClass('compare-popup-close');
+			$('.compare-popup').addClass('compare-popup-open');
+			$('.arrow-i').addClass('disabled');
+		}
 	} else {
 		btnReset();
 	}
