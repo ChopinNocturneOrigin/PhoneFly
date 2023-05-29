@@ -7,6 +7,7 @@
 <title>아이디(ID) 찾기</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script src="script/common.js"></script>
+<script src="script/member.js"></script>
 </head>
 <body>
 <div class="zipnum-wrap id-check-wrap">
@@ -15,14 +16,14 @@
 		<input type="hidden" name="command" value="selectId" />
 		<table id="find-id">
 			<tr>
-			<th>이름&nbsp;</th><td><input type="text" name="name" class="input-text input-text-bg-gray input-text-font-normal" /></td>
+			<th>이름&nbsp;</th><td><input type="text" name="name" class="input-text input-text-bg-gray input-text-font-normal" maxlength="20" /></td>
 			</tr>
 			<tr>
-			<th>전화번호&nbsp;</th><td><input type="text" name="phone" class="input-text input-text-bg-gray input-text-font-normal" /></td>
+			<th>전화번호&nbsp;</th><td><input type="text" name="phone" class="input-text input-text-bg-gray input-text-font-normal" maxlength="20" /></td>
 			</tr>
 		</table>
 		<br />
-		<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
+		<input type="button" value="찾기" class="submit submit-blue dup-btn" onclick="findIdSumbit();" />
 	</form>
 	<br />
 	<c:if test="${not empty member}">

@@ -108,3 +108,64 @@ function go_update() {
 		document.joinForm.submit();
 	}
 }
+
+
+
+
+/* 아이디 찾기 / 비밀번호 찾기 */
+
+function findIdSumbit() {
+	if (document.formm.name.value === "") {
+		alert("이름을 입력해 주세요.");
+		document.formm.name.focus();
+	} else if (document.formm.phone.value === "") {
+		alert("전화번호를 입력해 주세요.");
+		document.formm.phone.focus();
+	} else {
+		document.formm.action = "pf.do";
+		document.formm.submit();
+	}
+}
+
+function findPwdSubmit() {
+	if (document.formm.name.value === "") {
+		alert("이름을 입력해 주세요.");
+		document.formm.name.focus();
+	} else if (document.formm.id.value === "") {
+		alert("아이디를 입력해 주세요.");
+		document.formm.id.focus();
+	} else if (document.formm.phone.value === "") {
+		alert("전화번호를 입력해 주세요.");
+		document.formm.phone.focus();
+	} else {
+		document.formm.action = "pf.do";
+		document.formm.submit();
+	}
+}
+
+function checkPwd() {
+	if (document.joinForm.pwd.value === "") {
+		alert("비밀번호를 입력해 주세요.");
+		document.joinForm.pwd.focus();
+	} else if (document.joinForm.pwd.value !== document.joinForm.pwdCheck.value) {
+		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+		document.joinForm.id.focus();
+	} else {
+		document.joinForm.action = "pf.do";
+		document.joinForm.submit();
+	}
+}
+
+
+function findId() {
+	let url = "pf.do?command=selectId";
+	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=300, top=300, left=300";
+	window.open(url, "아이디(ID) 찾기", opt);
+}
+
+function findPwd() {
+	let url = "pf.do?command=selectPwd";
+	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=400, top=300, left=300";
+	window.open(url, "비밀번호 찾기", opt);
+}
+

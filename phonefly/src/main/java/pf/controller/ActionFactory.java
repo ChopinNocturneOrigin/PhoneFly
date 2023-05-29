@@ -63,6 +63,7 @@ import pf.controller.action.member.login.LoginFormAction;
 import pf.controller.action.member.login.LogoutAction;
 import pf.controller.action.member.login.SelectIdAction;
 import pf.controller.action.member.login.SelectPwdAction;
+import pf.controller.action.member.login.SetPwdAction;
 import pf.controller.action.member.mypage.MemberReviewDeleteAction;
 import pf.controller.action.member.mypage.MemberReviewListAction;
 import pf.controller.action.member.mypage.MemberReviewUpdateAction;
@@ -103,6 +104,7 @@ public class ActionFactory {
 	else if(command.equals("logout") ) ac = new LogoutAction();
 	else if(command.equals("selectId") ) ac = new SelectIdAction();
 	else if(command.equals("selectPwd") ) ac = new SelectPwdAction();
+	else if(command.equals("setPwd") ) ac = new SetPwdAction();
 
 	
 	//회원(member).join

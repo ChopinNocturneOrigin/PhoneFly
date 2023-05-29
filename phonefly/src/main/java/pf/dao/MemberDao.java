@@ -168,6 +168,44 @@ public class MemberDao {
 		}
 	}
 
+	public int findMember(String id, String name, String phone) {
+		// author : bhs
+		int count = 0;
+		con = DBM.getConnection();
+		String sql="SELECT COUNT(*) cnt FROM member WHERE id = ? AND name = ? AND phone = ?";
+		try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.setString(2, name);
+				pstmt.setString(3, phone);
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					count = rs.getInt("cnt");
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return count;
+	}
+
+	public void setNewPwd(String id, String pwd) {
+		// author : bhs
+		con = DBM.getConnection();
+		String sql="UPDATE member SET pwd = ? WHERE id = ?";
+		try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, pwd);
+				pstmt.setString(2, id);
+				pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+	}
+
 }
 
 

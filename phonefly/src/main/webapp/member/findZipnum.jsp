@@ -15,7 +15,7 @@
 	<h2>우편번호검색</h2>
 	<form method="post" name="formm" action="pf.do">
 		<input type="hidden" name="command" value="findZipnum" />
-		<span>동 이름</span> &nbsp;<input type="text" name="dong" class="input-text input-text-bg-gray input-text-font-normal" />&nbsp;<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
+		<span>동 이름</span> &nbsp;<input type="text" name="dong" class="input-text input-text-bg-gray input-text-font-normal" maxlength="100" />&nbsp;<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
 	</form>
 	<br />
 	<table id="zipcode">
