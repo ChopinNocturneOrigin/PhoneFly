@@ -123,7 +123,7 @@ public class ActionFactory {
 	else if(command.equals("qnaUpdate") ) ac = new QnaUpdateAction();
 	else if(command.equals("qnaDelete") ) ac = new QnaDeleteAction();
 	else if(command.equals("qnaList") ) ac = new QnaListAction();
-	else if(command.equals("qnaDetail") ) ac = new QnaDetailAction();	
+	else if(command.equals("qnaDetail") ) ac = new QnaDetailAction();
 	
 	//주문(order)
 	else if(command.equals("orderList") ) ac = new OrderListAction();
