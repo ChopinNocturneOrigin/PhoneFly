@@ -16,7 +16,7 @@
 				<input class="btn" type="button" name="btn_total" value="전체보기 " 
 						onClick="go_total_c('adminProductColorList');">&nbsp;&nbsp;&nbsp;
 
-				<input class="btn" type="button" name="btn_write" value="색상등록"  onClick="go_wrt_c();">
+				<input class="btn" type="button" name="btn_write" value="색상등록"  onClick="go_wrt_c(${ProductColorList[0].pseq});">
 			</td>
 		</tr>
 	</table>

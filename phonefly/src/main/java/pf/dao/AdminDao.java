@@ -193,8 +193,8 @@ public class AdminDao {
 		con = DBM.getConnection();
 		String sql="select * from ( "
 				+ " select * from ( "
-				+ " select rownum as rn,c.*from "
-				+ " ((select*from color where name like'%'||?||'%'and pseq=?order by cseq desc) c)"
+				+ " select rownum as rn, c.*from "
+				+ " ((select*from color where name like '%'||?||'%' and pseq=? order by cseq desc) c)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {
