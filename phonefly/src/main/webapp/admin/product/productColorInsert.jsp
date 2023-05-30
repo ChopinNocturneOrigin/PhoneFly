@@ -5,6 +5,8 @@
 <article>
    <h1>상품 색상 등록</h1>
 	<form name="frm" method="post" enctype="multipart/form-data" >
+		<input type="hidden" name="pseq" value="${ProductVO.pseq}">
+		
 		<table id="list">			
 			<tr>
 				<th>색상 이름</th>
@@ -26,7 +28,7 @@
 		
 						
 		</table>
-		<input class="btn" type="button" value="색상등록" onClick="go_save_c()">           
+		<input class="btn" type="button" value="색상등록" onClick="go_save_c('${ProductVO.pseq}')">           
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

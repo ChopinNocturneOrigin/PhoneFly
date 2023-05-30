@@ -6,6 +6,8 @@
 <article>
 	<h1>상품 등록</h1>
 	<form name="frm" method="post" >
+		<input type="hidden" name="pseq" value="${ProductVO.pseq}">
+	
 		<table id="list">
 			<tr>
 				<th>상품명</th>
@@ -78,7 +80,7 @@
 
 
 		</table>
-		<input class="btn" type="button" value="색상선택" onClick="go_save()">
+		<input class="btn" type="button" value="색상선택" onClick="go_save('${ProductVO.pseq}')">
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

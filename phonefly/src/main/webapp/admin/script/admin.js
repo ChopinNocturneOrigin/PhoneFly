@@ -96,8 +96,8 @@ function go_wrt_n(){
 	document.frm.submit();
 }
 
-function go_wrt_c(){
-	document.frm.action = "pf.do?command=adminColorInsertForm";
+function go_wrt_c(pseq){
+	document.frm.action = "pf.do?command=adminColorInsertForm&pseq="+pseq;
 	document.frm.submit();
 }
 
@@ -116,7 +116,7 @@ function go_save_c(){
 
 function go_save(){
 	var theForm = document.frm;
-	}if (theForm.name.value == "") {
+	if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.'); 	
 		theForm.name.focus();	
 	} else if (theForm.price1.value == "") {
@@ -133,10 +133,9 @@ function go_save(){
 		theForm.mfc.focus();
 	} else{
 		theForm.action = "pf.do?command=adminProductInsert";
-		theForm.submit();
-	
+		theForm.submit();	
+ }
 }
-
 function go_save_e(){
 	var theForm = document.frm;
 	if( theForm.name.value == "") {
@@ -166,7 +165,7 @@ function go_save_n(){
 	}
 }
 
-function go_save_c(){
+function go_save_c(pseq){
 	var theForm = document.frm;	
 	if( theForm.name.value == "") {
 		alert('색상이름을 입력하세요.'); 	
@@ -178,7 +177,7 @@ function go_save_c(){
 		alert('색상 이미지를 입력하세요.'); 		
 		theForm.image.focus();	
 	} else{
-		theForm.action = "pf.do?command=adminColorInsert";
+		theForm.action = "pf.do?command=adminColorInsert&pseq=" + pseq;
 		theForm.submit();
 	}
 }
@@ -256,6 +255,25 @@ function go_mod_save_e(eseq){
 	 } else {
 		if( confirm('수정하시겠습니까?') ){
 			document.frm.action = "pf.do?command=adminEventUpdate&eseq="+eseq;
+			document.frm.submit();
+		}
+	}
+}
+
+
+function go_mod_save_c(cseq){
+	if (document.frm.name.value == '') {
+		alert('색삭명 을 입력하세요');
+		document.frm.name.focus();
+		} else if (document.frm.image.value == '') {
+		  alert('사진를 입력하세요');	  
+		  document.frm.image.focus();	 	  
+		} else if (document.frm.ccode.value == '') {
+		  alert('색상코드를 입력하세요');	  
+		  document.frm.ccode.focus();	 	  		  	    		    	    		 		
+	 } else {
+		if( confirm('수정하시겠습니까?') ){
+			document.frm.action = "pf.do?command=adminColorUpdate&cseq="+cseq;
 			document.frm.submit();
 		}
 	}

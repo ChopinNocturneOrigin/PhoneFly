@@ -32,7 +32,7 @@
 		      </tr>			
 		</table>
 		
-		<input class="btn" type="button" value="수정" onClick="go_mod_save_c()">           
+		<input class="btn" type="button" value="수정" onClick="go_mod_save_c(${ColorVO.cseq})">           
 		<input class="btn" type="button" value="취소"  
 			onClick="location.href='pf.do?command=adminProductColorDetail&cseq=${ColorVO.cseq}'">
 	</form>

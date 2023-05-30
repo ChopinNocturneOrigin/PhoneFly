@@ -159,7 +159,7 @@ article td {
 }
 
 
-#productList ,#orderList, #adminMemberList {
+#productList ,#orderList, #adminMemberList, #eventList , #noticeList {
   padding: 0;
   margin-left: auto;
   margin-right: auto;
@@ -183,7 +183,7 @@ article td {
   transition: background-color 0.3s ease;
 }
 
-#QnaList  td {
+#eventList  td {
   padding: 10px;
   text-align: center;
   border-bottom: 1px solid #ddd;
@@ -191,6 +191,22 @@ article td {
   transition: background-color 0.3s ease;
 }
 
+#noticeList  td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s ease;
+}
+
+
+#QnaList  td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s ease;
+}
 
 
 
@@ -224,6 +240,26 @@ article td {
   font-weight: bold;
   border-bottom: 2px solid #ddd;
 }
+
+#eventList th {
+  padding: 10px;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: blue;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+
+#noticeList th {
+  padding: 10px;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: blue;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
 
 /* 폰트  */
  body {
