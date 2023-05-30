@@ -30,7 +30,7 @@ public class AdminColorInsertAction implements Action {
 		} else {
 		ServletContext context = session.getServletContext();
 		String path = context.getRealPath("images/productImage");
-		
+
 		MultipartRequest multi = new MultipartRequest(
 				request, 
 				path, 

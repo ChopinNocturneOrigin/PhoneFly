@@ -145,8 +145,8 @@ public class AdminDao {
 	}
 
 	public void insertProduct(ProductVO pvo) {
-		String sql = "insert into product ( pseq,name,price1,price2,price3,content,mfc)"
-				+ "values (product_seq.nextVal,?,?,?,?,?,?) ";
+		String sql = "insert into product ( pseq,name,price1,price2,price3,content,mfc,useyn,bestyn,eventyn)"
+				+ "values (product_seq.nextVal,?,?,?,?,?,?,?,?,?) ";
 		con =DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -156,6 +156,9 @@ public class AdminDao {
 		    pstmt.setInt(4, pvo.getPrice3());
 		    pstmt.setString(5, pvo.getContent());
 		    pstmt.setString(6, pvo.getMfc());
+		    pstmt.setString(7, pvo.getUseyn());
+		    pstmt.setString(8, pvo.getBestyn());
+		    pstmt.setString(9, pvo.getEventyn());
 		    pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();

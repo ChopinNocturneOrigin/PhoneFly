@@ -30,6 +30,9 @@ public class AdminProductInsertAction implements Action {
 			pvo.setPrice2( Integer.parseInt( request.getParameter("price2")) );
 			pvo.setPrice3( Integer.parseInt( request.getParameter("price3")) );
 			pvo.setContent( request.getParameter("content") );
+			pvo.setUseyn(request.getParameter("useyn"));
+			pvo.setBestyn(request.getParameter("bestyn"));
+			pvo.setEventyn(request.getParameter("eventyn"));
 			pvo.setMfc( request.getParameter("mfc") );
 
 			
