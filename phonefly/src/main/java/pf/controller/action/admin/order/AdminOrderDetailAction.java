@@ -10,7 +10,7 @@ import pf.controller.action.Action;
 import pf.dao.OrderDetailDao;
 import pf.dto.OrderDetailVO;
 
-public class AdminOrder_detailAction implements Action {
+public class AdminOrderDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,8 +18,10 @@ public class AdminOrder_detailAction implements Action {
 		int odseq = Integer.parseInt(request.getParameter("odseq"));
 
 		OrderDetailDao oddao = OrderDetailDao.getInstance();
-			OrderDetailVO odvo = oddao.getOrderDetails(odseq);
-			request.setAttribute("OrderDetailVO", odvo);
+		// 수정 : bhs
+		//OrderDetailVO odvo = oddao.getOrderDetails(odseq);
+		OrderDetailVO odvo = oddao.getOrderDetail(odseq);
+		request.setAttribute("orderVO", odvo);
 
 		request.getRequestDispatcher(url).forward(request, response);
 	}
