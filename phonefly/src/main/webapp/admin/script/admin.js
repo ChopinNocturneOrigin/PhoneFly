@@ -170,11 +170,11 @@ function go_save_e(){
 
 function go_save_n(){
 	var theForm = document.frm;
-	if( theForm.name.value == "") {
-		alert('공지사항명을 입력하세요.'); 	
-		theForm.name.focus();	
+	if( theForm.subject.value == "") {
+		alert('제목을 입력하세요.'); 	
+		theForm.subject.focus();	
 	} else if (theForm.content.value == "") {
-		alert('공지사항상세를 입력하세요.'); 		
+		alert('내용을 입력하세요.');
 		theForm.content.focus();
 	} else{
 		theForm.action = "pf.do?command=adminNoticeInsert";
@@ -265,18 +265,24 @@ function go_mod_save(){
 	}
 }
 
-function go_mod_save_e(){
-	if  (document.frm.name.value == '') {
-		  alert('이벤트 명을 입력하세요');	  
-		  document.frm.name.focus();
-	 } else if (document.frm.content.value == '') {
-		  alert('이벤트 상세를 입력하세요');	  
-		  document.frm.content.focus();
-	 }else{
+function go_mod_save_e(eseq){
+	if (document.frm.subject.value == '') {
+		alert('이벤트 제목을 입력하세요');
+		document.frm.subject.focus();
+	 } else {
 		if( confirm('수정하시겠습니까?') ){
-			 document.frm.action = "pf.do";
-			 document.frm.submit();
+			document.frm.action = "pf.do?command=adminEventUpdate&eseq="+eseq;
+			document.frm.submit();
 		}
+	}
+}
+function go_save_insert(){
+	if (document.frm.subject.value == '') {
+		alert('이벤트 제목을 입력하세요');
+		document.frm.subject.focus();
+	 } else {
+		document.frm.action = "pf.do?command=adminEventInsert";
+		document.frm.submit();
 	}
 }
 
@@ -285,9 +291,9 @@ function go_mod_save_e(){
 
 
 function go_mod_save_n(){
-	if  (document.frm.name.value == '') {
+	if  (document.frm.subject.value == '') {
 		  alert('공지사항 이름을 입력하세요');	  
-		  document.frm.name.focus();
+		  document.frm.subject.focus();
 	 } else if (document.frm.content.value == '') {
 		  alert('공지사항 상세를 입력하세요');	  
 		  document.frm.content.focus();
@@ -339,10 +345,10 @@ function go_rep(qseq){
 	// 답변 글 등록 & rep 필드를 2로 업데이트
 }
 
-function go_del_e(eseq) {  
+function go_del_e(eseq) {
   var confirmDelete = confirm("정말 이 이벤트를 삭제하시겠습니까?");
-  if (confirmDelete) {  
-    var url = "pf.do?command=adminEventDelete&eseq=" + eseq;   
+  if (confirmDelete) {
+    var url = "pf.do?command=adminEventDelete&eseq=" + eseq;
     location.href =url;
   }
 }

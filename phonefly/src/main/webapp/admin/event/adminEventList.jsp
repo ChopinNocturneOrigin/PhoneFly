@@ -28,12 +28,12 @@
 	<th>이벤트 제목</th>
 	<th>이벤트 등록일</th>
 	</tr>
-	<c:forEach items="${admineventList}" var="eventVO">
+	<c:forEach items="${eventList}" var="eventVO">
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${eventVO.eseq}</td>
 			<td>
-				<a href="#" onClick="go_detail_e( '${eventVO.eseq}');">
-					${eventVO.name}
+				<a href="javascript:;" onClick="go_detail_e('${eventVO.eseq}');">
+					${eventVO.subject}
 				</a>
 			</td>
 			<td><fmt:formatDate value="${eventVO.indate}"/></td>

@@ -19,7 +19,8 @@ public class AdminEventDetailAction implements Action {
 
 			EventDao edao = EventDao.getInstance();
 			EventVO evo = edao.getEvent(eseq);
-			request.setAttribute("EventVO", evo);
+			// 수정 : bhs EventVO -> eventVO
+			request.setAttribute("eventVO", evo);
 
 		request.getRequestDispatcher(url).forward(request, response);
 	}

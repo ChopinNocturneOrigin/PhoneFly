@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import pf.dto.NoticeVO;
-import pf.dto.QnaVO;
 import pf.util.DBM;
 import pf.util.Paging;
 
@@ -54,6 +53,8 @@ public class NoticeDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				NoticeVO nvo = new NoticeVO();
+				// 추가 : bhs => nvo.setNseq(rs.getInt("nseq"));
+				nvo.setNseq(rs.getInt("nseq"));
 				nvo.setContent( rs.getString("content") );
 				nvo.setId( rs.getString("id"));
 				nvo.setIndate( rs.getTimestamp("indate"));
@@ -66,14 +67,15 @@ public class NoticeDao {
 	}
 
 	public NoticeVO getNotice(int nseq) {
-		NoticeVO nvo = new NoticeVO();
-		String sql = " select*from notice where nseq = ? ";
+		NoticeVO nvo = null;
+		String sql = "select * from notice where nseq = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, nseq);
 			rs = pstmt.executeQuery();
 			if( rs.next() ) {
+				nvo = new NoticeVO();
 				nvo.setNseq(nseq);
 				nvo.setSubject(rs.getString("subject"));
 				nvo.setContent(rs.getString("content"));
@@ -133,22 +135,27 @@ public class NoticeDao {
 }
 
 	public void insertNotice(NoticeVO nvo) {
-		String sql = "insert into notice (nseq, subject, content, id, indate) "
-				+ " values(notice_seq.nextval , ? , ? , ? , ? )";
+		// 수정 : bhs
+		//String sql = "insert into notice (nseq, subject, content, id, indate) "
+				//+ " values(notice_seq.nextval , ? , ? , ? , ? )";
+		String sql = "INSERT INTO notice (nseq, subject, content, id) VALUES (nseq.nextVal , ? , ? , ?)";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, nvo.getSubject());
 		    pstmt.setString(2, nvo.getContent());
 		    pstmt.setString(3, nvo.getId());
-		    pstmt.setTimestamp(4, nvo.getIndate());
+		    // 수정 : bhs
+		    //pstmt.setTimestamp(4, nvo.getIndate());
 		    pstmt.executeUpdate();  
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {  DBM.close(con, pstmt, rs);  }
 	}
 
 	public void updateNotice(NoticeVO nvo) {
-		String sql ="update set subject=?,content=?,id=? from notice where nseq=?";
+		// 수정 : bhs
+		//String sql ="update set subject=?,content=?,id=? from notice where nseq=?";
+		String sql ="UPDATE notice SET subject = ?, content = ?, id= ? WHERE nseq = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);

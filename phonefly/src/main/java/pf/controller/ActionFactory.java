@@ -8,6 +8,7 @@ import pf.controller.action.admin.board.event.AdminEventInsertAction;
 import pf.controller.action.admin.board.event.AdminEventInsertFormAction;
 import pf.controller.action.admin.board.event.AdminEventListAction;
 import pf.controller.action.admin.board.event.AdminEventUpdateAction;
+import pf.controller.action.admin.board.event.AdminEventUpdateFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDeleteAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
 import pf.controller.action.admin.board.notice.AdminNoticeInsertAction;
@@ -213,6 +214,8 @@ public class ActionFactory {
 	//관리자(admin).board.Event
 	else if(command.equals("adminEventList") ) ac = new AdminEventListAction();
 	else if(command.equals("adminEventDetail") ) ac = new AdminEventDetailAction();
+	// 수정 bhs : adminNoticeUpdateForm 누락
+	else if(command.equals("adminEventUpdateForm") ) ac = new AdminEventUpdateFormAction();
 	else if(command.equals("adminEventUpdate") ) ac = new AdminEventUpdateAction();
 	else if(command.equals("adminEventDelete") ) ac = new AdminEventDeleteAction();
 	else if(command.equals("adminEventInsertForm") ) ac = new AdminEventInsertFormAction();

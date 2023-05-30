@@ -4,22 +4,20 @@
 
 <article>
 <h1>공지사항 등록</h1>
-	<form name="frm" method="post" enctype="multipart/form-data" >
-		<table id="list">			
+	<form name="frm" method="post">
+		<table id="list">
 			<tr>
-				<th>공지사항명</th>
+				<th>제목</th>
 				<td width="343" colspan="5">
-		       	<input type="text" name="name" size="47" maxlength="100"></td>
-		    </tr>
-		    		  	
-		  	<tr>
-		  		<th>상세설명</th><td colspan="5">
+				<input type="text" name="subject" size="47" maxlength="100"></td>
+			</tr>
+			<tr>
+				<th>내용</th><td colspan="5">
 				<textarea name="content" rows="8" cols="70"></textarea></td>
 			</tr>
-		
 		</table>
-		<input class="btn" type="button" value="공지사항등록" onClick="go_save_n()">           
-		<input class="btn" type="button" value="목록으로" onClick="go_mov_e()">
+		<input class="btn" type="button" value="공지사항등록" onClick="go_save_n();">
+		<input class="btn" type="button" value="목록으로" onClick="go_mov_n();">
 	</form>
 </article>
 
