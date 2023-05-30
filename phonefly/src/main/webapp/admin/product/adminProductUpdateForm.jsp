@@ -3,30 +3,27 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 <article>
-	<h1>상품수정  ${productVO.kind}</h1>
-	<form name="frm" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="pseq" value="${productVO.pseq}">
-		<input type="hidden" name="cseq" value="${colorVO.cseq}">
-		<input type="hidden" name="oldImage" value="${colorVO.image}">
-		
+	<h1>상품수정</h1>
+	<form name="frm" method="post" >
+		<input type="hidden" name="pseq" value="${ProductVO.pseq}">	
 		<table id="list">			
 			<tr>
 				<th>상품명</th>
 				<td width="343" colspan="5">
-					<input type="text" name="name" size="47" maxlength="100" value="${productVO.name}">
+					<input type="text" name="name" size="47" maxlength="100" value="${ProductVO.name}">
 				</td>
 			</tr>
 			
 			<tr>
 		  		<th>원가[A]</th>
 		  		<td width="70">
-		  			<input type="text" name="price1" size="11" value="${productVO.price1}"></td>
+		  			<input type="text" name="price1" size="11" value="${ProductVO.price1}"></td>
 		  		<th>판매가[B]</th>
 		  		<td width="70">
-		  			<input type="text" name="price2" size="11" value="${productVO.price2}"></td>
+		  			<input type="text" name="price2" size="11" value="${ProductVO.price2}"></td>
 			    <th>마진[B-A]</th>
 			    <td width="72">
-			    	<input type="text" name="price3" size="11" value="${productVO.price2-productVO.price1}">
+			    	<input type="text" name="price3" size="11" value="${ProductVO.price2-ProductVO.price1}">
 		    	</td>
 		    </tr>
 		    
@@ -34,7 +31,7 @@
 		    		<th>베스트상품</th>
 				 	<td>
 				 		<c:choose>
-				  			<c:when test='${productVO.bestyn=="Y"}'>
+				  			<c:when test='${ProductVO.bestyn=="Y"}'>
 				  				<input type="radio" name="bestyn" value="Y" checked="checked">사용
 				  				<input type="radio" name="bestyn" value="N">미사용
 				  			</c:when>
@@ -48,7 +45,7 @@
 					<th>이벤트 상품</th>
 				 	<td>
 				 		<c:choose>
-				  			<c:when test='${productVO.eventyn=="Y"}'>
+				  			<c:when test='${ProductVO.eventyn=="Y"}'>
 				  				<input type="radio" name="eventyn" value="Y" checked="checked">사용
 				  				<input type="radio" name="eventyn" value="N">미사용
 				  			</c:when>
@@ -63,20 +60,19 @@
 			<tr>
 				<th>제조사</th>
 				<td width="343" colspan="5">
-					<input type="text" name="mfc" size="47" maxlength="100" value="${productVO.mfc}">
+					<input type="text" name="mfc" size="47" maxlength="100" value="${ProductVO.mfc}">
 				</td>
 			</tr>	
 				
 		    <tr>
 		    	<th>상세설명</th>
 		    	<td colspan="5">
-			 		<textarea name="content" rows="8" cols="70" >${productVO.content}</textarea>
+			 		<textarea name="content" rows="8" cols="70" >${ProductVO.content}</textarea>
 			 	</td>
 			 </tr>
 		  	 <tr>
 		  	 	<th>상품이미지</th>
-		  	 	<td colspan="5">
-		      		<img src="color_images/${colorVO.image}" width="200"><br>
+		  	 	<td colspan="5">		      	
 		      		<input type="file" name="image">
 		      	</td>
 		      </tr>			
@@ -84,7 +80,7 @@
 		
 		<input class="btn" type="button" value="수정" onClick="go_mod_save()">           
 		<input class="btn" type="button" value="취소"  
-			onClick="location.href='pf.do?command=adminProductDetail&pseq=${productVO.pseq}'">
+			onClick="location.href='pf.do?command=adminProductDetail&pseq=${ProductVO.pseq}'">
 	</form>
 </article>
 

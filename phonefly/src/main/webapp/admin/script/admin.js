@@ -116,10 +116,7 @@ function go_save_c(){
 
 function go_save(){
 	var theForm = document.frm;
-	if( theForm.kind.value==""){     // if( document.frm.kind.value=="" )
-		alert('상품분류를 선택하세요');
-		theForm.kind.focus();
-	}else if (theForm.name.value == "") {
+	}if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.'); 	
 		theForm.name.focus();	
 	} else if (theForm.price1.value == "") {
@@ -134,23 +131,10 @@ function go_save(){
 	} else if (theForm.mfc.value == "") {
 		alert('제조사를 입력하세요.'); 		
 		theForm.mfc.focus();
-	
-		
-	} else if (theForm.name.value == "") {
-		alert('색상이름을 입력하세요.'); 		
-		theForm.name.focus();
-	} else if (theForm.ccode.value == "") {
-		alert('색상코드를 입력하세요.'); 		
-		theForm.ccode.focus();	
-	} else if (theForm.image.value == "") {
-		alert('상품이미지들 입력하세요.'); 	
-		theForm.image.focus();	
-		
-		
 	} else{
 		theForm.action = "pf.do?command=adminProductInsert";
 		theForm.submit();
-	}
+	
 }
 
 function go_save_e(){
