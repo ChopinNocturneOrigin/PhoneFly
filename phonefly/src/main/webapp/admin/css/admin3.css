@@ -242,3 +242,15 @@ nav#sub_menu {
 #productList,#adminMemberList  td {
   font-family: 'Open Sans', Arial, sans-serif;
 } 
+
+
+/* 주문상세 */
+.admin-orderdetail-wrap {
+	width: 1370px;
+	min-height: 710px;
+}
+#admin-orderdetail-combobox {
+	width: 90px;
+	height: 30px;
+	font-size: 17px;
+}

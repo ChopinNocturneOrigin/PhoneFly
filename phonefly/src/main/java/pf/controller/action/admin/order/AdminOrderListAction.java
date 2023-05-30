@@ -23,7 +23,7 @@ public class AdminOrderListAction implements Action {
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		if( avo == null) {
 			url = "pf.do?command=admin";
-		}else {				
+		}else {
 			
 			if( request.getParameter("changeMenu") != null) {
 				session.removeAttribute("page");

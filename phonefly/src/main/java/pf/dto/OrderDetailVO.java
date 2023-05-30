@@ -25,6 +25,7 @@ public class OrderDetailVO {
 	private String cname;		// 통신사명 [comm : name]
 	private String ccname;		// 컬러명 [color: name]
 	private String rname;		// 요금제명 [rplan: name]
+	private String mname;		// 회원명 [member: mame]
 	private String image;		// 제품 이미지 파일명 [color: image]
 
 	private int price;			// 제품 가격 [product: price2]
@@ -34,6 +35,12 @@ public class OrderDetailVO {
 	private String timeplan;	// 통화제공량 [rplan: timeplan]
 	private String textplan;	// 문자제공량 [rplan: textplan]
 	
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
 	public String getImage() {
 		return image;
 	}
