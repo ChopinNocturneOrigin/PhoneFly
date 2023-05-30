@@ -23,9 +23,9 @@ public class AdminColorDetailAction implements Action {
 			url = "pf.do?command=admin"; 
 		} else {
 			int cseq = Integer.parseInt( request.getParameter("cseq") );
+
 			ColorDao cdao = ColorDao.getInstance();
 			ColorVO cvo = cdao.getColor( cseq ); 
-						
 			request.setAttribute("ColorVO", cvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
