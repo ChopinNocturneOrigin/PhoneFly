@@ -243,7 +243,7 @@ public class AdminDao {
 		String sql="select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn,o.*from "
-				+ " ((select*from order_detail where name like'%'||?||'%'order by odseq desc) o)"
+				+ " ((select*from order_detail where id like'%'||?||'%'order by odseq desc) o)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {

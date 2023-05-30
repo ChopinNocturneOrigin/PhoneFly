@@ -27,7 +27,7 @@ public class AdminOrderListAction implements Action {
 			
 			if( request.getParameter("changeMenu") != null) {
 				session.removeAttribute("page");
-				session.removeAttribute("key");
+				session.removeAttribute("key"); 
 			}
 			
 			Paging paging = new Paging();
