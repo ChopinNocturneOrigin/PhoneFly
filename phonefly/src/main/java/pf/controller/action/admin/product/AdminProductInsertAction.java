@@ -16,7 +16,7 @@ public class AdminProductInsertAction implements Action {
 
 	@Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "pf.do?command=adminProductList";
+		String url = "pf.do?command=adminColorInsertForm";
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
