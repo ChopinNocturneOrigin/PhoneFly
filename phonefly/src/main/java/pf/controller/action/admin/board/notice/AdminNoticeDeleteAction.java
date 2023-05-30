@@ -17,7 +17,9 @@ public class AdminNoticeDeleteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int nseq=Integer.parseInt(request.getParameter("nseq"));
 		
-		String url="admin/notice/adminNoticeList.jsp";
+		// 수정 : bhs
+		//String url="admin/notice/adminNoticeList.jsp";
+		String url="pf.do?command=adminNoticeList";
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO) session.getAttribute("loginAdmin");

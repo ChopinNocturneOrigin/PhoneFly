@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import pf.dto.EventVO;
-import pf.dto.NoticeVO;
 import pf.util.DBM;
 import pf.util.Paging;
 
@@ -55,6 +54,8 @@ public class EventDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				EventVO evo = new EventVO();
+				// eseq 추가 : bhs
+				evo.setEseq(rs.getInt("eseq"));
 				evo.setImage( rs.getString("image") );
 				evo.setId( rs.getString("id"));
 				evo.setIndate( rs.getTimestamp("indate"));
@@ -109,29 +110,34 @@ public class EventDao {
 	
 
 	public void insertEvent(EventVO evo) {
-		String sql = "insert into event (eseq, subject, image, id, indate) "
-				+ " values(Event_seq.nextval , ? , ? , ? , ? )";
+		// 수정 : bhs
+		//String sql = "insert into event (eseq, subject, image, id, indate) "
+				//+ " values(Event_seq.nextval , ? , ? , ? , ? )";
+		String sql = "INSERT INTO event (eseq, subject, image, id) VALUES (eseq.nextval , ? , ? , ?)";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, evo.getSubject());
 		    pstmt.setString(2, evo.getImage());
 		    pstmt.setString(3, evo.getId());
-		    pstmt.setTimestamp(4, evo.getIndate());
 		    pstmt.executeUpdate();  
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {  DBM.close(con, pstmt, rs);  }
 	}
 
 	public void updateEvent(EventVO evo) {
-		String sql ="update set subject=?,image=?,id=? from event where eseq=?";
+		// 수정 : bhs
+		//String sql ="update set subject=?,image=?,id=? from event where eseq=?";
+		String sql ="UPDATE event SET subject = ?, image = ? WHERE eseq = ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, evo.getSubject());
 		    pstmt.setString(2, evo.getImage());
-		    pstmt.setString(3, evo.getId());
-		    pstmt.setInt(4, evo.getEseq());
+		    // 수정 : bhs
+		    //pstmt.setString(3, evo.getId());
+		    //pstmt.setInt(4, evo.getEseq());
+		    pstmt.setInt(3, evo.getEseq());
 		    pstmt.executeUpdate();  
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {  DBM.close(con, pstmt, rs);  }

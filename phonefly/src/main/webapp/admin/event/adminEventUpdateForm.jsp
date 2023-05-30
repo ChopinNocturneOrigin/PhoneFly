@@ -4,30 +4,30 @@
 
 <article>
 	<h1>이벤트 수정  </h1>
-	<form name="frm" method="post" >
+	<form name="frm" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="eseq" value="${eventVO.eseq}">
-		<input type="hidden" name="command" value= "adminEventUpdate">
+		<input type="hidden" name="oldImage" value= "${eventVO.image}">
 				
 		<table id="list">			
 			<tr>
 				<th>이벤트 제목</th>
 				<td width="343" colspan="5">
-					<input type="text" name="subject" size="47" maxlength="100" value="${eventVO.name}">
+					<input type="text" name="subject" size="47" maxlength="100" value="${eventVO.subject}">
 				</td>
 			</tr>
 						
 		   	 <tr>
 		  	 	<th>이벤트 이미지</th>
 		  	 	<td colspan="5">
-		      		<img src="color_images/${eventVO.image}" width="200"><br>
+		      		<img src="images/event/${eventVO.image}" width="200"><br>
 		      		<input type="file" name="image">
 		      	</td>
 		      </tr>	
 		</table>
 		
-		<input class="btn" type="button" value="수정" onClick="go_mod_save_e()">           
+		<input class="btn" type="button" value="수정" onClick="go_mod_save_e(${eventVO.eseq});">           
 		<input class="btn" type="button" value="취소"  
-			onClick="location.href='pf.do?command=adminEventDetail&eseq=${eventVO.eseq}'">
+			onClick="location.href='pf.do?command=adminEventDetail';">
 	</form>
 </article>
 

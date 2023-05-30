@@ -17,7 +17,8 @@ public class AdminEventDeleteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int eseq=Integer.parseInt(request.getParameter("eseq"));
 		
-		String url="admin/Event/adminEventList.jsp";
+		//String url="admin/Event/adminEventList.jsp";
+		String url="pf.do?command=adminEventList";
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO) session.getAttribute("loginAdmin");

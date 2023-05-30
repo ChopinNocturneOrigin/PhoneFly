@@ -1,4 +1,4 @@
-package pf.controller.action.admin.board.notice;
+package pf.controller.action.admin.board.event;
 
 import java.io.IOException;
 
@@ -8,31 +8,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
-import pf.dao.NoticeDao;
+import pf.dao.EventDao;
 import pf.dto.AdminVO;
-import pf.dto.NoticeVO;
+import pf.dto.EventVO;
 
-public class AdminNoticeUpdateFormAction implements Action {
+public class AdminEventUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/notice/adminNoticeUpdateForm.jsp";
-		
+		// author : bhs
+		String url = "admin/event/adminEventUpdateForm.jsp";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		if( avo == null) { 
 			url = "pf.do?command=admin"; 
 		} else {
-			
-			int nseq = Integer.parseInt( request.getParameter("nseq") );
-			NoticeDao ndao = NoticeDao.getInstance();
-			NoticeVO nvo = ndao.getNotice(nseq);
-			// 수정 : bhs
-			//request.setAttribute("NoticeVO", nvo);
-			request.setAttribute("noticeVO", nvo);
+			int eseq = Integer.parseInt(request.getParameter("eseq"));
+			EventDao edao = EventDao.getInstance();
+			EventVO evo = edao.getEvent(eseq);
+			request.setAttribute("eventVO", evo);
 		}
-		
-		request.getRequestDispatcher(url).forward(request, response);	
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }

@@ -23,7 +23,7 @@
 			
 		
 		</table>
-		<input class="btn" type="button" value="이벤트등록" onClick="go_save_e()">           
+		<input class="btn" type="button" value="이벤트등록" onClick="go_save_insert()">           
 		<input class="btn" type="button" value="목록으로" onClick="go_mov_e()">
 	</form>
 </article>
