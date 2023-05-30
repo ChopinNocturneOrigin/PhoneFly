@@ -8,6 +8,7 @@ import pf.controller.action.admin.board.event.AdminEventInsertAction;
 import pf.controller.action.admin.board.event.AdminEventInsertFormAction;
 import pf.controller.action.admin.board.event.AdminEventListAction;
 import pf.controller.action.admin.board.event.AdminEventUpdateAction;
+import pf.controller.action.admin.board.event.AdminEventUpdateFormAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDeleteAction;
 import pf.controller.action.admin.board.notice.AdminNoticeDetailAction;
 import pf.controller.action.admin.board.notice.AdminNoticeInsertAction;
@@ -28,7 +29,7 @@ import pf.controller.action.admin.member.AdminMemberDetailAction;
 import pf.controller.action.admin.member.AdminMemberListAction;
 import pf.controller.action.admin.order.AdminOrderListAction;
 import pf.controller.action.admin.order.AdminOrderUpdateAction;
-import pf.controller.action.admin.order.AdminOrder_detailAction;
+import pf.controller.action.admin.order.AdminOrderDetailAction;
 import pf.controller.action.admin.order.OrderCancelAction;
 import pf.controller.action.admin.product.AdminColorDeleteAction;
 import pf.controller.action.admin.product.AdminColorDetailAction;
@@ -191,7 +192,7 @@ public class ActionFactory {
 	
 	//관리자(admin).order
 	else if(command.equals("adminOrderList") ) ac = new AdminOrderListAction();
-	else if(command.equals("adminOrderDetail") ) ac = new AdminOrder_detailAction();
+	else if(command.equals("adminOrderDetail") ) ac = new AdminOrderDetailAction();
 	else if(command.equals("adminOrderUpdate") ) ac = new AdminOrderUpdateAction();
 
 
@@ -213,6 +214,8 @@ public class ActionFactory {
 	//관리자(admin).board.Event
 	else if(command.equals("adminEventList") ) ac = new AdminEventListAction();
 	else if(command.equals("adminEventDetail") ) ac = new AdminEventDetailAction();
+	// 수정 bhs : adminNoticeUpdateForm 누락
+	else if(command.equals("adminEventUpdateForm") ) ac = new AdminEventUpdateFormAction();
 	else if(command.equals("adminEventUpdate") ) ac = new AdminEventUpdateAction();
 	else if(command.equals("adminEventDelete") ) ac = new AdminEventDeleteAction();
 	else if(command.equals("adminEventInsertForm") ) ac = new AdminEventInsertFormAction();

@@ -16,29 +16,24 @@
 	
 	<table id="orderList">
 		<tr>
-		<th>주문번호(처리)</th>
-		<th>주문자</th>
-		<th>상품명</th>
-		<th>우편</th>
-		<th>주소</th>
-		<th>전화</th>
+		<th>주문상세 번호</th>
+		<th>아이디(구매자명)</th>
+		<th>제품명(통신사)</th>
 		<th>주문일</th>
+		<th>처리상태</th>
+		<th></th>
 		</tr>
-		<c:forEach items="${orderList}" var="orderVO">
-			<tr>
-				<td>
-					<c:choose>
-						<c:when test='${orderVO.result=="1"}'>
-							<span style="font-weight: bold; color: blue">${orderVO.oseq}</span>
-							(<input type="checkbox" name="result" value="${orderVO.odseq}">미처리)</c:when>
-				    	<c:otherwise>
-			       			<span style="font-weight: bold; color: red">${orderVO.oseq}</span>
-			      			(<input type="checkbox" checked="checked" disabled="disabled">처리완료)</c:otherwise>
-					</c:choose>
-				</td>
-				<td>${orderVO.mname}</td><td>${orderVO.pname}</td>
-				<td>${orderVO.zip_num}</td><td>${orderVO.address1}</td><td>${orderVO.phone}</td>
-				<td><fmt:formatDate value="${orderVO.indate}" /></td>
+		<c:forEach items="${orderList}" var="order">
+			<tr onclick="location.href='pf.do?command=adminOrderDetail&odseq=${order.odseq}';">
+				<td>${order.odseq}</td>
+				<td>${order.id} (${order.mname})</td>
+				<td>${order.pname} (${order.cname})</td>
+				<td><fmt:formatDate value="${order.indate}" /></td>
+				<c:choose>
+					<c:when test="${order.result == 1 }"><td>접수중</td></c:when>
+					<c:when test="${order.result == 2 }"><td>발송중</td></c:when>
+					<c:otherwise><td>완료</td></c:otherwise>
+				</c:choose>
 			</tr>
 		</c:forEach>
 	</table>

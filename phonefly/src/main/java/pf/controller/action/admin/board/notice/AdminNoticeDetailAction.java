@@ -19,13 +19,15 @@ public class AdminNoticeDetailAction implements Action {
 		String url = "admin/notice/adminNoticeDetail.jsp";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
-		if( avo == null) { 
-			url = "pf.do?command=admin"; 
-		} else {		
+		if( avo == null) {
+			url = "pf.do?command=admin";
+		} else {
 			NoticeDao ndao = NoticeDao.getInstance();
 			NoticeVO nvo = ndao.getNotice(Integer.parseInt(request.getParameter("nseq")));
 			
-			request.setAttribute("NoticeVO", nvo);
+			// 수정 : bhs
+			//request.setAttribute("NoticeVO", nvo);
+			request.setAttribute("noticeVO", nvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 

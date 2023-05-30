@@ -28,12 +28,12 @@
 	<th>공지사항명</th>
 	<th>공지등록일</th>
 	</tr>
-	<c:forEach items="${adminnoticeList}" var="noticeVO">
+	<c:forEach items="${noticeList}" var="noticeVO">
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${noticeVO.nseq}</td>
 			<td>
-				<a href="#" onClick="go_detail_n( '${noticetVO.nseq}');">
-					${noticeVO.name}
+				<a href="javascript:;" onClick="go_detail_n( '${noticeVO.nseq}');">
+					${noticeVO.subject}
 				</a>
 			</td>
 			<td><fmt:formatDate value="${noticeVO.indate}"/></td>

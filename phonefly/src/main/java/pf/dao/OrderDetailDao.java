@@ -193,6 +193,52 @@ public class OrderDetailDao {
 		return ovo;
 	}
 
+	public OrderDetailVO getOrderDetail(int odseq) {
+		// author : bhs
+		OrderDetailVO ovo = null;
+		String sql = "SELECT * FROM order_detail_view2 WHERE odseq =?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ovo = new OrderDetailVO();	
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setPseq(rs.getInt("pseq"));
+				ovo.setRseq(rs.getInt("rseq"));
+				ovo.setId(rs.getString("id"));
+				ovo.setResult(rs.getString("result"));
+				ovo.setDiscount(rs.getInt("discount"));
+				ovo.setBuyplan(rs.getInt("buyplan"));
+				ovo.setDcmonth(rs.getInt("dcmonth"));
+				ovo.setDctotal(rs.getInt("dctotal"));
+				ovo.setMmonth(rs.getInt("mmonth"));
+				ovo.setMtotal(rs.getInt("mtotal"));
+				ovo.setCc(rs.getString("cc"));
+				ovo.setIndate(rs.getTimestamp("indate"));
+				ovo.setCseq(rs.getInt("cseq"));
+				ovo.setPname(rs.getString("pname"));
+				ovo.setCname(rs.getString("cname"));
+				ovo.setCcname(rs.getString("ccname"));
+				ovo.setRname(rs.getString("rname"));
+				ovo.setImage(rs.getString("image"));
+				ovo.setPrice(rs.getInt("price"));
+				ovo.setMfc(rs.getString("mfc"));
+				ovo.setCharge(rs.getInt("charge"));
+				ovo.setDataplan(rs.getString("dataplan"));
+				ovo.setTimeplan(rs.getString("timeplan"));
+				ovo.setTextplan(rs.getString("textplan"));
+			} 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return ovo;
+	}
+
+
 	public void deleteOrder(int odseq) {
 		String sql = "DELETE FROM order_detail WHERE odseq =?";
 		con = DBM.getConnection();

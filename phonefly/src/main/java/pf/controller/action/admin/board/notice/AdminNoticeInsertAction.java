@@ -16,7 +16,9 @@ public class AdminNoticeInsertAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/notice/adminNoticeList.jsp";
+		// 수정 : bhs
+		//String url = "admin/notice/adminNoticeList.jsp";
+		String url = "pf.do?command=adminNoticeList";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO) session.getAttribute("loginAdmin");    
 	    if (avo == null) {

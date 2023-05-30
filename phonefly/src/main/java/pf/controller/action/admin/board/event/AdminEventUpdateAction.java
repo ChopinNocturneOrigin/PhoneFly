@@ -27,9 +27,12 @@ public class AdminEventUpdateAction implements Action {
 		if( avo == null) { 
 			url = "pf.do?command=admin"; 
 		} else {
+			System.out.println("process .... adminEvnetUpdate");
 			EventVO evo = new EventVO();
 			ServletContext context = session.getServletContext();
-			String path = context.getRealPath("image");
+			// 수정 : bhs
+			//String path = context.getRealPath("image");
+			String path = context.getRealPath("images/event");
 			
 			MultipartRequest multi = new MultipartRequest(
 					request, 
@@ -40,12 +43,20 @@ public class AdminEventUpdateAction implements Action {
 			);
 			evo.setEseq(Integer.parseInt( multi.getParameter("eseq") ) );
 			evo.setSubject(multi.getParameter("subject"));
-			evo.setImage(multi.getFilesystemName("image"));
-			   
-			    EventDao adao = EventDao.getInstance();
-			    adao.updateEvent(evo);
-			    url = url + "&eseq=" + evo.getEseq();
+			// 수정 bhs : if part
+			// evo.setImage(multi.getFilesystemName("image"));
+			if (multi.getFilesystemName("image") == null) {
+				evo.setImage(multi.getParameter("oldImage"));
+			} else {
+				evo.setImage(multi.getFilesystemName("image"));
 			}
+			System.out.println(Integer.parseInt( multi.getParameter("eseq") ) + "" + multi.getParameter("subject"));
+			EventDao adao = EventDao.getInstance();
+			adao.updateEvent(evo);
+			url = url + "&eseq=" + evo.getEseq();
+			// 추가 bhs : request.setAttribute("eventVO", evo);
+			request.setAttribute("eventVO", evo);
+		}
 			request.getRequestDispatcher(url).forward(request, response);
 	}
 

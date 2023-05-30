@@ -5,7 +5,9 @@
 
 <article>
 	<h1>상품 등록</h1>
-	<form name="frm" method="post" enctype="multipart/form-data">
+	<form name="frm" method="post" >
+		<input type="hidden" name="pseq" value="${ProductVO.pseq}">
+	
 		<table id="list">
 			<tr>
 				<th>상품명</th>
@@ -31,7 +33,7 @@
 
 			<th>판매 가능 여부</th>
 			<td><c:choose>
-					<c:when test='${productVO.useyn=="Y"}'>
+					<c:when test='${ProductVO.useyn=="Y"}'>
 						<input type="radio" name="useyn" value="Y" checked="checked">판매 불가
 				  				<input type="radio" name="useyn" value="N">판매 가능
 				  			</c:when>
@@ -46,7 +48,7 @@
 
 			<th>이벤트 상품</th>
 			<td><c:choose>
-					<c:when test='${productVO.eventyn=="Y"}'>
+					<c:when test='${ProductVO.eventyn=="Y"}'>
 						<input type="radio" name="eventyn" value="Y" checked="checked">사용
 				  				<input type="radio" name="eventyn" value="N">미사용
 				  			</c:when>
@@ -59,7 +61,7 @@
 
 			<th>베스트상품</th>
 			<td><c:choose>
-					<c:when test='${productVO.bestyn=="Y"}'>
+					<c:when test='${ProductVO.bestyn=="Y"}'>
 						<input type="radio" name="bestyn" value="Y" checked="checked">사용
 				  				<input type="radio" name="bestyn" value="N">미사용
 				  			</c:when>
@@ -78,7 +80,7 @@
 
 
 		</table>
-		<input class="btn" type="button" value="색상선택" onClick="go_save_c()">
+		<input class="btn" type="button" value="색상선택" onClick="go_save('${ProductVO.pseq}')">
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

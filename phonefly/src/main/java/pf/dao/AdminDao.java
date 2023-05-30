@@ -196,8 +196,8 @@ public class AdminDao {
 		con = DBM.getConnection();
 		String sql="select * from ( "
 				+ " select * from ( "
-				+ " select rownum as rn,c.*from "
-				+ " ((select*from color where name like'%'||?||'%'and pseq=?order by cseq desc) c)"
+				+ " select rownum as rn, c.*from "
+				+ " ((select*from color where name like '%'||?||'%' and pseq=? order by cseq desc) c)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {
@@ -243,10 +243,17 @@ public class AdminDao {
 	public ArrayList<OrderDetailVO> selectOrder(Paging paging, String key) {
 		ArrayList<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
 		con = DBM.getConnection();
+		// 수정 : bhs
+		//String sql="select * from ( "
+				//+ " select * from ( "
+				//+ " select rownum as rn,o.*from "
+				//+ " ((select*from order_detail where id like'%'||?||'%'order by odseq desc) o)"
+				//+ " ) where rn>=? "
+				//+ " ) where rn<=?";
 		String sql="select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn,o.*from "
-				+ " ((select*from order_detail where id like'%'||?||'%'order by odseq desc) o)"
+				+ " ((select*from order_detail_view2 where id like'%'||?||'%'order by odseq desc) o)"
 				+ " ) where rn>=? "
 				+ " ) where rn<=?";
 		try {
@@ -271,6 +278,9 @@ public class AdminDao {
 				odvo.setPname(  rs.getString("pname") );
 				odvo.setCname(  rs.getString("cname") );
 				odvo.setRname(  rs.getString("rname") );
+				// 추가 : bhs
+				odvo.setMname(  rs.getString("mname") );
+				odvo.setIndate(rs.getTimestamp("indate"));
 				list.add(odvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
@@ -279,12 +289,16 @@ public class AdminDao {
 		return list;
 	}
 
-	public void updateOrderResult(int odseq) {
+	public void updateOrderResult(int odseq, String result) {
 		con = DBM.getConnection();
-		String sql = "update order_detail set result='2' where odseq=? ";
+		// 수정 : bhs
+		//String sql = "update order_detail set result='2' where odseq=? ";
+		String sql = "UPDATE order_detail SET result = ? WHERE odseq = ? ";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, odseq);
+			pstmt.setInt(2, odseq);
+			// 추가 : bhs
+			pstmt.setString(1, result);
 			pstmt.executeUpdate();
 		}catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);  }

@@ -96,8 +96,8 @@ function go_wrt_n(){
 	document.frm.submit();
 }
 
-function go_wrt_c(){
-	document.frm.action = "pf.do?command=adminColorInsertForm";
+function go_wrt_c(pseq){
+	document.frm.action = "pf.do?command=adminColorInsertForm&pseq="+pseq;
 	document.frm.submit();
 }
 
@@ -116,10 +116,7 @@ function go_save_c(){
 
 function go_save(){
 	var theForm = document.frm;
-	if( theForm.kind.value==""){     // if( document.frm.kind.value=="" )
-		alert('상품분류를 선택하세요');
-		theForm.kind.focus();
-	}else if (theForm.name.value == "") {
+	if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.'); 	
 		theForm.name.focus();	
 	} else if (theForm.price1.value == "") {
@@ -134,25 +131,11 @@ function go_save(){
 	} else if (theForm.mfc.value == "") {
 		alert('제조사를 입력하세요.'); 		
 		theForm.mfc.focus();
-	
-		
-	} else if (theForm.name.value == "") {
-		alert('색상이름을 입력하세요.'); 		
-		theForm.name.focus();
-	} else if (theForm.ccode.value == "") {
-		alert('색상코드를 입력하세요.'); 		
-		theForm.ccode.focus();	
-	} else if (theForm.image.value == "") {
-		alert('상품이미지들 입력하세요.'); 	
-		theForm.image.focus();	
-		
-		
 	} else{
 		theForm.action = "pf.do?command=adminProductInsert";
-		theForm.submit();
-	}
+		theForm.submit();	
+ }
 }
-
 function go_save_e(){
 	var theForm = document.frm;
 	if( theForm.name.value == "") {
@@ -170,11 +153,11 @@ function go_save_e(){
 
 function go_save_n(){
 	var theForm = document.frm;
-	if( theForm.name.value == "") {
-		alert('공지사항명을 입력하세요.'); 	
-		theForm.name.focus();	
+	if( theForm.subject.value == "") {
+		alert('제목을 입력하세요.'); 	
+		theForm.subject.focus();	
 	} else if (theForm.content.value == "") {
-		alert('공지사항상세를 입력하세요.'); 		
+		alert('내용을 입력하세요.');
 		theForm.content.focus();
 	} else{
 		theForm.action = "pf.do?command=adminNoticeInsert";
@@ -182,7 +165,7 @@ function go_save_n(){
 	}
 }
 
-function go_save_c(){
+function go_save_c(pseq){
 	var theForm = document.frm;	
 	if( theForm.name.value == "") {
 		alert('색상이름을 입력하세요.'); 	
@@ -194,7 +177,7 @@ function go_save_c(){
 		alert('색상 이미지를 입력하세요.'); 		
 		theForm.image.focus();	
 	} else{
-		theForm.action = "pf.do?command=adminColorInsert";
+		theForm.action = "pf.do?command=adminColorInsert&pseq=" + pseq;
 		theForm.submit();
 	}
 }
@@ -265,18 +248,43 @@ function go_mod_save(){
 	}
 }
 
-function go_mod_save_e(){
-	if  (document.frm.name.value == '') {
-		  alert('이벤트 명을 입력하세요');	  
-		  document.frm.name.focus();
-	 } else if (document.frm.content.value == '') {
-		  alert('이벤트 상세를 입력하세요');	  
-		  document.frm.content.focus();
-	 }else{
+function go_mod_save_e(eseq){
+	if (document.frm.subject.value == '') {
+		alert('이벤트 제목을 입력하세요');
+		document.frm.subject.focus();
+	 } else {
 		if( confirm('수정하시겠습니까?') ){
-			 document.frm.action = "pf.do";
-			 document.frm.submit();
+			document.frm.action = "pf.do?command=adminEventUpdate&eseq="+eseq;
+			document.frm.submit();
 		}
+	}
+}
+
+
+function go_mod_save_c(cseq){
+	if (document.frm.name.value == '') {
+		alert('색삭명 을 입력하세요');
+		document.frm.name.focus();
+		} else if (document.frm.image.value == '') {
+		  alert('사진를 입력하세요');	  
+		  document.frm.image.focus();	 	  
+		} else if (document.frm.ccode.value == '') {
+		  alert('색상코드를 입력하세요');	  
+		  document.frm.ccode.focus();	 	  		  	    		    	    		 		
+	 } else {
+		if( confirm('수정하시겠습니까?') ){
+			document.frm.action = "pf.do?command=adminColorUpdate&cseq="+cseq;
+			document.frm.submit();
+		}
+	}
+}
+function go_save_insert(){
+	if (document.frm.subject.value == '') {
+		alert('이벤트 제목을 입력하세요');
+		document.frm.subject.focus();
+	 } else {
+		document.frm.action = "pf.do?command=adminEventInsert";
+		document.frm.submit();
 	}
 }
 
@@ -285,9 +293,9 @@ function go_mod_save_e(){
 
 
 function go_mod_save_n(){
-	if  (document.frm.name.value == '') {
+	if  (document.frm.subject.value == '') {
 		  alert('공지사항 이름을 입력하세요');	  
-		  document.frm.name.focus();
+		  document.frm.subject.focus();
 	 } else if (document.frm.content.value == '') {
 		  alert('공지사항 상세를 입력하세요');	  
 		  document.frm.content.focus();
@@ -339,10 +347,10 @@ function go_rep(qseq){
 	// 답변 글 등록 & rep 필드를 2로 업데이트
 }
 
-function go_del_e(eseq) {  
+function go_del_e(eseq) {
   var confirmDelete = confirm("정말 이 이벤트를 삭제하시겠습니까?");
-  if (confirmDelete) {  
-    var url = "pf.do?command=adminEventDelete&eseq=" + eseq;   
+  if (confirmDelete) {
+    var url = "pf.do?command=adminEventDelete&eseq=" + eseq;
     location.href =url;
   }
 }
