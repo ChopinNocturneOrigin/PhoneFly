@@ -1,5 +1,7 @@
 DROP TABLE member;
 
+select * from orders
+
 CREATE TABLE member (
 	id	varchar2(20)		NOT NULL,
 	pwd	varchar2(20)		NOT NULL,

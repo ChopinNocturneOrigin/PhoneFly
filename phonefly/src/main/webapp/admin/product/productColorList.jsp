@@ -5,7 +5,7 @@
 <article>
 <h1>상품 색상 리스트</h1>
 
-<form name="frm"  method="post">
+<form name="frm"  method="post" enctype="multipart/form-data"  >
 	<table>
 		<tr>
 			<td width="642">
@@ -49,10 +49,8 @@
 </table>
 
 <br /><br />
-<jsp:include page="/admin/paging/page.jsp">
-	<jsp:param name="command" value="pf.do?command=adminProductColorList" />
-</jsp:include>
-<!-- jsp:param 으로 필요한 내용을 전달하고 완성된 페이지를  include 합니다 -->
+
+
 
 </article>
 

@@ -6,7 +6,7 @@
 <form name="frm" method="post">
 	<input type="hidden" name="qseq" value="${qnaVO.qseq}">
 	
-	<table id="orderList"> <!-- 게시물의 내용 -->
+	<table id="QnaList"> <!-- 게시물의 내용 -->
 		<tr><th width="20%">제목</th><td align="left"> ${qnaVO.subject} ${qnaVO.rep} </td></tr>
 		<tr><th>등록일</th><td align="left"> <fmt:formatDate value="${qnaVO.indate}"/></td></tr>
 		<tr><th>내용</th><td  align="left"><pre>${qnaVO.content}</pre></td></tr>

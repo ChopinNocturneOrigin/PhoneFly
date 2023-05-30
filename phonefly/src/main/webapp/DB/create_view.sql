@@ -7,7 +7,6 @@ WHERE rownum <= 4;
 SELECT * FROM main_best_pro_view;
 
 
-
 -- 4개의 이벤트 상품 view 생성
 CREATE OR REPLACE VIEW main_event_pro_view AS
 SELECT * FROM
@@ -16,7 +15,9 @@ WHERE rownum <= 4;
 
 SELECT * FROM main_event_pro_view;
 
-
+SELECT * FROM tabs
+SELECT * FROM orders
+SELECT * FROM order_detail
 
 -- order_detail_view 생성
 
