@@ -29,8 +29,8 @@ public class AdminColorInsertAction implements Action {
 			url = "pf.do?command=admin"; 
 		} else {
 		ServletContext context = session.getServletContext();
-		String path = context.getRealPath("image");
-		
+		String path = context.getRealPath("images/productImage");
+
 		MultipartRequest multi = new MultipartRequest(
 				request, 
 				path, 
