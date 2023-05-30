@@ -21,7 +21,9 @@ public class AdminColorInsertAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "admin/product/productColorList.jsp";
+        
+		
+		String url = "pf.do?command=adminColorList&pseq=";
 
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
@@ -49,7 +51,12 @@ public class AdminColorInsertAction implements Action {
         cvo.setImage( multi.getFilesystemName("image") );
 
 		AdminDao adao = AdminDao.getInstance();
+		
+		
+		url = url+ cvo.getPseq();
+		
 		adao.insertColor(cvo);
+		
 	}
 	response.sendRedirect(url);
 	}
