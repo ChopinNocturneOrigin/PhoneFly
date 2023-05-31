@@ -107,14 +107,14 @@ function cal(){
 }
 
 
-function go_save_c(){
+/*function go_save_c(){
 	document.frm.action = "pf.do?command=adminColorInsert";
 	document.frm.submit();
-}
+}*/
 
 
 
-function go_save(){
+function go_save(pseq){
 	var theForm = document.frm;
 	if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.'); 	
@@ -132,7 +132,7 @@ function go_save(){
 		alert('제조사를 입력하세요.'); 		
 		theForm.mfc.focus();
 	} else{
-		theForm.action = "pf.do?command=adminProductInsert" ;
+		theForm.action = "pf.do?command=adminProductInsert&pseq=" + pseq ;
 		theForm.submit();	
  }
 }
@@ -186,6 +186,16 @@ function go_save_c(pseq){
 	} else{
 		theForm.action = "pf.do?command=adminColorInsert&pseq=" + pseq;
 		theForm.submit();
+	}
+}
+
+function go_save_insert(){
+	if (document.frm.subject.value == '') {
+		alert('이벤트 제목을 입력하세요');
+		document.frm.subject.focus();
+	 } else {
+		document.frm.action = "pf.do?command=adminEventInsert";
+		document.frm.submit();
 	}
 }
 
@@ -283,15 +293,6 @@ function go_mod_save_c(cseq){
 			document.frm.action = "pf.do?command=adminColorUpdate&cseq="+cseq;
 			document.frm.submit();
 		}
-	}
-}
-function go_save_insert(){
-	if (document.frm.subject.value == '') {
-		alert('이벤트 제목을 입력하세요');
-		document.frm.subject.focus();
-	 } else {
-		document.frm.action = "pf.do?command=adminEventInsert";
-		document.frm.submit();
 	}
 }
 
