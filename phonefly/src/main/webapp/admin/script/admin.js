@@ -114,7 +114,7 @@ function go_save_c(){
 
 
 
-function go_save(pseq){
+function go_save(){
 	var theForm = document.frm;
 	if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.'); 	
@@ -132,10 +132,15 @@ function go_save(pseq){
 		alert('제조사를 입력하세요.'); 		
 		theForm.mfc.focus();
 	} else{
-		theForm.action = "pf.do?command=adminColorInsert&pseq=" + pseq;
+		theForm.action = "pf.do?command=adminProductInsert" ;
 		theForm.submit();	
  }
 }
+
+
+
+
+
 function go_save_e(){
 	var theForm = document.frm;
 	if( theForm.name.value == "") {
@@ -149,6 +154,8 @@ function go_save_e(){
 		theForm.submit();
 	}
 }
+
+
 
 
 function go_save_n(){
@@ -373,8 +380,8 @@ function go_del_n(nseq) {
 
 function go_del_c(cseq) {  
   var confirmDelete = confirm("정말 이 색상을 삭제하시겠습니까?");
-  if (confirmDelete) {  
-    var url = "pf.do?command=adminColorDelete&cseq=" + cseq;   
+  if (confirmDelete) {   
+    var url = "pf.do?command=adminColorDelete&cseq=" + cseq ;   
     location.href = url;
   }
 }
