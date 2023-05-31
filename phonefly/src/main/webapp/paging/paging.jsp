@@ -1,26 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id="paging">
-	<c:if test="${paging.endPage > 1}">
-		<c:url var="action" value="${param.command}" />
-		<c:if test="${paging.prev}">
-			<a href="${action}&page=1#board">&lt;&lt;<span style="font-size:80%">처음으로</span></a>&nbsp;
-			<a href="${action}&page=${paging.beginPage - 1}#board">&lt;<span style="font-size:80%">이전</span></a>
+<nav id="paging" aria-label="Page navigation default">
+	<ul class="pagination justify-content-center">
+		<c:if test="${paging.endPage > 1}">
+			<c:url var="action" value="${param.command}" />
+			<c:if test="${paging.prev}">
+				<li class="page-item">
+					<a class="page-link" href="${action}&page=1#board"><span style="font-size:70%">처음으로</span></a>
+				</li>
+				<li class="page-item">
+					<a class="page-link" href="${action}&page=${paging.beginPage - 1}#board">&laquo;</a>
+				</li>
+			</c:if>
+			<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
+				<c:choose>
+					<c:when test="${index == paging.page}">
+						<li class="page-item">
+							<a class="page-link active" aria-current="page">${index}</a>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li class="page-item">
+							<a class="page-link" href="${action}&page=${index}#board">${index}</a>
+						</li>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.next}">
+				<li class="page-item">
+					<a class="page-link" href="${action}&page=${paging.endPage + 1}#board">&raquo;</a>
+				</li>
+				<li class="page-item">
+					<a class="page-link" href="${action}&page=${paging.totalPage}#board"><span style="font-size:70%">마지막으로</span></a>
+				</li>
+			</c:if>
 		</c:if>
-		<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
-			<c:choose>
-				<c:when test="${index == paging.page}">
-					<span style="color:red;">[${index}]&nbsp;</span>
-				</c:when>
-				<c:otherwise>
-					<a href="${action}&page=${index}#board">${index}&nbsp;</a>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.next}">
-			<a href="${action}&page=${paging.endPage + 1}#board"><span style="font-size:80%">다음</span>&gt;</a>&nbsp;
-			<a href="${action}&page=${paging.totalPage}#board"><span style="font-size:80%">마지막으로</span>&gt;&gt;</a>
-		</c:if>
-	</c:if>
-</div>
+	</ul>
+</nav>
 <div class="clear"></div>

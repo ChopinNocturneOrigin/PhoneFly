@@ -37,6 +37,7 @@ input {
 	padding: 0px;
 }
 
+/*
 a,
 a:hover,
 a:visited,
@@ -45,6 +46,7 @@ a:active {
 	color: black;
 	text-decoration: none;
 }
+*/
 /* a:link 방문 전 링크
 a:visited 방문했던 링크
 a:hover 커서가 링크위에 있을 때
@@ -575,7 +577,7 @@ article h3 {
 /* 로그인 */
 .login-form-wrap {
 	width: 640px;
-	height: 650px;
+	height: 560px;
 	margin: 20px auto;
 }
 .login-form {
@@ -585,7 +587,15 @@ article h3 {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	height: 747px;
+	height: 620px;
+}
+.login-form fieldset {
+	width: 326px;
+	margin: 0 auto;
+}
+
+.login-form-btns {
+	width: 326px;
 }
 .input-trans {
 	border: 0px;
