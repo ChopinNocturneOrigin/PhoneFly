@@ -42,11 +42,26 @@ public class QnaDao {
 				+ " ) where rn<=? ";
 		con = DBM.getConnection();
 		try {
-			pstmt = con.prepareStatement(sql);
+			// 전체 게시물 수 설정
+			String countsql = "SELECT COUNT(*) AS count FROM qna WHERE id=?";
+			pstmt = con.prepareStatement(countsql);
 			pstmt.setString(1, loggedInId);
-			pstmt.setInt(2, paging.getStartNum());
-			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				int totalCount = rs.getInt("count");
+	            paging.setTotalCount(totalCount);
+			}
+			
+	        // 시작 번호와 종료 번호 계산
+	        int startNum = paging.getStartNum();
+	        int endNum = paging.getEndNum();
+
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, loggedInId);
+	        pstmt.setInt(2, startNum);
+	        pstmt.setInt(3, endNum);
+	        
+	        rs = pstmt.executeQuery();
 			while( rs.next() ) {
 				QnaVO qvo = new QnaVO();
 				qvo.setQseq(rs.getInt("qseq"));
