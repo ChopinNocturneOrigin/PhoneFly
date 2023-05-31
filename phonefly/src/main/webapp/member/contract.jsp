@@ -4,7 +4,7 @@
 <article>
 <div class="contract-wrap card-normal">
 	<br />
-	<h2>회원 가입 약관</h2>
+	<h2 class="mt-3 mb-4">회원 가입 약관</h2>
 	<form id="join" method="post" name="contractFrm">
 	<p>
 	언제나 새로운 즐거움이 가득한 PhoneFly의 회원가입 페이지 입니다.<br />
@@ -15,10 +15,18 @@
 	</textarea>
 	<br />
 	<div class="contract-agree">
-	<input type="radio" name="okon" /> 동의함 &nbsp; &nbsp; &nbsp;
-	<input type="radio" name="okon" checked /> 동의안함
-	</div></br />
-	<input type="button" value="가입하기" class="submit submit-blue" onclick="go_next();" style="float:right;" />
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="okon" id="inlineRadio1">
+			<label class="form-check-label" for="inlineRadio1">동의함</label>
+		</div>&nbsp;
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="okon" id="inlineRadio2" checked>
+			<label class="form-check-label" for="inlineRadio2">동의안함</label>
+		</div>
+	</div>
+	<div class="contract-btns d-grid gap-2 d-md-flex justify-content-md-end">
+		<button class="btn btn-primary" type="button" onclick="go_next();">가입하기</button>
+	</div>
 	</form>
 </div>
 </article>

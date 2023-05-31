@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 체크</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="script/bootstrap.min.js"></script>
 <script src="script/common.js"></script>
 <script src="script/member.js"></script>
 <script src="script/mypage.js"></script>
@@ -15,8 +17,17 @@
 <h2>ID 중복 확인</h2>
 <form method="post" name="idCheckForm" action="pf.do">
 	<input type="hidden" name="command" value="idCheck" />
-	<span>아이디</span> &nbsp;<input type="text" name="id" value="${id}" class="input-text input-text-bg-gray input-text-font-normal" placeholder=" 아이디를 입력하세요" />
-	<input type="submit" value="검색" class="submit dup-btn" /><br /><br /><br />
+	<div class="row">
+		<div class="form-floating col">
+			<input type="text" name="id" class="form-control" id="floatingId" value="${id}" placeholder=" 아이디를 입력하세요">
+			<label for="floatingId">아이디</label>
+		</div>
+		<div class="col">
+			<button type="button" class="btn btn-primary" type="submit">검색</button>
+		</div>
+	</div>
+		
+		<br /><br /><br />
 	<div>
 		<c:if test="${result == 1}">
 			<script type="text/javascript">
@@ -27,7 +38,7 @@
 		</c:if>
 		<c:if test="${result == -1}">
 			${id}는 사용 가능한 ID입니다.
-			&nbsp;&nbsp;<input type="button" value="사용" class="submit submit-blue" onclick="idok('${id}');" />
+			&nbsp;&nbsp;<button type="button" class="btn btn-primary" onclick="idok('${id}');">사용</button>
 		</c:if>
 	</div>
 </form>

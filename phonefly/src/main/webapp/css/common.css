@@ -37,6 +37,9 @@ input {
 	padding: 0px;
 }
 
+h2 {
+	font-weight: bold;
+}
 /*
 a,
 a:hover,
@@ -51,6 +54,10 @@ a:active {
 a:visited 방문했던 링크
 a:hover 커서가 링크위에 있을 때
 a:active 클릭시 */
+
+.form-floating > label {
+	z-index: 1000;
+}
 
 ul {
 	list-style: none;
@@ -660,6 +667,9 @@ article h3 {
 	height: 668px;
 	margin: 0px auto 34px;
 }
+.contract-wrap h2 {
+	font-weight: bold;
+}
 .contract-wrap p {
 	text-align: left;
 	padding: 0px 42px 4px;
@@ -667,6 +677,9 @@ article h3 {
 .contract-wrap .submit {
 	margin: 20px;
 	transform: translate(-57%, -50%);
+}
+.contract-wrap .contract-btns {
+	width: 766px;
 }
 .contract-wrap .contract-agree {
 	text-align:center;
@@ -677,22 +690,16 @@ article h3 {
 /* 회원 가입 */
 .join-form-wrap {
 	position: absolute;
-	top: 0%;
 	left: 50%;
-	transform: translate(-50%, -1.5%);
-	top: 150px;
+	transform: translate(-50%, 0%);
+	top: 140px;
 	width: 520px;
-	height: 797px;
-	margin-bottom: 34px;
+	height: auto;
 	opacity: 0.97;
 }
 .join-form {
-	position: relative;
-	text-align: left;
-	width:452px;
-	height: 800px;
-	margin: 0px auto;
-	padding-left: 0px;
+	width: 452px;
+	margin: 0 auto;
 }
 .join-form legend {
 	display: inline-block;
@@ -700,15 +707,6 @@ article h3 {
 	font-weight: bold;
 	padding-top: 29px;
 	margin-left: -3px;
-}
-.join-form label {
-	display: block;
-	width: 100px;
-	height: 30px;
-	line-height: 42px;
-	font-size: 1.01em;
-	margin-left: -1px;
-	margin-top: 4px;
 }
 .join-form .join-form-input,
 .join-form-input {
@@ -742,13 +740,16 @@ article h3 {
 }
 .sub-banner-join {
 	text-align: center;
-	height: 795px;
+	height: 863px;
 	z-index: -1;
 	margin-bottom: 30px
 }
 .sub-banner-notice,
 .sub-banner-product {
 	height: 360px;
+}
+.wrap .sub-banner-join video {
+	width: 105%;
 }
 .sub-banner-notice video {
 	position: relative;
