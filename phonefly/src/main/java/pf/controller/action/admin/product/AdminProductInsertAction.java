@@ -16,7 +16,7 @@ public class AdminProductInsertAction implements Action {
 
 	@Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "pf.do?command=adminColorInsertForm";
+		String url = "pf.do?command=adminColorInsertForm&pseq=";
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
@@ -38,8 +38,11 @@ public class AdminProductInsertAction implements Action {
 			
 			AdminDao adao = AdminDao.getInstance();
 	        adao.insertProduct(pvo);
-	        int generatedPseq = adao.getGeneratedPseq();
+	        int pseq = adao.getPseq(pvo);
+	        System.out.println(pseq);
+	        url="pf.do?command=adminColorInsertForm&pseq=" +pseq;
 		}
+		
 		response.sendRedirect(url);
     }
 }

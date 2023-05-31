@@ -304,33 +304,23 @@ public class AdminDao {
 		} finally { DBM.close(con, pstmt, rs);  }
 	}
 
-	public int getGeneratedPseq() {
-		int generatedPseq = 0;
 
-        try {
-            Connection con = null;
-            PreparedStatement pstmt = null;
-            ResultSet rs = null;
-            
-            try {
-                con = DBM.getConnection();
-                String sql = "SELECT product_seq.CURRVAL FROM DUAL";
-                pstmt = con.prepareStatement(sql);
-                rs = pstmt.executeQuery();
-                
-                if (rs.next()) {
-                    generatedPseq = rs.getInt(1);
-                }
-            } finally {
-                // 자원 해제
-                if (rs != null) rs.close();
-                if (pstmt != null) pstmt.close();
-                if (con != null) con.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return generatedPseq;
+	public int getPseq(ProductVO pvo) {
+		int pseq = 0;
+		String sql = "SELECT * FROM product WHERE mfc=? and name=? and price1=?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pvo.getMfc());
+			pstmt.setString(2, pvo.getName());
+			pstmt.setInt(3, pvo.getPrice1());
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				pseq = rs.getInt("pseq");
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBM.close(con, pstmt, rs);  }
+		return pseq;
 	}
+
 }
