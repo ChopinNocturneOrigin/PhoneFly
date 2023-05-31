@@ -25,8 +25,8 @@
 <table id="productColorList">
 	<tr>
 	<th>색상 번호</th>
-	<th>상품 번호</th>
-	<th>색상 이름</th>	
+	<th>색상 이름</th>
+	<th>상품 번호</th>	
 	<th>색상 코드</th>
 	<th>이미지(경로)</th>	
 	</tr>

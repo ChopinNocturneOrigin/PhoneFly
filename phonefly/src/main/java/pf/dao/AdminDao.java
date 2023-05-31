@@ -146,10 +146,10 @@ public class AdminDao {
 
 	public void insertProduct(ProductVO pvo) {
 		String sql = "insert into product ( pseq,name,price1,price2,price3,content,mfc,useyn,bestyn,eventyn)"
-				+ "values (product_seq.nextVal,?,?,?,?,?,?,?,?,?) ";
+				+ "values (pseq.nextVal,?,?,?,?,?,?,?,?,?) ";
 		con =DBM.getConnection();
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);	
 		    pstmt.setString(1, pvo.getName());
 		    pstmt.setInt(2, pvo.getPrice1());
 		    pstmt.setInt(3, pvo.getPrice2());

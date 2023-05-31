@@ -48,8 +48,8 @@ function go_mov_n(){
 	location.href = "pf.do?command=adminNoticeList";
 }
 
-function go_mov_c(){
-	location.href = "pf.do?command=adminColorList";
+function go_mov_c(pseq){
+	location.href = "pf.do?command=adminColorList&pseq="+pseq;
 }
 
 
@@ -114,7 +114,7 @@ function go_save_c(){
 
 
 
-function go_save(){
+function go_save(pseq){
 	var theForm = document.frm;
 	if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.'); 	
@@ -132,7 +132,7 @@ function go_save(){
 		alert('제조사를 입력하세요.'); 		
 		theForm.mfc.focus();
 	} else{
-		theForm.action = "pf.do?command=adminProductInsert";
+		theForm.action = "pf.do?command=adminColorInsert&pseq=" + pseq;
 		theForm.submit();	
  }
 }

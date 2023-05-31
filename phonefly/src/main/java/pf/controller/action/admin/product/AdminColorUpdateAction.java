@@ -29,7 +29,7 @@ public class AdminColorUpdateAction implements Action {
 		} else {
 			ColorVO cvo = new ColorVO();
 			ServletContext context = session.getServletContext();
-			String path = context.getRealPath("image");
+			String path = context.getRealPath("images/productImage");
 			
 			MultipartRequest multi = new MultipartRequest(
 					request, 
