@@ -107,10 +107,6 @@ function cal(){
 }
 
 
-/*function go_save_c(){
-	document.frm.action = "pf.do?command=adminColorInsert";
-	document.frm.submit();
-}*/
 
 
 
@@ -379,10 +375,10 @@ function go_del_n(nseq) {
   }
 }
 
-function go_del_c(cseq) {  
+function go_del_c(pseq) {  
   var confirmDelete = confirm("정말 이 색상을 삭제하시겠습니까?");
   if (confirmDelete) {   
-    var url = "pf.do?command=adminColorDelete&cseq=" + cseq ;   
+    var url = "pf.do?command=adminColorDelete&pseq=" + pseq;   
     location.href = url;
   }
 }

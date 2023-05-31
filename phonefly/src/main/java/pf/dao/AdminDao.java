@@ -222,16 +222,15 @@ public class AdminDao {
 		return list;
 	}
 
-	public void updateProduct(ColorVO cvo) {
-		String sql = " update color set pseq=?, name=?, ccode=?, image=? where cseq=? ";
+	public void updateColor(ColorVO cvo) {
+		String sql = " update color set name=?, ccode=?, image=? where cseq=? ";
 		con =DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cvo.getPseq());
-		    pstmt.setString(2, cvo.getName());
-		    pstmt.setString(3, cvo.getCcode());
-		    pstmt.setString(4, cvo.getImage());
-		    pstmt.setInt(5, cvo.getCseq());	    
+		    pstmt.setString(1, cvo.getName());
+		    pstmt.setString(2, cvo.getCcode());
+		    pstmt.setString(3, cvo.getImage());
+		    pstmt.setInt(4, cvo.getCseq());	    
 			pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
