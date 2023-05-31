@@ -5,10 +5,11 @@
 
 <article>
 	<h1>상품 등록</h1>
-	<form name="frm" method="post" enctype="multipart/form-data" >
-	
-	
-		<input type="hidden" name="pseq" value="${Product.pseq}">
+	<form name="frm" method="post"  >	
+ 	<input type="hidden" name="pseq" value="${ProductVO.pseq}"> 
+		
+		
+		
 	
 		<table id="list">
 			<tr>
@@ -82,7 +83,7 @@
 
 
 		</table>
-		<input class="btn" type="button" value="색상선택" onClick="go_save('${Product.pseq}')">
+		<input class="btn" type="submit" value="색상선택" onClick="go_save()">
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
 	</form>
 </article>

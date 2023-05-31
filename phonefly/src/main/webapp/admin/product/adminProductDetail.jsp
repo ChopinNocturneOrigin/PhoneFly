@@ -18,7 +18,7 @@
 </table>
 <input class="btn"  type="button" value="수정" onClick="go_mod('${productVO.pseq}')">
 <input class="btn"  type="button" value="목록" onClick="go_mov()">
-<input class="btn"  type="button" value="삭제" onClick="go_del()">
+<input class="btn"  type="button" value="삭제" onClick="go_del(${productVO.pseq})">
 <input class="btn"  type="button" value="색상리스트" onClick="go_col('${productVO.pseq}')">
 </article>
 

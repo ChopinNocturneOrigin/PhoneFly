@@ -29,7 +29,10 @@ public class AdminColorUpdateAction implements Action {
 		} else {
 			ColorVO cvo = new ColorVO();
 			ServletContext context = session.getServletContext();
-			String path = context.getRealPath("image");
+			
+			/* String path = context.getRealPath("image"); */
+			// 수정 : pms
+			 String path = context.getRealPath("images/productImage"); 
 			
 			MultipartRequest multi = new MultipartRequest(
 					request, 
@@ -38,7 +41,7 @@ public class AdminColorUpdateAction implements Action {
 					"UTF-8", 
 					new DefaultFileRenamePolicy()
 			);
-			cvo.setPseq(Integer.parseInt( multi.getParameter("cseq") ) );
+			cvo.setCseq(Integer.parseInt( multi.getParameter("cseq") ) );
 			cvo.setName( multi.getParameter("name"));
 			cvo.setCcode(multi.getParameter("ccode"));
 			cvo.setImage(multi.getFilesystemName("image"));
@@ -51,6 +54,8 @@ public class AdminColorUpdateAction implements Action {
 			    AdminDao adao = AdminDao.getInstance();
 			    adao.updateProduct(cvo);
 			    url = url + "&cseq=" + cvo.getCseq();
+			    // 추가 : pms
+			    request.setAttribute("ColorVO", cvo);
 			}
 			request.getRequestDispatcher(url).forward(request, response);
 	}

@@ -11,10 +11,10 @@
 			<td width="642">
 				색상명 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
 				<input class="btn" type="button" name="btn_search" value="검색" 
-						onClick="go_search_c('adminProductColorList');">&nbsp;&nbsp;&nbsp;
+						onClick="go_search('adminProductColorList');">&nbsp;&nbsp;&nbsp;
 						
 				<input class="btn" type="button" name="btn_total" value="전체보기 " 
-						onClick="go_total_c('adminProductColorList');">&nbsp;&nbsp;&nbsp;
+						onClick="go_total('adminProductColorList');">&nbsp;&nbsp;&nbsp;
 
 				<input class="btn" type="button" name="btn_write" value="색상등록"  onClick="go_wrt_c(${ProductColorList[0].pseq});">
 			</td>
