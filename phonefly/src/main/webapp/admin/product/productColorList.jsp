@@ -6,6 +6,7 @@
 <h1>상품 색상 리스트</h1>
 
 <form name="frm"  method="post" enctype="multipart/form-data"  >
+
 	<table>
 		<tr>
 			<td width="642">

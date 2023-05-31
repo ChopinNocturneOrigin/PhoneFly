@@ -16,6 +16,7 @@ h1.home {
 
 /* 좌측 메뉴바 */
 nav#sub_menu {
+
   float: left;
   margin-right: 10px;
   left: 0;

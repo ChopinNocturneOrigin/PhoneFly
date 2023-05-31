@@ -17,10 +17,12 @@ public class AdminColorDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int cseq=Integer.parseInt(request.getParameter("cseq"));
+		int pseq=Integer.parseInt(request.getParameter("pseq"));
 		
 		// 수정 : pms
 		/* String url="admin/product/adminColorList.jsp"; */
-		String url="pf.do?command=adminColorList";
+		
+		String url="pf.do?command=adminColorList&pseq="+ pseq;
 		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO) session.getAttribute("loginAdmin");

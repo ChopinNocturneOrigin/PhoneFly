@@ -21,7 +21,6 @@ public class AdminColorUpdateAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "pf.do?command=adminColorDetail";
-		
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		if( avo == null) { 
@@ -41,7 +40,9 @@ public class AdminColorUpdateAction implements Action {
 					"UTF-8", 
 					new DefaultFileRenamePolicy()
 			);
-			cvo.setCseq(Integer.parseInt( multi.getParameter("cseq") ) );
+			int cseq = Integer.parseInt( multi.getParameter("cseq") );
+
+			cvo.setCseq(cseq );
 			cvo.setName( multi.getParameter("name"));
 			cvo.setCcode(multi.getParameter("ccode"));
 			cvo.setImage(multi.getFilesystemName("image"));
@@ -52,8 +53,8 @@ public class AdminColorUpdateAction implements Action {
 			    	cvo.setImage( multi.getFilesystemName("image") );
 			    
 			    AdminDao adao = AdminDao.getInstance();
-			    adao.updateProduct(cvo);
-			    url = url + "&cseq=" + cvo.getCseq();
+			    adao.updateColor(cvo);
+			    url = url + "&cseq=" + cseq;
 			    // 추가 : pms
 			    request.setAttribute("ColorVO", cvo);
 			}

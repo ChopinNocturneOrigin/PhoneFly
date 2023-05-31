@@ -62,24 +62,25 @@ public class ColorDao {
 
 
 	public ColorVO getColor(int cseq) {
-		ColorVO cvo = null;
-		String sql = "SELECT * FROM color WHERE cseq=?";
-		con = DBM.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cseq);
-			rs = pstmt.executeQuery();
-			if( rs.next() ) {
-				cvo = new ColorVO();
-				cvo.setPseq(rs.getInt("pseq"));
-				cvo.setName(rs.getString("name"));
-				cvo.setCcode(rs.getString("ccode"));
-				cvo.setImage(rs.getString("image"));
-			}
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { DBM.close(con, pstmt, rs);  }
-		return cvo;
-	}
+        ColorVO cvo = null;
+        String sql = "SELECT * FROM color WHERE cseq=?";
+        con = DBM.getConnection();
+        try {
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, cseq);
+            rs = pstmt.executeQuery();
+            if( rs.next() ) {
+                cvo = new ColorVO();
+                cvo.setPseq(rs.getInt("pseq"));
+                cvo.setCseq(rs.getInt("cseq"));
+                cvo.setName(rs.getString("name"));
+                cvo.setCcode(rs.getString("ccode"));
+                cvo.setImage(rs.getString("image"));
+            }
+        } catch (SQLException e) { e.printStackTrace();
+        } finally { DBM.close(con, pstmt, rs);  }
+        return cvo;
+    }
 
 	public void deleteColor(int cseq) {
 		String sql = "delete from color where cseq=?";
