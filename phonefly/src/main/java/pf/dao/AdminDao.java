@@ -303,4 +303,34 @@ public class AdminDao {
 		}catch (SQLException e) { e.printStackTrace();
 		} finally { DBM.close(con, pstmt, rs);  }
 	}
+
+	public int getGeneratedPseq() {
+		int generatedPseq = 0;
+
+        try {
+            Connection con = null;
+            PreparedStatement pstmt = null;
+            ResultSet rs = null;
+            
+            try {
+                con = DBM.getConnection();
+                String sql = "SELECT product_seq.CURRVAL FROM DUAL";
+                pstmt = con.prepareStatement(sql);
+                rs = pstmt.executeQuery();
+                
+                if (rs.next()) {
+                    generatedPseq = rs.getInt(1);
+                }
+            } finally {
+                // 자원 해제
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return generatedPseq;
+	}
 }
