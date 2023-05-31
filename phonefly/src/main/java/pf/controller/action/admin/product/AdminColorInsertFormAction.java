@@ -12,7 +12,7 @@ import pf.dao.ProductDao;
 import pf.dto.AdminVO;
 import pf.dto.ProductVO;
 
-public class AdminColorInsertFormAction implements Action {
+public class AdminColorInsertFormAction implements Action { 
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
@@ -23,8 +23,8 @@ public class AdminColorInsertFormAction implements Action {
         if( avo== null ) 
             url ="pf.do?command=admin";
         else {
-        	int pseq = Integer.parseInt(request.getParameter("pseq"));
-			ProductDao pdao=ProductDao.getInstance();
+			int pseq = Integer.parseInt(request.getParameter("pseq"));
+        	ProductDao pdao=ProductDao.getInstance();
 			ProductVO pvo= pdao.getProduct(pseq);
 			request.setAttribute("ProductVO", pvo);
 		}

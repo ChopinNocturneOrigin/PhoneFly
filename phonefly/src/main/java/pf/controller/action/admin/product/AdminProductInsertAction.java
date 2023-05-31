@@ -37,7 +37,8 @@ public class AdminProductInsertAction implements Action {
 
 			
 			AdminDao adao = AdminDao.getInstance();
-			adao.insertProduct(pvo);
+	        adao.insertProduct(pvo);
+	        int generatedPseq = adao.getGeneratedPseq();
 		}
 		response.sendRedirect(url);
     }
