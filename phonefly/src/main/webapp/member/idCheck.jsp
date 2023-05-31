@@ -14,18 +14,15 @@
 </head>
 <body>
 <div class="id-check-wrap">
-<h2>ID 중복 확인</h2>
+<h2 class="mb-3">ID 중복 확인</h2>
 <form method="post" name="idCheckForm" action="pf.do">
 	<input type="hidden" name="command" value="idCheck" />
-	<div class="row">
-		<div class="form-floating col">
-			<input type="text" name="id" class="form-control" id="floatingId" value="${id}" placeholder=" 아이디를 입력하세요">
-			<label for="floatingId">아이디</label>
-		</div>
-		<div class="col">
-			<button type="button" class="btn btn-primary" type="submit">검색</button>
-		</div>
+	<div class="form-floating input-group">
+		<input type="text" name="id" class="form-control" id="floatingId" value="${id}" placeholder=" 아이디를 입력하세요" aria-describedby="button-addon1">
+		<label for="floatingId">아이디</label>
+		<button type="button" id="button-addon1" class="btn btn-primary" type="submit">검색</button>
 	</div>
+		
 		
 		<br /><br /><br />
 	<div>
