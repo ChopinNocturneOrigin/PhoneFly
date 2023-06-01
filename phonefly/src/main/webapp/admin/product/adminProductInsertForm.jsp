@@ -35,7 +35,8 @@
 			</tr>
 
 			<th>판매 가능 여부</th>
-			<td><c:choose>
+			<td>
+			<c:choose>
 					<c:when test='${ProductVO.useyn=="Y"}'>
 						<input type="radio" name="useyn" value="Y" checked="checked">판매 불가
 				  				<input type="radio" name="useyn" value="N">판매 가능
@@ -44,7 +45,8 @@
 						<input type="radio" name="useyn" value="Y">판매 불가
 								<input type="radio" name="useyn" value="N" checked="checked">판매 가능
 							</c:otherwise>
-				</c:choose></td>
+				</c:choose>
+				</td>
 
 
 

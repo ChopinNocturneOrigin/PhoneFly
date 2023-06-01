@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import pf.controller.action.Action;
 import pf.dao.ProductDao;
-import pf.dto.MemberVO;
+import pf.dto.AdminVO;
 
 public class AdminProductDeleteAction implements Action {
 	@Override
@@ -17,12 +17,12 @@ public class AdminProductDeleteAction implements Action {
 		
 		int pseq=Integer.parseInt(request.getParameter("pseq"));
 		
-		String url="admin/product/adminProductList.jsp";
+		String url="pf.do?command=adminProductList";
 		
 		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		AdminVO mvo = (AdminVO) session.getAttribute("loginAdmin");
 		if(mvo==null) {
-			url="pf.do?command=loginForm";
+			url="pf.do?command=admin";
 		}else {
 			ProductDao pdao = ProductDao.getInstance();
 			pdao.deleteProduct(pseq);

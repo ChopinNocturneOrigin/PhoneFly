@@ -67,7 +67,6 @@ nav#sub_menu a {
   margin: 0 auto;
   text-decoration: none;
   color: #333;
-  border-bottom: 1px dotted #999;
   width: 150px;
   height: 25px;
   padding: 5px;
@@ -76,25 +75,38 @@ nav#sub_menu a {
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease;
+   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+nav#sub_menu a:not(:last-child) {
+  border-right: 1px dotted #999;
+}
 nav#sub_menu a:hover {
   background-color: #eaeaea;
 }
 nav#sub_menu h1 {
   padding: 5px;
-  border-bottom: double;
   margin-top: 10px;
+   border-radius: 5px;
+   box-shadow: 3px 3px 3px #999999;
+   background-color:  	#eaeaea;
 }
 
 /* 풋터 */
-#footer {
+ #footer {
   left: 0;
   bottom: 0;
   width: 100%;
   height: 30px;
   border-top: 1px solid #ddd;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:  #09F;
+} 
+#copy {
+   margin: 0 10px 0 0;
+    
 }
 
 /* 본문 */
@@ -135,9 +147,10 @@ article td {
   text-align: center;
   text-decoration: none;
   box-shadow: 3px 3px 3px #999999;
-  padding: 5px;
+  padding: 0 10px;
   margin: 0 auto;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+ 
 }
 
 
@@ -154,7 +167,7 @@ article td {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding: 0 10px;
 }
 
 
@@ -173,7 +186,7 @@ article td {
 #noticeList,
 #QnaList,
 #productColorList,
-
+.od-inner-left-wrap ,
 
 
 
@@ -258,6 +271,7 @@ body {
 #EIList  th,
 #EUList  th,
 #EDList th,
+.od-inner-left-wrap th,
 #orderList th {
   padding: 10px;
   text-align: center;
@@ -292,7 +306,9 @@ body {
 #EIList  th,
 #EUList  th,
 #EDList th,
-#orderList th {
+.od-inner-left-wrap th,
+#orderList th 
+{
   padding: 10px;
   text-align: center;
   background-color: #f2f2f2;
@@ -302,6 +318,9 @@ body {
 }
 /* 폰트  */
 
+* {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
 
  body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -331,3 +350,9 @@ nav#sub_menu {
 	height: 30px;
 	font-size: 17px;
 }
+
+ /* 테이블 크기 조절 */
+ #orderList,#adminMemberList,#QnaList,#noticeList,#eventList{
+ width: 1000px;
+ }
+ 
