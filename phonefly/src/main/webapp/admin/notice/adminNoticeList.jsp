@@ -6,9 +6,9 @@
 <h1>공지사항리스트</h1>
 
 <form name="frm"  method="post">
-	<table>
+	<table id= "NList">
 		<tr>
-			<td width="642">
+			<td  width="642">
 				공지사항명 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
 				<input class="btn" type="button" name="btn_search" value="검색" 
 						onClick="go_search('adminNoticeList');">&nbsp;&nbsp;&nbsp;

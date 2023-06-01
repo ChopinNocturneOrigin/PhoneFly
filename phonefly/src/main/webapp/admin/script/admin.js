@@ -375,10 +375,10 @@ function go_del_n(nseq) {
   }
 }
 
-function go_del_c(pseq) {  
+function go_del_c(cseq,pseq) {  
   var confirmDelete = confirm("정말 이 색상을 삭제하시겠습니까?");
   if (confirmDelete) {   
-    var url = "pf.do?command=adminColorDelete&pseq=" + pseq;   
+    var url = "pf.do?command=adminColorDelete&cseq="+ cseq + "&pseq=" + pseq;   
     location.href = url;
   }
 }
@@ -387,9 +387,11 @@ function go_del_c(pseq) {
 function go_col(pseq) {  
  location.href = "pf.do?command=adminColorList&pseq=" + pseq;
 }
-
-  
-
+	
+/* 헤더 누르면 페이지 이동*/  
+function goToAdminProductList() {
+ location.href = "pf.do?command=adminProductList&changeMenu;"
+}
 
 
 

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="/admin/header2.jsp"%>
+<%@ include file="/admin/sub_menu2.jsp"%>
 
 <article>
 	<h1>상품수정</h1>
 	<form name="frm" method="post" >
 		<input type="hidden" name="pseq" value="${ProductVO.pseq}">	
-		<table id="list">			
+		<table id="PUList">			
 			<tr>
 				<th>상품명</th>
 				<td width="343" colspan="5">
@@ -70,17 +70,18 @@
 			 		<textarea name="content" rows="8" cols="70" >${ProductVO.content}</textarea>
 			 	</td>
 			 </tr>
-		  	 <tr>
-		  	 	<th>상품이미지</th>
-		  	 	<td colspan="5">		      	
-		      		<input type="file" name="image">
-		      	</td>
-		      </tr>			
+		  		
 		</table>
 		
-		<input class="btn" type="button" value="수정" onClick="go_mod_save()">           
+		<div class="Bottm-btn-container">
+		<div>
+		<input class="btn" type="button" value="수정" onClick="go_mod_save()"> 
+		</div>  
+		<div>        
 		<input class="btn" type="button" value="취소"  
 			onClick="location.href='pf.do?command=adminProductDetail&pseq=${ProductVO.pseq}'">
+		</div>
+		</div>
 	</form>
 </article>
 

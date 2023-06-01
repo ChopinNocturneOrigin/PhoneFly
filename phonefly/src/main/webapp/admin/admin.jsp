@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/admin/header2.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>admin </title>
-<link rel="stylesheet" href="admin/css/admin.css">
+<link rel="stylesheet" href="admin/css/admin3.css">
 <script src="admin/script/admin.js"></script>
 </head>
 <body>
 <div id="wrap">
-	<header>
-		<div id="logo"><img src="admin/images/admin_01.png" style="float:left;">	
 		
-	</header>	<div class="clear"></div>
+		
+	<div class="clear"></div>
 	<article>
 		<div id="loginform">
 			<form name="frm" method="post" action="pf.do">

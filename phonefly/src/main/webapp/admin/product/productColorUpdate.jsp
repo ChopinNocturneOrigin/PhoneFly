@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="/admin/header2.jsp"%>
+<%@ include file="/admin/sub_menu2.jsp"%>
 
 <article>
 	<h1>상품 색상수정 </h1>
@@ -8,7 +8,7 @@
 		<input type="hidden" name="cseq" value="${ColorVO.cseq}">
 		<input type="hidden" name="oldImage" value="${ColorVO.image}">
 		
-		<table id="list">			
+		<table id="PCUList">			
 			<tr>
 				<th>색상명</th>
 				<td width="343" colspan="5">
