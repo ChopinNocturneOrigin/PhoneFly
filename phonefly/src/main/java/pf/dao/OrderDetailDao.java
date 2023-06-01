@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import pf.dto.OrderDetailVO;
 import pf.util.DBM;
+import pf.util.Paging;
 
 public class OrderDetailDao {
 	private OrderDetailDao() {}
@@ -44,15 +45,23 @@ public class OrderDetailDao {
 		} finally { DBM.close(con, pstmt, rs);		}		
 	}
 
-	public ArrayList<OrderDetailVO> listOrderByOdseq(String id) {
+	public ArrayList<OrderDetailVO> listOrderByOdseq(Paging paging, String id) {
 		ArrayList<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
 		// 수정 : bhs
 		//String sql = "select * from order_detail where id=?";
-		String sql = "SELECT * FROM order_detail_view2 WHERE id = ? ORDER BY odseq DESC";
+		//String sql = "SELECT * FROM order_detail_view2 WHERE id = ? ORDER BY odseq DESC";
+		String sql="select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn,o.*from "
+				+ " ((select*from order_detail_view2 where id like'%'||?||'%'order by odseq desc) o)"
+				+ " ) where rn>=? "
+				+ " ) where rn<=?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				OrderDetailVO ovo = new OrderDetailVO();	
@@ -251,6 +260,25 @@ public class OrderDetailDao {
 		} finally {
 			DBM.close(con, pstmt, rs);
 		}
+	}
+
+	public int getAllcount(String id) {
+	    int count = 0;
+	    String sql = "SELECT COUNT(*) AS cnt FROM order_detail WHERE id = ?";
+	    con = DBM.getConnection();
+	    try {
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, id);
+	        rs = pstmt.executeQuery();
+	        if (rs.next()) {
+	            count = rs.getInt("cnt");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBM.close(con, pstmt, rs);
+	    }
+	    return count;
 	}
 
 
