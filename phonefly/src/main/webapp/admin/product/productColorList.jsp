@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="/admin/header2.jsp"%>
+<%@ include file="/admin/sub_menu2.jsp"%>
 
 <article>
 <h1>상품 색상 리스트</h1>
 
 <form name="frm"  method="post" enctype="multipart/form-data"  >
 
-	<table>
+	<table id="PCList">
 		<tr>
 			<td width="642">
 				색상명 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
@@ -29,7 +29,7 @@
 	<th>색상 이름</th>
 	<th>상품 번호</th>	
 	<th>색상 코드</th>
-	<th>이미지(경로)</th>	
+	<th>이미지</th>	
 	</tr>
 	
 	<c:forEach items="${ProductColorList}" var="ColorVO">

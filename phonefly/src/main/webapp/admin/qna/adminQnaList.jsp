@@ -4,7 +4,7 @@
 <article>
 <h1>Q&amp;A 게시글 리스트</h1>  
 <form name="frm" method="post">
-<table style="float: right;">
+<table id="QList">
 	<tr><td>제목+내용 검색&nbsp;&nbsp;<input type="text" name="key" value="${key}" >&nbsp;&nbsp; 
 		    <input class="btn" type="button" value="검색" onClick="go_search('adminQnaList');">&nbsp;&nbsp;
 		    <input class="btn" type="button" name="btn_total" value="전체보기 "  onClick="go_total('adminQnaList');">

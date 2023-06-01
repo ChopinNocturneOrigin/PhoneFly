@@ -11,7 +11,7 @@
 		
 		
 	
-		<table id="list">
+		<table id="PIList">
 			<tr>
 				<th>상품명</th>
 				<td width="343" colspan="5"><input type="text" name="name"

@@ -5,9 +5,9 @@
 <article>
 <h1>주문리스트</h1>
 <form name="frm" method="post">
-	<table style="float: right;">
+	<table id="OList">
 		<tr>
-			<td>주문상품 이름<input type="text" name="key" value="${key}" >
+			<td>주문자 아이디<input type="text" name="key" value="${key}" >
 				<input class="btn" type="button" value="검색" onClick="go_search('adminOrderList');">
 				<input class="btn" type="button" value="전체보기 " onClick="go_total('adminOrderList');">
 			</td>
@@ -38,7 +38,7 @@
 		</c:forEach>
 	</table>
 	<div class="clear"></div>
-	<input type="button" class="btn" style="width: 200px" value="주문처리(입금확인)" onClick="go_order_save()">
+	
 
 	<br><br>
 

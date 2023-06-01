@@ -6,7 +6,7 @@
 <h1>이벤트 리스트</h1>
 
 <form name="frm"  method="post">
-	<table>
+	<table id="EList">
 		<tr>
 			<td width="642">
 				이벤트 제목 : <input type="text" name="key" value="${key}">&nbsp;&nbsp;&nbsp;
