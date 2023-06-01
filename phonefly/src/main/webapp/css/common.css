@@ -1460,8 +1460,8 @@ article h3 {
 }
 .faq-part {
 	width: 1030px;
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
+/* 	border-top: 2px solid black; */
+/* 	border-bottom: 2px solid black; */
 	margin: 0px auto;
 }
 .faq-part p {
@@ -1474,7 +1474,13 @@ article h3 {
 	font-size: 20px;
 	font-weight: bold;
 	vertical-align: top;
-	padding-top: 11px;
+}
+.faq-content-inner-wrap {
+	padding: var(--bs-accordion-body-padding-y) 0;
+}
+.faq-big-letter-a {
+	padding-left: 13px;
+	text-align: left;
 }
 .faq-content-q {
 	display: inline-block;
@@ -1483,8 +1489,9 @@ article h3 {
 }
 .faq-content {
 	display: inline-block;
-	width: 940px;
+	width: 946px;
 	text-align: left;
+	padding: 0px 20px 0px 5px;
 }
 .arrow-i {
 	display: inline-block;

@@ -39,11 +39,17 @@ author : BHS
 		<!-- 메뉴 -->
 		<div id="faq-sub-wrap">
 			<!-- <div id="faq-sub-menu"> -->
-			<div class="btn-group" role="group" aria-label="Basic example">
-				<button type="button" class="btn btn-outline-primary btn-lg fw-bold" onclick="faqMenu(1);">신청 / 개통문의</button>
-				<button type="button" class="btn btn-outline-primary btn-lg fw-bold" onclick="faqMenu(2);">배송문의</button>
-				<button type="button" class="btn btn-outline-primary btn-lg fw-bold" onclick="faqMenu(3);">취소 / 반품문의</button>
+			<div class="btn-group mt-3 mb-1" role="group" aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="faqMenu(1);" checked>
+				<label class="btn btn-outline-primary" for="btnradio1">신청 / 개통문의</label>
+				
+				<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="faqMenu(2);">
+				<label class="btn btn-outline-primary" for="btnradio2">배송문의</label>
+				
+				<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="faqMenu(3);">
+				<label class="btn btn-outline-primary" for="btnradio3">취소 / 반품문의</label>
 			</div>
+
 		</div>
 		<div class="clear"></div>
 		<!-- //메뉴 -->
@@ -81,7 +87,7 @@ author : BHS
 	</div>
 </div> --%>
 <!-- //페이징 -->
-<div id="board-list-paging-bottom-margin"></div>
+<!-- <div id="board-list-paging-bottom-margin"></div> -->
 
 </div>
 
