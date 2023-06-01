@@ -19,11 +19,11 @@
 			<tr>
 				<th>이벤트 이미지</th>
 				<td colspan="5"><img src="images/event/${eventVO.image}"
-					width="200"><br> <input type="file" name="image">
+					width="600"><br> <input type="file" name="image">
 				</td>
 			</tr>
 		</table>
-		<div class="Bottm-btn-container">
+		<div class="Bottm-btn-container">    
 			<div>
 				<input class="btn" type="button" value="수정"
 					onClick="go_mod_save_e(${eventVO.eseq});">

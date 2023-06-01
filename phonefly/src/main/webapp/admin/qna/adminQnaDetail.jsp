@@ -28,9 +28,7 @@
 			<c:when test='${qnaVO.rep=="1"}'>
 				<!-- 관리자 답변 전 표시 -->
 				<table id="orderList">
-					<tr>
-						<td colspan="2"><img src="admin/images/opinionimg01.gif"></td>
-					</tr>
+					
 					<tr>
 						<td colspan="2"><textarea name="reply" rows="3" cols="50"></textarea>
 							<input type="button" class="btn" value="저장" onClick="go_rep()"></td>
