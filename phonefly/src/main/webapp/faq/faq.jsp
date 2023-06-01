@@ -38,12 +38,11 @@ author : BHS
 		
 		<!-- 메뉴 -->
 		<div id="faq-sub-wrap">
-			<div id="faq-sub-menu">
-				<ul>
-					<li><input class="submit submit-blue submit-faq" type="button" value="신청 / 개통문의" onclick="faqMenu(1);" /></li>
-					<li><input class="submit submit-blue submit-faq" type="button" value="배송문의" onclick="faqMenu(2);" /></li>
-					<li><input class="submit submit-blue submit-faq" type="button" value="취소 / 반품문의" onclick="faqMenu(3);" /></li>
-				</ul>
+			<!-- <div id="faq-sub-menu"> -->
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<button type="button" class="btn btn-outline-primary btn-lg fw-bold" onclick="faqMenu(1);">신청 / 개통문의</button>
+				<button type="button" class="btn btn-outline-primary btn-lg fw-bold" onclick="faqMenu(2);">배송문의</button>
+				<button type="button" class="btn btn-outline-primary btn-lg fw-bold" onclick="faqMenu(3);">취소 / 반품문의</button>
 			</div>
 		</div>
 		<div class="clear"></div>

@@ -33,22 +33,26 @@ author : BHS
 
 
 		<!-- <div class="board-inner-wrap card-normal"> -->
-		<div id="board"></div>
+		<div id="board-anchor"></div>
 		<h1>공지사항</h1>
 		
-		<table id="board-table">
-			<tr>
-				<th>번호</th><th>제목</th><th>작성일자</th>
-			</tr>
-		<%-- 	<c:forEach begin="1" end="10" varStatus="status"> --%>
-			<c:forEach items="${noticeList}" var="board" varStatus="status">
-				<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
-					<td>${board.nseq}</td>
-					<td class="board-title">${board.subject}</td>
-					<td><fmt:formatDate value="${board.indate}" /></td>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th scope="col">번호</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성일자</th>
 				</tr>
-			</c:forEach>
-		<!-- 	<tr><td class="board-submit-line" colspan="3"><input type="button" class="submit submit-blue board-submit" value="작성하기" /></td></tr> -->
+			</thead>
+			<tbody class="table-group-divider">
+				<c:forEach items="${noticeList}" var="board" varStatus="status">
+					<tr onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
+						<th scope="row">${board.nseq}</th>
+						<td>${board.subject}</td>
+						<td><fmt:formatDate value="${board.indate}" /></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 		<div id="board-bottom"></div>
 

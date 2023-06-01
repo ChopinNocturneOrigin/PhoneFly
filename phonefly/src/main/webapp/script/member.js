@@ -114,7 +114,7 @@ function go_update() {
 
 /* 아이디 찾기 / 비밀번호 찾기 */
 
-function findIdSumbit() {
+function findIdSubmit() {
 	if (document.formm.name.value === "") {
 		alert("이름을 입력해 주세요.");
 		document.formm.name.focus();
@@ -159,7 +159,7 @@ function checkPwd() {
 
 function findId() {
 	let url = "pf.do?command=selectId";
-	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=300, top=300, left=300";
+	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=350, top=300, left=300";
 	window.open(url, "아이디(ID) 찾기", opt);
 }
 

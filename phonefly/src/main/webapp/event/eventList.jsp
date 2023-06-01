@@ -35,21 +35,26 @@ author : BHS
 
 
 		<!-- <div class="board-inner-wrap card-normal"> -->
-			<div id="board"></div>
+			<div id="board-anchor"></div>
 			<h1>이벤트</h1>
 			
-			<table id="board-table">
-				<tr>
-					<th>번호</th><th>제목</th><th>작성일자</th>
-				</tr>
-			<%-- 	<c:forEach begin="1" end="10" varStatus="status"> --%>
-				<c:forEach items="${eventList}" var="board" varStatus="status">
-					<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=eventDetail&eseq=${board.eseq}';">
-						<td>${board.eseq}</td>
-						<td class="board-title">${board.subject}</td>
-						<td><fmt:formatDate value="${board.indate}" /></td>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">제목</th>
+						<th scope="col">작성일자</th>
 					</tr>
-				</c:forEach>
+				</thead>
+				<tbody class="table-group-divider">
+					<c:forEach items="${eventList}" var="board" varStatus="status">
+						<tr onclick="location.href='pf.do?command=eventDetail&eseq=${board.eseq}';">
+							<th scope="row">${board.eseq}</th>
+							<td class="board-title">${board.subject}</td>
+							<td><fmt:formatDate value="${board.indate}" /></td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
 		<div id="board-bottom"></div>
 

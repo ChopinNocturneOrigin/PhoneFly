@@ -4,7 +4,7 @@ package pf.util;
 public class Paging {
 	private int page = 1;			// 현재 화면에 표시할 페이지 번호
 	private int totalCount;			// 총 게시물의 갯수
-	private int displayRow = 5;		// 한 페이지에 몇 개의 게시물을 표시할지를 저장
+	private int displayRow = 10;		// 한 페이지에 몇 개의 게시물을 표시할지를 저장
 	private int displayPage = 5;	// 이전과 다음 버튼 사이에 몇 개의 페이지를 표시할지를 저장
 	private int beginPage;			// 현재 페이지에 표시될 시작 페이지 번호
 	private int endPage;			// 현재 페이지에 표시될 끝 페이지 번호
