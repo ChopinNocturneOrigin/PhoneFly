@@ -78,17 +78,18 @@ author : BHS
 	
 					<!-- 선택사항 (제품상세 오른쪽) -->
 					<div class="od-selectors">
-					<table>
+					<table class="table table-striped">
+					<tbody class="table-group-divider">
 
 							<!-- 신청일 -->
 						<tr>
-							<th>신청일</th>
+							<th scope="row">신청일</th>
 							<td><fmt:formatDate value="${orderVO.indate}" /></td>
 						</tr>
 
 						<!-- 처리결과 -->
 						<tr>
-							<th>상태</th>
+							<th scope="row">상태</th>
 							<td>
 								<c:choose>
 									<c:when test="${orderVO.result == '1'}">접수중</c:when>
@@ -100,7 +101,7 @@ author : BHS
 
 						<!-- 통신사 (commList) -->
 						<tr>
-							<th>통신사</th>
+							<th scope="row">통신사</th>
 							<td>
 								<img src="images/common/tong-${fn:toLowerCase(orderVO.cname)}.png" />
 							</td>
@@ -108,7 +109,7 @@ author : BHS
 
 						<!-- 가입종류 : 기기변경 / 통신사이동 -->
 						<tr>
-							<th>가입종류</th>
+							<th scope="row">가입종류</th>
 							<td>
 								<c:choose>
 									<c:when test="${orderVO.cc == 0}">통신사이동</c:when>
@@ -119,7 +120,7 @@ author : BHS
 
 						<!-- 요금제 (rplanList) -->
 						<tr>
-							<th>요금제</th>
+							<th scope="row">요금제</th>
 							<td>
 								${orderVO.rname} | 월 <fmt:formatNumber value="${orderVO.charge}" type="number" />원<br />
 								데이터 ${orderVO.dataplan} / 음성 ${orderVO.timeplan} 
@@ -130,7 +131,7 @@ author : BHS
 						<!-- 할인방법
 						공시지원 할인 / 선택약정할인 => 할부금 할인, 통신요금 할인 각각 적용 -->
 						<tr>
-							<th>할인방법</th>
+							<th scope="row">할인방법</th>
 							<td>
 								<c:choose>
 									<c:when test="${orderVO.discount == 0}">
@@ -155,7 +156,7 @@ author : BHS
 
 						<!-- 구매방법 0, 24, 30, 36 개월 -->
 						<tr>
-							<th>구매방법</th>
+							<th scope="row">구매방법</th>
 							<td>
 								<c:choose>
 									<c:when test="${orderVO.buyplan > 1}">
@@ -168,6 +169,7 @@ author : BHS
 							</td>
 						</tr>
 
+					</tbody>
 					</table>
 					</div>
 					<!-- //선택사항 (제품상세 오른쪽) -->
@@ -341,9 +343,9 @@ author : BHS
 						<li id="od-li-submit-wrap">
 							<!-- 버튼 -->
 							<div>
-								<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=orderList';" />
+								<button class="btn btn-primary fw-semibold" type="button" onclick="location.href='pf.do?command=orderList';" >목록으로</button>
 								<c:if test="${orderVO.result == '1'}">
-									<input type="button" class="cancel board-submit" value="주문취소" onclick="cancelOrder(${orderVO.odseq});" />
+									&nbsp;<button class="btn btn-secondary fw-semibold" type="button" onclick="cancelOrder(${orderVO.odseq});" >주문취소</button>
 								</c:if>
 							</div>
 							<!-- //버튼 -->

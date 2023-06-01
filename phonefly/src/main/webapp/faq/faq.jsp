@@ -41,13 +41,13 @@ author : BHS
 			<!-- <div id="faq-sub-menu"> -->
 			<div class="btn-group mt-3 mb-1" role="group" aria-label="Basic radio toggle button group">
 				<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="faqMenu(1);" checked>
-				<label class="btn btn-outline-primary" for="btnradio1">신청 / 개통문의</label>
+				<label class="btn btn-outline-primary btn-lg" for="btnradio1">신청 / 개통문의</label>
 				
 				<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="faqMenu(2);">
-				<label class="btn btn-outline-primary" for="btnradio2">배송문의</label>
+				<label class="btn btn-outline-primary btn-lg" for="btnradio2">배송문의</label>
 				
 				<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="faqMenu(3);">
-				<label class="btn btn-outline-primary" for="btnradio3">취소 / 반품문의</label>
+				<label class="btn btn-outline-primary btn-lg" for="btnradio3">취소 / 반품문의</label>
 			</div>
 
 		</div>

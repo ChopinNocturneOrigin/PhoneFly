@@ -58,7 +58,7 @@ author : BHS
 			
 			
 				<!-- 이미지, 컬러 리스트, 가격비교 (제품상세 왼쪽) -->
-				<div class="pdd-image-wrap">
+				<div class="pdd-image-wrap mt-4">
 
 					<!-- 제품명 -->
 					<div class="card-name pdd-card-name">

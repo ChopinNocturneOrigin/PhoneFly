@@ -36,32 +36,39 @@ author : BHS
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
 		<div class="support-inner-wrap review-inner-wrap">
-			<div id="board"></div>
+			<div id="board-anchor"></div>
 			<h1>내가 작성한 후기</h1>
 
 			<form name="reviewForm" method="post" action="pf.do">
 			<input type="hidden" name="command" value="memberReviewUpdate" />
 			<input type="hidden" name="rvseq" id="real-rvseq" value="" />
 			<input type="hidden" name="content" id="real-content" value="" />
-			<table id="board-table">
-				<tr>
-					<th>구매하신 휴대폰</th><th>후기 내용</th><th>작성일자</th><th>수정</th><th>삭제</th>
-				</tr>
-				<c:forEach items="${reviewList}" var="review" varStatus="status">
-				
-					<tr class="board-table-line-mouseover">
-						<td>${review.pname}</td>
-						<td class="board-content"><textarea name="content_${status.count}" id="content-${status.count}" cols="80" rows="3" placeholder="&#10 구매후기를 입력하세요">${review.content}</textarea></td>
-						<td><fmt:formatDate value="${review.indate}" /></td>
-						<td>
-							<input type="button" class="submit submit-blue board-submit" value="수정" onclick="modifyReview(${review.rvseq}, 'content-${status.count}');" />
-						</td>
-						<td>
-							<input type="button" class="cancel board-submit" value="삭제" onclick="deleteReview(${review.rvseq});" />
-						</td>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">구매하신 휴대폰</th>
+						<th scope="col">후기 내용</th>
+						<th scope="col">작성일자</th>
+						<th scope="col">수정</th>
+						<th scope="col">삭제</th>
 					</tr>
-				</c:forEach>
-				<!-- <tr><td class="board-submit-line" colspan="4"><input type="button" class="submit submit-blue board-submit" value="작성하기" onclick="location.href='pf.do?command=qnaWriteForm';" /></td></tr> -->
+				</thead>
+				<tbody class="table-group-divider">
+					<c:forEach items="${reviewList}" var="review" varStatus="status">
+					
+						<tr>
+							<th scope="row">${review.pname}</th>
+							<td class="board-content"><textarea name="content_${status.count}" id="content-${status.count}" cols="80" rows="3" placeholder="&#10 구매후기를 입력하세요">${review.content}</textarea></td>
+							<td><fmt:formatDate value="${review.indate}" /></td>
+							<td>
+								<button type="button" class="btn btn-primary" onclick="modifyReview(${review.rvseq}, 'content-${status.count}');">수정</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-secondary" onclick="deleteReview(${review.rvseq});">삭제</button>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
 			</form>
 			<div id="board-bottom"></div>

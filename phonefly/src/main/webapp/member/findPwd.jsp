@@ -60,7 +60,7 @@
 			<br />
 			<div class="buttons">
 				<button type="button" class="btn btn-primary" onclick="checkPwd();">암호변경</button>
-				<button type="reset" class="btn btn-primary">취소</button>
+				<button type="reset" class="btn btn-secondary">취소</button>
 			</div>
 			<br />
 		</form>

@@ -36,29 +36,38 @@ author : BHS
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
 		<div class="support-inner-wrap">
-			<div id="board"></div>
+			<div id="board-anchor"></div>
 			<h1>1:1 문의</h1>
 			
-			<table id="board-table">
-				<tr>
-					<th>번호</th><th>제목</th><th>작성일자</th><th>상태</th>
-				</tr>
-				<c:forEach items="${qnaList}" var="board" varStatus="status">
-				
-					<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=qnaDetail&qseq=${board.qseq}';">
-						<td>${board.qseq}</td>
-						<td class="board-title">${board.subject}</td>
-						<td><fmt:formatDate value="${board.indate}" /></td>
-						<td>
-							<c:choose>
-								<c:when test="${board.rep == '1'}">접수중</c:when>
-								<c:otherwise>상담완료</c:otherwise>
-							</c:choose>
-						</td>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">제목</th>
+						<th scope="col">작성일자</th>
+						<th scope="col">상태</th>
 					</tr>
-				</c:forEach>
-				<tr><td class="board-submit-line" colspan="4"><input type="button" class="submit submit-blue board-submit" value="작성하기" onclick="location.href='pf.do?command=qnaWriteForm';" /></td></tr>
+				</thead>
+				<tbody class="table-group-divider">
+					<c:forEach items="${qnaList}" var="board" varStatus="status">
+					
+						<tr class="board-table-line-mouseover" onclick="location.href='pf.do?command=qnaDetail&qseq=${board.qseq}';">
+							<th scope="row">${board.qseq}</th>
+							<td class="board-title">${board.subject}</td>
+							<td><fmt:formatDate value="${board.indate}" /></td>
+							<td>
+								<c:choose>
+									<c:when test="${board.rep == '1'}">접수중</c:when>
+									<c:otherwise>상담완료</c:otherwise>
+								</c:choose>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=qnaWriteForm';" >작성하기</button>
+			</div>
 			<div id="board-bottom"></div>
 			
 		

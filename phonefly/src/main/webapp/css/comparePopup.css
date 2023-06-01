@@ -129,19 +129,19 @@ li.reset-i:before {
 }
 
 .compare-box {
-	width: 300px;
+	width: 298px;
 	height: 180px;
 	border: 1px solid #ccc;
 	border-radius: 20px;
-	margin: 0px 10px;
+	margin: 0px 8px;
 }
 
 .compare-box.disabled {
 	width: 298px;
-	height: 178px;
+	height: 180px;
 	border: 2px dashed #ccc;
 	border-radius: 20px;
-	margin: 0px 10px;
+	margin: 0px 8px;
 }
 
 .compare-box>div {
