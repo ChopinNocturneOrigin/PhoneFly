@@ -25,8 +25,23 @@
 				<td width="72"><input type="text" name="price3" size="11"
 					value="${ProductVO.price2-ProductVO.price1}"></td>
 			</tr>
-
-			<tr>
+     
+     
+    
+           <th>판매 가능 여부</th>
+			<td>
+			<c:choose>
+					<c:when test='${ProductVO.useyn=="Y"}'>
+						<input type="radio" name="useyn" value="Y" checked="checked">판매 불가
+				  				<input type="radio" name="useyn" value="N">판매 가능
+				  			</c:when>
+					<c:otherwise>
+						<input type="radio" name="useyn" value="Y">판매 불가
+								<input type="radio" name="useyn" value="N" checked="checked">판매 가능
+							</c:otherwise>
+				</c:choose>
+				</td>
+			
 				<th>베스트상품</th>
 				<td><c:choose>
 						<c:when test='${ProductVO.bestyn=="Y"}'>
