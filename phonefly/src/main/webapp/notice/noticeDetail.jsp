@@ -38,26 +38,25 @@ author : BHS
 			<h1>공지사항</h1>
 			<div id="board-nd-wrap-inner">
 			
-			<table id="board-table-detail">
+			<table class="table table-striped">
 			
+				<tbody class="table-group-divider">
+					<tr>
+						<th scope="row">번호</th><td>${NoticeVO.nseq}</td>
+					</tr>
+					<tr>
+						<th scope="row">제목</th><td>${NoticeVO.subject}</td>
+					</tr>
+					<tr>
+						<th scope="row">작성일자</th><td><fmt:formatDate value="${NoticeVO.indate}" /></td>
+					</tr>
+					<tr>
+						<th scope="row">내용</th><td><div id="board-detail-content-inner-wrap"><pre>${NoticeVO.content}</pre></div></td>
+					</tr>
 			
-				<tr>
-					<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">${NoticeVO.nseq}<hr class="board-event-hr-right"/></td>
-				</tr>
-				<tr>
-					<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${NoticeVO.subject}<hr class="board-event-hr-right"/></td>
-				</tr>
-				<tr class="board-table-before-btns-gray">
-					<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${NoticeVO.indate}" /><hr class="board-event-hr-right"/></td>
-				</tr>
-				<tr class="board-table-before-btns">
-					<th id="board-event-detail-content-title">내용<hr class="board-event-hr-left"/></th><td class="board-detail-content"><div id="board-detail-content-inner-wrap"><pre>${NoticeVO.content}</pre></div></td>
-				</tr>
-				<tr><td class="board-submit-line" colspan="2"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=noticeList';" /></td></tr>
-			
-			
+				</tbody>
 			</table>
-			<!-- <div id="board-bottom"></div> -->
+			<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=noticeList';" >돌아가기</button>
 			
 			
 			</div>

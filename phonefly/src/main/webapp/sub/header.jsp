@@ -11,11 +11,13 @@ author : BHS
 <head>
 <meta charset="UTF-8">
 <title>PhoneFly</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/mainBanner.css">
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" type="text/css" href="css/comparePopup.css">
+<script src="script/bootstrap.min.js"></script>
 <script src="script/jquery-3.6.4.min.js"></script>
 <script src="script/common.js"></script>
 <script src="script/member.js"></script>
@@ -34,25 +36,25 @@ author : BHS
 		<img src="images/logo.png" />
 	</div>
 				<nav id="sub_menu">
-					<ul>
+					<ul class="nav justify-cotent-end">
 
 						<c:choose>
 							<c:when test="${empty loginUser}">
-								<li><a href="pf.do?command=loginForm">로그인</a></li>
-								<li><a href="pf.do?command=contract">회원가입</a></li>
+								<li class="nav-item"><a class="nav-link" href="pf.do?command=loginForm">로그인</a></li>
+								<li class="nav-item"><a class="nav-link" href="pf.do?command=contract">회원가입</a></li>
 							</c:when>
 							<c:otherwise>
 
-								<li>${loginUser.name}(${loginUser.id})</li>
-								<li><a href="pf.do?command=memberUpdateForm">정보수정</a></li>
-								<li><a href="pf.do?command=logout">로그아웃</a></li>
+								<li class="nav-item"><a class="nav-link" href="javascript:;">${loginUser.name}(${loginUser.id})</a></li>
+								<li class="nav-item"><a class="nav-link" href="pf.do?command=memberUpdateForm">정보수정</a></li>
+								<li class="nav-item"><a class="nav-link" href="pf.do?command=logout">로그아웃</a></li>
 								<!-- <li><a href="pf.do?command=cartList">장바구니</a></li> -->
-								<li><a href="pf.do?command=orderList">마이페이지</a></li>
-								<li><a href="pf.do?command=qnaList">1:1 문의</a></li>
+								<li class="nav-item"><a class="nav-link" href="pf.do?command=orderList">마이페이지</a></li>
+								<li class="nav-item"><a class="nav-link" href="pf.do?command=qnaList">1:1 문의</a></li>
 							</c:otherwise>
 						</c:choose>
 
-						 <li><a href="pf.do?command=admin">admin</a></li> 
+						 <li class="nav-item"><a class="nav-link" href="pf.do?command=admin">admin</a></li> 
 
 					</ul>
 				</nav>

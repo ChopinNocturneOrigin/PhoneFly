@@ -5,29 +5,42 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="script/bootstrap.min.js"></script>
 <script src="script/common.js"></script>
 <script src="script/member.js"></script>
 </head>
 <body>
 <div class="zipnum-wrap id-check-wrap">
-	<h2>비밀번호 찾기</h2>
+	<h2 class="mb-4 mt-4">비밀번호 찾기</h2>
 	<c:if test="${result == 0}">
 	<form method="post" name="formm" action="pf.do">
 		<input type="hidden" name="command" value="selectPwd" />
 		<table id="find-id">
 			<tr>
-			<th>아이디&nbsp;</th><td><input type="text" name="id" class="input-text input-text-bg-gray input-text-font-normal" maxlength="20" /></td>
+				<td>
+					<div class="form-floating mb-3">
+						<input type="text" name="id" id="find-pwd-id" class="form-control" maxlength="20" placeholder="검색할 아이디를 입력하세요" /><label for="find-pwd-id">아이디</label>
+					</div>
+				</td>
 			</tr>
 			<tr>
-			<th>이름&nbsp;</th><td><input type="text" name="name" class="input-text input-text-bg-gray input-text-font-normal" maxlength="20" /></td>
+				<td>
+					<div class="form-floating mb-3">
+						<input type="text" name="name" id="find-pwd-name" class="form-control" maxlength="20" placeholder="검색할 이름을 입력하세요" /><label for="find-pwd-name">이름</label>
+					</div>
+				</td>
 			</tr>
 			<tr>
-			<th>전화번호&nbsp;</th><td><input type="text" name="phone" class="input-text input-text-bg-gray input-text-font-normal" maxlength="20" /></td>
+				<td>
+					<div class="form-floating mb-3">
+						<input type="text" name="phone" id="find-pwd-phone" class="form-control" maxlength="20" placeholder="검색할 전화번호를 입력하세요" /><label for="find-pwd-phone">전화번호</label>
+					</div>
+				</td>
 			</tr>
 		</table>
-		<br />
-		<input type="button" value="찾기" class="submit submit-blue dup-btn" onclick="findPwdSubmit();" />
+		<button type="button" class="btn btn-primary" onclick="findPwdSubmit();">찾기</button>
 	</form>
 	<br /><br />
 	</c:if>
@@ -36,14 +49,18 @@
 			<input type="hidden" name="command" value="setPwd" />
 			<input type="hidden" name="id" value="${id}" />
 			<fieldset>
-				<div style="width:100px;">암호</div><input type="password" name="pwd" class="join-form-input" placeholder=" 암호를 입력하세요" maxlength="20" /><br />
-				<div style="width:100px;">암호 재입력</div><input type="password" name="pwdCheck" class="join-form-input" placeholder=" 암호를 입력하세요" maxlength="20" /><br />
+				<div class="form-floating mb-3">
+					<input type="password" name="pwd" id="find-pwd-pwd" class="form-control" maxlength="20" placeholder="암호를 입력하세요" /><label for="find-pwd-phone">암호</label>
+				</div>
+				<div class="form-floating mb-3">
+					<input type="password" name="pwdCheck" id="find-pwd-pwd-check" class="form-control" maxlength="20" placeholder="암호를 입력하세요" /><label for="find-pwd-pwd-check">암호 재입력</label>
+				</div>
 			</fieldset>
 			<div class="clear"></div>
 			<br />
 			<div class="buttons">
-				<input type="button" value="암호변경" class="submit submit-blue  dup-btn" onclick="checkPwd();" />&nbsp;
-				<input type="reset" value="취소" class="cancel dup-btn" />
+				<button type="button" class="btn btn-primary" onclick="checkPwd();">암호변경</button>
+				<button type="reset" class="btn btn-secondary">취소</button>
 			</div>
 			<br />
 		</form>

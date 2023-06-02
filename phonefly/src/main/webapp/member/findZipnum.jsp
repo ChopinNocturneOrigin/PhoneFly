@@ -5,17 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>우편번호 찾기</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="script/bootstrap.min.js"></script>
 <script src="script/common.js"></script>
 <script src="script/member.js"></script>
 <script src="script/mypage.js"></script>
 </head>
 <body>
 <div class="zipnum-wrap id-check-wrap">
-	<h2>우편번호검색</h2>
+	<h2 class="mb-3 mt-3">우편번호검색</h2>
 	<form method="post" name="formm" action="pf.do">
 		<input type="hidden" name="command" value="findZipnum" />
-		<span>동 이름</span> &nbsp;<input type="text" name="dong" class="input-text input-text-bg-gray input-text-font-normal" maxlength="100" />&nbsp;<input type="submit" value="찾기" class="submit submit-blue dup-btn" />
+		<div class="form-floating input-group">
+			<input type="text" name="dong" id="zipnum-dong" class="form-control" maxlength="100" placeholder="검색할 동을 입력하세요" aria-describedby="button-addon1" />
+			<label for="zipnum-dong">동 이름</label>
+			<button type="submit" id="button-addon1" class="btn btn-primary">찾기</button>
+		</div>
 	</form>
 	<br />
 	<table id="zipcode">

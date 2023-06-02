@@ -35,26 +35,29 @@ author : BHS
 	<!-- 고객지원 페이지 오른쪽 내용 -->
 	<div class="support-right-content card-normal">
 		<div id="qna-detail-wrap-inner" class="support-inner-wrap">
-			<div id="board"></div>
+			<div id="board-anchor"></div>
 			<h1>1:1 문의 작성</h1>
 			<form name="qnafrm" method="post" action="pf.do">
 				<input type="hidden" name="command" value="qnaWrite" />
-				<table id="board-table-detail">
-					<tr>
-						<th class="qna-th">제목<hr class="board-event-hr-left"/></th>
-						<td class="board-detail-subject">
-							<input name="subject" type="text" class="join-form-input" size="60" maxlength="100" placeholder=" 제목을 입력하세요 (100 bytes)" />
-						</td>
-					</tr>
-					<tr class="board-table-before-btns">
-						<th id="board-event-detail-content-title">내용<hr class="board-event-hr-left"/></th><td class="board-detail-content"><div id="board-detail-content-inner-wrap" class="qna-textarea-wrap">
-							<textarea name="content" rows="20" cols="116" maxlength="3000" placeholder="&#10&#10 내용을 입력하세요 (3000 bytes)"></textarea>
-						</div></td>
-					</tr>
-					<tr><td class="board-submit-line" colspan="3">
-						<input type="button" class="submit submit-blue board-submit" value="작성하기" onclick="writeQna();" />
-						<input type="button" class="submit submit-blue board-submit" value="목록으로" onclick="location.href='pf.do?command=qnaList';" />				</td></tr>
+				<table class="table">
+					<tbody class="table-group-divider">
+						<tr>
+							<td>
+								<div class="form-floating mb-3">
+									<input type="text" name="subject" id="qna-subject" class="form-control" placeholder="제목을 입력하세요 (100 bytes)" maxlength="100" /><label for="qna-subject">제목</label>
+								</div>
+								<div class="form-floating mb-3">
+									<textarea type="text" name="content" id="qna-content" class="form-control" placeholder="내용을 입력하세요 (3000 bytes)" maxlength="3000"></textarea><label for="qna-content">내용</label>
+								</div>
+							</td>
+						</tr>
+					</tbody>
 				</table>
+				<div class="d-grid gap-3 d-md-block">
+					<button type="button" class="btn btn-primary" onclick="writeQna();" >작성하기</button>
+					&nbsp;<button type="button" class="btn btn-secondary" onclick="location.href='pf.do?command=qnaList';" >목록으로</button>
+				</div>
+
 			</form>
 			<!-- <div id="board-bottom"></div> -->
 

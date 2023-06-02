@@ -37,27 +37,28 @@ author : BHS
 		<!-- <div class="board-inner-wrap board-event-detail-inner-warp card-normal"> -->
 		
 			<h1>이벤트</h1>
-			<hr id="board-detail-title-hr"/>
 			
-			<table id="board-table-detail">
-			
-			
-				<tr>
-					<th class="board-detail-th">번호<hr class="board-event-hr-left"/></th><td class="board-detail-no">${EventVO.eseq}<hr class="board-event-hr-right"/></td>
-				</tr>
-				<tr>
-					<th>제목<hr class="board-event-hr-left"/></th><td class="board-detail-subject">${EventVO.subject}<hr class="board-event-hr-right"/></td>
-				</tr>
-				<tr class="board-table-before-btns-gray">
-					<th>작성일자<hr class="board-event-hr-left"/></th><td class="board-detail-date"><fmt:formatDate value="${EventVO.indate}" /><hr class="board-event-hr-right"/></td>
-				</tr>
-				<tr class="board-table-before-btns">
-					<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${EventVO.image}" /></td>
-				</tr>
-			<tr><td class="board-submit-line" colspan="2"><input type="button" class="submit submit-blue board-detail-submit" value="돌아가기" onclick="location.href='pf.do?command=eventList';" /></td></tr>
-			
-			
+			<table class="table table-striped">
+				<tbody class="table-group-divider">
+
+					<tr>
+						<th scope="row">번호</th><td>${EventVO.eseq}</td>
+					</tr>
+					<tr>
+						<th scope="row">제목</th><td>${EventVO.subject}</td>
+					</tr>
+					<tr>
+						<th scope="row">작성일자</th><td><fmt:formatDate value="${EventVO.indate}" /></td>
+					</tr>
+					<tr>
+						<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${EventVO.image}" /></td>
+					</tr>
+
+				</tbody>
 			</table>
+			<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=eventList';" >돌아가기</button>
+
+
 			<div id="board-bottom"></div>
 			<div id="board-list-paging-bottom-margin"></div>
 		
