@@ -247,7 +247,7 @@ body {
   height: 100vh; /* 화면의 세로 전체 높이를 기준으로 정렬 */
 }
 
-
+/* 테이블 데이터  */
 .btn,
 #productList td,
 #adminMemberList td,
@@ -296,7 +296,6 @@ body {
 #eventList th,
 #noticeList th,
 #PIList th,
-#PDList th,
 #PUList th,
 #PCList th,
 #PCUList th,
@@ -319,6 +318,25 @@ body {
   font-weight: bold;
   border-bottom: 2px solid #ddd;
 }
+
+#PDList th
+{
+  padding: 10px;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: blue;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  width: 20%;
+}
+
+#PUList td
+{
+	
+	 width: 20%;
+	
+}
+
 /* 폰트  */
 
 * {
