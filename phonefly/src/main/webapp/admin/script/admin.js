@@ -225,7 +225,7 @@ function go_mod_c(cseq){
 }
 
 
-function go_mod_save(){
+function go_mod_save(pseq){
 	if  (document.frm.name.value == '') {
 		  alert('상품명을 입력하세요');	  
 		  document.frm.name.focus();
@@ -237,9 +237,7 @@ function go_mod_save(){
 		  document.frm.price2.focus();
 	 } else if (document.frm.content.value == '') {
 		  alert('상품상세를 입력하세요');	  
-		  document.frm.content.focus();
-		  
-		  
+		  document.frm.content.focus();		  
 	 } else if (document.frm.bestyn.value == '') {
 		  alert('베스트 아이템 등록을 입력하세요');	  
 		  document.frm.bestyn.focus();
@@ -248,14 +246,10 @@ function go_mod_save(){
 		  document.frm.eventyn.focus();	  
 	} else if (document.frm.mfc.value == '') {
 		  alert('제조사를 입력하세요');	  
-		  document.frm.mfc.focus();	 	
-	} else if (document.frm.image.value == '') {
-		  alert('사진를 입력하세요');	  
-		  document.frm.image.focus();	 	  
-		  	    		  
-	 }else{
+		  document.frm.mfc.focus();	 		  	    		  
+	 } else{
 		if( confirm('수정하시겠습니까?') ){
-			 document.frm.action = "pf.do?command=adminProductUpdate";
+			 document.frm.action = "pf.do?command=adminProductUpdate&pseq="+pseq;
 			 document.frm.submit();
 		}
 	}

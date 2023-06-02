@@ -14,11 +14,17 @@
    		
 </table>
 
-
+<div class="Bottm-btn-container">
+<div >
 <input class="btn"  type="button" value="수정" onClick="go_mod_c('${ColorVO.cseq}','${ColorVO.pseq}')">
+</div>
+<div >
 <input class="btn"  type="button" value="목록" onClick="go_mov_c('${ColorVO.pseq}')">
+</div>
+<div >
 <input class="btn"  type="button" value="삭제" onClick="go_del_c('${ColorVO.cseq}','${ColorVO.pseq}')">
-
+</div>
+</div>
 </article>
 
 <%@ include file="/admin/footer.jsp"%>
