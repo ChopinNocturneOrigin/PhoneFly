@@ -17,7 +17,7 @@ public class AdminLogoutAction implements Action {
 		HttpSession session = request.getSession();
 		session.removeAttribute("loginAdmin");
 
-		RequestDispatcher dp=request.getRequestDispatcher("pf.do?command=index");
+		RequestDispatcher dp=request.getRequestDispatcher("pf.do?command=admin");
 		dp.forward(request, response); 
 
 	}

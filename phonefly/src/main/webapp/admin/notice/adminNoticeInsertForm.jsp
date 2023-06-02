@@ -14,7 +14,7 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td colspan="5"><textarea name="content" rows="8" cols="70"></textarea></td>
+				<td  colspan="5"><textarea name="content" rows="8" cols="70"></textarea></td>
 			</tr>
 		</table>
 

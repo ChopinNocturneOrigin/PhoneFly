@@ -85,8 +85,16 @@
 
 
 		</table>
+		
+		<div class="Bottm-btn-container">
+		<div>
 		<input class="btn" type="submit" value="색상선택" onClick="go_save(${ProductVO.pseq})">
+		</div>
+		<div>
 		<input class="btn" type="button" value="목록으로" onClick="go_mov()">
+		</div>
+		</div>
+		
 	</form>
 </article>
 

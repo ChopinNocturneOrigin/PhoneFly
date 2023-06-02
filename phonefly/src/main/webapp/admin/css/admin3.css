@@ -105,8 +105,11 @@ nav#sub_menu h1 {
   color:  #09F;
 } 
 #copy {
-   margin: 0 10px 0 0;
-    
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
 }
 
 /* 본문 */
@@ -352,7 +355,26 @@ nav#sub_menu {
 }
 
  /* 테이블 크기 조절 */
- #orderList,#adminMemberList,#QnaList,#noticeList,#eventList{
+ #PDList,
+ #orderList,
+ #adminMemberList,
+ #QnaList,
+ #noticeList,
+ #eventList,
+ #PNIList,
+ #PIList ,
+#PUList,
+#PCList,
+#PCDList,
+#PNDList,
+#PCIList ,
+#PCUList ,
+#PNUList ,
+#EIList,
+#EUList ,
+#EDList,
+#PNIList
+ {
  width: 1000px;
  }
  

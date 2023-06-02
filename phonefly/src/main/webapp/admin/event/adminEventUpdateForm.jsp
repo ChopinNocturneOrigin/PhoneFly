@@ -30,7 +30,7 @@
 			</div>
 			<div>
 				<input class="btn" type="button" value="취소"
-					onClick="location.href='pf.do?command=adminEventDetail';">
+					onClick="location.href='pf.do?command=adminEventDetail&eseq=${eventVO.eseq}'">
 			</div>
 		</div>
 	</form>

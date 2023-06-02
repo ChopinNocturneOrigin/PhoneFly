@@ -10,14 +10,20 @@
 <title>admin</title>
 <link rel="stylesheet" href="admin/css/admin3.css" />
 <link rel="stylesheet" type="text/css" href="css/common.css">
+
 <script src="admin/script/admin.js"></script>
+
 </head>
 <body>
 	<header>
 		<h1 class="home" onclick="goToAdminProductList()">
-		PhoneFly AdminPage
+		PhoneFly AdminPage	
 		</h1>
-		<input class="btn" type="button" value="logout" style="float: right;"
-			onClick="location.href='pf.do?command=adminLogout'">
 	</header>
 	<div class="clear"></div>
+	
+	<footer>
+		<%@ include file="/admin/footer.jsp"%>
+	</footer>
+</body>
+</html>
