@@ -253,22 +253,9 @@ author : BHS
 		<!-- 제품 상세 설명 {product : content} -->
 		<div>
 		<hr class="pdd-detail-hr" />
-		<div class="pdd-detail-txt">${productVO.content}
-		타인의 범죄행위로 인하여 생명·신체에 대한 피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수 있다. 대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일 정책을 수립하고 이를 추진한다.
-
-대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 일반사면을 명하려면 국회의 동의를 얻어야 한다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
-
-감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타 필요한 사항은 법률로 정한다. 국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의 임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여 집회된다.
-
-국방상 또는 국민경제상 긴절한 필요로 인하여 법률이 정하는 경우를 제외하고는, 사영기업을 국유 또는 공유로 이전하거나 그 경영을 통제 또는 관리할 수 없다.
-
-제1항의 해임건의는 국회재적의원 3분의 1 이상의 발의에 의하여 국회재적의원 과반수의 찬성이 있어야 한다. 선거에 있어서 최고득표자가 2인 이상인 때에는 국회의 재적의원 과반수가 출석한 공개회의에서 다수표를 얻은 자를 당선자로 한다.
-
-헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다.
-
-모든 국민은 거주·이전의 자유를 가진다. 대한민국의 국민이 되는 요건은 법률로 정한다. 국회의원은 법률이 정하는 직을 겸할 수 없다. 모든 국민은 사생활의 비밀과 자유를 침해받지 아니한다.
-
-정당은 법률이 정하는 바에 의하여 국가의 보호를 받으며, 국가는 법률이 정하는 바에 의하여 정당운영에 필요한 자금을 보조할 수 있다. 국가는 법률이 정하는 바에 의하여 재외국민을 보호할 의무를 진다.</div>
+		<div class="pdd-detail-txt">
+			<pre>${productVO.content}</pre>
+		</div>
 		</div>
 		<!-- //제품 상세 설명 -->
 
@@ -388,7 +375,7 @@ author : BHS
 			
 			<!-- 버튼 (온라인 신청하기) -->
 			<li id="pdd-li-submit-wrap">
-				<input type="submit" class="submit submit-blue ppd-submit" value="온라인 신청하기" />
+				<button type="submit" class="btn btn-primary">온라인 신청하기</button>
 			</li>
 
 
@@ -424,9 +411,14 @@ author : BHS
 				<input type="hidden" name="pseq" value="${productVO.pseq}" />
 				<div class="pdd-review-inputarea">
 					<ul>
-						<li class="pdd-review-title">구매후기</li>
-						<li class="float-l"><textarea name="content" cols="90" rows="5" placeholder="&#10 구매후기를 입력하세요"></textarea></li>
-						<li class="float-l pdd-review-submit">&nbsp;<input class="submit submit-blue" type="button" value="구매후기 작성" onclick="writeReview();" /></li>
+						<li class="float-l">
+							<div class="form-floating mb-3">
+								<textarea type="text" name="content" id="pdd-review-txt" class="form-control" placeholder="구매후기를 입력하세요" maxlength="500"></textarea><label for="pdd-review-txt">구매후기</label>
+							</div>
+						</li>
+						<li class="float-l pdd-review-submit">
+							<button type="button" class="btn btn-primary" onclick="writeReview();" >구매후기 작성</button>
+						</li>
 					</ul>
 				</div>
 			</form>

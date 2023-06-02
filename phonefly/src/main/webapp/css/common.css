@@ -1101,7 +1101,7 @@ article h3 {
 }
 .pdd-small-wrap {
 	margin-left: 127px;
-	transform: translateY(-18px);
+	transform: translate(-8px,-18px);
 }
 .pdd-small-txt {
 	line-height: 18px;
@@ -1119,6 +1119,7 @@ article h3 {
 /* 제품 상세 제품 설명 */
 .pdd-detail-hr {
 	width: 748px;
+	margin-left: 54px;
 }
 .pdd-detail-txt {
 	width: 748px;
@@ -1155,6 +1156,10 @@ article h3 {
 	vertical-align: middle;
 	margin: 20px;
 }
+#pdd-review-txt {
+	width: 648px;
+	height: 105px;
+}
 .pdd-review-inputarea input {
 	width: 130px;
 	height: 45px;
@@ -1189,7 +1194,10 @@ article h3 {
 #pdd-review-date {
 	width: 129px;
 }
-
+.review-inner-wrap .review-list-textarea {
+	width: 610px;
+	height: 91px;
+}
 
 
 

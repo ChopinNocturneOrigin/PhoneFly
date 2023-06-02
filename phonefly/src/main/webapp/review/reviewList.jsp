@@ -58,7 +58,11 @@ author : BHS
 					
 						<tr>
 							<th scope="row">${review.pname}</th>
-							<td class="board-content"><textarea name="content_${status.count}" id="content-${status.count}" cols="80" rows="3" placeholder="&#10 구매후기를 입력하세요">${review.content}</textarea></td>
+							<td class="board-content">
+								<div class="form-floating mb-3">
+									<textarea type="text" name="content_${status.count}" id="content-${status.count}" class="form-control review-list-textarea" placeholder="구매후기를 입력하세요" maxlength="500">${review.content}</textarea><label for="content-${status.count}">구매후기</label>
+								</div>
+							</td>
 							<td><fmt:formatDate value="${review.indate}" /></td>
 							<td>
 								<button type="button" class="btn btn-primary" onclick="modifyReview(${review.rvseq}, 'content-${status.count}');">수정</button>

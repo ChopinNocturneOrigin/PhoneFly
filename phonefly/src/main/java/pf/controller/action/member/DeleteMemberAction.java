@@ -23,6 +23,8 @@ public class DeleteMemberAction implements Action {
 		}else {
 			MemberDao mdao = MemberDao.getInstance();
 			mdao.deleteMember(mvo.getId());
+			// 추가 : bhs
+			session.removeAttribute("loginUser");
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
