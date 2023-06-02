@@ -363,11 +363,12 @@
 									<div>
 										<input type="button" class="btn" value="목록"
 											onclick="location.href='pf.do?command=adminOrderList';" />
-											</div>
+											</div> &nbsp;&nbsp;&nbsp;
 											<div>
 											 <input	type="submit" class="btn"
 											value="수정" />
 									</div>
+									&nbsp;&nbsp;&nbsp;
 									<!-- //버튼 -->
 									</div>
 							</ul>

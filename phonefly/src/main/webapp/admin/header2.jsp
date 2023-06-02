@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>admin</title>
 <link rel="stylesheet" href="admin/css/admin3.css" />
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="admin/css/common.css">
 <script src="admin/script/admin.js"></script>
 </head>
 <body>

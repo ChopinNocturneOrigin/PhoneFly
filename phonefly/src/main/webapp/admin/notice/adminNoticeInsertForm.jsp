@@ -22,7 +22,7 @@
 			<div>
 				<input class="btn" type="button" value="공지사항등록"
 					onClick="go_save_n();">
-			</div>
+			</div> 
 			<div>
 				<input class="btn" type="button" value="목록으로" onClick="go_mov_n();">
 			</div>

@@ -10,7 +10,7 @@
 		<table id="PUList">
 			<tr>
 				<th>상품명</th>
-				<td width="343" colspan="5"><input type="text" name="name"
+				<td id= "content" width="343" colspan="5"><input type="text" name="name"
 					size="47" maxlength="100" value="${ProductVO.name}"></td>
 			</tr>
 
@@ -27,17 +27,17 @@
 			</tr>
      
      
-    
+          <tr>
            <th>판매 가능 여부</th>
 			<td>
 			<c:choose>
 					<c:when test='${ProductVO.useyn=="Y"}'>
-						<input type="radio" name="useyn" value="Y" checked="checked">판매 불가
-				  				<input type="radio" name="useyn" value="N">판매 가능
+						<input type="radio" name="useyn" value="Y" checked="checked">판매 가능
+				  				<input type="radio" name="useyn" value="N">판매 불가
 				  			</c:when>
 					<c:otherwise>
-						<input type="radio" name="useyn" value="Y">판매 불가
-								<input type="radio" name="useyn" value="N" checked="checked">판매 가능
+						<input type="radio" name="useyn" value="Y">판매 가능
+								<input type="radio" name="useyn" value="N" checked="checked">판매 불가
 							</c:otherwise>
 				</c:choose>
 				</td>
@@ -69,13 +69,13 @@
 
 			<tr>
 				<th>제조사</th>
-				<td width="343" colspan="5"><input type="text" name="mfc"
+				<td id= "content" width="343" colspan="5"><input type="text" name="mfc"
 					size="47" maxlength="100" value="${ProductVO.mfc}"></td>
 			</tr>
 
 			<tr>
 				<th>상세설명</th>
-				<td colspan="5"><textarea name="content" rows="8" cols="70">${ProductVO.content}</textarea>
+				<td id= "content"  width="343"colspan="5"><textarea name="content" rows="8" cols="115">${ProductVO.content}</textarea>
 				</td>
 			</tr>
 
