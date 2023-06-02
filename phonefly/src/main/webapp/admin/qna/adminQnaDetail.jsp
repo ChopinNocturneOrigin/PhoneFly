@@ -33,13 +33,13 @@
 						<td colspan="2"><textarea name="reply" rows="3" cols="50"></textarea>
 							<input type="button" class="btn" value="저장" onClick="go_rep()"></td>
 					</tr>
-				</table>
+				</table>	
 			</c:when>
 			<c:otherwise>
 				<!-- 관리자 답변 후 표시 -->
 				<table id="orderList">
-					<tr>
-						<th>댓글</th>
+					<tr >
+						<th width="180">댓글</th>
 						<td>${qnaVO.reply}</td>
 					</tr>
 				</table>

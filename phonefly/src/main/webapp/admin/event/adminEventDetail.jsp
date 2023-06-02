@@ -20,14 +20,14 @@
 		<div>
 			<input class="btn" type="button" value="수정"
 				onClick="go_mod_e('${eventVO.eseq}')">
-		</div>
+		</div>  &nbsp;&nbsp;&nbsp;
 		<div>
 			<input class="btn" type="button" value="목록" onClick="go_mov_e()">
-		</div>
+		</div>  &nbsp;&nbsp;&nbsp;
 		<div>
 			<input class="btn" type="button" value="삭제"
 				onClick="go_del_e('${eventVO.eseq}')">
-		</div>
+		</div>  &nbsp;&nbsp;&nbsp;
 	</div>
 
 </article>

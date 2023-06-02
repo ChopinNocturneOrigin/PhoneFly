@@ -24,7 +24,7 @@
 			<div>
 				<input class="btn" type="button" value="수정"
 					onClick="go_mod_save_n()">
-			</div>
+			</div> &nbsp;&nbsp;&nbsp;
 			<div>
 				<input class="btn" type="button" value="취소"
 			onClick="location.href='pf.do?command=adminNoticeDetail&nseq=${noticeVO.nseq}'">

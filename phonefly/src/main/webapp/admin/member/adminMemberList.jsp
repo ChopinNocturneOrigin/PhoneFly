@@ -15,13 +15,14 @@
 	    <c:forEach items="${adminMemberList}" var="memberVO">  
 		    <tr><td>${memberVO.id} 
 		    	<c:choose>
-		      		<c:when test='${memberVO.useyn=="y"}'>
+		      		<c:when test='${memberVO.useyn=="Y"}'>
 		        		<input type="checkbox" name="useyn" disabled="disabled">
 			        </c:when>
 			        <c:otherwise>
 			        	<input type="checkbox" name="useyn" checked="checked" disabled="disabled">
 			        </c:otherwise>
 		    	</c:choose></td>
+		    	
 		    	<td>${memberVO.name}</td><td>${memberVO.email}</td>
 		    	<td>${memberVO.zipnum}</td><td>${memberVO.address1}</td>
 		    	<td>${memberVO.phone}</td></tr>
