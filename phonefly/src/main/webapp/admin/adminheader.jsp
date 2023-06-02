@@ -22,8 +22,6 @@
 	</header>
 	<div class="clear"></div>
 	
-	<footer>
-		<%@ include file="/admin/footer.jsp"%>
-	</footer>
+	
 </body>
 </html>
