@@ -8,7 +8,7 @@ author : BHS
 
 <!-- 헤더 불러오기 -->
 <%@ include file="../sub/header.jsp"%>
-<script src="script/productDetail.js"></script>
+<script src="script/productDetail.min.js"></script>
 
 <article>
 <!-- 제품 상세 전체 프레임 -->
@@ -429,18 +429,6 @@ author : BHS
 		<!-- 출력 파트 -->
 		<div id="review-lists">
 			<ul>
-				<!-- 구매후기 테스트 더미 데이터 -->
-
-<%-- 			<c:forEach begin="1" end="8">
-				<li class="pdd-review-line">
-					<div class="float-l pdd-review-ln-name">홍길동</div>
-					<div class="float-l pdd-review-ln-content">혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 국가는 청원에 대하여 심사할 의무를 진다.
-이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을 지속한다. 모든 국민은 학문과 예술의 자유를 가진다. 대통령은 필요하다고 인정할 때에는 외교·국방·통일 기타 국가안위에 관한 중요정책을 국민투표에 붙일 수 있다.</div>
-					<div class="float-l">2023. 5.24.</div>
-				</li>
-			</c:forEach>
- --%>
-				<!-- //구매후기 테스트 더미 데이터 -->
 			<c:forEach items="${reviewList}" var="review" varStatus="statusReview">
 				<li class="pdd-review-line">
 					<div>
@@ -485,7 +473,7 @@ author : BHS
 		<tr><td class="pdd-popup-subtitle" colspan="2">5G 수퍼플랜</td><td class="pdd-popup-text" colspan="3">5G 데이터가 완전무제한에 해외에서 끊김없는 데이터!</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 2}">
-				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
+				<tr class="cs-p" onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
 					<td class="pdd-popup-content pdd-popup-left" value="${plan.name}">${plan.name}</td>
 					<td class="pdd-popup-content rb-color" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
 					<td class="pdd-popup-content" value="${plan.dataplan}">${plan.dataplan}</td>
@@ -506,7 +494,7 @@ author : BHS
 		<tr><td class="pdd-popup-subtitle" colspan="2">5GX 플랜</td><td class="pdd-popup-text" colspan="3">데이터 콘텐츠도 자유롭게! 초시대의 요금플랜</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 1}">
-				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
+				<tr class="cs-p" onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
 					<td class="pdd-popup-content pdd-popup-left" value="${plan.name}">${plan.name}</td>
 					<td class="pdd-popup-content rb-color" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
 					<td class="pdd-popup-content" value="${plan.dataplan}">${plan.dataplan}</td>
@@ -527,7 +515,7 @@ author : BHS
 		<tr><td class="pdd-popup-subtitle" colspan="2">5G 요금제</td><td class="pdd-popup-text" colspan="3">U+ 5G 서비스에 다양한 콘텐츠까지!</td></tr>
 		<c:forEach items="${rplanVO}" var="plan">
 			<c:if test="${plan.mseq == 3}">
-				<tr onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
+				<tr class="cs-p" onclick='selectPlan("${plan.name}", ${plan.charge}, "${plan.dataplan}", "${plan.timeplan}", "${plan.textplan}", "${plan.rseq}");'>
 					<td class="pdd-popup-content pdd-popup-left" value="${plan.name}">${plan.name}</td>
 					<td class="pdd-popup-content rb-color" value="${plan.charge}">월 <fmt:formatNumber value="${plan.charge}" type="number" maxFractionDigits="3" />원</td>
 					<td class="pdd-popup-content" value="${plan.dataplan}">${plan.dataplan}</td>

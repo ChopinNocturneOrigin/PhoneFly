@@ -48,7 +48,7 @@ author : BHS
 				</thead>
 				<tbody class="table-group-divider">
 					<c:forEach items="${eventList}" var="board" varStatus="status">
-						<tr onclick="location.href='pf.do?command=eventDetail&eseq=${board.eseq}';">
+						<tr class="cs-p" onclick="location.href='pf.do?command=eventDetail&eseq=${board.eseq}';">
 							<th scope="row">${board.eseq}</th>
 							<td class="board-title">${board.subject}</td>
 							<td><fmt:formatDate value="${board.indate}" /></td>

@@ -34,21 +34,21 @@ public class OrderListAction implements Action {
 			paging.setDisplayPage(10);
 			paging.setDisplayRow(10);
 			
-			if(request.getParameter("page")!=null) {
-				paging.setPage( Integer.parseInt( request.getParameter("page") ) );
-				session.setAttribute("page", Integer.parseInt( request.getParameter("page") ) );
-			}else if(session.getAttribute("page") != null){
-				paging.setPage( (Integer)session.getAttribute("page") );
-			}else {
+			if (request.getParameter("page")!=null) {
+				paging.setPage(Integer.parseInt( request.getParameter("page")));
+				session.setAttribute("page", Integer.parseInt(request.getParameter("page")));
+			} else if (session.getAttribute("page") != null){
+				paging.setPage((Integer)session.getAttribute("page"));
+			} else {
 				paging.setPage(1);
-			}			
+			}
 			String key="";
-			if ( request.getParameter("key") != null ) {
+			if (request.getParameter("key") != null) {
 				key = request.getParameter("key");
 				session.setAttribute("key", key);
-			}else  if( session.getAttribute("key") != null ) {
+			} else if (session.getAttribute("key") != null) {
 				key=(String)session.getAttribute("key");
-			}else {
+			} else {
 				key="";
 				session.removeAttribute("key");
 			}
@@ -56,10 +56,10 @@ public class OrderListAction implements Action {
 			OrderDetailDao odao = OrderDetailDao.getInstance();
 			int count = odao.getAllcount(mvo.getId());
 			paging.setTotalCount(count);
-						
-			ArrayList<OrderDetailVO> list = odao.listOrderByOdseq( paging, mvo.getId() );
+
+			ArrayList<OrderDetailVO> list = odao.listOrderByOdseq(paging, mvo.getId());
 			
-			request.setAttribute("orderList", list);	
+			request.setAttribute("orderList", list);
 			request.setAttribute("paging", paging);
 			request.setAttribute("key", key);
 		}

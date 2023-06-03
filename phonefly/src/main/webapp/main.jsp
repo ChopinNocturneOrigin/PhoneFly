@@ -45,10 +45,10 @@ author : PMS, BHS
  					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 						<c:choose>
 							<c:when test="${statusColor.count == 1}">
-								<li style="z-index:10"><img src="images/productImage/${colorVO.image}" /></li>
+								<li style="z-index:10"><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:when>
 							<c:otherwise>
-								<li><img src="images/productImage/${colorVO.image}" /></li>
+								<li><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -81,7 +81,7 @@ author : PMS, BHS
 				
 				
 				<!-- 제품명 -->
-				<div class="card-name" onclick="${productDetailLH}">
+				<div class="card-name cs-p" onclick="${productDetailLH}">
 					<h3>
 						${productVO.name}
 					</h3>
@@ -90,7 +90,7 @@ author : PMS, BHS
 				
 				
 				<!-- 가격 -->
-				<div class="card-price" onclick="${productDetailLH}">
+				<div class="card-price cs-p" onclick="${productDetailLH}">
 					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
 				<!-- //가격 -->
@@ -130,7 +130,7 @@ author : PMS, BHS
 			</div>
 		</li>
 		<li>
-			<div id="content2" class="card" onclick="location.href='pf.do?command=productList&mfc=Apple';">
+			<div id="content2" class="card cs-p" onclick="location.href='pf.do?command=productList&mfc=Apple';">
 				<img src="images/main/iphone-card-50-compare-202209.jpg" />
 				<div>
 					<span>Apple iPhone 모든 모델 보기</span><br />
@@ -140,7 +140,7 @@ author : PMS, BHS
 			</div>
 		</li>
 		<li>
-			<div id="content3" class="card" onclick="location.href='pf.do?command=productList&mfc=Apple';">
+			<div id="content3" class="card cs-p" onclick="location.href='pf.do?command=productList&mfc=Apple';">
 				<img src="images/main/iphone-card-50-whyswitch-202209_GEO_KR.jpg" />
 				<div>
 					<span>iPhone으로 갈아타기</span><br />
@@ -186,10 +186,10 @@ author : PMS, BHS
  					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 						<c:choose>
 							<c:when test="${statusColor.count == 1}">
-								<li style="z-index:10"><img src="images/productImage/${colorVO.image}" /></li>
+								<li style="z-index:10"><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:when>
 							<c:otherwise>
-								<li><img src="images/productImage/${colorVO.image}" /></li>
+								<li><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -222,7 +222,7 @@ author : PMS, BHS
 				
 				
 				<!-- 제품명 -->
-				<div class="card-name" onclick="${productDetailLH}">
+				<div class="card-name cs-p" onclick="${productDetailLH}">
 					<h3>
 						${productVO.name}
 					</h3>
@@ -231,7 +231,7 @@ author : PMS, BHS
 				
 				
 				<!-- 가격 -->
-				<div class="card-price" onclick="${productDetailLH}">
+				<div class="card-price cs-p" onclick="${productDetailLH}">
 					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
 				<!-- //가격 -->

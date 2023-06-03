@@ -47,10 +47,10 @@ author : BHS
  					<c:forEach items="${productVO.colorList}" var="colorVO" varStatus="statusColor">
 						<c:choose>
 							<c:when test="${statusColor.count == 1}">
-								<li style="z-index:10"><img src="images/productImage/${colorVO.image}" /></li>
+								<li style="z-index:10"><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:when>
 							<c:otherwise>
-								<li><img src="images/productImage/${colorVO.image}" /></li>
+								<li><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -83,7 +83,7 @@ author : BHS
 				
 				
 				<!-- 제품명 -->
-				<div class="card-name" onclick="${productDetailLH}">
+				<div class="card-name cs-p" onclick="${productDetailLH}">
 					<h3>
 						${productVO.name}
 					</h3>
@@ -92,7 +92,7 @@ author : BHS
 				
 				
 				<!-- 가격 -->
-				<div class="card-price" onclick="${productDetailLH}">
+				<div class="card-price cs-p" onclick="${productDetailLH}">
 					<h3><fmt:formatNumber value="${productVO.price2}" type="number" maxFractionDigits="3" /></h3><h4>원</h4>
 				</div>
 				<!-- //가격 -->

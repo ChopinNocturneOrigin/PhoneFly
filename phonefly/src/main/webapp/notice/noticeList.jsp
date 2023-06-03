@@ -46,7 +46,7 @@ author : BHS
 			</thead>
 			<tbody class="table-group-divider">
 				<c:forEach items="${noticeList}" var="board" varStatus="status">
-					<tr onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
+					<tr class="cs-p" onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
 						<th scope="row">${board.nseq}</th>
 						<td>${board.subject}</td>
 						<td><fmt:formatDate value="${board.indate}" /></td>

@@ -50,12 +50,14 @@ public class OrderDetailDao {
 		// 수정 : bhs
 		//String sql = "select * from order_detail where id=?";
 		//String sql = "SELECT * FROM order_detail_view2 WHERE id = ? ORDER BY odseq DESC";
+		/* 수정 : bhs
 		String sql="select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn,o.*from "
 				+ " ((select*from order_detail_view2 where id like'%'||?||'%'order by odseq desc) o)"
 				+ " ) where rn>=? "
-				+ " ) where rn<=?";
+				+ " ) where rn<=?";*/
+		String sql="SELECT * FROM (SELECT * FROM (SELECT ROWNUM rn, O.* FROM (SELECT * FROM order_detail_view2 WHERE id = ? ORDER BY odseq DESC) O) WHERE rn >= ?) WHERE rn <= ?";
 		con = DBM.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -64,22 +66,25 @@ public class OrderDetailDao {
 			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				OrderDetailVO ovo = new OrderDetailVO();	
-				
-				ovo.setOdseq(rs.getInt("odseq"));					ovo.setPseq(rs.getInt("pseq"));
-				ovo.setRseq(rs.getInt("rseq"));						ovo.setId(rs.getString("id"));
-				ovo.setResult(rs.getString("result"));				ovo.setDiscount(rs.getInt("discount"));
-				ovo.setBuyplan(rs.getInt("buyplan"));				ovo.setDcmonth(rs.getInt("dcmonth"));
-				ovo.setDctotal(rs.getInt("dctotal"));				ovo.setMmonth(rs.getInt("mmonth"));
-				ovo.setMtotal(rs.getInt("mtotal"));					ovo.setCc(rs.getString("cc"));
-				ovo.setIndate(rs.getTimestamp("indate"));			
-
-				//
+				OrderDetailVO ovo = new OrderDetailVO();
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setPseq(rs.getInt("pseq"));
+				ovo.setRseq(rs.getInt("rseq"));
+				ovo.setId(rs.getString("id"));
+				ovo.setResult(rs.getString("result"));
+				ovo.setDiscount(rs.getInt("discount"));
+				ovo.setBuyplan(rs.getInt("buyplan"));
+				ovo.setDcmonth(rs.getInt("dcmonth"));
+				ovo.setDctotal(rs.getInt("dctotal"));
+				ovo.setMmonth(rs.getInt("mmonth"));
+				ovo.setMtotal(rs.getInt("mtotal"));
+				ovo.setCc(rs.getString("cc"));
+				ovo.setIndate(rs.getTimestamp("indate"));
+				// 추가 : bhs
 				ovo.setPname(rs.getString("pname"));
 				ovo.setCname(rs.getString("cname"));
 				ovo.setCcname(rs.getString("ccname"));
 				ovo.setRname(rs.getString("rname"));
-
 				ovo.setCseq(rs.getInt("cseq"));
 				ovo.setPrice(rs.getInt("price"));
 				ovo.setMfc(rs.getString("mfc"));
@@ -87,8 +92,6 @@ public class OrderDetailDao {
 				ovo.setDataplan(rs.getString("dataplan"));
 				ovo.setTimeplan(rs.getString("timeplan"));
 				ovo.setTextplan(rs.getString("textplan"));
-				//
-
 
 				list.add(ovo);
 			} 
@@ -263,24 +266,22 @@ public class OrderDetailDao {
 	}
 
 	public int getAllcount(String id) {
-	    int count = 0;
-	    String sql = "SELECT COUNT(*) AS cnt FROM order_detail WHERE id = ?";
-	    con = DBM.getConnection();
-	    try {
-	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, id);
-	        rs = pstmt.executeQuery();
-	        if (rs.next()) {
-	            count = rs.getInt("cnt");
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        DBM.close(con, pstmt, rs);
-	    }
-	    return count;
+		int count = 0;
+		String sql = "SELECT COUNT(*) cnt FROM order_detail WHERE id = ?";
+		con = DBM.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBM.close(con, pstmt, rs);
+		}
+		return count;
 	}
 
-
-	
 }

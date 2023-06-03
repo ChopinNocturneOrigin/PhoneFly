@@ -99,6 +99,9 @@ pre {
 	clear: both;
 }
 
+.cs-p {
+	cursor: pointer !important;
+}
 
 
 
@@ -816,6 +819,7 @@ article h3 {
 	border-radius: 4px;
 	background-color: #F5F5F7;
 	font-size: 0.9em;
+	cursor: pointer !important;
 }
 .pdd-box-selected {
 	color: RoyalBlue;

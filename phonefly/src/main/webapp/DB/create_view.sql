@@ -40,7 +40,8 @@ where d.rseq=r.rseq and r.mseq=c.mseq and d.pseq=p.pseq;
 CREATE OR REPLACE VIEW order_detail_view2 AS
 SELECT O.*, P.price2 price, P.name pname, P.mfc, R.name rname, R.charge, R.dataplan, R.timeplan, R.textplan, C.name cname, CC.name ccname, CC.image, M.name mname
 FROM order_detail O, product P, rplan R, comm C, color CC, member M
-WHERE O.rseq = R.rseq AND R.mseq = C.mseq AND O.pseq = P.pseq AND O.cseq = CC.cseq AND O.id = M.id;
+WHERE O.rseq = R.rseq(+) AND R.mseq = C.mseq AND O.pseq = P.pseq(+) AND O.cseq = CC.cseq(+) AND O.id = M.id(+)
+ORDER BY odseq DESC;
 
 
 -- Product detail의 review 조회용 (pseq의 전체 review)
