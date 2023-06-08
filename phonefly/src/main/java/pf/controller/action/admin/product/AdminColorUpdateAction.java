@@ -44,13 +44,12 @@ public class AdminColorUpdateAction implements Action {
 
 			cvo.setCseq(cseq );
 			cvo.setName( multi.getParameter("name"));
-			cvo.setCcode(multi.getParameter("ccode"));
-			cvo.setImage(multi.getFilesystemName("image"));
-			    
-			    if( multi.getFilesystemName("image") == null ) 
-			    	cvo.setImage(multi.getParameter("oldImage") );
-			    else 	
-			    	cvo.setImage( multi.getFilesystemName("image") );
+			cvo.setCcode(multi.getParameter("ccode"));		
+			
+			if( multi.getFilesystemName("image") == null ) 
+			cvo.setImage(multi.getParameter("oldImage") );
+			else 	
+			cvo.setImage( multi.getFilesystemName("image") );
 			    
 			    AdminDao adao = AdminDao.getInstance();
 			    adao.updateColor(cvo);

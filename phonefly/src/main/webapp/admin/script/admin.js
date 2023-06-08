@@ -270,11 +270,11 @@ function go_mod_save_e(eseq){
 
 function go_mod_save_c(cseq){
 	if (document.frm.name.value == '') {
-		alert('색삭명 을 입력하세요');
+		alert('색상명 을 입력하세요');
 		document.frm.name.focus();
-		} else if (document.frm.image.value == '') {
+		/*} else if (document.frm.image.value == '') {
 		  alert('사진를 입력하세요');	  
-		  document.frm.image.focus();	 	  
+		  document.frm.image.focus();	*/ 	  
 		} else if (document.frm.ccode.value == '') {
 		  alert('색상코드를 입력하세요');	  
 		  document.frm.ccode.focus();	 	  		  	    		    	    		 		
