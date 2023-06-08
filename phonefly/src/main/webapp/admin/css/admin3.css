@@ -348,12 +348,17 @@ body {
 }
 
 #PUList/* #content */ td,
-#PIList td
+#PIList td,
+#PNIList td,
+#EIList td,
+#PCIList td	
+
 {
 	float:left;
 	 
 	
 }
+
 
 
 /* 폰트  */

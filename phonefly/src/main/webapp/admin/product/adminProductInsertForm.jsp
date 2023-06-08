@@ -18,23 +18,28 @@
 					size="47" maxlength="100"></td>
 			</tr>
 
-			<tr>
+			<tr id= PITR>
 				<th>원가[A]</th>
 				<td width="70"><input type="text" name="price1" size="11"
 					onkeyup="cal();"></td>
+	    	</tr>
+			<tr> 		
 				<th>판매가[B]</th>
-				<td width="70"><input type="text" name="price2" size="11"
-					onkeyup="cal();"></td>
+				<td width="50"><input type="text" name="price2" size="11"
+		 			onkeyup="cal();"></td>
+	    	</tr>
+			<tr>
 				<th>마진[B-A]</th>
 				<td width="72"><input type="text" name="price3" size="11"></td>
 			</tr>
 
 			<tr>
-				<th>상세설명</th>
+				<th>상세<br>설명</th>
 				<td colspan="5"><textarea name="content" rows="8" cols="70"></textarea></td>
 			</tr>
 
-			<th>판매 가능 여부</th>
+            <tr>
+			<th>판매 가능 여부</th> 	
 			<td>
 			<c:choose>
 					<c:when test='${ProductVO.useyn=="Y"}'>
@@ -47,23 +52,24 @@
 							</c:otherwise>
 				</c:choose>
 				</td>
+             </tr>
 
 
-
-
+               <tr>
 			<th>이벤트 상품</th>
 			<td><c:choose>
 					<c:when test='${ProductVO.eventyn=="Y"}'>
 						<input type="radio" name="eventyn" value="Y" checked="checked">사용
-				  				<input type="radio" name="eventyn" value="N">미사용
+				  				<input type="radio" name="eventyn" value="N">>미사용
 				  			</c:when>
 					<c:otherwise>
 						<input type="radio" name="eventyn" value="Y">사용
 								<input type="radio" name="eventyn" value="N" checked="checked">미사용
 							</c:otherwise>
 				</c:choose></td>
-
-
+             </tr>
+               
+            <tr>
 			<th>베스트상품</th>
 			<td><c:choose>
 					<c:when test='${ProductVO.bestyn=="Y"}'>
@@ -75,6 +81,8 @@
 								<input type="radio" name="bestyn" value="N" checked="checked">미사용
 							</c:otherwise>
 				</c:choose></td>
+			</tr>	
+			
 			<tr>
 				<th>제조사</th>
 				<td width="343" colspan="5"><input type="text" name="mfc"
