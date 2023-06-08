@@ -19,6 +19,8 @@
 		<h1 class="home" onclick="goToAdminProductList()">
 		PhoneFly AdminPage	
 		</h1>
+		<input class="btn" type="button" value="UserPage" style="float: right;"
+			onClick="location.href='pf.do?command=index'">
 	</header>
 	<div class="clear"></div>
 	
