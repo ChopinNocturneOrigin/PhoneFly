@@ -6,9 +6,8 @@
 <article>
 	<h1>상품 색상수정</h1>
 	<form name="frm" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="cseq" value="${ColorVO.cseq}"> <input
-			type="hidden" name="oldImage" value="${ColorVO.image}">
-
+		<input type="hidden" name="cseq" value="${ColorVO.cseq}"> 
+		<input type="hidden" name="oldImage" value="${ColorVO.image}">
 		<table id="PCUList">
 			<tr>
 				<th>색상명</th>
