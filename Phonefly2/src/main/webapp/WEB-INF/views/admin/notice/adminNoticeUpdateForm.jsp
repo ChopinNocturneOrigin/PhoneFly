@@ -27,7 +27,7 @@
 			</div> &nbsp;&nbsp;&nbsp;
 			<div>
 				<input class="btn" type="button" value="취소"
-			onClick="location.href='pf.do?command=adminNoticeDetail&nseq=${noticeVO.nseq}'">
+			     onClick="location.href='adminNoticeDetail&nseq=${noticeVO.nseq}'">
 			</div>
 		</div>
 	</form>

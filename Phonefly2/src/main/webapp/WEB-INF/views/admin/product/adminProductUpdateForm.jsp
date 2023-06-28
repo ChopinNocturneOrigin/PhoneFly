@@ -89,7 +89,7 @@
 			&nbsp;&nbsp;&nbsp;
 			<div>
 				<input class="btn" type="button" value="취소"
-					onClick="location.href='pf.do?command=adminProductDetail&pseq=${ProductVO.pseq}';">
+					onClick="location.href='adminProductDetail&pseq=${ProductVO.pseq}';">
 			</div>
 		</div>
 	</form>

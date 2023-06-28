@@ -15,8 +15,7 @@
 	<div class="clear"></div>
 	<article>
 		<div id="loginform">
-			<form name="frm" method="post" action="pf.do">
-				<input type="hidden" name="command" value="adminLogin">
+			<form name="frm" method="post" action="adminLogin">
 				<table>
 					<tr><td>아 이 디</td><td><input type="text" name="workId" size="10"></td></tr>
 					<tr><td>비밀번호</td><td><input type="password" name="workPwd" size="10"></td></tr>

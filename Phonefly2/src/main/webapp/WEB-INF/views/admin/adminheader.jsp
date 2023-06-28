@@ -20,7 +20,7 @@
 		PhoneFly AdminPage	
 		</h1>
 		<input class="btn" type="button" value="UserPage" style="float: right;"
-			onClick="location.href='pf.do?command=index'">
+			onClick="location.href='index'">
 	</header>
 	<div class="clear"></div>
 	
