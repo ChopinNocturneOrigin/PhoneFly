@@ -49,7 +49,7 @@
 		<div class="Bottm-btn-container">
 			<div>
 				<input type="button" class="btn" value="목록"
-					onClick="location.href='pf.do?command=adminQnaList'">
+					onClick="location.href='adminQnaList'">
 			</div>
 		</div>
 	</form>

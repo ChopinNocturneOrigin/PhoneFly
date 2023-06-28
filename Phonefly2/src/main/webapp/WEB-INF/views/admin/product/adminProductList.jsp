@@ -73,7 +73,7 @@
 
 <br /><br />
 <jsp:include page="/admin/paging/page.jsp">
-	<jsp:param name="command" value="pf.do?command=adminProductList" />
+	<jsp:param  value="adminProductList" />
 </jsp:include>
 <!-- jsp:param 으로 필요한 내용을 전달하고 완성된 페이지를  include 합니다 -->
 

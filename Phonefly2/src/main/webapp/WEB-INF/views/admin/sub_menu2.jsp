@@ -4,11 +4,11 @@
 <nav id="sub_menu">
 <h1>Admin Page</h1>
 <ul>
-	<li><a href='pf.do?command=adminProductList&changeMenu=1'>상품리스트</a></li>
-	<li><a href='pf.do?command=adminOrderList&changeMenu=1'>주문리스트</a></li>
-	<li><a href='pf.do?command=adminMemberList&changeMenu=1'>회원리스트</a></li>
-	<li><a href='pf.do?command=adminQnaList&changeMenu=1'>Q&amp;A리스트</a></li>
-	<li><a href='pf.do?command=adminNoticeList&changeMenu=1'>공지사항리스트</a></li>
-	<li><a href='pf.do?command=adminEventList&changeMenu=1'>이벤트리스트</a></li>
+	<li><a href='adminProductList?first=y'>상품리스트</a></li>
+	<li><a href='adminOrderList?first=y'>주문리스트</a></li>
+	<li><a href='adminMemberList?first=y'>회원리스트</a></li>
+	<li><a href='adminQnaList?first=y'>Q&amp;A리스트</a></li>
+	<li><a href='adminNoticeList?first=y'>공지사항리스트</a></li>
+	<li><a href='adminEventList?first=y'>이벤트리스트</a></li>
 </ul>
 </nav>

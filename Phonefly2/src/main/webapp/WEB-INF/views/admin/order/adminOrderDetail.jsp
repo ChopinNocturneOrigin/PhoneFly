@@ -5,9 +5,9 @@
 
 <article>
 	<!-- <h1>주문리스트</h1> -->
-	<form name="frm" method="post" action="pf.do">
-		<input type="hidden" name="command" value="adminOrderUpdate" /> <input
-			type="hidden" name="odseq" value="${orderVO.odseq}" />
+	<form name="frm" method="post" >
+		<input type="hidden" name="command" value="adminOrderUpdate" /> 
+		<input type="hidden" name="odseq" value="${orderVO.odseq}" />
 
 
 
@@ -362,7 +362,7 @@
 								<div class="Bottm-btn-container btn-group">
 									<div>
 										<input type="button" class="btn" value="목록"
-											onclick="location.href='pf.do?command=adminOrderList';" />
+											onclick="location.href='adminOrderList';" />
 											</div> &nbsp;&nbsp;&nbsp;
 											<div>
 											 <input	type="submit" class="btn"
