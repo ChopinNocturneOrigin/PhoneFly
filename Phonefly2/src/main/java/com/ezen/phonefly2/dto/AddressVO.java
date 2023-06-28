@@ -10,6 +10,4 @@ public class AddressVO {
 	private String zipcode;
 	private String bunji;
 	private String dong;
-	
-	
 }

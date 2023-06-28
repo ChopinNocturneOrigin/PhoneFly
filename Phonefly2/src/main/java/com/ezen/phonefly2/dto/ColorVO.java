@@ -9,6 +9,4 @@ public class ColorVO {
 	private String name;
 	private String ccode;
 	private String image;
-
-	
 }

@@ -6,5 +6,4 @@ import lombok.Data;
 public class CommVO {
 	private int mseq;
 	private String name;
-	
 }

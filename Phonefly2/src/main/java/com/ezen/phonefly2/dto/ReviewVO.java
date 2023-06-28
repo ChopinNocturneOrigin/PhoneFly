@@ -1,9 +1,9 @@
 package com.ezen.phonefly2.dto;
 
 import java.sql.Timestamp;
-
 import lombok.Data;
 @Data
+
 public class ReviewVO {
 	private int rvseq;
 	private String id;
@@ -13,6 +13,4 @@ public class ReviewVO {
 	private int pseq;
 	private String name;
 	private String pname;
-	
-	
 }

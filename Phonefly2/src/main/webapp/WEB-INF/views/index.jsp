@@ -8,7 +8,7 @@
 <body>
 
 <%
-response.sendRedirect("pf.do?command=index");
+response.sendRedirect("/");
 %>
 
 </body>

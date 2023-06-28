@@ -1,9 +1,11 @@
 package com.ezen.phonefly2.dto;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-
+import java.util.List;
 import lombok.Data;
+import java.util.ArrayList;
+import lombok.Data;
+
 @Data
 public class ProductVO {
 	private int pseq;
@@ -17,7 +19,5 @@ public class ProductVO {
 	private String bestyn;
 	private Timestamp indate;
 	private String mfc;
-	private ArrayList<ColorVO> colorList;
-
-	
+	private List<ColorVO> colorList;
 }

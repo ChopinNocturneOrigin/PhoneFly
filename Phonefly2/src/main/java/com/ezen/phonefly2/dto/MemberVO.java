@@ -13,7 +13,4 @@ public class MemberVO {
 	private String address2;
 	private String phone;
 	private String useyn;
-	
-	
-	
 }

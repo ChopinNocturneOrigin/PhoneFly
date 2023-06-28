@@ -26,7 +26,7 @@ author : PMS, BHS
 		<c:forEach items="${mainBestList}" var="productVO" varStatus="status">
 
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='pf.do?command=productDetail&pseq=${productVO.pseq}';" />
+			<c:set var="productDetailLH" value="location.href='/productDetail&pseq=${productVO.pseq}';" />
 			
 			
 			<!-- 제품 아이템 시작 -->
@@ -130,7 +130,7 @@ author : PMS, BHS
 			</div>
 		</li>
 		<li>
-			<div id="content2" class="card cs-p" onclick="location.href='pf.do?command=productList&mfc=Apple';">
+			<div id="content2" class="card cs-p" onclick="location.href='/productList&mfc=Apple';">
 				<img src="images/main/iphone-card-50-compare-202209.jpg" />
 				<div>
 					<span>Apple iPhone 모든 모델 보기</span><br />
@@ -140,7 +140,7 @@ author : PMS, BHS
 			</div>
 		</li>
 		<li>
-			<div id="content3" class="card cs-p" onclick="location.href='pf.do?command=productList&mfc=Apple';">
+			<div id="content3" class="card cs-p" onclick="location.href='/productList&mfc=Apple';">
 				<img src="images/main/iphone-card-50-whyswitch-202209_GEO_KR.jpg" />
 				<div>
 					<span>iPhone으로 갈아타기</span><br />
@@ -167,7 +167,7 @@ author : PMS, BHS
 		<c:forEach items="${mainEventList}" var="productVO" varStatus="status">
 			
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='pf.do?command=productDetail&pseq=${productVO.pseq}';" />
+			<c:set var="productDetailLH" value="location.href='/productDetail&pseq=${productVO.pseq}';" />
 			
 			
 			<!-- 제품 아이템 시작 -->

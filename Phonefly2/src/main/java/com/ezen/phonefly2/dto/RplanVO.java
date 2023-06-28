@@ -1,7 +1,7 @@
 package com.ezen.phonefly2.dto;
 
-import java.sql.Timestamp;
 
+import java.sql.Timestamp;
 import lombok.Data;
 
 @Data
@@ -13,6 +13,4 @@ public class RplanVO {
 	private String dataplan;
 	private String timeplan;
 	private String textplan;
-
-	
 }

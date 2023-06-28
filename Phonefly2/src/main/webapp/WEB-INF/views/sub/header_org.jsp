@@ -12,22 +12,10 @@ author : BHS
 <meta charset="UTF-8">
 <title>PhoneFly</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/mainBanner.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
-<link rel="stylesheet" type="text/css" href="css/comparePopup.css">
+<link rel="stylesheet" type="text/css" href="css/common.min.css">
 <script src="script/bootstrap.min.js"></script>
 <script src="script/jquery-3.6.4.min.js"></script>
-<script src="script/common.js"></script>
-<script src="script/member.js"></script>
-<script src="script/mainMenu.js"></script>
-<script src="script/mainBanner.js"></script>
-<script src="script/mainColorSelect.js"></script>
-<script src="script/comparePopup.js"></script>
-<!-- <script src="script/productDetail.js"></script> -->
-<!-- <script src="script/member.js"></script>
-<script src="script/mypage.js"></script> -->
+<script src="script/common.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -40,42 +28,42 @@ author : BHS
 
 						<c:choose>
 							<c:when test="${empty loginUser}">
-								<li class="nav-item"><a class="nav-link" href="pf.do?command=loginForm">로그인</a></li>
-								<li class="nav-item"><a class="nav-link" href="pf.do?command=contract">회원가입</a></li>
+								<li class="nav-item"><a class="nav-link" href="/loginForm">로그인</a></li>
+								<li class="nav-item"><a class="nav-link" href="/contract">회원가입</a></li>
 							</c:when>
 							<c:otherwise>
 
 								<li class="nav-item"><a class="nav-link" href="javascript:;">${loginUser.name}(${loginUser.id})</a></li>
-								<li class="nav-item"><a class="nav-link" href="pf.do?command=memberUpdateForm">정보수정</a></li>
-								<li class="nav-item"><a class="nav-link" href="pf.do?command=logout">로그아웃</a></li>
-								<!-- <li><a href="pf.do?command=cartList">장바구니</a></li> -->
-								<li class="nav-item"><a class="nav-link" href="pf.do?command=orderList">마이페이지</a></li>
-								<li class="nav-item"><a class="nav-link" href="pf.do?command=qnaList">1:1 문의</a></li>
+								<li class="nav-item"><a class="nav-link" href="/memberUpdateForm">정보수정</a></li>
+								<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+								<!-- <li><a href="/cartList">장바구니</a></li> -->
+								<li class="nav-item"><a class="nav-link" href="/orderList">마이페이지</a></li>
+								<li class="nav-item"><a class="nav-link" href="/qnaList">1:1 문의</a></li>
 							</c:otherwise>
 						</c:choose>
 
-						 <li class="nav-item"><a class="nav-link" href="pf.do?command=admin">admin</a></li> 
+						 <li class="nav-item"><a class="nav-link" href="/admin">admin</a></li> 
 
 					</ul>
 				</nav>
 				<nav id="menu">
 					<ul>
-						<li onclick="location.href='pf.do?command=productList&mfc=Apple';">
+						<li onclick="location.href='/productList&mfc=Apple';">
 							<div class="main_menu"></div><a href="javascript:void(0);">Apple</a>
 						</li>
-						<li onclick="location.href='pf.do?command=productList&mfc=Samsung';">
+						<li onclick="location.href='/productList&mfc=Samsung';">
 							<div class="main_menu"></div><a href="javascript:void(0);">삼성</a>
 						</li>
- 						<li onclick="location.href='pf.do?command=eventList';">
+ 						<li onclick="location.href='/eventList';">
  							<div class="main_menu"></div><a href="javascript:void(0);">이벤트</a>
  						</li>
-						<li onclick="location.href='pf.do?command=productCompare';">
+						<li onclick="location.href='/productCompare';">
 							<div class="main_menu"></div><a href="javascript:void(0);">상품비교</a>
 						</li>
-						<li onclick="location.href='pf.do?command=FAQList';">
+						<li onclick="location.href='/FAQList';">
 							<div class="main_menu"></div><a href="javascript:void(0);">자주하는질문</a>
 						</li>
-						<li onclick="location.href='pf.do?command=noticeList';">
+						<li onclick="location.href='/noticeList';">
 							<div class="main_menu"></div><a href="javascript:void(0);">공지사항</a>
 						</li>
 					</ul>

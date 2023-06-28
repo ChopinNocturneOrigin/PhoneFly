@@ -1,9 +1,7 @@
 package com.ezen.phonefly2.dto;
 
 import java.sql.Timestamp;
-
 import lombok.Data;
-
 
 @Data
 public class EventVO {
@@ -12,6 +10,4 @@ public class EventVO {
 	private String subject;
 	private String image;
 	private Timestamp indate;
-
-
 }

@@ -1,8 +1,8 @@
 package com.ezen.phonefly2.dto;
 
 import java.sql.Timestamp;
-
 import lombok.Data;
+
 @Data
 public class OrderDetailVO {
 	
@@ -36,6 +36,5 @@ public class OrderDetailVO {
 	private String dataplan;	// 데이터제공량 [rplan: dataplan]
 	private String timeplan;	// 통화제공량 [rplan: timeplan]
 	private String textplan;	// 문자제공량 [rplan: textplan]
-	
-	
+
 }

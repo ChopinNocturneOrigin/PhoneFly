@@ -1,8 +1,8 @@
 package com.ezen.phonefly2.dto;
 
 import java.sql.Timestamp;
-
 import lombok.Data;
+
 @Data
 public class QnaVO {
 	private int qseq;
@@ -12,6 +12,4 @@ public class QnaVO {
 	private String reply;
 	private String rep;
 	private Timestamp indate;
-
-	
 }

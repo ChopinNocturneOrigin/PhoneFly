@@ -1,4 +1,4 @@
-package com.ezen.phonefly2.utl;
+package com.ezen.phonefly2.util;
 
 import lombok.Data;
 
