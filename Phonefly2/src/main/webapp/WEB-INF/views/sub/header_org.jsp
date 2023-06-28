@@ -20,7 +20,7 @@ author : BHS
 <body>
 <div class="wrap">
 <header id="header">
-	<div id="logo" onclick="location.href='pf.do?command=index';">
+	<div id="logo" onclick="location.href='/index';">
 		<img src="images/logo.png" />
 	</div>
 				<nav id="sub_menu">

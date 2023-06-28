@@ -343,7 +343,7 @@ author : BHS
 						<li id="od-li-submit-wrap">
 							<!-- 버튼 -->
 							<div>
-								<button class="btn btn-primary fw-semibold" type="button" onclick="location.href='pf.do?command=orderList';" >목록으로</button>
+								<button class="btn btn-primary fw-semibold" type="button" onclick="location.href='/orderList';" >목록으로</button>
 								<c:if test="${orderVO.result == '1'}">
 									&nbsp;<button class="btn btn-secondary fw-semibold" type="button" onclick="cancelOrder(${orderVO.odseq});" >주문취소</button>
 								</c:if>

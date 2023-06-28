@@ -64,9 +64,9 @@ author : BHS
 			<div>
 				<c:if test="${qnaVO.rep == '1'}">
 					<button type="button" class="btn btn-secondary" onclick="confirmDeleteQna(${qnaVO.qseq});" >삭제하기</button>
-					<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=qnaUpdateform&qseq=${qnaVO.qseq}';" >수정하기</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='/qnaUpdateform&qseq=${qnaVO.qseq}';" >수정하기</button>
 				</c:if>
-				<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=qnaList';" >목록으로</button>
+				<button type="button" class="btn btn-primary" onclick="location.href='/qnaList';" >목록으로</button>
 			</div>
 
 		</div>

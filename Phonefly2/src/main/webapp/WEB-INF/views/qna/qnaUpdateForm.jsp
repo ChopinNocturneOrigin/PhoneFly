@@ -56,7 +56,7 @@ author : BHS
 				</table>
 				<div class="d-grid gap-3 d-md-block">
 					<button type="button" class="btn btn-primary" onclick="writeQna();" >수정완료</button>
-					&nbsp;<button type="button" class="btn btn-secondary" onclick="location.href='pf.do?command=qnaList';" >목록으로</button>
+					&nbsp;<button type="button" class="btn btn-secondary" onclick="location.href='/qnaList';" >목록으로</button>
 				</div>
 			</form>
 		</div>

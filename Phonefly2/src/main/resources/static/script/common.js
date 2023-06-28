@@ -102,7 +102,7 @@ function faqToggle(n1,n2) {
 function withdrawalConfirm() {
 	let bool = confirm("정말로 탈퇴 하시겠습니까?");
 	if (bool) {
-		location.href = 'pf.do?command=deleteMember';
+		location.href = '/deleteMember';
 	} else {
 		return;
 	}
@@ -113,7 +113,7 @@ function withdrawalConfirm() {
 function confirmDeleteQna(qseq) {
 	let bool = confirm("정말로 삭제 하시겠습니까?");
 	if (bool) {
-		location.href = 'pf.do?command=qnaDelete&qseq='+qseq;
+		location.href = '/qnaDelete&qseq='+qseq;
 	} else {
 		return;
 	}
@@ -191,7 +191,7 @@ function fn_chk_byte2(obj, nn){
 function cancelOrder(odseq) {
 	let bool = confirm("정말로 주문접수를 취소 하시겠습니까?");
 	if (bool) {
-		location.href = 'pf.do?command=orderCancel&odseq='+odseq;
+		location.href = '/orderCancel&odseq='+odseq;
 	} else {
 		return;
 	}
@@ -219,7 +219,7 @@ function modifyReview(rvseq, objString) {
 function deleteReview(rvseq) {
 	let bool = confirm("정말로 댓글을 삭제 하시겠습니까?");
 	if (bool) {
-		location.href = 'pf.do?command=memberReviewDelete&rvseq='+rvseq;
+		location.href = '/memberReviewDelete&rvseq='+rvseq;
 	} else {
 		return;
 	}

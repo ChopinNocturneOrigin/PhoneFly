@@ -33,7 +33,7 @@ author : BHS
 				<!-- <div class="buttons"> -->
 				<div class="login-form-btns d-grid gap-2 col-5 mx-auto">
 					<button class="btn btn-primary" type="submit" onclick="return loginCheck();" >로그인</button>
-					<button class="btn btn-secondary" type="button" onclick="location.href='pf.do?command=contract';" >회원가입</button>
+					<button class="btn btn-secondary" type="button" onclick="location.href='/contract';" >회원가입</button>
 					<button class="btn btn-secondary" type="button" onclick="findId();" >아이디 찾기</button>
 					<button class="btn btn-secondary" type="button" onclick="findPwd();">비밀번호 찾기</button>
 				</div><br /><br />

@@ -18,7 +18,7 @@ function go_next() {
 	if (document.contractFrm.okon[1].checked === true) {
 		alert("회원 약관에 동의 하셔야 회원으로 가입이 가능합니다.");
 	} else {
-		document.contractFrm.action = "pf.do?command=joinForm";
+		document.contractFrm.action = "/joinForm";
 		document.contractFrm.submit();
 		// contractFrm 폼에 action 도 없고 submit 버튼도 없는 것을 스크립트 명령으로 action 값을 설정하고 submit() 메서드로 이동까지 실행합니다.
 	}
@@ -30,7 +30,7 @@ function idcheck() {
 		document.joinForm.id.focus();
 		return;
 	}
-	let url = "pf.do?command=idCheck&id=" +  document.joinForm.id.value;
+	let url = "/idCheck&id=" +  document.joinForm.id.value;
 	let opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "IdCheck", opt);
 }
@@ -42,7 +42,7 @@ function idok(userid) {
 }
 
 function post_zip() {
-	let url = "pf.do?command=findZipnum";
+	let url = "/findZipnum";
 	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=300, top=300, left=300";
 	window.open(url, "우편번호 찾기", opt);
 }
@@ -158,13 +158,13 @@ function checkPwd() {
 
 
 function findId() {
-	let url = "pf.do?command=selectId";
+	let url = "/selectId";
 	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=350, top=300, left=300";
 	window.open(url, "아이디(ID) 찾기", opt);
 }
 
 function findPwd() {
-	let url = "pf.do?command=selectPwd";
+	let url = "/selectPwd";
 	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=550, height=400, top=300, left=300";
 	window.open(url, "비밀번호 찾기", opt);
 }

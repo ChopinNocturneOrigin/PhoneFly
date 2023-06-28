@@ -46,7 +46,7 @@ author : BHS
 			</thead>
 			<tbody class="table-group-divider">
 				<c:forEach items="${noticeList}" var="board" varStatus="status">
-					<tr class="cs-p" onclick="location.href='pf.do?command=noticeDetail&nseq=${board.nseq}';">
+					<tr class="cs-p" onclick="location.href='/noticeDetail&nseq=${board.nseq}';">
 						<th scope="row">${board.nseq}</th>
 						<td>${board.subject}</td>
 						<td><fmt:formatDate value="${board.indate}" /></td>
@@ -61,7 +61,7 @@ author : BHS
 		<div class="paging">
 			<div id="board-paging">
 				<jsp:include page="/paging/paging.jsp">
-				<jsp:param name="command" value="pf.do?command=noticeList" />
+				<jsp:param name="command" value="/noticeList" />
 				</jsp:include>
 			</div>
 		</div>

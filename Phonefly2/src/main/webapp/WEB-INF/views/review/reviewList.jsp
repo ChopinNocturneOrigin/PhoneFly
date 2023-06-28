@@ -83,7 +83,7 @@ author : BHS
 			<div class="paging">
 				<div id="board-paging">
 					<jsp:include page="/paging/paging.jsp">
-					<jsp:param name="command" value="pf.do?command=reviewList" />
+					<jsp:param name="command" value="/reviewList" />
 					</jsp:include>
 				</div>
 			</div>

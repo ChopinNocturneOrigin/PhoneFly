@@ -51,7 +51,7 @@ author : BHS
 				<tbody class="table-group-divider">
 					<c:forEach items="${qnaList}" var="board" varStatus="status">
 					
-						<tr class="cs-p" onclick="location.href='pf.do?command=qnaDetail&qseq=${board.qseq}';">
+						<tr class="cs-p" onclick="location.href='/qnaDetail&qseq=${board.qseq}';">
 							<th scope="row">${board.qseq}</th>
 							<td class="board-title">${board.subject}</td>
 							<td><fmt:formatDate value="${board.indate}" /></td>
@@ -66,7 +66,7 @@ author : BHS
 				</tbody>
 			</table>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-				<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=qnaWriteForm';" >작성하기</button>
+				<button type="button" class="btn btn-primary" onclick="location.href='/qnaWriteForm';" >작성하기</button>
 			</div>
 			<div id="board-bottom"></div>
 			
@@ -76,7 +76,7 @@ author : BHS
 			<div class="paging">
 				<div id="board-paging">
 					<jsp:include page="/paging/paging.jsp">
-					<jsp:param name="command" value="pf.do?command=qnaList" />
+					<jsp:param name="command" value="/qnaList" />
 					</jsp:include>
 				</div>
 			</div>

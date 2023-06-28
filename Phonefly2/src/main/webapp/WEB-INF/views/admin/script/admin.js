@@ -12,44 +12,44 @@ function workerCheck(){
 
 
 function go_detail( pseq ){
-	document.frm.action = "pf.do?command=adminProductDetail&pseq=" + pseq; 
+	document.frm.action = "/adminProductDetail&pseq=" + pseq; 
 	document.frm.submit();
-	// location.href="pf.do?command=adminProductDetail&pseq=" + pseq;
+	// location.href="/adminProductDetail&pseq=" + pseq;
 }
 
 function go_detail_e( eseq ){
-	document.frm.action = "pf.do?command=adminEventDetail&eseq=" + eseq; 
+	document.frm.action = "/adminEventDetail&eseq=" + eseq; 
 	document.frm.submit();
-	// location.href="pf.do?command=adminEventDetail&eseq=" + eseq;
+	// location.href="/adminEventDetail&eseq=" + eseq;
 }
 
 function go_detail_n( nseq ){
-	document.frm.action = "pf.do?command=adminNoticeDetail&nseq=" + nseq; 
+	document.frm.action = "/adminNoticeDetail&nseq=" + nseq; 
 	document.frm.submit();
-	// location.href="pf.do?command=adminEventDetail&nseq=" + nseq;
+	// location.href="/adminEventDetail&nseq=" + nseq;
 }
 
 
 function go_detail_c( cseq ){
-	document.frm.action = "pf.do?command=adminColorDetail&cseq=" + cseq; 
+	document.frm.action = "/adminColorDetail&cseq=" + cseq; 
 	document.frm.submit();
-	// location.href="pf.do?command=adminColorDetail&cseq=" + cseq;
+	// location.href="/adminColorDetail&cseq=" + cseq;
 }
 
 function go_mov(){
-	location.href = "pf.do?command=adminProductList";
+	location.href = "/adminProductList";
 }
 
 function go_mov_e(){
-	location.href = "pf.do?command=adminEventList";
+	location.href = "/adminEventList";
 }
 
 function go_mov_n(){
-	location.href = "pf.do?command=adminNoticeList";
+	location.href = "/adminNoticeList";
 }
 
 function go_mov_c(pseq){
-	location.href = "pf.do?command=adminColorList&pseq="+pseq;
+	location.href = "/adminColorList&pseq="+pseq;
 }
 
 
@@ -60,7 +60,7 @@ function go_search( comm ){
 		alert("검색버튼 사용시에는 검색어 입력이 필수입니다");
 	 	return;
 	}
-	var url = "pf.do?command=" + comm + "&page=1";   // 검색어로 검색한 결과의 1페이지로 이동
+	var url = "/" + comm + "&page=1";   // 검색어로 검색한 결과의 1페이지로 이동
 	document.frm.action = url;
 	document.frm.submit();
 }
@@ -70,7 +70,7 @@ function go_search( comm ){
 
 function go_total( comm ){
 	document.frm.key.value="";
-	document.frm.action = "pf.do?command=" + comm + "&page=1";
+	document.frm.action = "/" + comm + "&page=1";
 	document.frm.submit();
 }
 
@@ -78,26 +78,26 @@ function go_total( comm ){
 
 
 function go_wrt(){
-	document.frm.action = "pf.do?command=adminProductInsertForm";
+	document.frm.action = "/adminProductInsertForm";
 	document.frm.submit();
 }
 
 
 
 function go_wrt_e(){
-	document.frm.action = "pf.do?command=adminEventInsertForm";
+	document.frm.action = "/adminEventInsertForm";
 	document.frm.submit();
 }
 
 
 
 function go_wrt_n(){
-	document.frm.action = "pf.do?command=adminNoticeInsertForm";
+	document.frm.action = "/adminNoticeInsertForm";
 	document.frm.submit();
 }
 
 function go_wrt_c(pseq){
-	document.frm.action = "pf.do?command=adminColorInsertForm&pseq="+pseq;
+	document.frm.action = "/adminColorInsertForm&pseq="+pseq;
 	document.frm.submit();
 }
 
@@ -128,7 +128,7 @@ function go_save(pseq){
 		alert('제조사를 입력하세요.'); 		
 		theForm.mfc.focus();
 	} else{
-		theForm.action = "pf.do?command=adminProductInsert&pseq=" + pseq ;
+		theForm.action = "/adminProductInsert&pseq=" + pseq ;
 		theForm.submit();	
  }
 }
@@ -146,7 +146,7 @@ function go_save_e(){
 		alert('이벤트상세를 입력하세요.'); 		
 		theForm.content.focus();
 	} else{
-		theForm.action = "pf.do?command=adminEventInsert";
+		theForm.action = "/adminEventInsert";
 		theForm.submit();
 	}
 }
@@ -163,7 +163,7 @@ function go_save_n(){
 		alert('내용을 입력하세요.');
 		theForm.content.focus();
 	} else{
-		theForm.action = "pf.do?command=adminNoticeInsert";
+		theForm.action = "/adminNoticeInsert";
 		theForm.submit();
 	}
 }
@@ -180,7 +180,7 @@ function go_save_c(pseq){
 		alert('색상 이미지를 입력하세요.'); 		
 		theForm.image.focus();	
 	} else{
-		theForm.action = "pf.do?command=adminColorInsert&pseq=" + pseq;
+		theForm.action = "/adminColorInsert&pseq=" + pseq;
 		theForm.submit();
 	}
 }
@@ -190,35 +190,35 @@ function go_save_insert(){
 		alert('이벤트 제목을 입력하세요');
 		document.frm.subject.focus();
 	 } else {
-		document.frm.action = "pf.do?command=adminEventInsert";
+		document.frm.action = "/adminEventInsert";
 		document.frm.submit();
 	}
 }
 
 
 function go_mod(pseq){
-	var url = "pf.do?command=adminProductUpdateForm&pseq=" + pseq;
+	var url = "/adminProductUpdateForm&pseq=" + pseq;
 	location.href=url;
 	// document.frm.action = url;
 	// document.frm.submit();
 }
 
 function go_mod_e(eseq){
-	var url = "pf.do?command=adminEventUpdateForm&eseq=" + eseq;
+	var url = "/adminEventUpdateForm&eseq=" + eseq;
 	location.href=url;
 	// document.frm.action = url;
 	// document.frm.submit();
 }
 
 function go_mod_n(nseq){
-	var url = "pf.do?command=adminNoticeUpdateForm&nseq=" + nseq;
+	var url = "/adminNoticeUpdateForm&nseq=" + nseq;
 	location.href=url;
 	// document.frm.action = url;
 	// document.frm.submit();
 }
 
 function go_mod_c(cseq){
-	var url = "pf.do?command=adminColorUpdateForm&cseq=" + cseq;
+	var url = "/adminColorUpdateForm&cseq=" + cseq;
 	location.href=url;
 	// document.frm.action = url;
 	// document.frm.submit();
@@ -249,7 +249,7 @@ function go_mod_save(pseq){
 		  document.frm.mfc.focus();	 		  	    		  
 	 } else{
 		if( confirm('수정하시겠습니까?') ){
-			 document.frm.action = "pf.do?command=adminProductUpdate&pseq="+pseq;
+			 document.frm.action = "/adminProductUpdate&pseq="+pseq;
 			 document.frm.submit();
 		}
 	}
@@ -261,7 +261,7 @@ function go_mod_save_e(eseq){
 		document.frm.subject.focus();
 	 } else {
 		if( confirm('수정하시겠습니까?') ){
-			document.frm.action = "pf.do?command=adminEventUpdate&eseq="+eseq;
+			document.frm.action = "/adminEventUpdate&eseq="+eseq;
 			document.frm.submit();
 		}
 	}
@@ -280,7 +280,7 @@ function go_mod_save_c(cseq){
 		  document.frm.ccode.focus();	 	  		  	    		    	    		 		
 	 } else {
 		if( confirm('수정하시겠습니까?') ){
-			document.frm.action = "pf.do?command=adminColorUpdate&cseq="+cseq;
+			document.frm.action = "/adminColorUpdate&cseq="+cseq;
 			document.frm.submit();
 		}
 	}
@@ -299,7 +299,7 @@ function go_mod_save_n(){
 		  document.frm.content.focus();
 	 }else{
 		if( confirm('수정하시겠습니까?') ){
-			 document.frm.action = "pf.do?command=adminNoticeUpdate";
+			 document.frm.action = "/adminNoticeUpdate";
 			 document.frm.submit();
 		}
 	}
@@ -322,7 +322,7 @@ function go_order_save(){
 	if (count == 0) {
 	    alert("주문처리할 항목을 선택해 주세요.");
 	}else{
-		document.frm.action = "pf.do?command=adminOrderUpdate";
+		document.frm.action = "/adminOrderUpdate";
 		document.frm.submit();
 	}
 	// 주문 처리하고(주문의 result 값을 '1' -> '2' 로 변경)    orderList.jsp 로 되돌아 갑니다.
@@ -333,14 +333,14 @@ function go_order_save(){
 
 
 function go_view( qseq ){
-	location.href = "pf.do?command=adminQnaDetail&qseq=" + qseq;
+	location.href = "/adminQnaDetail&qseq=" + qseq;
 }
 
 
 	
 
 function go_rep(qseq){
-	document.frm.action="pf.do?command=adminQnaUpdate";
+	document.frm.action="/adminQnaUpdate";
 	document.frm.submit();
 	// 답변 글 등록 & rep 필드를 2로 업데이트
 }
@@ -348,7 +348,7 @@ function go_rep(qseq){
 function go_del_e(eseq) {
   var confirmDelete = confirm("정말 이 이벤트를 삭제하시겠습니까?");
   if (confirmDelete) {
-    var url = "pf.do?command=adminEventDelete&eseq=" + eseq;
+    var url = "/adminEventDelete&eseq=" + eseq;
     location.href =url;
   }
 }
@@ -356,7 +356,7 @@ function go_del_e(eseq) {
 function go_del(pseq) {  
   var confirmDelete = confirm("정말 이 상품을 삭제하시겠습니까?");
   if (confirmDelete) {  
-    var url = "pf.do?command=adminProductDelete&pseq=" + pseq;   
+    var url = "/adminProductDelete&pseq=" + pseq;   
     location.href =url;
   }
 }
@@ -364,7 +364,7 @@ function go_del(pseq) {
 function go_del_n(nseq) {  
   var confirmDelete = confirm("정말 이 공지사항을 삭제하시겠습니까?");
   if (confirmDelete) {  
-    var url = "pf.do?command=adminNoticeDelete&nseq=" + nseq;   
+    var url = "/adminNoticeDelete&nseq=" + nseq;   
     location.href = url;
   }
 }
@@ -372,19 +372,19 @@ function go_del_n(nseq) {
 function go_del_c(cseq,pseq) {  
   var confirmDelete = confirm("정말 이 색상을 삭제하시겠습니까?");
   if (confirmDelete) {   
-    var url = "pf.do?command=adminColorDelete&cseq="+ cseq + "&pseq=" + pseq;   
+    var url = "/adminColorDelete&cseq="+ cseq + "&pseq=" + pseq;   
     location.href = url;
   }
 }
 
 
 function go_col(pseq) {  
- location.href = "pf.do?command=adminColorList&pseq=" + pseq;
+ location.href = "/adminColorList&pseq=" + pseq;
 }
 	
 /* 헤더 누르면 페이지 이동*/  
 function goToAdminProductList() {
- location.href = "pf.do?command=adminProductList&changeMenu;"
+ location.href = "/adminProductList&changeMenu;"
 }
 
 

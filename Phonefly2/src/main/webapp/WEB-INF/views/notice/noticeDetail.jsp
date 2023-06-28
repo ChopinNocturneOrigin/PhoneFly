@@ -56,7 +56,7 @@ author : BHS
 			
 				</tbody>
 			</table>
-			<button type="button" class="btn btn-primary" onclick="location.href='pf.do?command=noticeList';" >돌아가기</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='/noticeList';" >돌아가기</button>
 			
 			
 			</div>
