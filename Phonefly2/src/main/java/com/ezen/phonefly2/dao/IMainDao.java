@@ -9,11 +9,8 @@ import com.ezen.phonefly2.dto.ProductVO;
 
 @Mapper
 public interface IMainDao {
-
+	// author : bhs
 	List<ProductVO> getBestList();
 	List<ProductVO> getEventList();
-	//ArrayList<HashMap<String, Object>> getBestList();
-	//ArrayList<HashMap<String, Object>> getEventList();
 	List<ColorVO> getColorList(int pseq);
-
 }

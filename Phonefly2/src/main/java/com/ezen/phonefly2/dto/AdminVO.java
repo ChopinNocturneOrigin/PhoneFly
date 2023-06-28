@@ -1,6 +1,5 @@
 package com.ezen.phonefly2.dto;
 
-
 import lombok.Data;
 
 @Data

@@ -19,6 +19,7 @@ public class MainController {
 
 	@RequestMapping("/")
 	public ModelAndView main() {
+		// author : bhs
 		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> result = new HashMap<>();
 		result = ms.getMainProduct();

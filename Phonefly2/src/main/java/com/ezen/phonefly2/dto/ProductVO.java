@@ -2,8 +2,7 @@ package com.ezen.phonefly2.dto;
 
 import java.sql.Timestamp;
 import java.util.List;
-import lombok.Data;
-import java.util.ArrayList;
+
 import lombok.Data;
 
 @Data
