@@ -28,6 +28,7 @@ build/
 *.ear
 *.tar.gz
 *.rar
+*.zip
 
 # images
 
