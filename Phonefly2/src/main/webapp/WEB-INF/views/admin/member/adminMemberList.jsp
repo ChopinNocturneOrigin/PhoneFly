@@ -29,7 +29,7 @@
 	  </c:forEach>
 	</table>
 	<jsp:include page="/admin/paging/page.jsp">   
-	    <jsp:param value="pf.do?command=adminMemberList" name="command"/>
+	    <jsp:param value="adminMemberList" />
 	</jsp:include>
 </form>
 </article>
