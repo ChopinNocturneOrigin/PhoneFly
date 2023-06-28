@@ -29,6 +29,9 @@ build/
 *.tar.gz
 *.rar
 *.zip
+*.z01
+*.z02
+*.z03
 
 # images
 
