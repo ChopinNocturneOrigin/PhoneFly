@@ -1,5 +1,6 @@
 package com.ezen.phonefly2.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import com.ezen.phonefly2.dao.IMainDao;
 import com.ezen.phonefly2.dao.IProductDao;
 import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.ProductVO;
+import com.ezen.phonefly2.dto.RplanVO;
 
 @Service
 public class ProductService {
@@ -18,13 +20,20 @@ public class ProductService {
 	@Autowired
 	IMainDao mdao;
 
-	public ProductVO getProduct(int pseq) {
+	public HashMap<String, Object> getProduct(int pseq) {
+		
+		HashMap<String, Object> result = new HashMap<>();
 
-		ProductVO pvo = new ProductVO();
+		ProductVO pvo = pdao.getProduct(pseq);
 		List<ColorVO> colorList = mdao.getColorList(pvo.getPseq());
 		pvo.setColorList(colorList);
+		List<RplanVO> rplanList = pdao.getRplanList();
 
-		return pvo;
+		result.put("productVO", pvo);
+		result.put("colorList", colorList);
+		result.put("rplanList", rplanList);
+
+		return result;
 	}
 
 	public List<ProductVO> getMfcList(String mfc) {
@@ -37,5 +46,5 @@ public class ProductService {
 		}
 		return mfcList;
 	}
-	
+
 }
