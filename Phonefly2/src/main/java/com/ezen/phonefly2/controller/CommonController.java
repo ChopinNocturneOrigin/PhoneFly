@@ -1,15 +1,20 @@
 package com.ezen.phonefly2.controller;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.service.CommonService;
+import com.ezen.phonefly2.util.Paging;
 
 @Controller
 public class CommonController {
@@ -17,22 +22,62 @@ public class CommonController {
 	@Autowired
 	CommonService cs;
 
+//---NOTICE-----------------------------------------------------
+
 	@RequestMapping("/noticeList")
-	public String noticeList(Model model) {
+	public ModelAndView noticeList(HttpServletRequest request) {
 
-		ArrayList<NoticeVO> noticeList = cs.getNoticeList();
-		model.addAttribute("noticeList", noticeList);
-		return "notice/noticeList";
+		ModelAndView mav = new ModelAndView();
 
+		HashMap<String, Object> result = cs.getNoticeList(request);
+
+		List<NoticeVO> noticeList = (List<NoticeVO>) result.get("noticeList");
+
+		mav.addObject("noticeList", noticeList);
+		mav.addObject("paging", (Paging) result.get("paging"));
+		mav.addObject("key", (String) result.get("key"));
+		mav.setViewName("notice/noticeList");
+
+		return mav;
+	}
+
+	@RequestMapping("/noticeDetail")
+	public ModelAndView noticeDetail(@RequestParam("nseq") int nseq) {
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("noticeVO", cs.getNotice(nseq));
+		mav.setViewName("notice/noticeDetail");
+
+		return mav;
+	}
+
+//---EVENT-----------------------------------------------------
+
+	@RequestMapping("/eventList")
+	public ModelAndView eventList(HttpServletRequest request) {
+
+		ModelAndView mav = new ModelAndView();
+
+		HashMap<String, Object> result = cs.getEventList(request);
+		List<EventVO> eventList = (List<EventVO>) result.get("eventList");
+
+		mav.addObject("eventList", eventList);
+		mav.addObject("paging", (Paging) result.get("paging"));
+		mav.addObject("key", (String) result.get("key"));
+		mav.setViewName("event/eventList");
+
+		return mav;
 	}
 	
-	@RequestMapping("/noticeDetail")
-	public String noticeDetail(@RequestParam("nseq") int nseq, Model model) {
+	@RequestMapping("/eventDetail")
+	public ModelAndView eventDetail(@RequestParam("eseq") int eseq) {
 		
-		NoticeVO noticeVO = cs.getNotice(nseq);
-		model.addAttribute("noticeVO", noticeVO);
-		return "notice/noticeDetail";
+		ModelAndView mav = new ModelAndView();
 		
+		mav.addObject("eventVO", cs.getEvent(eseq));
+		mav.setViewName("event/eventDetail");
+		
+		return mav;
 	}
 
 }
