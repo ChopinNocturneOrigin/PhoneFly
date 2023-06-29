@@ -85,6 +85,9 @@ nav#sub_menu ul li {
 	line-height: 40px;
 	text-align: center;
 }
+nav#sub_menu ul li:first-child {
+	width: 160px;
+}
 nav#sub_menu a {
 	text-decoration: none;
 	color:#333;

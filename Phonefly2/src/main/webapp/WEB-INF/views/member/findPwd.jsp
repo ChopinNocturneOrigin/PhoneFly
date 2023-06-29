@@ -15,8 +15,7 @@
 <div class="zipnum-wrap id-check-wrap">
 	<h2 class="mb-4 mt-4">비밀번호 찾기</h2>
 	<c:if test="${result == 0}">
-	<form method="post" name="formm" action="pf.do">
-		<input type="hidden" name="command" value="selectPwd" />
+	<form method="post" name="formm" action="/selectPwd">
 		<table id="find-id">
 			<tr>
 				<td>
@@ -45,8 +44,7 @@
 	<br /><br />
 	</c:if>
 	<c:if test="${result == 1}">
-		<form method="post" name="joinForm" action="pf.do">
-			<input type="hidden" name="command" value="setPwd" />
+		<form method="post" name="joinForm" action="/setPwd">
 			<input type="hidden" name="id" value="${id}" />
 			<fieldset>
 				<div class="form-floating mb-3">

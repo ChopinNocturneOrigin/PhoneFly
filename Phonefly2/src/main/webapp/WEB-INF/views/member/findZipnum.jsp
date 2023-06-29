@@ -15,8 +15,7 @@
 <body>
 <div class="zipnum-wrap id-check-wrap">
 	<h2 class="mb-3 mt-3">우편번호검색</h2>
-	<form method="post" name="formm" action="pf.do">
-		<input type="hidden" name="command" value="findZipnum" />
+	<form method="post" name="formm" action="/findZipnum">
 		<div class="form-floating input-group">
 			<input type="text" name="dong" id="zipnum-dong" class="form-control" maxlength="100" placeholder="검색할 동을 입력하세요" aria-describedby="button-addon1" />
 			<label for="zipnum-dong">동 이름</label>

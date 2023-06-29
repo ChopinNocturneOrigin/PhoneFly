@@ -15,8 +15,7 @@
 <body>
 <div class="id-check-wrap">
 	<h2 class="mb-3 mt-3">ID 중복 확인</h2>
-	<form method="post" name="idCheckForm" action="pf.do">
-		<input type="hidden" name="command" value="idCheck" />
+	<form method="post" name="idCheckForm" action="/idCheck">
 		<div class="form-floating input-group">
 			<input type="text" name="id" class="form-control" id="floatingId" value="${id}" placeholder=" 아이디를 입력하세요" maxlength="20" aria-describedby="button-addon1">
 			<label for="floatingId">아이디</label>

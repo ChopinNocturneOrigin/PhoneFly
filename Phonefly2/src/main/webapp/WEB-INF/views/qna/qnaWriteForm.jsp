@@ -37,8 +37,7 @@ author : BHS
 		<div id="qna-detail-wrap-inner" class="support-inner-wrap">
 			<div id="board-anchor"></div>
 			<h1>1:1 문의 작성</h1>
-			<form name="qnafrm" method="post" action="pf.do">
-				<input type="hidden" name="command" value="qnaWrite" />
+			<form name="qnafrm" method="post" action="/qnaWrite">
 				<table class="table">
 					<tbody class="table-group-divider">
 						<tr>

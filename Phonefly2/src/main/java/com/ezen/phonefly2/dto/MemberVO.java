@@ -11,6 +11,8 @@ public class MemberVO {
 	private String zipnum;
 	private String address1;
 	private String address2;
+	private String address3;
 	private String phone;
 	private String useyn;
+	private String provider;
 }

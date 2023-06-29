@@ -42,7 +42,7 @@
 				<input type="text" name="address2" id="join-address2" class="form-control" size="30" placeholder=" 상세주소를 입력하세요" maxlength="100" /><label for="join-address2">상세주소</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input type="text" name="email" id="join-email" class="form-control" size="30" c placeholder=" 이메일을 입력하세요" maxlength="40" /><label for="join-email">이메일</label>
+				<input type="text" name="email" id="join-email" class="form-control" size="30" placeholder=" 이메일을 입력하세요" maxlength="40" /><label for="join-email">이메일</label>
 			</div>
 		</fieldset>
 		

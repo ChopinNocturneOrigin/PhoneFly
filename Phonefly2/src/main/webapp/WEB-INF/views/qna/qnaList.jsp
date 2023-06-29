@@ -51,7 +51,7 @@ author : BHS
 				<tbody class="table-group-divider">
 					<c:forEach items="${qnaList}" var="board" varStatus="status">
 					
-						<tr class="cs-p" onclick="location.href='/qnaDetail&qseq=${board.qseq}';">
+						<tr class="cs-p" onclick="location.href='/qnaDetail?qseq=${board.qseq}';">
 							<th scope="row">${board.qseq}</th>
 							<td class="board-title">${board.subject}</td>
 							<td><fmt:formatDate value="${board.indate}" /></td>
