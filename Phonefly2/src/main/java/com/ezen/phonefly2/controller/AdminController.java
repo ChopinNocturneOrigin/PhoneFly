@@ -1,5 +1,8 @@
 package com.ezen.phonefly2.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.phonefly2.util.Paging;
+import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.service.AdminService;
 
 @Controller
@@ -59,6 +64,24 @@ public class AdminController {
 	    		mav.setViewName("admin/admin");
 		}	
 		
+		return mav;
+	}
+	
+	@RequestMapping("/adminProductList")
+	public ModelAndView admin_product_list( HttpServletRequest request ) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("workId");
+		if(id==null)
+			mav.setViewName("redirect:/admin");
+		else {
+			HashMap<String, Object> result =  as.getAdminProductList( request );
+			mav.addObject("adminProductList",  (List<ProductVO>)result.get("AdminProductList")  );
+			mav.addObject("paging", (Paging)result.get("paging") );
+			mav.addObject("key", (String)result.get("key") );
+			mav.setViewName("admin/product/adminProductList");
+			// Controller 는 Service 가 작업해서 보내준 결과들을 mav 에 잘 넣어서 목적지로 이동만 합니다.
+		}
 		return mav;
 	}
 
