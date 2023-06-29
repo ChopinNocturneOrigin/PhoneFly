@@ -61,7 +61,7 @@ author : BHS
 		<!-- 페이징 -->
 		<div class="paging">
 			<div id="board-paging">
-				<jsp:include page="/paging/paging.jsp">
+				<jsp:include page="../paging/paging.jsp">
 				<jsp:param name="command" value="/eventList" />
 				</jsp:include>
 			</div>

@@ -60,7 +60,7 @@ author : BHS
 		<div class="clear"></div>
 		<div class="paging">
 			<div id="board-paging">
-				<jsp:include page="/paging/paging.jsp">
+				<jsp:include page="../paging/paging.jsp">
 				<jsp:param name="command" value="/noticeList" />
 				</jsp:include>
 			</div>
