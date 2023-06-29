@@ -16,7 +16,7 @@ public class Paging {
 	private int endNum;				// 현재 페이지에 표시될 게시물의 끝 번호
 	private int totalPage;			// 총 페이지 수
 
-	private void paging() {
+	public void paging() {
 		endPage = (int)(Math.ceil(page / (double)displayPage) * displayPage);
 		beginPage = endPage - (displayPage - 1);
 		totalPage = (int)Math.ceil(totalCount / (double)displayRow);
