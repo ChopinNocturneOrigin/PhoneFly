@@ -113,7 +113,7 @@ function withdrawalConfirm() {
 function confirmDeleteQna(qseq) {
 	let bool = confirm("정말로 삭제 하시겠습니까?");
 	if (bool) {
-		location.href = '/qnaDelete&qseq='+qseq;
+		location.href = '/qnaDelete?qseq='+qseq;
 	} else {
 		return;
 	}
@@ -133,7 +133,7 @@ function writeQna() {
 		alert("내용은 3000바이트 까지 입력 가능합니다.");
 		document.qnafrm.content.focus();
 	} else {
-		document.qnafrm.action = "pf.do";
+		//document.qnafrm.action = "pf.do";
 		document.qnafrm.submit();
 	}
 }
@@ -146,7 +146,7 @@ function writeReview() {
 		alert("내용은 1000바이트 까지 입력 가능합니다.");
 		document.reviewForm.content.focus();
 	} else {
-		document.reviewForm.action = "pf.do";
+		//document.reviewForm.action = "pf.do";
 		document.reviewForm.submit();
 	}
 }
@@ -191,7 +191,7 @@ function fn_chk_byte2(obj, nn){
 function cancelOrder(odseq) {
 	let bool = confirm("정말로 주문접수를 취소 하시겠습니까?");
 	if (bool) {
-		location.href = '/orderCancel&odseq='+odseq;
+		location.href = '/orderCancel?odseq='+odseq;
 	} else {
 		return;
 	}
@@ -219,7 +219,7 @@ function modifyReview(rvseq, objString) {
 function deleteReview(rvseq) {
 	let bool = confirm("정말로 댓글을 삭제 하시겠습니까?");
 	if (bool) {
-		location.href = '/memberReviewDelete&rvseq='+rvseq;
+		location.href = '/memberReviewDelete?rvseq='+rvseq;
 	} else {
 		return;
 	}

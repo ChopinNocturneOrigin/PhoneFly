@@ -13,9 +13,7 @@ author : BHS
 <article>
 <!-- 제품 상세 전체 프레임 -->
 <div class="wrap pdd-wrap">
-<form name="productForm" method="post" action="pf.do">
-	<input type="hidden" name="command" value="order" />
-
+<form name="productForm" method="post" action="/order">
 	<input type="hidden" class="pdd-pseq pdPseq" name="pseq" value="${productVO.pseq}" />
 	<input type="hidden" class="pdImg" value="${productVO.colorList[0].image}" />
 	<input type="hidden" class="pdName" value="${productVO.name}" />
@@ -406,8 +404,7 @@ author : BHS
 	<div class="pdd-review-wrap card-normal">
 		<!-- 입력 파트 -->
 		<c:if test="${countOrderById > 0}">
-			<form name="reviewForm" method="post"  action="pf.do">
-			<input type="hidden" name="command" value="reviewWrite" />
+			<form name="reviewForm" method="post"  action="/reviewWrite">
 				<input type="hidden" name="pseq" value="${productVO.pseq}" />
 				<div class="pdd-review-inputarea">
 					<ul>

@@ -32,7 +32,7 @@ author : BHS
 <body>
 <div class="wrap">
 <header id="header">
-	<div id="logo" onclick="location.href='/index';">
+	<div id="logo" onclick="location.href='/';">
 		<img src="images/logo.png" />
 	</div>
 				<nav id="sub_menu">
@@ -60,10 +60,10 @@ author : BHS
 				</nav>
 				<nav id="menu">
 					<ul>
-						<li onclick="location.href='/productList&mfc=Apple';">
+						<li onclick="location.href='/productList?mfc=Apple';">
 							<div class="main_menu"></div><a href="javascript:void(0);">Apple</a>
 						</li>
-						<li onclick="location.href='/productList&mfc=Samsung';">
+						<li onclick="location.href='/productList?mfc=Samsung';">
 							<div class="main_menu"></div><a href="javascript:void(0);">삼성</a>
 						</li>
  						<li onclick="location.href='/eventList';">

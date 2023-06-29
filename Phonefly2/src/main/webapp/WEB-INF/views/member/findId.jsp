@@ -14,8 +14,7 @@
 <body>
 <div class="zipnum-wrap id-check-wrap">
 	<h2 class="mb-4 mt-4">아이디(ID) 찾기</h2>
-	<form method="post" name="formm" action="pf.do">
-		<input type="hidden" name="command" value="selectId" />
+	<form method="post" name="formm" action="/selectId">
 		<table id="find-id">
 			<tr>
 				<td>

@@ -79,7 +79,7 @@ function go_save() {
 		alert("우편번호를 입력해 주세요.");
 		document.joinForm.zipnum.focus();
 	} else {
-		document.joinForm.action = "pf.do";
+		//document.joinForm.action = "pf.do";
 		document.joinForm.submit();
 	}
 }
@@ -104,7 +104,7 @@ function go_update() {
 		alert("우편번호를 입력해 주세요.");
 		document.joinForm.zipnum.focus();
 	} else {
-		document.joinForm.action = "pf.do";
+		//document.joinForm.action = "pf.do";
 		document.joinForm.submit();
 	}
 }
@@ -122,7 +122,7 @@ function findIdSubmit() {
 		alert("전화번호를 입력해 주세요.");
 		document.formm.phone.focus();
 	} else {
-		document.formm.action = "pf.do";
+		//document.formm.action = "pf.do";
 		document.formm.submit();
 	}
 }
@@ -138,7 +138,7 @@ function findPwdSubmit() {
 		alert("전화번호를 입력해 주세요.");
 		document.formm.phone.focus();
 	} else {
-		document.formm.action = "pf.do";
+		//document.formm.action = "pf.do";
 		document.formm.submit();
 	}
 }
@@ -151,7 +151,7 @@ function checkPwd() {
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 		document.joinForm.id.focus();
 	} else {
-		document.joinForm.action = "pf.do";
+		//document.joinForm.action = "pf.do";
 		document.joinForm.submit();
 	}
 }

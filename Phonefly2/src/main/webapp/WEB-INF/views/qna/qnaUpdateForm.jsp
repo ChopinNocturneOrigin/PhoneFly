@@ -37,8 +37,7 @@ author : BHS
 		<div id="qna-detail-wrap-inner" class="support-inner-wrap">
 			<div id="board"></div>
 			<h1>1:1 문의 수정</h1>
-			<form name="qnafrm" method="post" action="pf.do">
-				<input type="hidden" name="command" value="qnaUpdate" />
+			<form name="qnafrm" method="post" action="/qnaUpdate">
 				<input type="hidden" name="qseq" value="${qnaVO.qseq}" />
 				<table class="table">
 					<tbody class="table-group-divider">

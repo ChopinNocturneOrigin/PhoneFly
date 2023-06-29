@@ -9,8 +9,7 @@
 
 	<!-- 비교 팝업 본체 -->
 	<div class="wrap compare-wrap">
-		<form name="frm" method="post" action="pf.do" onsubmit="return toComparePage();">
-			<input type="hidden" name="command" value="productCompare" />
+		<form name="frm" method="post" action="/productCompare" onsubmit="return toComparePage();">
 			<input type="hidden" class="compare-counts" name="counts" value="0" />
 
 

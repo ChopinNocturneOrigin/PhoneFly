@@ -39,8 +39,7 @@ author : BHS
 			<div id="board-anchor"></div>
 			<h1>내가 작성한 후기</h1>
 
-			<form name="reviewForm" method="post" action="pf.do">
-			<input type="hidden" name="command" value="memberReviewUpdate" />
+			<form name="reviewForm" method="post" action="/memberReviewUpdate">
 			<input type="hidden" name="rvseq" id="real-rvseq" value="" />
 			<input type="hidden" name="content" id="real-content" value="" />
 			<table class="table table-striped">

@@ -53,7 +53,7 @@ author : BHS
 						<c:when test="${not empty orderList}">
 							<c:forEach items="${orderList}" var="order" varStatus="status">
 							
-								<tr class="cs-p" onclick="location.href='/orderDetail&odseq=${order.odseq}';">
+								<tr class="cs-p" onclick="location.href='/orderDetail?odseq=${order.odseq}';">
 									<th scope="row">${order.odseq}</th>
 									<td class="board-title">[${order.mfc}] ${order.pname}&nbsp; -&nbsp; [${order.cname}] ${order.rname} 요금제</td>
 									<td><fmt:formatDate value="${order.indate}" /></td>

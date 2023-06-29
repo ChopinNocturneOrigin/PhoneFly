@@ -26,7 +26,7 @@ author : BHS
 		<c:forEach items="${productList}" var="productVO" varStatus="status">
 
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='/productDetail&pseq=${productVO.pseq}';" />
+			<c:set var="productDetailLH" value="location.href='/productDetail?pseq=${productVO.pseq}';" />
 			
 			
 			<!-- 제품 아이템 시작 -->
