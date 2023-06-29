@@ -20,4 +20,28 @@ public class MemberService {
 		mdao.joinKakao(mvo);
 	}
 
+	public void join(MemberVO mvo) {
+		mdao.join(mvo);
+	}
+
+	public void memberUpdate(MemberVO mvo) {
+		mdao.memberUpdate(mvo);
+	}
+
+	public void deleteMember(String id) {
+		mdao.deleteMember(id);
+	}
+
+	public MemberVO findId(String name, String phone) {
+		return mdao.findId(name, phone);
+	}
+
+	public int findMember(String id, String name, String phone) {
+		return mdao.findMember(id, name, phone);
+	}
+
+	public void setNewPwd(String id, String pwd) {
+		mdao.setNewPwd(id, pwd);
+	}
+
 }

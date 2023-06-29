@@ -49,6 +49,7 @@ function sample6_execDaumPostcode() {
 <div class="wrap join-form-wrap card-normal">
 	<div class="join-form mb-4">
 	<form method="post" name="joinForm" action="/memberUpdate">
+		<input type="hidden" name="provider" value="${loginUser.provider}" />
 		<fieldset>
 			<legend>기본 정보</legend>
 			<div class="form-floating input-group mb-3">
@@ -56,12 +57,26 @@ function sample6_execDaumPostcode() {
 				<input type="hidden" name="reid" />
 				<button type="button" id="button-addon1" class="btn btn-secondary" onclick="idcheck();" >중복 체크</button>
 			</div>
-			<div class="form-floating mb-3">
-				<input type="password" name="pwd" id="join-pwd" class="form-control" placeholder=" 암호를 입력하세요" maxlength="20" /><label for="join-pwd">암호</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input type="password" name="pwdCheck" id="join-pwd2" class="form-control" placeholder=" 암호를 입력하세요" maxlength="20" /><label for="join-pwd2">암호 재입력</label>
-			</div>
+
+			<c:choose>
+				<c:when test="${loginUser.provider == 'kakao'}">
+					<div class="form-floating mb-3">
+						<input type="password" name="pwd" id="join-pwd" class="form-control" placeholder=" 암호를 입력하세요" maxlength="20" readonly /><label for="join-pwd">암호</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="password" name="pwdCheck" id="join-pwd2" class="form-control" placeholder=" 암호를 입력하세요" maxlength="20" readonly /><label for="join-pwd2">암호 재입력</label>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="form-floating mb-3">
+						<input type="password" name="pwd" id="join-pwd" class="form-control" placeholder=" 암호를 입력하세요" maxlength="20" /><label for="join-pwd">암호</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="password" name="pwdCheck" id="join-pwd2" class="form-control" placeholder=" 암호를 입력하세요" maxlength="20" /><label for="join-pwd2">암호 재입력</label>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
 			<div class="form-floating mb-3">
 				<input type="text" name="name" id="join-name" class="form-control" placeholder=" 성명을 입력하세요" maxlength="20" value="${loginUser.name}" /><label for="join-name">성명</label>
 			</div>
@@ -74,7 +89,7 @@ function sample6_execDaumPostcode() {
 			<legend>추가 정보</legend>
 			<div class="form-floating input-group mb-3">
 				<input type="text" name="zipnum" id="sample6_postcode" class="form-control" size="20" placeholder=" 주소찾기를 누르세요" aria-describedby="button-addon2" value="${loginUser.zipnum}" readonly /><label for="sample6_postcode">우편번호</label>
-				<input type="button" value="주소 찾기" id="button-addon2" class="btn btn-secondary" class="join-form-input" onclick="post_zip();" />
+				<input type="button" value="주소 찾기" id="button-addon2" class="btn btn-secondary" class="join-form-input" onclick="sample6_execDaumPostcode();" />
 			</div>
 			<div class="form-floating mb-3">
 				<input type="text" name="address1" id="sample6_address" class="form-control" size="50" placeholder=" 주소찾기를 누르세요" value="${loginUser.address1}" readonly /><label for="sample6_address">주소</label>
@@ -85,9 +100,20 @@ function sample6_execDaumPostcode() {
 			<div class="form-floating mb-3">
 				<input type="text" name="address3" id="sample6_extraAddress" class="form-control" size="30" placeholder=" 기타주소(세부사항)을 입력하세요" value="${loginUser.address3}" maxlength="100" /><label for="sample6_extraAddress">기타주소(세부사항)</label>
 			</div>
-			<div class="form-floating mb-3">
-				<input type="text" name="email" id="join-email" class="form-control" size="30" c placeholder=" 이메일을 입력하세요" maxlength="40" value="${loginUser.email}" /><label for="join-email">이메일</label>
-			</div>
+
+			<c:choose>
+				<c:when test="${loginUser.provider == 'kakao'}">
+					<div class="form-floating mb-3">
+						<input type="text" name="email" id="join-email" class="form-control" size="30" placeholder=" 이메일을 입력하세요" maxlength="40" value="${loginUser.email}" readonly /><label for="join-email">이메일</label>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="form-floating mb-3">
+						<input type="text" name="email" id="join-email" class="form-control" size="30" placeholder=" 이메일을 입력하세요" maxlength="40" value="${loginUser.email}" /><label for="join-email">이메일</label>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
 		</fieldset>
 
 		<div class="clear"></div>
