@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header2.jsp"%>
-<%@ include file="/admin/sub_menu2.jsp"%>
+<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/sub_menu2.jsp"%>
 <article>
 <h1>Q&amp;A 게시글 리스트</h1>  
 <form name="frm" method="post">
@@ -27,8 +27,8 @@
       		<td> ${qnaVO.id} </td><td> <fmt:formatDate value="${qnaVO.indate}"/></td></tr>
     </c:forEach>
 </table><br>
-<jsp:include page="/admin/paging/page.jsp">
-	<jsp:param  value="adminQnaList" />
+<jsp:include page="../../admin/paging/page.jsp">
+	<jsp:param  name="command" value="adminQnaList" />
 </jsp:include>
 </article>
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../../admin/footer.jsp"%>

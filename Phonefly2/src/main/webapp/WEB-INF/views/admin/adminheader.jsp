@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -20,7 +19,7 @@
 		PhoneFly AdminPage	
 		</h1>
 		<input class="btn" type="button" value="UserPage" style="float: right;"
-			onClick="location.href='index'">
+			onClick="location.href='/'">
 	</header>
 	<div class="clear"></div>
 	

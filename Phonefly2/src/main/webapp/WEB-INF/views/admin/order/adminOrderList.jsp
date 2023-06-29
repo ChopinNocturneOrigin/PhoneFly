@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header2.jsp"%>
-<%@ include file="/admin/sub_menu2.jsp"%>
+<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
 <h1>주문리스트</h1>
@@ -42,13 +42,13 @@
 
 	<br><br>
 
-	<jsp:include page="/admin/paging/page.jsp" >
-		<jsp:param  value=adminOrderList"/>
+	<jsp:include page="../../admin/paging/page.jsp" >
+		<jsp:param  name="command" value=adminOrderList"/>
 	</jsp:include>
 </form>
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../../admin/footer.jsp"%>
 
 
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header2.jsp"%>
-<%@ include file="/admin/sub_menu2.jsp"%>
+<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
 <h1>공지사항리스트</h1>
@@ -43,11 +43,11 @@
 </table>
 
 <br /><br />
-<jsp:include page="/admin/paging/page.jsp">
-	<jsp:param  value="adminNoticeList" />
+<jsp:include page="../../admin/paging/page.jsp">
+	<jsp:param name="command" value="adminNoticeList" />
 </jsp:include>
 <!-- jsp:param 으로 필요한 내용을 전달하고 완성된 페이지를  include 합니다 -->
 
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../../admin/footer.jsp"%>

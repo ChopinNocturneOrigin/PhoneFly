@@ -14,15 +14,73 @@
   </select>
   
 <select id="listProduct" resultType="com.ezen.phonefly2.dto.ProductVO">
-     select * from(
-     select * from(
-         select rownum as rn, p.*from
+     select * from (
+     select * from (
+         select rownum as rn, p.* from
          ((select * from product where name like '%'||#{param2}||'%' order by pseq desc) p)
      ) where rn &gt; = #{param1.startNum}
      ) where rn &lt; = #{param1.endNum}
      
   </select>
 
+<select id="listMember" resultType="com.ezen.phonefly2.dto.MemberVO">
+     select * from(
+     select * from(
+         select rownum as rn, m.*from
+         ((select * from member where id like '%'||#{param2}||'%' ) m)
+     ) where rn &gt; = #{param1.startNum}
+     ) where rn &lt; = #{param1.endNum}
+     
+  </select>
+  
 
 
+  <select id="listQna" resultType="com.ezen.phonefly2.dto.QnaVO">
+     select * from(
+     select * from(
+         select rownum as rn, q.*from
+         ((select * from qna where subject like '%'||#{param2}||'%' order by qseq desc) q)
+     ) where rn &gt; = #{param1.startNum}
+     ) where rn &lt; = #{param1.endNum}
+     
+  </select>
+  
+<!--   <select id="listOrder" resultType="com.ezen.phonefly2.dto.OrderVO">
+        select * from(
+        select * from(
+         select rownum as rn, p.* from
+         ((select * from order_view where pname like '%'||#{param2}||'%' order by result, odseq desc) p)
+         )where rn &gt;= #{param1.startNum}
+         )where rn &lt;= #{param1.endNum}
+     
+  </select> --> 
+  
+  <select id="listNotice" resultType="com.ezen.phonefly2.dto.NoticeVO">
+    SELECT *
+    FROM (
+        SELECT rownum as rn, n.*
+        FROM (
+            SELECT *
+            FROM notice
+            WHERE subject LIKE '%' || #{param2} || '%'
+            ORDER BY nseq DESC
+        ) n
+    ) 
+    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
+</select>
+
+
+<select id="listEvent" resultType="com.ezen.phonefly2.dto.EventVO">
+    SELECT *
+    FROM (
+        SELECT rownum as rn, e.*
+        FROM (
+            SELECT *
+            FROM event
+            WHERE subject LIKE '%' || #{param2} || '%'
+            ORDER BY eseq DESC
+        ) e
+    ) 
+    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
+</select>
 </mapper>
