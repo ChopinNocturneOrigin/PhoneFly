@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/admin/header2.jsp"%>
-<%@ include file="/admin/sub_menu2.jsp"%>
+<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
 	<h1>공지사항 수정</h1>
@@ -27,10 +27,10 @@
 			</div> &nbsp;&nbsp;&nbsp;
 			<div>
 				<input class="btn" type="button" value="취소"
-			     onClick="location.href='adminNoticeDetail&nseq=${noticeVO.nseq}'">
+			     onClick="location.href='adminNoticeDetail?nseq=${noticeVO.nseq}'">
 			</div>
 		</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../../admin/footer.jsp"%>

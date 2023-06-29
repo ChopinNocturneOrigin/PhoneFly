@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header2.jsp"%>
-<%@ include file="/admin/sub_menu2.jsp"%>
+<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/sub_menu2.jsp"%>
 <article>
 <h1>회원리스트</h1>  
 <form name="frm" method="post">
@@ -28,9 +28,9 @@
 		    	<td>${memberVO.phone}</td></tr>
 	  </c:forEach>
 	</table>
-	<jsp:include page="/admin/paging/page.jsp">   
-	    <jsp:param value="adminMemberList" />
+	<jsp:include page="../../admin/paging/page.jsp">   
+	    <jsp:param name="command" value="adminMemberList" />
 	</jsp:include>
 </form>
 </article>
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../../admin/footer.jsp"%>
