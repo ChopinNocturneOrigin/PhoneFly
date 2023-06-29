@@ -45,7 +45,7 @@ author : BHS
 							</c:when>
 							<c:otherwise>
 
-								<li class="nav-item"><a class="nav-link" href="javascript:;">${loginUser.name}(${loginUser.id})</a></li>
+								<li class="nav-item first"><a class="nav-link" href="javascript:;">${loginUser.name}(${loginUser.id})</a></li>
 								<li class="nav-item"><a class="nav-link" href="/memberUpdateForm">정보수정</a></li>
 								<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
 								<!-- <li><a href="/cartList">장바구니</a></li> -->

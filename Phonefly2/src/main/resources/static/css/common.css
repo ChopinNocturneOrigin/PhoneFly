@@ -750,7 +750,7 @@ article h3 {
 }
 .sub-banner-join {
 	text-align: center;
-	height: 863px;
+	height: 937px;
 	z-index: -1;
 	margin-bottom: 30px
 }
@@ -759,7 +759,7 @@ article h3 {
 	height: 360px;
 }
 .wrap .sub-banner-join video {
-	width: 105%;
+	width: 114%;
 }
 .sub-banner-notice video {
 	position: relative;
@@ -1701,4 +1701,11 @@ article h3 {
 	font-weight: bold;
 	width: 120px;
 	margin: 5px;
+}
+
+
+
+/* 회사소개 */
+.intro-inner-wrap {
+	text-align: left;
 }

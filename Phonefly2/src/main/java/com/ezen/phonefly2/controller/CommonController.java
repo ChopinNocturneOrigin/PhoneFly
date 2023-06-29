@@ -22,6 +22,11 @@ public class CommonController {
 	@Autowired
 	CommonService cs;
 
+	@RequestMapping("/intro")
+	public String intro() {
+		return "guide/intro";
+	}
+
 //---NOTICE-----------------------------------------------------
 
 	@RequestMapping("/noticeList")

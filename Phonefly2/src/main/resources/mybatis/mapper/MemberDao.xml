@@ -11,4 +11,27 @@
 		INSERT INTO member (id, email, name, provider) VALUES (#{id}, #{email}, #{name}, #{provider})
 	</insert>
 
+	<insert id="join" parameterType="com.ezen.phonefly2.dto.MemberVO">
+		INSERT INTO member (id, pwd, name, email, zipnum, address1, address2, address3, phone, provider) VALUES (#{id}, #{pwd}, #{name}, #{email}, #{zipnum}, #{address1}, #{address2}, #{address3}, #{phone}, #{provider})
+	</insert>
+
+	<update id="memberUpdate" parameterType="com.ezen.phonefly2.dto.MemberVO">
+		UPDATE member SET pwd = #{pwd}, name = #{name}, email = #{email}, zipnum = #{zipnum}, address1 = #{address1}, address2 = #{address2}, address3 = #{address3}, phone = #{phone}, provider = #{provider} WHERE id = #{id}
+	</update>
+
+	<update id="deleteMember">
+		UPDATE member SET useyn='N' WHERE id = #{param1}
+	</update>
+
+	<select id="findId">
+		SELECT * FROM member WHERE name = #{param1} AND phone = #{param2}
+	</select>
+
+	<select id="findMember">
+		SELECT COUNT(*) cnt FROM member WHERE id = #{param1} AND name = #{param2} AND phone = #{param3}
+	</select>
+
+	<update id="setNewPwd">
+		UPDATE member SET pwd = #{param2} WHERE id = #{param1}
+	</update>
 </mapper>

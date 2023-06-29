@@ -73,7 +73,7 @@ function sample6_execDaumPostcode() {
 			<legend>추가 정보</legend>
 			<div class="form-floating input-group mb-3">
 				<input type="text" name="zipnum" id="sample6_postcode" class="form-control" size="20" placeholder=" 주소찾기를 누르세요" aria-describedby="button-addon2" readonly /><label for="sample6_postcode">우편번호</label>
-				<input type="button" value="주소 찾기" id="button-addon2" class="btn btn-secondary" class="join-form-input" onclick="post_zip();" />
+				<input type="button" value="주소 찾기" id="button-addon2" class="btn btn-secondary" class="join-form-input" onclick="sample6_execDaumPostcode();" />
 			</div>
 			<div class="form-floating mb-3">
 				<input type="text" name="address1" id="sample6_address" class="form-control" size="50" placeholder=" 주소찾기를 누르세요" readonly /><label for="sample6_address">주소</label>

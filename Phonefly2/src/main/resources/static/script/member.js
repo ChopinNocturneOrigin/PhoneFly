@@ -30,7 +30,7 @@ function idcheck() {
 		document.joinForm.id.focus();
 		return;
 	}
-	let url = "/idCheck&id=" +  document.joinForm.id.value;
+	let url = "/idCheck?id=" +  document.joinForm.id.value;
 	let opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "IdCheck", opt);
 }
@@ -85,22 +85,22 @@ function go_save() {
 }
 
 function go_update() {
-	if (document.joinForm.pwd.value === "") {
+	if (document.joinForm.pwd.value === "" && document.joinForm.provider.value != 'kakao') {
 		alert("비밀번호를 입력해 주세요.");
 		document.joinForm.pwd.focus();
-	} else if (document.joinForm.pwd.value !== document.joinForm.pwdCheck.value) {
+	} else if (document.joinForm.pwd.value !== document.joinForm.pwdCheck.value && document.joinForm.provider.value != 'kakao') {
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 		document.joinForm.id.focus();
 	} else if (document.joinForm.name.value === "") {
 		alert("이름을 입력해 주세요.");
 		document.joinForm.name.focus();
-	} else if (document.joinForm.phone.value === "") {
+	} else if (document.joinForm.phone.value === "" && document.joinForm.provider.value != 'kakao') {
 		alert("전화번호를 입력해 주세요.");
 		document.joinForm.phone.focus();
 	} else if (document.joinForm.email.value === "") {
 		alert("이메일을 입력해 주세요.");
 		document.joinForm.email.focus();
-	} else if (document.joinForm.zipnum.value === "") {
+	} else if (document.joinForm.zipnum.value === "" && document.joinForm.provider.value != 'kakao') {
 		alert("우편번호를 입력해 주세요.");
 		document.joinForm.zipnum.focus();
 	} else {

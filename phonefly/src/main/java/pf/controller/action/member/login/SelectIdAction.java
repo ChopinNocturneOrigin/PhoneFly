@@ -20,9 +20,9 @@ public class SelectIdAction implements Action {
 		String phone = request.getParameter("phone");
 
 		if (name != null && !name.isEmpty() && phone != null && !phone.isEmpty()) {
-			 MemberDao mdao = MemberDao.getInstance();
-			 MemberVO member = mdao.selectId(name, phone);
-			 request.setAttribute("member", member);
+			MemberDao mdao = MemberDao.getInstance();
+			MemberVO member = mdao.selectId(name, phone);
+			request.setAttribute("member", member);
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher("member/findId.jsp");
