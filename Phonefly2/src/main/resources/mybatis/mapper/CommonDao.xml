@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.phonefly2.dao.ICommonDao">
+
+	<select id="getNoticeList" resultType="com.ezen.phonefly2.dto.NoticeVO">
+		SELECT * FROM notice order by nseq desc
+	</select>
+
+	
+	<select id="getNotice" resultType="com.ezen.phonefly2.dto.NoticeVO">
+		SELECT * FROM notice where nseq=#{param1}
+	</select>
+	
+	
+</mapper>
