@@ -12,4 +12,7 @@
 		SELECT * FROM product WHERE mfc=#{param1}
 	</select>
 
+	<select id="getRplanList" resultType="com.ezen.phonefly2.dto.RplanVO">
+		SELECT * FROM rplan ORDER BY mseq, rseq
+	</select>
 </mapper>
