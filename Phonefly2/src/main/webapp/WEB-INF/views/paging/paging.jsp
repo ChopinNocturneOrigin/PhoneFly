@@ -6,10 +6,10 @@
 			<c:url var="action" value="${param.command}" />
 			<c:if test="${paging.prev}">
 				<li class="page-item">
-					<a class="page-link" href="${action}&page=1#board-anchor"><span style="font-size:70%">처음으로</span></a>
+					<a class="page-link" href="${action}?page=1#board-anchor"><span style="font-size:70%">처음으로</span></a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="${action}&page=${paging.beginPage - 1}#board-anchor">&laquo;</a>
+					<a class="page-link" href="${action}?page=${paging.beginPage - 1}#board-anchor">&laquo;</a>
 				</li>
 			</c:if>
 			<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
@@ -21,17 +21,17 @@
 					</c:when>
 					<c:otherwise>
 						<li class="page-item">
-							<a class="page-link" href="${action}&page=${index}#board-anchor">${index}</a>
+							<a class="page-link" href="${action}?page=${index}#board-anchor">${index}</a>
 						</li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${paging.next}">
 				<li class="page-item">
-					<a class="page-link" href="${action}&page=${paging.endPage + 1}#board-anchor">&raquo;</a>
+					<a class="page-link" href="${action}?page=${paging.endPage + 1}#board-anchor">&raquo;</a>
 				</li>
 				<li class="page-item">
-					<a class="page-link" href="${action}&page=${paging.totalPage}#board-anchor"><span style="font-size:70%">마지막으로</span></a>
+					<a class="page-link" href="${action}?page=${paging.totalPage}#board-anchor"><span style="font-size:70%">마지막으로</span></a>
 				</li>
 			</c:if>
 		</c:if>
