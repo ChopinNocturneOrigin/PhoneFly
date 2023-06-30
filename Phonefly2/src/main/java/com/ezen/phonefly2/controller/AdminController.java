@@ -17,6 +17,7 @@ import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
+import com.ezen.phonefly2.dto.OrderDetailVO;
 import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.service.AdminService;
 import com.ezen.phonefly2.util.Paging;
@@ -162,4 +163,21 @@ public class AdminController {
 	    return mav;
 	}
 
+	
+	@RequestMapping("/adminOrderList")
+	public ModelAndView adminOrderList(HttpServletRequest request) {
+	    ModelAndView mav = new ModelAndView();
+	    HttpSession session = request.getSession();
+	    String id = (String) session.getAttribute("workId");
+	    if (id == null) {
+	        mav.setViewName("redirect:/admin");
+	    } else {
+	        HashMap<String, Object> result = as.getOrderList(request);
+	        mav.addObject("orderList", (List<OrderDetailVO>) result.get("orderList"));
+	        mav.addObject("paging", (Paging) result.get("paging"));
+	        mav.addObject("key", (String) result.get("key"));
+	        mav.setViewName("admin/order/adminOrderList");
+	    }
+	    return mav;
+	}
 }

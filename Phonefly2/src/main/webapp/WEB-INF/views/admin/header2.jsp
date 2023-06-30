@@ -17,7 +17,7 @@
 		PhoneFly AdminPage
 		</h1>
 		<input class="btn" type="button" value="logout" style="float: right;"
-			onClick="location.href='adminLogout'">
+			onClick="location.href='admin'">
 			
 	</header>
 	<div class="clear"></div>
