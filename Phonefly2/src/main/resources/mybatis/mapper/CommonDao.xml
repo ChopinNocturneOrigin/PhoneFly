@@ -17,7 +17,7 @@
 		SELECT * FROM notice where nseq=#{param1}
 	</select>
 	
-	<select id="getAllCount"  resultType="_int">
+	<select id="getAllCount"  resultType="int">
 		select count(*) from  ${param1}   where   ${param2}   like  '%'||#{param3}||'%'
 	</select>
 	
@@ -32,6 +32,10 @@
 	
 	<select id="getEvent" resultType="com.ezen.phonefly2.dto.EventVO">
 		SELECT * FROM event where eseq=#{param1}
+	</select>
+	
+	<select id="getAllCountById"  resultType="int">
+		select count(*) from  ${param1}   where   ${param2}   like  '%'||#{param3}||'%' and id=#{param4}
 	</select>
 	
 </mapper>

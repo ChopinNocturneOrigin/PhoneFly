@@ -1,5 +1,6 @@
 package com.ezen.phonefly2.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import com.ezen.phonefly2.dao.IMainDao;
 import com.ezen.phonefly2.dao.IProductDao;
 import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.ProductVO;
+import com.ezen.phonefly2.dto.ReviewVO;
 import com.ezen.phonefly2.dto.RplanVO;
 
 @Service
@@ -45,6 +47,18 @@ public class ProductService {
 			pvo.setColorList(colorList);
 		}
 		return mfcList;
+	}
+
+	public int countProductOrders(int pseq) {
+        return pdao.countProductOrders(pseq);
+	}
+
+	public int countOrderById(String id, int pseq) {
+        return pdao.countOrderById(id, pseq);
+	}
+
+	public ArrayList<ReviewVO> getReviews(int pseq) {
+        return pdao.getReviews(pseq);
 	}
 
 }

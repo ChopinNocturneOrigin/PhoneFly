@@ -15,4 +15,17 @@
 	<select id="getRplanList" resultType="com.ezen.phonefly2.dto.RplanVO">
 		SELECT * FROM rplan ORDER BY mseq, rseq
 	</select>
+	
+	<select id="countProductOrders" resultType="int">
+		SELECT COUNT(*) cnt FROM order_detail WHERE pseq = #{param1}
+	</select>
+	
+	<select id="countOrderById" resultType="int">
+		SELECT COUNT(*) cnt FROM order_detail WHERE id = #{param1} AND pseq = #{param2}
+	</select>
+	
+	<select id="getReviews" resultType="com.ezen.phonefly2.dto.ReviewVO">
+		SELECT * FROM review_view WHERE pseq =  #{param1} ORDER BY rvseq DESC
+	</select>
+	
 </mapper>

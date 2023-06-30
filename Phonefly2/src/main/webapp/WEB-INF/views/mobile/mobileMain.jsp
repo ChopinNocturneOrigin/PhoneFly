@@ -20,16 +20,16 @@ author : bhs
 
 <h1>베스트 상품 Mobile</h1>
 
-<div id="main-card-box">
-	<ul>
+<div id="main-card-box" class="d-flex justify-content-center">
+	<div>
 		<c:forEach items="${mainBestList}" var="productVO" varStatus="status">
 
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='/productDetail?pseq=${productVO.pseq}';" />
+			<c:set var="productDetailLH" value="location.href='';" />
 			
 			
 			<!-- 제품 아이템 시작 -->
-			<li class="card">
+			<div class="card ml-4">
 
 
 				<input type="hidden" class="pdPseq" value="${productVO.pseq}" />
@@ -105,11 +105,11 @@ author : bhs
 					<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
 				</div>
 				<!-- //가격비교 -->
-			</li>
+			</div>
+			<br /><br />
 		</c:forEach>
-	</ul>
+	</div>
 </div>
-<div class="clear"></div>
 
 <!-- //베스트 상품 -->
 
@@ -119,17 +119,8 @@ author : bhs
 <!-- 메인 Apple 리스트 -->
 
 <div id="main-apple">
-	<ul>
-		<li>
-			<div id="content1" class="card">
-				<div>
-					iPhone 쇼핑 안내.<br />
-					<span>결정을 못하겠다면 여기에서.</span>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id="content2" class="card cs-p" onclick="location.href='/productList?mfc=Apple';">
+
+			<div id="content2" class="card cs-p">
 				<img src="images/main/iphone-card-50-compare-202209.jpg" />
 				<div>
 					<span>Apple iPhone 모든 모델 보기</span><br />
@@ -137,9 +128,8 @@ author : bhs
 					당신에게 맞을까요?
 				</div>
 			</div>
-		</li>
-		<li>
-			<div id="content3" class="card cs-p" onclick="location.href='/productList?mfc=Apple';">
+			<br />
+			<div id="content3" class="card cs-p">
 				<img src="images/main/iphone-card-50-whyswitch-202209_GEO_KR.jpg" />
 				<div>
 					<span>iPhone으로 갈아타기</span><br />
@@ -147,8 +137,6 @@ author : bhs
 					쉽습니다.
 				</div>
  			</div>
-		</li>
-	</ul>
 </div>
 <div class="clear"></div>
 
@@ -161,16 +149,16 @@ author : bhs
 <!-- 이벤트 상품 -->
 <h1>이벤트 상품</h1>
 
-<div id="main-card-box">
-	<ul>
+<div id="main-card-box" class="d-flex justify-content-center">
+	<div>
 		<c:forEach items="${mainEventList}" var="productVO" varStatus="status">
 			
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='/productDetail?pseq=${productVO.pseq}';" />
+			<c:set var="productDetailLH" value="location.href='';" />
 			
 			
 			<!-- 제품 아이템 시작 -->
-			<li class="card">
+			<div class="card">
 
 
 				<input type="hidden" class="pdPseq" value="${productVO.pseq}" />
@@ -246,21 +234,21 @@ author : bhs
 					<div class="plus-button"><span>&nbsp;가격 비교하기</span></div>
 				</div>
 				<!-- //가격비교 -->
-			</li>
+			</div>
+			<br /><br />
 		</c:forEach>
-	</ul>
+	</div>
 </div>
 <div class="clear"></div>
 
 <!-- //이벤트 상품 -->
 
 
-
-<div class="clear"></div>
 </article>
 <!-- //MAIN -->
-
-
+<br />
+<hr style="width:94%;"/>
+<br />
 
 <!-- footer 불러오기 -->
 <%@ include file="../mobile/mobileFooter.jsp"%>
