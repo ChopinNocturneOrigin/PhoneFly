@@ -10,16 +10,15 @@ author : BHS
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<meta name="viewport" content="width=device-width">
 <title>PhoneFly</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/mobileheader.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/mobileCommon.css">
 <link rel="stylesheet" type="text/css" href="css/mobileBanner.css">
-<link rel="stylesheet" type="text/css" href="css/mobileFooter.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/mobileFooter.css"> -->
 <script src="script/bootstrap.min.js"></script>
 <script src="script/jquery-3.6.4.min.js"></script>
-<script src="script/mobile.js"></script>
 <script src="script/mainBanner.js"></script>
 <script src="script/mainColorSelect.js"></script>
 </head>
@@ -45,26 +44,26 @@ author : BHS
 				<li class="nav-item mt-2 mb-4">
 					<a class="nav-link active fs-1" aria-current="page" href="/mobileMain">Home</a>
 				</li>
-				<li class="nav-item mb-4">
-					<a class="nav-link fs-1" href="#">Apple</a>
+				<li class="nav-item mb-3">
+					<a class="nav-link fs-2" href="#">Apple</a>
 				</li>
-				<li class="nav-item mb-4">
-					<a class="nav-link fs-1" href="#">삼성</a>
+				<li class="nav-item mb-3">
+					<a class="nav-link fs-2" href="#">삼성</a>
 				</li>
-				<li class="nav-item mb-4">
-					<a class="nav-link fs-1" href="#">이벤트</a>
+				<li class="nav-item mb-3">
+					<a class="nav-link fs-2" href="#">이벤트</a>
 				</li>
-				<li class="nav-item mb-4">
-					<a class="nav-link fs-1" href="#">상품비교</a>
+				<li class="nav-item mb-3">
+					<a class="nav-link fs-2" href="#">상품비교</a>
 				</li>
-				<li class="nav-item mb-4">
-					<a class="nav-link fs-1" href="#">자주하는질문</a>
+				<li class="nav-item mb-3">
+					<a class="nav-link fs-2" href="#">자주하는질문</a>
 				</li>
-				<li class="nav-item mb-4">
-					<a class="nav-link fs-1" href="#">공지사항</a>
+				<li class="nav-item mb-3">
+					<a class="nav-link fs-2" href="#">공지사항</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link fs-1" href="/mobileIntro">회사소개</a>
+					<a class="nav-link active fs-2" href="/mobileIntro">회사소개</a>
 				</li>
 			</ul>
 		</div>

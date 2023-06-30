@@ -10,14 +10,15 @@
 
 .mobile-movie-object {
 /* 	width: 1470px; */
-	width: 103%;
+	width: 120%;
 	transform: translate(0%,-10%);
 	z-index: 5;
 }
 
 .wrap-mobile-banner {
 	position: relative;
-	width: 100%;
+	width: 98%;
+	aspect-ratio: 5 / 3;
 	border-radius: 18px;
 	box-shadow: 2px 4px 12px rgba(0,0,0,.2);
 	overflow: hidden;
@@ -53,8 +54,8 @@
 
 #banner_text1,
 #banner_text2 {
-	top: 20px;
-	left:50px;
+	top: -50px;
+	left: 15px;
 }
 
 #banner_text3,
