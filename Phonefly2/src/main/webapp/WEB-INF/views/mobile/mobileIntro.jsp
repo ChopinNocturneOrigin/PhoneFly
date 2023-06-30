@@ -8,33 +8,33 @@ author : BHS
 
 
 <!-- 헤더 불러오기 -->
-<%@ include file="../sub/header.jsp"%>
+<%@ include file="../mobile/mobileHeader.jsp"%>
 
 
 <article>
 
 <!-- 서브 배너 불러오기 -->
-<%@ include file="../sub/sub_image_menu6.jsp"%>
+<%@ include file="../mobile/mobileMainBanner.jsp"%>
 
 
 
 <!-- 회사소개 -->
 
 	<!-- 게시판 페이지 왼쪽 메뉴 -->
+<%-- 	
 	<div class="support-left-menu board-menu card-normal" id="sub-scroll-box">
 
 	<%@ include file="../sub/sub_board_menu.jsp"%>
 
 	</div>
+ --%>
 	<!-- //게시판 페이지 왼쪽 메뉴 -->
 
 
 	<!-- 게시판 페이지 오른쪽 내용 -->
-	<div class="support-right-content card-normal">
-		<div class="intro-inner-wrap m-5">
+	<div class="">
+		<div class="">
 
-			<h3>회사 소개</h3>
-			Phonefly 는 어쩌고 저쩌고....
 			<br /><br />
 			<h3>오시는 길</h3>
 			- 서울특별시 서대문구 신촌로 141 (은하빌딩 1층 101호)<br />
@@ -59,7 +59,8 @@ author : BHS
 					new daum.roughmap.Lander({
 						"timestamp" : "1687325161939",
 						"key" : "2f9tk",
-						"mapWidth" : "640",
+						/* "mapWidth" : "640", */
+						"mapWidth" : "380",
 						"mapHeight" : "360"
 					}).render();
 				</script>
@@ -67,6 +68,7 @@ author : BHS
 
 		</div>
 	</div>
+
 	<!-- //게시판 페이지 오른쪽 내용 -->
 
 
@@ -75,15 +77,13 @@ author : BHS
 
 
 
-</div>
 
-
-
-<div class="clear"></div>
 </article>
 <!-- //MAIN -->
-
+<br />
+<hr style="width:98%;"/>
+<br />
 
 
 <!-- footer 불러오기 -->
-<%@ include file="../sub/footer.jsp"%>
+<%@ include file="../mobile/mobileFooter.jsp"%>

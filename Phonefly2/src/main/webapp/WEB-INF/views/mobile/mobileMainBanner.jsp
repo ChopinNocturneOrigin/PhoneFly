@@ -8,7 +8,7 @@
 <!--
  author : BHS
  -->
-<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br />
 <div class="wrap-mobile-banner">
 	<div class="mobile-banner">
 		<ul>
@@ -19,10 +19,10 @@
 					<h1>iPhone 14 Pro</h1>
 					<p class="txt_1">변화무쌍 Dynamic Island.</p>
 					<p class="txt_2">당신이 원래 하던 일을 방해하지 않으면서도 음악, 통화 등<br />
-					요긴한 정보를 그때그때 띄워주는 Dynamic Island.<br/>
-					길게 꾹 누르면 음악 제어, AirPods 배터리 잔량 확인 등<br />
+					요긴한 정보를 그때그때 띄워주는 Dynamic Island.<br/></p>
+<!-- 					길게 꾹 누르면 음악 제어, AirPods 배터리 잔량 확인 등<br />
 					다양한 기능을 사용할 수 있죠. 게다가 iOS 전반에 통합되어 있고<br/>
-					 수많은 앱과 연동되기 때문에 꼭 필요한 걸 꼭 필요한 순간에 매끄럽게 띄워준답니다.</p>
+					 수많은 앱과 연동되기 때문에 꼭 필요한 걸 꼭 필요한 순간에 매끄럽게 띄워준답니다.</p> -->
 					<!-- //제품 설명 1 -->
 				</div>
 			</li>
