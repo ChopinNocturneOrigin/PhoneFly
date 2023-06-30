@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.dto.QnaVO;
+import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -31,6 +32,13 @@ public interface IAdminDao {
 
 	List<OrderDetailVO> listOrder(Paging paging, String key);
 
+	List<BannerVO> getBannerList();
+	
+	void insertBanner(BannerVO bannervo);
+
+	void updateSeq(int changeval, String useyn, int bseq);
+
+	void deleteBanner(int bseq);
 
 
 	
