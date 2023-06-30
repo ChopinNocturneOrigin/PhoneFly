@@ -1,5 +1,6 @@
 package com.ezen.phonefly2.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,18 +9,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.dto.OrderDetailVO;
 import com.ezen.phonefly2.dto.ProductVO;
-import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.service.AdminService;
 import com.ezen.phonefly2.util.Paging;
 
@@ -237,7 +237,8 @@ public class AdminController {
 			@RequestParam("bseq") int bseq,
 			@RequestParam("changeval") int changeval,
 			@RequestParam("subject") int subject,
-			@RequestParam("image") int image) {
+			@RequestParam("image") int image,
+			@RequestParam("changeval") int changeval) {
 		
 		String useyn;
 		if( changeval > 5) useyn="N";
