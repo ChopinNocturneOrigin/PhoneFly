@@ -24,7 +24,7 @@
 		<th></th>
 		</tr>
 		<c:forEach items="${orderList}" var="order">
-			<tr onclick="location.href='adminOrderDetail&odseq=${order.odseq}';">
+			<tr onclick="location.href='adminOrderDetail?odseq=${order.odseq}';">
 				<td>${order.odseq}</td>
 				<td>${order.id} (${order.mname})</td>
 				<td>${order.pname} (${order.cname})</td>
@@ -43,7 +43,7 @@
 	<br><br>
 
 	<jsp:include page="../../admin/paging/page.jsp" >
-		<jsp:param  name="command" value=adminOrderList"/>
+		<jsp:param  name="command" value="adminOrderList"/>
 	</jsp:include>
 </form>
 </article>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.phonefly2.dto.QnaVO;
+import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -32,7 +33,7 @@ public class AdminController {
 	public String admin() {
 		return "admin/admin";
 	}
-	
+	//관리자 로그인
 	@RequestMapping("adminLogin")
 	public ModelAndView admin_login(
 						@RequestParam(value="workId", required=false) String workId,
@@ -180,4 +181,73 @@ public class AdminController {
 	    }
 	    return mav;
 	}
+	
+	@RequestMapping("/adminBannerList")
+	public ModelAndView bannerList( ) {
+		ModelAndView mav = new ModelAndView();
+	
+		mav.addObject("bannerList", as.getBannerList() );
+		mav.setViewName("admin/banner/bannerList");
+		
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping("/newBannerWrite")
+	public String newBannerWrite() {
+		return "admin/banner/writeBanner";
+	}
+	
+	
+	@RequestMapping(value="/bannerWrite" )
+	public String bannerWrite(  BannerVO bannervo	) {
+		if( bannervo.getOrder_seq() == 6 ) bannervo.setUseyn("N");
+		else bannervo.setUseyn("Y");
+		as.insertBanner( bannervo );
+		return "redirect:/adminBannerList";
+	}
+	
+	@RequestMapping("/change_order")
+	public String change_order(
+			HttpServletRequest request,
+			@RequestParam("bseq") int bseq,
+			@RequestParam("changeval") int changeval  	) {
+		
+		String useyn;
+		if( changeval > 5) useyn="N";
+		else useyn="Y";
+		
+		as.updateSeq( changeval, useyn, bseq);
+		
+		return "redirect:/adminBannerList";
+	}
+	
+	@RequestMapping("bannerDelete")
+	public String bannerDelete(Model model, HttpServletRequest request) {
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		as.deleteBanner(bseq);	
+		return "redirect:/adminBannerList";
+	}
+	
+	@RequestMapping("/updateBanner")
+	public String updateBanner(
+			HttpServletRequest request,
+			@RequestParam("bseq") int bseq,
+			@RequestParam("changeval") int changeval,
+			@RequestParam("subject") int subject,
+			@RequestParam("image") int image,
+			@RequestParam("changeval") int changeval) {
+		
+		String useyn;
+		if( changeval > 5) useyn="N";
+		else useyn="Y";
+		
+		as.updateSeq( changeval, useyn, bseq);
+		
+		return "redirect:/adminBannerList";
+	}
+	
+	
 }

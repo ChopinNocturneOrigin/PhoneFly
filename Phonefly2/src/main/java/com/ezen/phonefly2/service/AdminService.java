@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -320,7 +321,7 @@ public class AdminService {
 	    paging.setPage(page);
 
 	    // 주문 테이블에서 키워드로 검색한 결과의 총 개수를 가져옵니다.
-	    int count = adao.getAllCount("order_view", "id", key);
+	    int count = adao.getAllCount("ORDER_DETAIL_VIEW2", "id", key);
 	    paging.setTotalCount(count);
 	    paging.paging();
 
@@ -332,5 +333,30 @@ public class AdminService {
 
 	    return result;
 	}
+
+	
+	public Object getBannerList() {
+		return adao.getBannerList();
+	}
+
+	public void insertBanner(BannerVO bannervo) {
+		adao.insertBanner( bannervo );	
+	}
+	
+	public void updateSeq(int changeval, String useyn, int bseq) {
+		adao.updateSeq( changeval, useyn, bseq);		
+	}
+
+
+	public void deleteBanner(int bseq) {
+		adao.deleteBanner(bseq);
+		
+	}
+
+
+	
+
+
+	
 	
 }

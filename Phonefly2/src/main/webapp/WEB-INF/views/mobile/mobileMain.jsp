@@ -120,6 +120,8 @@ author : bhs
 
 <div id="main-apple">
 	<ul>
+
+<!-- 
 		<li>
 			<div id="content1" class="card">
 				<div>
@@ -128,6 +130,8 @@ author : bhs
 				</div>
 			</div>
 		</li>
+
+ -->
 		<li>
 			<div id="content2" class="card cs-p" onclick="location.href='/productList?mfc=Apple';">
 				<img src="images/main/iphone-card-50-compare-202209.jpg" />
