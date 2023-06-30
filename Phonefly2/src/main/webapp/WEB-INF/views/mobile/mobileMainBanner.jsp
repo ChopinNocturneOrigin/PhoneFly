@@ -8,13 +8,12 @@
 <!--
  author : BHS
  -->
-
-<div class="clear"></div>
-<div class="wrap_main_banner">
-	<div class="main_banner">
+<br /><br /><br /><br /><br /><br />
+<div class="wrap-mobile-banner">
+	<div class="mobile-banner">
 		<ul>
 			<li>
-				<video class="movie_object" src="videos/movie1.webm" autoplay muted loop preload="auto" ></video>
+				<video class="mobile-movie-object" src="videos/movie1.webm" autoplay muted loop preload="auto" ></video>
 				<div id="banner_text1">
 					<!-- 제품 설명 1 -->
 					<h1>iPhone 14 Pro</h1>
@@ -27,39 +26,55 @@
 					<!-- //제품 설명 1 -->
 				</div>
 			</li>
+
+
+
+
+<!-- 
 			<li>
-				<video class="movie_object" src="videos/movie2.webm" autoplay muted loop preload="auto" ></video>
+				<video class="mobile-movie-object" src="videos/movie2.webm" autoplay muted loop preload="auto" ></video>
 				<div id="banner_text2">
-					<!-- 제품 설명 2 -->
+					제품 설명 2
 					<h1>iPhone 13</h1>
 					<p class="txt_1">일상을 위한 비상한 능력.</p>
 					<p class="txt_2">견고한 디자인에 담긴 놀랍도록 선명한 디스플레이.<br/>
 					할리우드급 작품도 손쉽게 환성 가능한 동영상 촬영 기능.<br/>
 					전광석화처럼 빠른 칩.<br/>
 					그리고 매일같이 체감하게 될 획기적인 베터리 사용 시간.</p>
-					<!-- //제품 설명 2 -->
+					//제품 설명 2
 				</div>
 			</li>
 			<li>
-				<video class="movie_object" src="videos/movie3.webm" autoplay muted loop preload="auto" ></video>
+				<video class="mobile-movie-object" src="videos/movie3.webm" autoplay muted loop preload="auto" ></video>
 				<div id="banner_text3">
-					<!-- 제품 설명 3 -->
+					제품 설명 3
 					<h1>갤럭시 S23 Ultra</h1>
 					<p class="txt_1">노트의 시그니처에서 울트라의 상징으로</p>
 					<p class="txt_2">노트를 넘어 갤럭시 S23 Ultra의 일상에서도<br />
 									만날 수 있게 된 S펜으로 떠오르는 영감들을 <br />
 									바로바로 스케치하고 메모해 보세요.<br />
 									S펜으로 이미지 속 텍스트를 캡처한 후 바로 캘린더에 저장할 수도 있죠.</p>
-					<!-- //제품 설명 3 -->
+					//제품 설명 3
 				</div>
 			</li>
+
+ -->
+
+
+
 		</ul>
 	</div>
+
+
+<!-- 
 	<ul id="banner_btns">
 		<li id="lbutton">&lt;</li>
 		<li id="play_btn">▶</li>
 		<li id="rbutton">&gt;</li>
 	</ul>
+
+ -->
+
 </div>
 
 
