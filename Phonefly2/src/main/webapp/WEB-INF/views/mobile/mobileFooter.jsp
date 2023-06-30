@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-</div>
 
 <!-- FOOTER -->
 
-<div class="clear"></div> 
+<!-- <div class="clear"></div> -->
 
  <footer id="footer" class="black">
-  <div class="wrap">
     <div class="info">
       <h4>
                              PhoneFly
@@ -29,9 +27,7 @@
         <span>대표</span>강희준<i></i>
         <span>사업자번호</span>012-34-5678<i></i>
          통신판매업신고번호 : 제1234-서울서대문-5678호       </p>
-      <a href="#" target="_blank" class="ok">
-                  <img style="cursor:pointer; height:77px !important;" src="images/common/20230201145252_3763.png">
-              </a>
+
     </div>
     <div class="f_customer">
       <h5>다이렉트 상담</h5>
@@ -60,11 +56,11 @@
           <li><a href="/admin">admin</a></li>
                               </ul>
     </div>
-  </div>
   <div class="warning">
-          <div class="wrap">※ 본 사이트의 소스코드와 디자인 저작권은 주식회사 이젠아카데미에 있으며 저작권법에 의하여 보호받고 있습니다. 무단 도용 및 권리 침해에 대하여 적극적 대처하고 있습니다.</div>
+          ※ 본 사이트의 소스코드와 디자인 저작권은 주식회사 이젠아카데미에 있으며 저작권법에 의하여 보호받고 있습니다. 무단 도용 및 권리 침해에 대하여 적극적 대처하고 있습니다.
       </div>
 </footer>
+</div>
 
 </body>
 </html>
