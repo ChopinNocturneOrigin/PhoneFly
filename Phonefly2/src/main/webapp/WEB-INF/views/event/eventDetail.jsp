@@ -42,16 +42,16 @@ author : BHS
 				<tbody class="table-group-divider">
 
 					<tr>
-						<th scope="row">번호</th><td>${EventVO.eseq}</td>
+						<th scope="row">번호</th><td>${eventVO.eseq}</td>
 					</tr>
 					<tr>
-						<th scope="row">제목</th><td>${EventVO.subject}</td>
+						<th scope="row">제목</th><td>${eventVO.subject}</td>
 					</tr>
 					<tr>
-						<th scope="row">작성일자</th><td><fmt:formatDate value="${EventVO.indate}" /></td>
+						<th scope="row">작성일자</th><td><fmt:formatDate value="${eventVO.indate}" /></td>
 					</tr>
 					<tr>
-						<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${EventVO.image}" /></td>
+						<td class="board-detail-content" colspan="2"><img id="board-event-content-image" src="images/event/${eventVO.image}" /></td>
 					</tr>
 
 				</tbody>
