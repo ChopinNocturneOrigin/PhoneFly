@@ -17,7 +17,7 @@
 		SELECT * FROM notice where nseq=#{param1}
 	</select>
 	
-	<select id="getAllCount"  resultType="_int">
+	<select id="getAllCount"  resultType="int">
 		select count(*) from  ${param1}   where   ${param2}   like  '%'||#{param3}||'%'
 	</select>
 	
