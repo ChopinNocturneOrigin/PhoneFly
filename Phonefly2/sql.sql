@@ -8,6 +8,7 @@ select * from noticelist;
 SELECT * FROM tab;
 SELECT * FROM members;
 SELECT * FROM member;
-SELECT * FROM qna;
+SELECT * FROM CART_VIEW;
+
 
 select count(*) from order_view where id like '%one%';

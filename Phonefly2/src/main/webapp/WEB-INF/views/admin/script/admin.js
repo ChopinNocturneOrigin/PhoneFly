@@ -391,6 +391,31 @@ function goToAdminProductList() {
 
 
 
+function go_banner_save(){
+	
+	// 밸리데이션 동작 추가
+	// ....
+	
+	var theForm = document.frm;  
+	theForm.action = "bannerWrite";
+	theForm.submit();
+	
+}
+
+
+function go_del_b(bseq) {  
+  var confirmDelete = confirm("정말 이 베너를 삭제하시겠습니까?");
+  if (confirmDelete) {  
+    var url = "/bannerDelete?bseq=" + bseq;   
+    location.href = url;
+  }
+}
+
+
+function go_banner_update(){
+	document.frm.submit();
+}
+
 
 
 
