@@ -11,5 +11,5 @@ SELECT * FROM members;
 SELECT * FROM member;
 SELECT * FROM qna;
 SELECT * FROM banner;
-
+delete from banner;
 select count(*) from order_view where id like '%one%';

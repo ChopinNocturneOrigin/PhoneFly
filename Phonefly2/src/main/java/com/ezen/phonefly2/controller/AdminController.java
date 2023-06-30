@@ -1,25 +1,33 @@
 package com.ezen.phonefly2.controller;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.dto.OrderDetailVO;
 import com.ezen.phonefly2.dto.ProductVO;
+import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.service.AdminService;
 import com.ezen.phonefly2.util.Paging;
 
@@ -183,32 +191,38 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminBannerList")
-	public ModelAndView bannerList( ) {
+	public ModelAndView adminBannerList( ) {
 		ModelAndView mav = new ModelAndView();
 	
 		mav.addObject("bannerList", as.getBannerList() );
-		mav.setViewName("admin/banner/bannerList");
+		mav.setViewName("admin/banner/adminBannerList");
 		
 		return mav;
 	}
 	
-	
-	
-	
 	@RequestMapping("/newBannerWrite")
 	public String newBannerWrite() {
-		return "admin/banner/writeBanner";
+		return "admin/banner/adminBannerWrite";
 	}
 	
 	
-	@RequestMapping(value="/bannerWrite" )
-	public String bannerWrite(  BannerVO bannervo	) {
+	@RequestMapping("adminBannerWrite" )
+	public String adminBannerWrite(  @ModelAttribute BannerVO bannervo, Model model, HttpServletRequest request	) {
+		String url = "admin/banner/adminBannerWrite";
+		
+		if( bannervo.getSubject()==null ) {
+			model.addAttribute("message","제목을 입력하세요" );
+		}else if(bannervo.getImage()==null)
+			model.addAttribute("message", "이미지를 추가하세요" );
+		
 		if( bannervo.getOrder_seq() == 6 ) bannervo.setUseyn("N");
 		else bannervo.setUseyn("Y");
+		
 		as.insertBanner( bannervo );
+			
 		return "redirect:/adminBannerList";
-	}
-	
+		}
+
 	@RequestMapping("/change_order")
 	public String change_order(
 			HttpServletRequest request,
@@ -233,20 +247,45 @@ public class AdminController {
 	
 	@RequestMapping("/updateBanner")
 	public String updateBanner(
-			HttpServletRequest request,
-			@RequestParam("bseq") int bseq,
-			@RequestParam("changeval") int changeval,
-			@RequestParam("subject") int subject,
-			@RequestParam("image") int image,
-			@RequestParam("changeval") int changeval) {
+			HttpServletRequest request,BannerVO bannervo) {
 		
 		String useyn;
-		if( changeval > 5) useyn="N";
+		if( bannervo.getOrder_seq() > 5) useyn="N";
 		else useyn="Y";
 		
-		as.updateSeq( changeval, useyn, bseq);
+		as.updateSeq( bannervo.getOrder_seq(), useyn, bannervo.getBseq());
 		
 		return "redirect:/adminBannerList";
+	}
+	
+	@Autowired
+	ServletContext context;
+	
+	@RequestMapping(value="fileup", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Object> fileup( 
+			@RequestParam("fileimage") MultipartFile file,
+			HttpServletRequest request, Model model	) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		String path = context.getRealPath("/images/productImage");	
+		Calendar today = Calendar.getInstance();
+ 		long t = today.getTimeInMillis();
+ 		String filename = file.getOriginalFilename(); // 파일이름 추출
+ 		String fn1 = filename.substring(0, filename.indexOf(".") );  // 파일이름과 확장장 분리
+ 		String fn2 = filename.substring(filename.indexOf(".")+1 );
+ 		
+ 		if (!file.isEmpty()) {   // 업로드할 파일이 존재한다면
+            String uploadPath = path + "/" + fn1 + t +  "." + fn2;
+            System.out.println("파일 저장 경로 = " + uploadPath);
+            try {
+				file.transferTo( new File(uploadPath) );
+			} catch (IllegalStateException e) { e.printStackTrace();
+			} catch (IOException e) { e.printStackTrace();
+			}
+ 		}
+		result.put("STATUS", 1);
+		result.put("FILENAME", fn1 + t +  "." + fn2 );
+		return result;
 	}
 	
 	
