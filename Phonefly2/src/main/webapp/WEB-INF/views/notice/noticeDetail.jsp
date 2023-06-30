@@ -42,16 +42,16 @@ author : BHS
 			
 				<tbody class="table-group-divider">
 					<tr>
-						<th scope="row">번호</th><td>${NoticeVO.nseq}</td>
+						<th scope="row">번호</th><td>${noticeVO.nseq}</td>
 					</tr>
 					<tr>
-						<th scope="row">제목</th><td>${NoticeVO.subject}</td>
+						<th scope="row">제목</th><td>${noticeVO.subject}</td>
 					</tr>
 					<tr>
-						<th scope="row">작성일자</th><td><fmt:formatDate value="${NoticeVO.indate}" /></td>
+						<th scope="row">작성일자</th><td><fmt:formatDate value="${noticeVO.indate}" /></td>
 					</tr>
 					<tr>
-						<th scope="row">내용</th><td><div id="board-detail-content-inner-wrap"><pre>${NoticeVO.content}</pre></div></td>
+						<th scope="row">내용</th><td><div id="board-detail-content-inner-wrap"><pre>${noticeVO.content}</pre></div></td>
 					</tr>
 			
 				</tbody>
