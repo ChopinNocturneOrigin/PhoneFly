@@ -34,4 +34,8 @@
 		SELECT * FROM event where eseq=#{param1}
 	</select>
 	
+	<select id="getAllCountById"  resultType="int">
+		select count(*) from  ${param1}   where   ${param2}   like  '%'||#{param3}||'%' and id=#{param4}
+	</select>
+	
 </mapper>

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,8 +36,9 @@ public class QnaController {
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if(mvo == null) mav.setViewName("member/loginForm");
 		else {
-			HashMap<String, Object> result = qs.qnaList(request);
+			HashMap<String, Object> result = qs.qnaList(request, mvo);
 			List<QnaVO> qnaList = (List<QnaVO>)result.get("qnaList");
+			
 			
 			mav.addObject("qnaList", qnaList);
 			mav.addObject("paging", (Paging)result.get("paging"));
@@ -52,7 +55,7 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		if(mvo == null) mav.setViewName("member/login");
+		if(mvo == null) mav.setViewName("member/loginForm");
 		else {
 			mav.addObject("qnaVO", qs.getQna(qseq));
 			mav.setViewName("qna/qnaDetail");
@@ -66,13 +69,85 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		
-		if(mvo==null)return "member/login";
+		if(mvo==null)return "member/loginForm";
 		
 		else return "qna/qnaWriteForm";
 	}
 	
-	@PostMapping(value="/qnaWrite")
-	public ModelAndView qnaWrite() {
+	@PostMapping("/qnaWrite")
+	public ModelAndView qnaWrite(@ModelAttribute("dto") QnaVO qnavo,
+				BindingResult result, HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+	    MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+	    
+	    if (mvo == null) {
+	        mav.setViewName("member/loginForm");
+	        return mav;
+	    }
+	    
+		if (result.hasErrors()) {
+	        mav.setViewName("qna/qnaWriteForm");
+	        return mav;
+	    }
+		
+	    qnavo.setId(mvo.getId());
+	    
+	    qs.qnaWrite(qnavo);
+	    mav.setViewName("redirect:/qnaList");
+	    return mav;
 	}
+	
+	@RequestMapping("/qnaUpdateform")
+	public String qnaUpdateform(@RequestParam("qseq") int qseq, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		
+		if(mvo==null) return "member/loginForm";
+		
+		QnaVO qvo = qs.getQna(qseq);
+		model.addAttribute("qnaVO", qvo);
+		return"qna/qnaUpdateForm";
+	}
+	
+	@PostMapping("/qnaUpdate")
+	public ModelAndView qnaUpdate(@ModelAttribute("dto") QnaVO qnavo, 
+			BindingResult result, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		
+		if (mvo == null) {
+	        mav.setViewName("member/loginForm");
+	        return mav;
+	    }
+		
+		if (result.hasErrors()) {
+	        mav.setViewName("qna/qnaUpdateForm");
+	        return mav;
+	    }
+		
+		qnavo.setId(mvo.getId());
+	    
+	    qs.qnaUpdate(qnavo);
+	    mav.setViewName("redirect:/qnaList");
+	    return mav;
+	}
+	
+	@RequestMapping("/qnaDelete")
+	public String qnaDelete(@RequestParam("qseq") int qseq, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+	    MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+
+	    if (mvo == null) {
+	        return "member/login";
+	    }
+
+	    qs.qnaDelete(qseq);
+	    return "redirect:/qnaList";
+	}
+	
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.phonefly2.dao.ICommonDao;
 import com.ezen.phonefly2.dao.IQnaDao;
+import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.util.Paging;
 
@@ -22,7 +23,7 @@ public class QnaService {
 	@Autowired
 	ICommonDao cdao;
 	
-	public HashMap<String, Object> qnaList(HttpServletRequest request) {
+	public HashMap<String, Object> qnaList(HttpServletRequest request, MemberVO mvo) {
 		HashMap<String, Object> result = new HashMap<>();
 		HttpSession session = request.getSession();
 		
@@ -57,11 +58,11 @@ public class QnaService {
 		Paging paging = new Paging();
 		paging.setPage(page);
 
-		int count = cdao.getAllCount("qna", "subject", key);
+		int count = cdao.getAllCountById("qna", "subject", key, mvo.getId());
 		paging.setTotalCount(count);
 		paging.paging();
 
-		List<QnaVO> qnaList = qdao.qnaList(paging, key);
+		List<QnaVO> qnaList = qdao.qnaList(paging, key, mvo);
 		result.put("qnaList", qnaList);
 		result.put("paging", paging);
 		result.put("key", key);
@@ -71,6 +72,18 @@ public class QnaService {
 
 	public QnaVO getQna(int qseq) {
 		return qdao.getQna(qseq);
+	}
+
+	public void qnaWrite(QnaVO qnavo) {
+		qdao.qnaWrite(qnavo);
+	}
+
+	public void qnaUpdate(QnaVO qnavo) {
+		qdao.qnaUpdate(qnavo);
+	}
+
+	public void qnaDelete(int qseq) {
+		qdao.qnaDelete(qseq);
 	}
 
 }

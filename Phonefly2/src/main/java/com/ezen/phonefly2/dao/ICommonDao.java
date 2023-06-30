@@ -15,5 +15,6 @@ public interface ICommonDao {
 	int getAllCount(String string, String string2, String key);
 	List<EventVO> getEventList(Paging paging, String key);
 	EventVO getEvent(int eseq);
+	int getAllCountById(String string, String string2, String key, String id);
 	
 }
