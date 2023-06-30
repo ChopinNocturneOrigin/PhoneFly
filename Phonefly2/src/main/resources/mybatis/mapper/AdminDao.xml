@@ -23,16 +23,17 @@
      
   </select>
 
-<select id="listMember" resultType="com.ezen.phonefly2.dto.MemberVO">
-     select * from(
-     select * from(
-         select rownum as rn, m.*from
-         ((select * from member where id like '%'||#{param2}||'%' ) m)
+
+  <select id="listMember" resultType="com.ezen.phonefly2.dto.MemberVO">
+     select * from (
+     select * from (
+         select rownum as rn, m.* from
+         ((select * from Member where name like '%'||#{param2}||'%' ) m)
      ) where rn &gt; = #{param1.startNum}
      ) where rn &lt; = #{param1.endNum}
      
   </select>
-  
+
 
 
   <select id="listQna" resultType="com.ezen.phonefly2.dto.QnaVO">
@@ -45,15 +46,19 @@
      
   </select>
   
-<!--   <select id="listOrder" resultType="com.ezen.phonefly2.dto.OrderVO">
+  <select id="listOrder" resultType="com.ezen.phonefly2.dto.OrderDetailVO">
         select * from(
         select * from(
          select rownum as rn, p.* from
-         ((select * from order_view where pname like '%'||#{param2}||'%' order by result, odseq desc) p)
+         ((select * 
+         from order_view
+          where id like '%'||#{param2}||'%'
+           order by odseq desc
+           ) p)
          )where rn &gt;= #{param1.startNum}
          )where rn &lt;= #{param1.endNum}
      
-  </select> --> 
+  </select> 
   
   <select id="listNotice" resultType="com.ezen.phonefly2.dto.NoticeVO">
     SELECT *
