@@ -6,7 +6,12 @@
 <mapper namespace="com.ezen.phonefly2.dao.IQnaDao">
 
 	<select id="qnaList" resultType="com.ezen.phonefly2.dto.QnaVO">
-		select * from qna order by qseq desc
+		select * from ( 
+		select * from(
+			select rownum as rn, q.* from 
+			((select * from qna where subject like '%'||#{param2}||'%' order by qseq desc) q )
+		) where rn &gt;= #{param1.startNum} 
+		) where rn &lt;= #{param1.endNum} 
 	</select>
 
 	<select id="getQna" resultType="com.ezen.phonefly2.dto.QnaVO">

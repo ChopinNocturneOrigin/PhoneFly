@@ -84,5 +84,24 @@ public class CommonController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/FAQList")
+	public String faqList() {
+		return "faq/faq";
+	}
+	
+	@RequestMapping("/guide1")
+	public String guide1() {
+		return "guide/guide1";
+	}
+	
+	@RequestMapping("/guide2")
+	public String guide2() {
+		return "guide/guide2";
+	}
 
+	@RequestMapping("/guide3")
+	public String guide3() {
+		return "guide/guide3";
+	}
 }
