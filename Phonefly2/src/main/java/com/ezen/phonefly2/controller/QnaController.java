@@ -74,9 +74,14 @@ public class QnaController {
 		else return "qna/qnaWriteForm";
 	}
 	
+<<<<<<< Updated upstream
 	@PostMapping("/qnaWrite")
 	public ModelAndView qnaWrite(@ModelAttribute("dto") QnaVO qnavo,
 				BindingResult result, HttpServletRequest request) {
+=======
+	@PostMapping(value="/qnaWrite")
+	public void qnaWrite() {
+>>>>>>> Stashed changes
 		
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();

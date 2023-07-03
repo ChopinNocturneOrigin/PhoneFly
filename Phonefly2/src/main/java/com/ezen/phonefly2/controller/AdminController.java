@@ -1,8 +1,11 @@
 package com.ezen.phonefly2.controller;
 
+<<<<<<< Updated upstream
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
+=======
+>>>>>>> Stashed changes
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,7 +16,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< Updated upstream
 import org.springframework.web.bind.annotation.ModelAttribute;
+=======
+>>>>>>> Stashed changes
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -247,6 +253,7 @@ public class AdminController {
 	
 	@RequestMapping("/updateBanner")
 	public String updateBanner(
+<<<<<<< Updated upstream
 			HttpServletRequest request,BannerVO bannervo) {
 		
 		String useyn;
@@ -254,6 +261,20 @@ public class AdminController {
 		else useyn="Y";
 		
 		as.updateSeq( bannervo.getOrder_seq(), useyn, bannervo.getBseq());
+=======
+			HttpServletRequest request,
+			@RequestParam("bseq") int bseq,
+			@RequestParam("changeval") int changeval,
+			@RequestParam("subject") int subject,
+			@RequestParam("image") int image,
+			@RequestParam("changeval") int changeval1) {
+		
+		String useyn;
+		if( changeval1 > 5) useyn="N";
+		else useyn="Y";
+		
+		as.updateSeq( changeval1, useyn, bseq);
+>>>>>>> Stashed changes
 		
 		return "redirect:/adminBannerList";
 	}
