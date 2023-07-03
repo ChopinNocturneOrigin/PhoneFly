@@ -66,7 +66,7 @@ author : BHS
 						<li onclick="location.href='/productList?mfc=Samsung';">
 							<div class="main_menu"></div><a href="javascript:void(0);">삼성</a>
 						</li>
- 						<li onclick="location.href='/eventList?first=1';">
+ 						<li onclick="location.href='/eventList';">
  							<div class="main_menu"></div><a href="javascript:void(0);">이벤트</a>
  						</li>
 						<li onclick="location.href='/productCompare';">
@@ -75,7 +75,7 @@ author : BHS
 						<li onclick="location.href='/FAQList';">
 							<div class="main_menu"></div><a href="javascript:void(0);">자주하는질문</a>
 						</li>
-						<li onclick="location.href='/noticeList?first=1';">
+						<li onclick="location.href='/noticeList';">
 							<div class="main_menu"></div><a href="javascript:void(0);">공지사항</a>
 						</li>
 					</ul>

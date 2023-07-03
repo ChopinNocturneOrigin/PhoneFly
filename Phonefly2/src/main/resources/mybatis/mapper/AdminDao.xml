@@ -104,7 +104,11 @@
 	</delete>
 	
 	<update id="updateBanner" >
-		update banner set subject=#{param1}, order_seq=#{param2}, useyn=#{param3},image=#{param4} where bseq=#{param5}
+		update banner set image=#{param1},subject=#{param2}, order_seq=#{param3}, useyn=#{param4} where bseq=#{param5}
 	</update>
 	
+	
+	<select id="getMember"  resultType="com.ezen.phonefly2.dto.MemberVO">
+		select * from member where mseq=#{param1}
+	</select>
 </mapper>

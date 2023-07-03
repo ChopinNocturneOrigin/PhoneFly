@@ -41,6 +41,37 @@ public class AdminController {
 	public String admin() {
 		return "admin/admin";
 	}
+	
+	@Autowired
+	ServletContext context;
+	
+	@RequestMapping(value="fileup", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Object> fileup( 
+			@RequestParam("fileimage") MultipartFile file,
+			HttpServletRequest request, Model model	) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		String path = context.getRealPath("/images/productImage");	
+		Calendar today = Calendar.getInstance();
+ 		long t = today.getTimeInMillis();
+ 		String filename = file.getOriginalFilename(); // 파일이름 추출
+ 		String fn1 = filename.substring(0, filename.indexOf(".") );  // 파일이름과 확장장 분리
+ 		String fn2 = filename.substring(filename.indexOf(".")+1 );
+ 		
+ 		if (!file.isEmpty()) {   // 업로드할 파일이 존재한다면
+            String uploadPath = path + "/" + fn1 + t +  "." + fn2;
+            System.out.println("파일 저장 경로 = " + uploadPath);
+            try {
+				file.transferTo( new File(uploadPath) );
+			} catch (IllegalStateException e) { e.printStackTrace();
+			} catch (IOException e) { e.printStackTrace();
+			}
+ 		}
+		result.put("STATUS", 1);
+		result.put("FILENAME", fn1 + t +  "." + fn2 );
+		return result;
+	}
+	
 	//관리자 로그인
 	@RequestMapping("adminLogin")
 	public ModelAndView admin_login(
@@ -239,21 +270,21 @@ public class AdminController {
 	}
 	
 	@RequestMapping("bannerDelete")
-	public String bannerDelete(Model model, HttpServletRequest request) {
+	public String bannerDelete( HttpServletRequest request) {
 		int bseq = Integer.parseInt(request.getParameter("bseq"));
 		as.deleteBanner(bseq);	
 		return "redirect:/adminBannerList";
 	}
 	
-	@RequestMapping("/updateBanner")
-	public String updateBanner(
+	@RequestMapping("/bannerUpdate")
+	public String bannerUpdate(
 			HttpServletRequest request,BannerVO bannervo) {
 		
 		String useyn;
 		if( bannervo.getOrder_seq() > 5) useyn="N";
 		else useyn="Y";
 		
-		as.updateSeq( bannervo.getOrder_seq(), useyn, bannervo.getBseq());
+		as.updateBanner( bannervo.getImage(),bannervo.getSubject(),bannervo.getOrder_seq(), useyn, bannervo.getBseq());
 		
 		return "redirect:/adminBannerList";
 	}
@@ -270,32 +301,26 @@ public class AdminController {
 	@Autowired
 	ServletContext context;
 	
-	@RequestMapping(value="fileup", method=RequestMethod.POST)
-	@ResponseBody
-	public HashMap<String, Object> fileup( 
-			@RequestParam("fileimage") MultipartFile file,
-			HttpServletRequest request, Model model	) {
-		HashMap<String, Object> result = new HashMap<String, Object>();
-		String path = context.getRealPath("/images/productImage");	
-		Calendar today = Calendar.getInstance();
- 		long t = today.getTimeInMillis();
- 		String filename = file.getOriginalFilename(); // 파일이름 추출
- 		String fn1 = filename.substring(0, filename.indexOf(".") );  // 파일이름과 확장장 분리
- 		String fn2 = filename.substring(filename.indexOf(".")+1 );
- 		
- 		if (!file.isEmpty()) {   // 업로드할 파일이 존재한다면
-            String uploadPath = path + "/" + fn1 + t +  "." + fn2;
-            System.out.println("파일 저장 경로 = " + uploadPath);
-            try {
-				file.transferTo( new File(uploadPath) );
-			} catch (IllegalStateException e) { e.printStackTrace();
-			} catch (IOException e) { e.printStackTrace();
-			}
- 		}
-		result.put("STATUS", 1);
-		result.put("FILENAME", fn1 + t +  "." + fn2 );
-		return result;
+	@RequestMapping("bannerUpdateForm")
+	public String bannerUpdateForm(
+					Model model, HttpServletRequest request,
+					BannerVO bannervo) {
+		
+		model.addAttribute("bannerVO", bannervo );
+		return "admin/banner/adminBannerUpdateForm";
+		
 	}
 	
-	
+	@RequestMapping("adminMemberDetail")
+	public ModelAndView adminMemberDetail( 
+			HttpServletRequest request, 
+			@RequestParam("mseq") int mseq) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject( "memberVO",   as.getMember( mseq ) );
+		mav.setViewName("admin/member/adminMemberDetail");
+		
+		return mav;
+		
+	}
 }

@@ -15,8 +15,9 @@ public interface IProductDao {
 	ProductVO getProduct(int pseq);
 	List<ProductVO> getMfcList(String mfc);
 	List<RplanVO> getRplanList();
-	int countProductOrders(int pseq);
 	int countOrderById(String id, int pseq);
 	ArrayList<ReviewVO> getReviews(int pseq);
+	List<ProductVO> getProductList();
+	void writeReview(ReviewVO rvo);
 
 }

@@ -31,9 +31,9 @@ public class AdminService {
 		System.out.println("pwd : " + pwd);
 		int result=0;
 			
-		if(pwd == null) result = -1;   // 아이디가 없습니다
-		else if( workPwd.equals(pwd)) result =  1;   // 정상 로그인
-		else if( !workPwd.equals(pwd)) result =  0;  // 비번이 틀립니다
+		if(pwd == null) result = -1;  
+		else if( workPwd.equals(pwd)) result =  1;   
+		else if( !workPwd.equals(pwd)) result =  0; 
 			
 		return result;
 		
@@ -44,16 +44,11 @@ public class AdminService {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		HttpSession session = request.getSession();
 
-		// 다른 메뉴에서 현재 메뉴로 이동했을때, 세션에 저장된 page와 key 값을 모두 삭제합니다
 		if( request.getParameter("first")!=null ) {
 			session.removeAttribute("page");
 			session.removeAttribute("key");
 		}
 		
-		// 현재 페이지를 설정합니다.  파라미터로 전달된 값의 유무에 따라  이동할 페이지를 결정합니다.
-		// 파라미터로 전달된 페이지가 있다면 그 페이지로, 
-		// 파라미터에 전달된 페이지가 없다면 세션에 저장된 페이지로, 
-		// 세션에 저장된 페이지도 없다면 1페이지로 이동합니다.
 		int page = 1;
 		if( request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
@@ -65,7 +60,6 @@ public class AdminService {
 			session.removeAttribute("page");
 		}
 		
-		// 페이지와 비슷한 방식으로 검색어(key)도 설정합니다
 		String key = "";
 		if( request.getParameter("key") != null ) {
 			key = request.getParameter("key");
@@ -77,7 +71,6 @@ public class AdminService {
 			key = "";
 		} 
 		
-		// Paging 객체를 설정합니다
 		Paging paging = new Paging();
 		paging.setPage(page);
 		
@@ -129,12 +122,10 @@ public class AdminService {
 	    Paging paging = new Paging();
 	    paging.setPage(page);
 
-	    // 회원 테이블에서 키워드로 검색한 결과의 총 개수를 가져옵니다.
 	    int count = adao.getAllCount("member", "name", key);
 	    paging.setTotalCount(count);
 	    paging.paging();
 
-	    // 페이징 처리된 회원 목록을 가져옵니다.
 	    List<MemberVO> list = adao.listMember(paging, key);
 	    result.put("memberList", list);
 	    result.put("paging", paging);
@@ -351,6 +342,17 @@ public class AdminService {
 	public void deleteBanner(int bseq) {
 		adao.deleteBanner(bseq);
 		
+	}
+
+
+	public void updateBanner(String image, String subject, int order_seq, String useyn, int bseq) {
+		adao.updateBanner(image, subject, order_seq, useyn, bseq);
+		
+	}
+
+
+	public Object getMember(int mseq) {
+		return adao.getMember(mseq);
 	}
 
 

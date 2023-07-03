@@ -11,7 +11,7 @@ import com.ezen.phonefly2.util.Paging;
 @Mapper
 public interface IQnaDao {
 
-	int getAllCountbyId(String id);
+	int getAllCountById(String id);
 	List<QnaVO> qnaList(Paging paging, String id);
 	QnaVO getQna(int qseq);
 	void qnaWrite(QnaVO qvo);
