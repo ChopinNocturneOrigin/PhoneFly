@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.swing.ListModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,29 +21,23 @@ public class ProductService {
 
 	@Autowired
 	IProductDao pdao;
+
 	@Autowired
 	IMainDao mdao;
 
 	public HashMap<String, Object> getProduct(int pseq) {
-		
 		HashMap<String, Object> result = new HashMap<>();
-
 		ProductVO pvo = pdao.getProduct(pseq);
 		List<ColorVO> colorList = mdao.getColorList(pvo.getPseq());
 		pvo.setColorList(colorList);
 		List<RplanVO> rplanList = pdao.getRplanList();
-
 		result.put("productVO", pvo);
-		result.put("colorList", colorList);
 		result.put("rplanList", rplanList);
-
 		return result;
 	}
 
 	public List<ProductVO> getMfcList(String mfc) {
-
 		List<ProductVO> mfcList = pdao.getMfcList(mfc);
-
 		for (ProductVO pvo : mfcList) {
 			List<ColorVO> colorList = mdao.getColorList(pvo.getPseq());
 			pvo.setColorList(colorList);
@@ -49,16 +45,41 @@ public class ProductService {
 		return mfcList;
 	}
 
-	public int countProductOrders(int pseq) {
-        return pdao.countProductOrders(pseq);
-	}
-
 	public int countOrderById(String id, int pseq) {
-        return pdao.countOrderById(id, pseq);
+		return pdao.countOrderById(id, pseq);
 	}
 
-	public ArrayList<ReviewVO> getReviews(int pseq) {
-        return pdao.getReviews(pseq);
+	public List<ReviewVO> getReviews(int pseq) {
+		return pdao.getReviews(pseq);
+	}
+
+	public void productCompare(HashMap<String, Object> result) {
+		List<Integer> pseqList = (List<Integer>)result.get("pseqList");
+		List<ProductVO> productList = new ArrayList<>();
+		int compareFlag = 1;
+		if (pseqList != null) {
+			for (Integer pseq : pseqList) {
+				ProductVO pvo = pdao.getProduct(pseq);
+				List<ColorVO> colorList = mdao.getColorList(pseq);
+				pvo.setColorList(colorList);
+				if (pvo != null) {
+					productList.add(pvo);
+				}
+			}
+		} else {
+			compareFlag = 0;
+			productList = pdao.getProductList();
+			for (ProductVO pvo : productList) {
+				List<ColorVO> colorList = mdao.getColorList(pvo.getPseq());
+				pvo.setColorList(colorList);
+			}
+		}
+		result.put("productList", productList);
+		result.put("compareFlag", compareFlag);
+	}
+
+	public void reviewWrite(ReviewVO rvo) {
+		pdao.writeReview(rvo);
 	}
 
 }

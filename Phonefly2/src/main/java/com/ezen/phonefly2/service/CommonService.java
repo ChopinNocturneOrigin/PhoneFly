@@ -56,8 +56,8 @@ public class CommonService {
 		int count = cdao.getAllCount("event");
 		paging.setTotalCount(count);
 		session.setAttribute("page", page);
-		List<EventVO> noticeList = cdao.getEventList(paging);
-		result.put("noticeList", noticeList);
+		List<EventVO> eventList = cdao.getEventList(paging);
+		result.put("eventList", eventList);
 		result.put("paging", paging);
 	}
 

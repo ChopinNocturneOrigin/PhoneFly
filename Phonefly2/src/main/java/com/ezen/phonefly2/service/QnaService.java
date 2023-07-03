@@ -35,7 +35,7 @@ public class QnaService {
 		}
 		Paging paging = new Paging();
 		paging.setPage(page);
-		int count = qdao.getAllCountbyId(id);
+		int count = qdao.getAllCountById(id);
 		paging.setTotalCount(count);
 		session.setAttribute("page", page);
 		List<QnaVO> qnaList = qdao.qnaList(paging, id);
