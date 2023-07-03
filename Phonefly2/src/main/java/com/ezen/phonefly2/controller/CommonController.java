@@ -63,7 +63,7 @@ public class CommonController {
 	@RequestMapping("/eventDetail")
 	public ModelAndView eventDetail(@RequestParam("eseq") int eseq) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("eventVO", (List<EventVO>)cs.getEvent(eseq));
+		mav.addObject("eventVO", (EventVO)cs.getEvent(eseq));
 		mav.setViewName("event/eventDetail");
 		return mav;
 	}

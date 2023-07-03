@@ -82,7 +82,7 @@ author : BHS
 			<div class="paging">
 				<div id="board-paging">
 					<jsp:include page="../paging/paging.jsp">
-					<jsp:param name="command" value="/reviewList" />
+					<jsp:param name="command" value="/memberReviewList" />
 					</jsp:include>
 				</div>
 			</div>

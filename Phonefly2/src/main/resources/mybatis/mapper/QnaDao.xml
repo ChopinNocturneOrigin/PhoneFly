@@ -4,7 +4,7 @@
 <!-- 다시작성 : bhs -->
 <mapper namespace="com.ezen.phonefly2.dao.IQnaDao">
 
-	<select id="getAllCountbyId" resultType="_int">
+	<select id="getAllCountById" resultType="_int">
 		SELECT COUNT(*) FROM qna WHERE id = #{param1}
 	</select>
 
@@ -21,11 +21,11 @@
 		INSERT INTO qna (qseq, id, subject, content) VALUES (qseq.nextVal, #{id}, #{subject}, #{content})
 	</insert>
 
-	<update id="qnaUpdate" parameterType="com.ezen.phonefly2.dto.QnaVO" >
+	<update id="qnaUpdate" parameterType="com.ezen.phonefly2.dto.QnaVO">
 		UPDATE qna SET subject = #{subject}, content = #{content} where qseq = #{qseq}
 	</update>
 
-	<delete id="qnaDelete" parameterType="com.ezen.phonefly2.dto.QnaVO" >
+	<delete id="qnaDelete" parameterType="com.ezen.phonefly2.dto.QnaVO">
 		DELETE FROM qna WHERE qseq = #{param1}
 	</delete>
 

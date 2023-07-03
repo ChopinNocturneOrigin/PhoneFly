@@ -1,6 +1,8 @@
 package com.ezen.phonefly2.util;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 public class Paging {
