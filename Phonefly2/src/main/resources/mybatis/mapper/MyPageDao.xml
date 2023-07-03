@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- author : bhs -->
+<mapper namespace="com.ezen.phonefly2.dao.IMyPageDao">
+
+	<select id="getReviewList" resultType="com.ezen.phonefly2.dto.ReviewVO">
+		SELECT * FROM (SELECT * FROM (SELECT ROWNUM rn, N.* FROM (
+		SELECT * FROM review_view ORDER BY rseq DESC) N) WHERE rn &gt;= #{param1.startNum}) WHERE rn &lt;= #{param1.endNum}
+	</select>
+
+</mapper>
