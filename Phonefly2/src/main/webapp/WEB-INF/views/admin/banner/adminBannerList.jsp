@@ -3,16 +3,38 @@
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
-
+       
+        
+ 
+   
+    
+        
+   
+   
+   
+            
+            
+                 
 	<h1>배너 리스트</h1>
 	<form name="frm" method="post">
-		<table>
-			<tr><td width="800" align="right">
-				<input class="btn" type="button" name="btn_write" value="새배너 등록" 
-						onClick="location.href='newBannerWrite'"></td></tr>
+		<table id="bannerTd">
+			<tr>
+			    <td id="bannertd" >
+				<input id="bannerbtn" type="button" name="btn_write" value="새배너 등록" 
+				onClick="location.href='newBannerWrite'">
+				</td>
+			</tr>
 		</table>
 		<table id="productList">
-			<tr><th>번호</th><th>제목</th><th>순위</th><th>사용유무 </th><th>등록일</th><th>수정 </th></tr>
+			<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>순위</th>
+			<th>사용유무</th>
+			<th>등록일</th>
+			<th>수정</th>
+			<th>삭제</th>
+			</tr>
 			<c:choose>
 		    	<c:when test="${bannerListSize==0}">
 		    			<tr><td width="100%" colspan="6" align="center" height="23">등록된 상품이 없습니다.</td></tr>
@@ -52,7 +74,7 @@
 			      				<td><input type="button" value="수정" 
 			      					onClick="location.href='adminBannerUpdateForm?bseq=${bannerVO.bseq}'"></td>
 			      				<td><input type="button" value="삭제" 
-			      			   	   onClick= "go_del_b()"></td>
+			      			   	   onClick= "go_del_b(${bannerVO.bseq})"></td>
 		    				</tr>
 		    			</c:forEach>
 		    	</c:otherwise>

@@ -16,7 +16,8 @@ import com.ezen.phonefly2.util.Paging;
 
 @Service
 public class CommonService {
-
+	// 수정 : bhs, 그냥 붙어넣기 하지마시고 필요한 요소 인지 파악하고 붙여 넣으세요.
+	
 	@Autowired
 	ICommonDao cdao;
 
@@ -26,6 +27,7 @@ public class CommonService {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		HttpSession session = request.getSession();
 
+		/*
 		if (request.getParameter("first") != null) {
 			session.removeAttribute("page");
 			session.removeAttribute("key");
@@ -64,7 +66,7 @@ public class CommonService {
 		result.put("noticeList", noticeList);
 		result.put("paging", paging);
 		result.put("key", key);
-
+		*/
 		return result;
 	}
 
@@ -79,6 +81,7 @@ public class CommonService {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		HttpSession session = request.getSession();
 
+		/*
 		if (request.getParameter("first") != null) {
 			session.removeAttribute("page");
 			session.removeAttribute("key");
@@ -117,7 +120,8 @@ public class CommonService {
 		result.put("eventList", eventList);
 		result.put("paging", paging);
 		result.put("key", key);
-		
+		*/
+
 		return result;
 	}
 

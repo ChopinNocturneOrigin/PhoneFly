@@ -36,30 +36,32 @@
 				</td>
 			</tr>
 
-		<tr><th>순위 </th>
-			<td width="642">
+			<tr>
+				<th>순위</th>
+				<td width="642">
 				<select name="order_seq">
-					<option value="">디스플레이될 순서를 선택하세요 </option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">사용안함 </option>
+						<option value="">디스플레이될 순서를 선택하세요</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">사용안함</option>
 				</select>
-		<input class="btn" type="button" value="수정"
-			onClick="go_mod_save('${bannerVO.bseq}')"> <input class="btn"
-			type="button" value="취소" onClick="go_mov()">
-	
+			    	<input class="btn" type="button" value="수정"	onClick="go_mod_save('${bannerVO.bseq}')"> 
+					<input	class="btn" type="button" value="취소" onClick="go_mov()"></td>
+			</tr>
+		</table>
+	</form>
 
-	<div
-		style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
-		<form name="fromm" id="fileupForm" method="post"
-			enctype="multipart/form-data">
-			<input type="file" name="fileimage"> <input type="button"
-				id="myButton" value="추가">
+	<div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
+		<form name="fromm" id="fileupForm" method="post"enctype="multipart/form-data">
+			<input type="file" name="fileimage"> 
+			<input type="button" id="myButton" value="추가">
 		</form>
 	</div>
+
+
 
 
 </article>
