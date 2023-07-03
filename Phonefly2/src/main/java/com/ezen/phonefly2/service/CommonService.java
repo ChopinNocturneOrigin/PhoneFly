@@ -16,109 +16,49 @@ import com.ezen.phonefly2.util.Paging;
 
 @Service
 public class CommonService {
-
+	// 다시작성 : bhs
+	
 	@Autowired
 	ICommonDao cdao;
 
-//---NOTICE-----------------------------------------------------
-
-	public HashMap<String, Object> getNoticeList(HttpServletRequest request) {
-		HashMap<String, Object> result = new HashMap<String, Object>();
+	public void getNoticeList(HashMap<String, Object> result) {
+		HttpServletRequest request = (HttpServletRequest)result.get("request");
 		HttpSession session = request.getSession();
-
-		if (request.getParameter("first") != null) {
-			session.removeAttribute("page");
-			session.removeAttribute("key");
-		}
-
 		int page = 1;
+		session.removeAttribute("page");
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
-			session.setAttribute("page", page);
-		} else if (session.getAttribute("page") != null) {
-			page = (int) session.getAttribute("page");
-		} else {
-			page = 1;
-			session.removeAttribute("page");
 		}
-
-		String key = "";
-		if (request.getParameter("key") != null) {
-			key = request.getParameter("key");
-			session.setAttribute("key", key);
-		} else if (session.getAttribute("key") != null) {
-			key = (String) session.getAttribute("key");
-		} else {
-			session.removeAttribute("key");
-			key = "";
-		}
-
 		Paging paging = new Paging();
 		paging.setPage(page);
-
-		int count = cdao.getAllCount("notice", "subject", key);
+		int count = cdao.getAllCount("notice");
 		paging.setTotalCount(count);
-		paging.paging();
-
-		List<NoticeVO> noticeList = cdao.getNoticeList(paging, key);
+		session.setAttribute("page", page);
+		List<NoticeVO> noticeList = cdao.getNoticeList(paging);
 		result.put("noticeList", noticeList);
 		result.put("paging", paging);
-		result.put("key", key);
-
-		return result;
 	}
 
 	public NoticeVO getNotice(int nseq) {
 		return cdao.getNotice(nseq);
 	}
 
-//---EVENT-----------------------------------------------------
-
-	public HashMap<String, Object> getEventList(HttpServletRequest request) {
-
-		HashMap<String, Object> result = new HashMap<String, Object>();
+	public void getEventList(HashMap<String, Object> result) {
+		HttpServletRequest request = (HttpServletRequest)result.get("request");
 		HttpSession session = request.getSession();
-
-		if (request.getParameter("first") != null) {
-			session.removeAttribute("page");
-			session.removeAttribute("key");
-		}
-
 		int page = 1;
+		session.removeAttribute("page");
 		if (request.getParameter("page") != null) {
-			page = Integer.parseInt(request.getParameter("page"));
-			session.setAttribute("page", page);
-		} else if (session.getAttribute("page") != null) {
-			page = (int) session.getAttribute("page");
-		} else {
-			page = 1;
-			session.removeAttribute("page");
+			page=Integer.parseInt(request.getParameter("page"));
 		}
-
-		String key = "";
-		if (request.getParameter("key") != null) {
-			key = request.getParameter("key");
-			session.setAttribute("key", key);
-		} else if (session.getAttribute("key") != null) {
-			key = (String) session.getAttribute("key");
-		} else {
-			session.removeAttribute("key");
-			key = "";
-		}
-
 		Paging paging = new Paging();
 		paging.setPage(page);
-
-		int count = cdao.getAllCount("event", "subject", key);
+		int count = cdao.getAllCount("event");
 		paging.setTotalCount(count);
-		paging.paging();
-
-		List<EventVO> eventList = cdao.getEventList(paging, key);
-		result.put("eventList", eventList);
+		session.setAttribute("page", page);
+		List<EventVO> noticeList = cdao.getEventList(paging);
+		result.put("noticeList", noticeList);
 		result.put("paging", paging);
-		result.put("key", key);
-		
-		return result;
 	}
 
 	public EventVO getEvent(int eseq) {

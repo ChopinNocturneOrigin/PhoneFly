@@ -9,12 +9,12 @@ import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.util.Paging;
 @Mapper
 public interface ICommonDao {
-
-	List<NoticeVO> getNoticeList(Paging paging, String key);
+	// 다시작성 : bhs
+	
+	int getAllCount(String tableName);
+	List<NoticeVO> getNoticeList(Paging paging);
 	NoticeVO getNotice(int nseq);
-	int getAllCount(String string, String string2, String key);
-	List<EventVO> getEventList(Paging paging, String key);
+	List<EventVO> getEventList(Paging paging);
 	EventVO getEvent(int eseq);
-	int getAllCountById(String string, String string2, String key, String id);
 	
 }

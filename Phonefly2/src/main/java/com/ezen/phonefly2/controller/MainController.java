@@ -14,6 +14,7 @@ import com.ezen.phonefly2.service.MainService;
 
 @Controller
 public class MainController {
+	// author : bhs
 
 	@Autowired
 	MainService ms;
@@ -25,10 +26,9 @@ public class MainController {
 
 	@RequestMapping("/main")
 	public ModelAndView main() {
-		// author : bhs
 		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> result = new HashMap<>();
-		result = ms.getMainProduct();
+		ms.getMainProduct(result);
 		List<ProductVO> mainBestList = (List<ProductVO>)result.get("mainBestList");
 		List<ProductVO> mainEventList = (List<ProductVO>)result.get("mainEventList");
 		mav.addObject("mainBestList", mainBestList);

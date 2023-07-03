@@ -16,9 +16,8 @@ public class MainService {
 	@Autowired
 	IMainDao mdao;
 
-	public HashMap<String, Object> getMainProduct() {
+	public void getMainProduct(HashMap<String, Object> result) {
 		// author : bhs
-		HashMap<String, Object> result = new HashMap<>();
 		List<ProductVO> mainBestList = mdao.getBestList();
 		for (ProductVO pvo : mainBestList) {
 			List<ColorVO> colorList = mdao.getColorList(pvo.getPseq());
@@ -31,6 +30,5 @@ public class MainService {
 		}
 		result.put("mainBestList", mainBestList);
 		result.put("mainEventList", mainEventList);
-		return result;
 	}
 }

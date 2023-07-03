@@ -11,11 +11,11 @@ import com.ezen.phonefly2.util.Paging;
 @Mapper
 public interface IQnaDao {
 
-	List<QnaVO> qnaList(Paging paging, String key, MemberVO mvo);
+	int getAllCountbyId(String id);
+	List<QnaVO> qnaList(Paging paging, String id);
 	QnaVO getQna(int qseq);
-	void qnaWrite(QnaVO qnavo);
-	void qnaUpdate(QnaVO qnavo);
+	void qnaWrite(QnaVO qvo);
+	void qnaUpdate(QnaVO qvo);
 	void qnaDelete(int qseq);
-	
 
 }

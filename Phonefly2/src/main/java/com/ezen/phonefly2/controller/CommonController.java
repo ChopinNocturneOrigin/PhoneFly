@@ -18,6 +18,7 @@ import com.ezen.phonefly2.util.Paging;
 
 @Controller
 public class CommonController {
+	// 다시작성 : bhs
 
 	@Autowired
 	CommonService cs;
@@ -27,74 +28,56 @@ public class CommonController {
 		return "guide/intro";
 	}
 
-//---NOTICE-----------------------------------------------------
-
 	@RequestMapping("/noticeList")
 	public ModelAndView noticeList(HttpServletRequest request) {
-
 		ModelAndView mav = new ModelAndView();
-
-		HashMap<String, Object> result = cs.getNoticeList(request);
-
-		List<NoticeVO> noticeList = (List<NoticeVO>) result.get("noticeList");
-
-		mav.addObject("noticeList", noticeList);
-		mav.addObject("paging", (Paging) result.get("paging"));
-		mav.addObject("key", (String) result.get("key"));
+		HashMap<String, Object> result = new HashMap<>();
+		result.put("request", request);
+		cs.getNoticeList(result);
+		mav.addObject("noticeList", (List<NoticeVO>)result.get("noticeList"));
+		mav.addObject("paging", (Paging)result.get("paging"));
 		mav.setViewName("notice/noticeList");
-
 		return mav;
 	}
 
 	@RequestMapping("/noticeDetail")
 	public ModelAndView noticeDetail(@RequestParam("nseq") int nseq) {
 		ModelAndView mav = new ModelAndView();
-
 		mav.addObject("noticeVO", cs.getNotice(nseq));
 		mav.setViewName("notice/noticeDetail");
-
 		return mav;
 	}
-
-//---EVENT-----------------------------------------------------
 
 	@RequestMapping("/eventList")
 	public ModelAndView eventList(HttpServletRequest request) {
-
 		ModelAndView mav = new ModelAndView();
-
-		HashMap<String, Object> result = cs.getEventList(request);
-		List<EventVO> eventList = (List<EventVO>) result.get("eventList");
-
-		mav.addObject("eventList", eventList);
+		HashMap<String, Object> result = new HashMap<>();
+		result.put("request", request);
+		cs.getEventList(result);
+		mav.addObject("eventList", (List<EventVO>)result.get("eventList"));
 		mav.addObject("paging", (Paging) result.get("paging"));
-		mav.addObject("key", (String) result.get("key"));
 		mav.setViewName("event/eventList");
-
 		return mav;
 	}
-	
+
 	@RequestMapping("/eventDetail")
 	public ModelAndView eventDetail(@RequestParam("eseq") int eseq) {
-		
 		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("eventVO", cs.getEvent(eseq));
+		mav.addObject("eventVO", (List<EventVO>)cs.getEvent(eseq));
 		mav.setViewName("event/eventDetail");
-		
 		return mav;
 	}
-	
+
 	@RequestMapping("/FAQList")
 	public String faqList() {
 		return "faq/faq";
 	}
-	
+
 	@RequestMapping("/guide1")
 	public String guide1() {
 		return "guide/guide1";
 	}
-	
+
 	@RequestMapping("/guide2")
 	public String guide2() {
 		return "guide/guide2";

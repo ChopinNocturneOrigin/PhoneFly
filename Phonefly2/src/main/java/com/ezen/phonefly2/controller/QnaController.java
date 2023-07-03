@@ -23,131 +23,107 @@ import com.ezen.phonefly2.util.Paging;
 
 @Controller
 public class QnaController {
-	
+	// 다시 작성 : bhs
+
 	@Autowired
 	QnaService qs;
-	
+
 	@RequestMapping("qnaList")
 	public ModelAndView qnaList(HttpServletRequest request) {
-		
 		ModelAndView mav = new ModelAndView();
-		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-		if(mvo == null) mav.setViewName("member/loginForm");
-		else {
-			HashMap<String, Object> result = qs.qnaList(request, mvo);
-			List<QnaVO> qnaList = (List<QnaVO>)result.get("qnaList");
-			
-			
-			mav.addObject("qnaList", qnaList);
+		String url = "member/loginForm";
+		if(mvo != null) {
+			HashMap<String, Object> result = new HashMap<>();
+			result.put("id", mvo.getId());
+			result.put("request", request);
+			qs.qnaList(result);
+			mav.addObject("qnaList", (List<QnaVO>)result.get("qnaList"));
 			mav.addObject("paging", (Paging)result.get("paging"));
-			mav.addObject("key", (String)result.get("key"));
-			
-			mav.setViewName("qna/qnaList");
+			url = "qna/qnaList";
 		}
+		mav.setViewName(url);
 		return mav;
 	}
-	
+
 	@RequestMapping("/qnaDetail")
-	public ModelAndView qanView(HttpServletRequest request, @RequestParam("qseq") int qseq) {
-		
+	public ModelAndView qnaView(HttpServletRequest request, @RequestParam("qseq") int qseq) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		if(mvo == null) mav.setViewName("member/loginForm");
-		else {
+		String url = "member/loginForm";
+		if (mvo != null) {
 			mav.addObject("qnaVO", qs.getQna(qseq));
-			mav.setViewName("qna/qnaDetail");
+			url = "qna/qnaDetail";
 		}
+		mav.setViewName(url);
 		return mav;
 	}
 
 	@RequestMapping("/qnaWriteForm")
 	public String qnaWriteForm(Model model, HttpServletRequest request) {
-		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-		
-		if(mvo==null)return "member/loginForm";
-		
-		else return "qna/qnaWriteForm";
+		String url = "member/loginForm";
+		if (mvo != null) {
+			url = "qna/qnaWriteForm";
+		}
+		return url;
 	}
-	
+
 	@PostMapping("/qnaWrite")
-	public ModelAndView qnaWrite(@ModelAttribute("dto") QnaVO qnavo,
-				BindingResult result, HttpServletRequest request) {
-		
+	public ModelAndView qnaWrite(@ModelAttribute("dto") QnaVO qvo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-	    MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-	    
-	    if (mvo == null) {
-	        mav.setViewName("member/loginForm");
-	        return mav;
-	    }
-	    
-		if (result.hasErrors()) {
-	        mav.setViewName("qna/qnaWriteForm");
-	        return mav;
-	    }
-		
-	    qnavo.setId(mvo.getId());
-	    
-	    qs.qnaWrite(qnavo);
-	    mav.setViewName("redirect:/qnaList");
-	    return mav;
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		String url = "member/loginForm";
+		if (mvo != null) {
+			qvo.setId(mvo.getId());
+			qs.qnaWrite(qvo);
+			url = "redirect:/qnaList";
+		}
+		mav.setViewName(url);
+		return mav;
 	}
-	
+
 	@RequestMapping("/qnaUpdateform")
 	public String qnaUpdateform(@RequestParam("qseq") int qseq, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		
-		if(mvo==null) return "member/loginForm";
-		
-		QnaVO qvo = qs.getQna(qseq);
-		model.addAttribute("qnaVO", qvo);
-		return"qna/qnaUpdateForm";
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		String url = "member/loginForm";
+		if (mvo != null) {
+			QnaVO qvo = qs.getQna(qseq);
+			model.addAttribute("qvo", qvo);
+			url = "qna/qnaUpdateForm";
+		}
+		return url;
 	}
-	
+
 	@PostMapping("/qnaUpdate")
-	public ModelAndView qnaUpdate(@ModelAttribute("dto") QnaVO qnavo, 
-			BindingResult result, HttpServletRequest request) {
-		
+	public ModelAndView qnaUpdate(@ModelAttribute("dto") QnaVO qvo, BindingResult result, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-		
-		if (mvo == null) {
-	        mav.setViewName("member/loginForm");
-	        return mav;
-	    }
-		
-		if (result.hasErrors()) {
-	        mav.setViewName("qna/qnaUpdateForm");
-	        return mav;
-	    }
-		
-		qnavo.setId(mvo.getId());
-	    
-	    qs.qnaUpdate(qnavo);
-	    mav.setViewName("redirect:/qnaList");
-	    return mav;
+		String url = "member/loginForm";
+		if (mvo != null) {
+			qvo.setId(mvo.getId());
+			qs.qnaUpdate(qvo);
+			url = "redirect:/qnaList";
+		}
+		mav.setViewName(url);
+		return mav;
 	}
-	
+
 	@RequestMapping("/qnaDelete")
 	public String qnaDelete(@RequestParam("qseq") int qseq, HttpServletRequest request) {
-		
 		HttpSession session = request.getSession();
-	    MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-
-	    if (mvo == null) {
-	        return "member/login";
-	    }
-
-	    qs.qnaDelete(qseq);
-	    return "redirect:/qnaList";
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		String url = "member/login";
+		if (mvo != null) {
+			qs.qnaDelete(qseq);
+			url = "redirect:/qnaList";
+		}
+		return url;
 	}
-	
 }
