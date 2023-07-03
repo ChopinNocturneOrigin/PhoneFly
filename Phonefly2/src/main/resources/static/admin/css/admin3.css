@@ -212,7 +212,9 @@ article td {
 #EIList,
 #EUList ,
 #EDList,
-#PNIList
+#PNIList,
+#BUList,
+#BannerWrite
 {
   margin-left: auto;
   margin-right: auto;
@@ -254,6 +256,7 @@ body {
 /* 테이블 데이터  */
 
 #productList td,
+#BannerWrite td,
 #adminMemberList td,
 #eventList td,
 #noticeList td,
@@ -279,7 +282,9 @@ body {
 #EUList  th,
 #EDList th,
 .od-inner-left-wrap th,
-#orderList th {
+#orderList th,
+#BUList th, 
+#BannerWrite th{
   padding: 10px;
   text-align: center;
   border-bottom: 1px solid #ddd;
@@ -295,6 +300,7 @@ body {
 .btn,
 #loginform,
 #productList th,
+#BannerWrite th,
 #adminMemberList th,
 #QnaList th,
 #eventList th,
@@ -312,7 +318,9 @@ body {
 #EUList  th,
 #EDList th,
 .od-inner-left-wrap th,
-#orderList th 
+#orderList th,
+#BUList th,
+#BannerWrite th
 {
   padding: 10px;
   text-align: center;
@@ -345,13 +353,15 @@ body {
   border-radius: 0;
   border-bottom: 2px solid #ddd;
   width:50;
+   text-align:center;
 }
 
 
  #bannerTd{
   float: right;
-  width:800px;
-  height: 1000px;
+  width:0px;
+  height: 0px;
+  text-align:center;
   
   
 }
@@ -370,8 +380,10 @@ body {
 #PIList td,
 #PNIList td,
 #EIList td,
-#PCIList td	
-
+#PCIList td,	
+#BUList td,
+#BannerWrite td,
+#BOrder td 
 {
 	float:left;
 	 
