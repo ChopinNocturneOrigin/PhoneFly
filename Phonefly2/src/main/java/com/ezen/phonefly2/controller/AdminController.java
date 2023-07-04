@@ -288,19 +288,8 @@ public class AdminController {
 		
 		return "redirect:/adminBannerList";
 	}
-	
-	@RequestMapping("bannerUpdateForm")
-	   public String bannerUpdateForm(
-	               Model model, HttpServletRequest request,
-	               @RequestParam("bseq") int bseq) {
-	      
-	      model.addAttribute("BannerVO", bseq );
-	      return "admin/banner/adminBannerUpdateForm";
-	      
-	   }
-	@Autowired
-	ServletContext context;
-	
+
+
 	@RequestMapping("bannerUpdateForm")
 	public String bannerUpdateForm(
 					Model model, HttpServletRequest request,
