@@ -1,5 +1,6 @@
 package com.ezen.phonefly2.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -34,8 +35,8 @@ public interface IAdminDao {
 
 	List<BannerVO> getBannerList();
 	
-	void insertBanner(BannerVO bannervo);
-
+	void insertBanner(HashMap<String, Object> paramMap);
+	
 	void updateSeq(int changeval, String useyn, int bseq);
 
 	void deleteBanner(int bseq);

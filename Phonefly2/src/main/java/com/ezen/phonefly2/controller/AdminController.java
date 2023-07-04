@@ -57,7 +57,7 @@ public class AdminController {
 			@RequestParam("fileimage") MultipartFile file,
 			HttpServletRequest request, Model model	) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		String path = context.getRealPath("/images/productImage");	
+		String path = context.getRealPath("/videos");	
 		Calendar today = Calendar.getInstance();
  		long t = today.getTimeInMillis();
  		String filename = file.getOriginalFilename(); // 파일이름 추출
@@ -243,29 +243,24 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping("adminBannerWrite" )
-	public String adminBannerWrite(  @ModelAttribute BannerVO bannervo, Model model, HttpServletRequest request	) {
+	@RequestMapping("/adminBannerWrite" )
+	public String adminBannerWrite( HttpServletRequest request ) {
 		
-		if( bannervo.getSubject()==null ) 
-			model.addAttribute("message","제목을 입력하세요" );
-		else if(bannervo.getVideo()==null)
-			model.addAttribute("message", "비디오를 추가하세요" );
-		else if(bannervo.getBtitle()==null)
-			model.addAttribute("message", "배너 타이틀을 추가하세요" );
-		else if(bannervo.getBtext()==null)
-			model.addAttribute("message", "배너 내용을 추가하세요" );
-		else if(bannervo.getTop()==null)
-			model.addAttribute("message", "탑 마진 설정해주세요" );
-		else if(bannervo.getLeft()==null)
-			model.addAttribute("message", "왼쪽 마진 설정해주세요" );
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("subject", request.getParameter("subject") );
+		paramMap.put("order_seq", Integer.parseInt(request.getParameter("order_seq")));
+		paramMap.put("btitle", request.getParameter("btitle") );
+		paramMap.put("btext", request.getParameter("btext") );
+		paramMap.put("top", request.getParameter("top") );
+		paramMap.put("left", request.getParameter("left") );
+		paramMap.put("video", request.getParameter("video") );
 		
-		if( bannervo.getOrder_seq() == 6 ) bannervo.setUseyn("N");
-		else bannervo.setUseyn("Y");
+		if( request.getParameter("order_seq").equals("6") ) paramMap.put("useyn", "N" );
+		else paramMap.put("useyn", "Y" );
 		
-		as.insertBanner( bannervo );
-		
+		as.insertBanner( paramMap );
 		return "redirect:/adminBannerList";
-		}
+	}
 
 	@RequestMapping("/change_order")
 	public String change_order(
@@ -298,7 +293,7 @@ public class AdminController {
 		else useyn="Y";
 		
 		as.updateBanner( bannervo.getVideo(),bannervo.getSubject(), bannervo.getOrder_seq(), useyn, 
-				bannervo.getBseq(), bannervo.getBtitle(), bannervo.getBtext(), bannervo.getTop(), bannervo.getLeft());
+				Integer.parseInt(bannervo.getBseq()), bannervo.getBtitle(), bannervo.getBtext(), bannervo.getTop(), bannervo.getLeft());
 		
 		return "redirect:/adminBannerList";
 	}
