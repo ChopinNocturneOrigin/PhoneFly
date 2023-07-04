@@ -11,8 +11,9 @@
 		<table id="PNUList">
 			<tr>
 				<th>공지사항명</th>
-				<td width="343" colspan="5"><input type="text" name="subject"
-					size="47" maxlength="100" value="${noticeVO.subject}"></td>
+				<td width="343" colspan="5">
+				<input type="text" name="subject"
+				size="47" maxlength="100" value="${noticeVO.subject}"></td>
 			</tr>
 			<tr>
 				<th>상세설명</th>
@@ -23,7 +24,7 @@
 		<div class="Bottm-btn-container">
 			<div>
 				<input class="btn" type="button" value="수정"
-					onClick="go_mod_save_n(${noticeVO.nseq})">
+					onClick="go_mod_save_n(${noticeVO.nseq});">
 			</div> &nbsp;&nbsp;&nbsp;
 			<div>
 				<input class="btn" type="button" value="취소"

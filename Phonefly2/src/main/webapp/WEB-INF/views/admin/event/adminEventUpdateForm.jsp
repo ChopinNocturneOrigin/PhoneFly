@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/header3.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
@@ -19,7 +19,7 @@
 			<tr>
 				<th>이벤트 이미지</th>
 				<td colspan="5"><img src="images/event/${eventVO.image}"
-					width="600"><br> <input type="file" name="image">
+					width="600"><br> 
 				</td>
 			</tr>
 		</table>
