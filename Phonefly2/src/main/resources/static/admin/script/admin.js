@@ -227,6 +227,8 @@ function go_mod_c(cseq) {
 }
 
 
+
+
 function go_mod_save(pseq) {
 	if (document.frm.name.value == '') {
 		alert('상품명을 입력하세요');
@@ -294,7 +296,7 @@ function go_mod_save_c(cseq) {
 
 
 
-function go_mod_save_n() {
+function go_mod_save_n(nseq) {
 	if (document.frm.subject.value == '') {
 		alert('공지사항 이름을 입력하세요');
 		document.frm.subject.focus();
@@ -303,14 +305,19 @@ function go_mod_save_n() {
 		document.frm.content.focus();
 	} else {
 		if (confirm('수정하시겠습니까?')) {
-			document.frm.action = "/adminNoticeUpdate";
+			document.frm.action = "/adminNoticeUpdate?nseq=" + nseq;
 			document.frm.submit();
 		}
 	}
 }
 
 
-
+function go_mod_save_od(result,odseq) {
+			document.frm.action = "/adminOrderUpdate?result=" + result + "&odseq=" + odseq  ;
+			document.frm.submit();
+		
+	
+}
 
 
 
@@ -319,7 +326,7 @@ function go_order_save() {
 	// 현재 화면에 보여지고 있는 주문들의 체크박스들의 체크된 상태가  몇개나 체크되어 있는지 갯수를  count  합니다
 	var count = 0;
 	if (document.frm.result.length == undefined) {   // 화면에 표시된 체크박스가 한개인경우
-		if (cocument.frm.result.checked == true) count++;
+		if (document.frm.result.checked == true) count++;
 	} else {  //  화면에 표시된 체크박스가 두개 이상인경우
 		for (var i = 0; i < document.frm.result.length; i++)
 			if (document.frm.result[i].checked == true)

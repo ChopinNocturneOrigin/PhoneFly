@@ -23,7 +23,7 @@
 		<div class="Bottm-btn-container">
 			<div>
 				<input class="btn" type="button" value="수정"
-					onClick="go_mod_save_n()">
+					onClick="go_mod_save_n(${noticeVO.nseq})">
 			</div> &nbsp;&nbsp;&nbsp;
 			<div>
 				<input class="btn" type="button" value="취소"

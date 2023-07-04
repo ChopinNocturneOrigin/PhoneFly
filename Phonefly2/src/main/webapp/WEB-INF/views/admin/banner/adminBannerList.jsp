@@ -61,7 +61,7 @@
 		    					<td>${bannerVO.useyn}</td>
 		    					<td width="150"><fmt:formatDate value="${bannerVO.indate}"/></td>
 			      				<td><input type="button" value="수정" 
-			      					onClick=" go_update_banner(${bannerVO.bseq})"></td>
+			      					onClick="go_update_banner(${bannerVO.bseq})"></td>
 			      				<td><input type="button" value="삭제" 
 			      			   	   onClick= "go_del_b(${bannerVO.bseq})"></td>
 		    				</tr>

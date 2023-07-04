@@ -14,7 +14,7 @@
 
 			<tr>
 				<th>순위</th>
-				<td width="642">
+				<td width="40">
 				<select id="BannerOrder" name="order_seq">
 						<option value="">디스플레이될 순서를 선택하세요</option>
 						<option value="1">1</option>
@@ -41,7 +41,7 @@
 
 			<tr>
 				<th>텍스트 위치 </th>
-				<td width="343" colspan="5">X축:
+				<td width="130" colspan="5">X축:
 				<input type="text" name="top" size="5" value="${bannerVO.top}">px <br>Y축:
 				<input	type="text" name="left" size="5" value="${bannerVO.left}">px
 				</td>
