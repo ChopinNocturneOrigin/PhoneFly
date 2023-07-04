@@ -70,7 +70,7 @@
 		    </c:choose>
 		</table>
 	</form>
-
+                                                     
 </article>
 
 <%@ include file="../../admin/footer.jsp"%>
