@@ -40,9 +40,11 @@ public interface IAdminDao {
 
 	void deleteBanner(int bseq);
 
-	void updateBanner(String image, String subject, int order_seq, String useyn, int bseq);
+	void updateBanner(String video, String subject, int order_seq, String useyn, int bseq, String btitle, String btext, String top, String left);
 
 	Object getMember(int mseq);
+
+	void insertProduct(ProductVO productvo);
 
 
 
