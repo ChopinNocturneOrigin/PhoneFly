@@ -10,6 +10,6 @@
 	<li><a href='adminQnaList?first=y'>Q&amp;A리스트</a></li>
 	<li><a href='adminNoticeList?first=y'>공지사항리스트</a></li>
 	<li><a href='adminEventList?first=y'>이벤트리스트</a></li>
-	<li><a href='adminBannerList?first=y'>메인베너관리</a></li>
+	<li><a href='adminBannerList?first=y'>메인배너관리</a></li>
 </ul>
 </nav>

@@ -18,7 +18,7 @@
     	<tr><td>${qnaVO.qseq}  
       		<c:choose>          
         		<c:when test='${qnaVO.rep=="1"}'>(미처리)</c:when>
-        		<c:otherwise>(답변처리완료)</c:otherwise>
+        		<c:otherwise>(처리완료)</c:otherwise>
       		</c:choose></td>
       		<td>
       			<a href="#" onClick="javascript:go_view('${qnaVO.qseq}');">
