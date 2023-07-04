@@ -330,8 +330,8 @@ public class AdminService {
 		return adao.getBannerList();
 	}
 
-	public void insertBanner(BannerVO bannervo) {
-		adao.insertBanner( bannervo );	
+	public void insertBanner(HashMap<String, Object> paramMap) {
+		adao.insertBanner( paramMap );	
 	}
 	
 	public void updateSeq(int changeval, String useyn, int bseq) {
