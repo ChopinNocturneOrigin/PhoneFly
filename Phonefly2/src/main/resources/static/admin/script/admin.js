@@ -406,18 +406,9 @@ function goToAdminProductList() {
 
 
 function go_banner_save() {
-	var theForm = document.frm;
-	if (document.frm.subject.value == '') {
-		alert('베너 제목을 입력하세요');
-		document.frm.subject.focus();
-	} else if (document.frm.image.value == '') {
-		alert('베너 이미지를 입력하세요');
-	} else {
-		if (confirm('수정하시겠습니까?')) {
-			theForm.action = "adminBannerWrite";
-			theForm.submit();
-		}
-	}
+	var theForm = document.frm;  
+	theForm.action = "adminBannerWrite";
+	theForm.submit();
 }
 
 

@@ -26,6 +26,10 @@
 		SELECT * FROM order_detail_view2 WHERE odseq = #{param1} AND id = #{param2}
 	</select>
 
+	<select id="adminOrderDetail" resultType="com.ezen.phonefly2.dto.OrderDetailVO">
+		SELECT * FROM order_detail_view2 WHERE odseq = #{param1}
+	</select>
+
 	<delete id="deleteOrder">
 		DELETE FROM order_detail WHERE odseq = #{param1}
 	</delete>

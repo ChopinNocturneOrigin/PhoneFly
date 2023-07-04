@@ -16,5 +16,11 @@ public interface ICommonDao {
 	NoticeVO getNotice(int nseq);
 	List<EventVO> getEventList(Paging paging);
 	EventVO getEvent(int eseq);
+	void insertNotice(NoticeVO noticevo);
+	void updateNotice(NoticeVO noticeVO);
+	void deleteNotice(int nseq);
+	void insertEvent(EventVO eventvo);
+	void updateEvent(EventVO eventvo);
+	void deleteEvent(int eseq);
 	
 }
