@@ -17,7 +17,8 @@ public interface IMyPageDao {
 	void deleteReview(int rvseq);
 	List<OrderDetailVO> getOrderList(Paging paging, String id);
 	OrderDetailVO getOrderDetail(int odseq, String id);
+	OrderDetailVO adminOrderDetail(int odseq);
 	void deleteOrder(int odseq);
 	void insertOrder(OrderDetailVO ovo);
-
+	
 }

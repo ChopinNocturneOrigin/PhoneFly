@@ -77,6 +77,10 @@ public class MyPageService {
 	public OrderDetailVO orderDetail(int odseq, String id) {
 		return mpdao.getOrderDetail(odseq, id);
 	}
+	
+	public OrderDetailVO adminOrderDetail(int odseq) {
+		return mpdao.adminOrderDetail(odseq);
+	}
 
 	public void orderCancel(int odseq) {
 		mpdao.deleteOrder(odseq);

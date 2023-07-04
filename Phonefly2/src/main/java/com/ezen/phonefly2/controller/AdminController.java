@@ -29,6 +29,8 @@ import com.ezen.phonefly2.dto.OrderDetailVO;
 import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.service.AdminService;
+import com.ezen.phonefly2.service.CommonService;
+import com.ezen.phonefly2.service.MyPageService;
 import com.ezen.phonefly2.service.ProductService;
 import com.ezen.phonefly2.service.QnaService;
 import com.ezen.phonefly2.util.Paging;
@@ -304,9 +306,14 @@ public class AdminController {
 	@RequestMapping("bannerUpdateForm")
 	   public String bannerUpdateForm(
 	               Model model, HttpServletRequest request,
-	               @RequestParam("bseq") int bseq) {
-	      
-	      model.addAttribute("BannerVO", bseq );
+	               BannerVO bannervo) {
+		
+		if( bannervo.getVideo() == null  || bannervo.getVideo().equals("") )
+			bannervo.setVideo( request.getParameter("oldfilename") );
+		
+	      model.addAttribute("bseq", bannervo.getBseq() );
+	      model.addAttribute("BannerVO", bannervo );
+
 	      return "admin/banner/adminBannerUpdateForm";
 	      
 	  }
@@ -353,6 +360,136 @@ public class AdminController {
 									@RequestParam("reply") String reply ) {
 		as.qnaReply( qseq, reply );
 		return "redirect:/adminQnaDetail?qseq=" + qseq;
+	}
+	
+	@Autowired
+	CommonService cs;
+	
+	@RequestMapping("/adminNoticeDetail")
+	public ModelAndView adminNoticeDetail( @RequestParam("nseq") int nseq   	) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("noticeVO", cs.getNotice(nseq) );
+		mav.setViewName("admin/notice/adminNoticeDetail");
+		return mav;
+	}
+	
+	@RequestMapping("/adminEventDetail")
+	public ModelAndView adminEventDetail( @RequestParam("eseq") int eseq   	) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("eventVO", cs.getEvent(eseq) );
+		mav.setViewName("admin/event/adminEventDetail");
+		return mav;
+	}
+	
+	@Autowired
+	MyPageService mps;
+	
+	@RequestMapping("/adminOrderDetail")
+	public ModelAndView adminOrderDetail( @RequestParam("odseq") int odseq ) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("orderDetailVO", mps.adminOrderDetail(odseq) );
+		mav.setViewName("admin/order/adminOrderDetail");
+		return mav;
+		
+}
+	
+	@RequestMapping("/adminOrderUpdate")
+	public String adminOrderUpdate( @RequestParam("result") int results, @RequestParam("odseq") int odseq ) {
+		
+		as.adminOrderUpdate( odseq,results );
+		
+		return "redirect:/adminOrderList";
+	}
+	
+	
+	@RequestMapping("/adminNoticeInsertForm")
+	public String adminNoticeInsertForm() {
+		return "admin/notice/adminNoticeInsertForm";
+	}
+	
+	@RequestMapping(value="/adminNoticeInsert" , method = RequestMethod.POST)
+	public String adminNoticeInsert( NoticeVO noticeVO, HttpServletRequest request) {
+		cs.insertNotice( noticeVO );
+		return "redirect:/adminNoticeList";
+	}
+	
+	
+	
+	@RequestMapping("adminNoticeUpdateForm")
+	   public String adminNoticeUpdateForm(
+	               Model model, HttpServletRequest request,
+	               @RequestParam("nseq") int nseq) {
+	      
+	      model.addAttribute("noticeVO", nseq );
+	      return "admin/notice/adminNoticeUpdateForm";
+	      
+	  }
+	
+	@RequestMapping("/adminNoticeUpdate")
+	public String adminNoticeUpdate(
+			HttpServletRequest request,NoticeVO noticeVO) {
+		
+		cs.updateNotice( noticeVO);
+		
+		return "redirect:/adminNoticeList";
+	}
+	
+	
+	@RequestMapping("/adminNoticeDelete")
+	public String adminNoticeDelete(
+			HttpServletRequest request, @RequestParam("nseq") int nseq) {
+		
+		cs.deleteNotice(nseq);
+		
+		return "redirect:/adminNoticeList";
+	}
+	
+	@RequestMapping("/adminEventInsertForm")
+	public String adminEventInsertForm() {
+		return "admin/event/adminEventInsertForm";
+	}
+	
+	
+	@RequestMapping("adminEventInsert" )
+	public String adminEventInsert(  @ModelAttribute EventVO eventvo, Model model, HttpServletRequest request	) {
+		cs.insertEvent( eventvo );
+		return "redirect:/adminEventList";
+	}
+	
+	
+	
+	@RequestMapping("adminEventUpdateForm")
+	   public String adminEventUpdateForm(
+	               Model model, HttpServletRequest request,
+	               EventVO eventvo) {
+	      
+		if( eventvo.getImage() == null  || eventvo.getImage().equals("") )
+			eventvo.setImage( request.getParameter("oldfilename") );
+		
+	      model.addAttribute("eseq", eventvo.getEseq() );
+	      model.addAttribute("eventvo", eventvo );
+
+	      return "admin/event/adminEventUpdateForm";
+	      
+	  }
+	
+	@RequestMapping("/adminEventUpdate")
+	public String adminEventUpdate(
+			HttpServletRequest request,EventVO eventvo) {
+		
+		cs.updateEvent( eventvo);
+		
+		return "redirect:/adminEventList";
+	}
+	
+	
+	@RequestMapping("/adminEventDelete")
+	public String adminEventDelete(
+			HttpServletRequest request, @RequestParam("eseq") int eseq) {
+		
+		cs.deleteEvent( eseq);
+		
+		return "redirect:/adminEventList";
 	}
 	
 }

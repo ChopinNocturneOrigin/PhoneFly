@@ -361,5 +361,14 @@ public class AdminService {
 		adao.insertProduct( productvo );
 	}
 
+
+	public void adminOrderUpdate(int odseq, int results) {
+			adao.adminOrderUpdate(odseq , results);
+		
+	}
+
+
+	
+
 	
 }

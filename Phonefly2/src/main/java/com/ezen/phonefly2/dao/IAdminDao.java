@@ -46,6 +46,8 @@ public interface IAdminDao {
 
 	void insertProduct(ProductVO productvo);
 
+	void adminOrderUpdate(int odseq, int results);
+
 
 
 	

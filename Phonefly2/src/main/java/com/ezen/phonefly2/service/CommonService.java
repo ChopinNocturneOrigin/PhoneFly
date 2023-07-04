@@ -65,4 +65,32 @@ public class CommonService {
 		return cdao.getEvent(eseq);
 	}
 
+	public void insertNotice(NoticeVO noticevo) {
+		cdao.insertNotice(noticevo);
+		
+	}
+
+	public void updateNotice(NoticeVO noticeVO) {
+		cdao.updateNotice(noticeVO);
+		
+	}
+
+	public void deleteNotice(int nseq) {
+		cdao.deleteNotice(nseq);		
+	}
+
+	public void insertEvent(EventVO eventvo) {
+		cdao.insertEvent(eventvo);
+		
+	}
+
+	public void updateEvent(EventVO eventvo) {
+		cdao.updateEvent(eventvo);
+		
+	}
+
+	public void deleteEvent(int eseq) {
+		cdao.deleteEvent(eseq);		
+	}
+
 }
