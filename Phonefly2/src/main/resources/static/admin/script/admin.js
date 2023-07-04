@@ -227,6 +227,8 @@ function go_mod_c(cseq) {
 }
 
 
+
+
 function go_mod_save(pseq) {
 	if (document.frm.name.value == '') {
 		alert('상품명을 입력하세요');
@@ -294,7 +296,7 @@ function go_mod_save_c(cseq) {
 
 
 
-function go_mod_save_n() {
+function go_mod_save_n(nseq) {
 	if (document.frm.subject.value == '') {
 		alert('공지사항 이름을 입력하세요');
 		document.frm.subject.focus();
@@ -303,14 +305,19 @@ function go_mod_save_n() {
 		document.frm.content.focus();
 	} else {
 		if (confirm('수정하시겠습니까?')) {
-			document.frm.action = "/adminNoticeUpdate";
+			document.frm.action = "/adminNoticeUpdate?nseq=" + nseq;
 			document.frm.submit();
 		}
 	}
 }
 
 
-
+function go_mod_save_od(result,odseq) {
+			document.frm.action = "/adminOrderUpdate?result=" + result + "&odseq=" + odseq  ;
+			document.frm.submit();
+		
+	
+}
 
 
 

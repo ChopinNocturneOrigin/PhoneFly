@@ -7,7 +7,7 @@
 	<!-- <h1>주문리스트</h1> -->
 	<form name="frm" method="post" >
 		<input type="hidden" name="command" value="adminOrderUpdate" /> 
-		<input type="hidden" name="odseq" value="${orderVO.odseq}" />
+		<input type="hidden" name="odseq" value="${orderDetailVO.odseq}" />
 
 
 
@@ -28,20 +28,20 @@
 
 							<!-- 제품명 -->
 							<div class="card-name pdd-card-name">
-								<h3>[${orderVO.mfc}] ${orderVO.pname}</h3>
+								<h3>[${orderDetailVO.mfc}] ${orderDetailVO.pname}</h3>
 							</div>
 							<!-- //제품명 -->
 
 							<!-- 이미지 -->
 							<div class="od-card-img">
-								<img src="images/productImage/${orderVO.image}" />
+								<img src="images/productImage/${orderDetailVO.image}" />
 							</div>
 							<div class="clear"></div>
 							<!-- //이미지 -->
 
 							<!-- 컬러 이름 -->
 							<div class="pdd-color-names">
-								<div>${orderVO.ccname}</div>
+								<div>${orderDetailVO.ccname}</div>
 							</div>
 							<br /> <br />
 							<!-- //컬러 이름 -->
@@ -61,7 +61,7 @@
 								<!-- 신청일 -->
 								<tr>
 									<th>신청일</th>
-									<td><fmt:formatDate value="${orderVO.indate}" /></td>
+									<td><fmt:formatDate value="${orderDetailVO.indate}" /></td>
 								</tr>
 
 								<!-- 처리결과 -->
@@ -69,12 +69,12 @@
 									<th>상태</th>
 									<td><select name="result" id="admin-orderdetail-combobox">
 											<c:choose>
-												<c:when test="${orderVO.result == '1'}">
+												<c:when test="${orderDetailVO.result == '1'}">
 													<option value="1" selected>접수중</option>
 													<option value="2">발송중</option>
 													<option value="3">완료</option>
 												</c:when>
-												<c:when test="${orderVO.result == '2'}">
+												<c:when test="${orderDetailVO.result == '2'}">
 													<option value="1">접수중</option>
 													<option value="2" selected>발송중</option>
 													<option value="3">완료</option>
@@ -92,7 +92,7 @@
 								<tr>
 									<th>통신사</th>
 									<td><img
-										src="images/common/tong-${fn:toLowerCase(orderVO.cname)}.png" />
+										src="images/common/tong-${fn:toLowerCase(orderDetailVO.cname)}.png" />
 									</td>
 								</tr>
 
@@ -100,7 +100,7 @@
 								<tr>
 									<th>가입종류</th>
 									<td><c:choose>
-											<c:when test="${orderVO.cc == 0}">통신사이동</c:when>
+											<c:when test="${orderDetailVO.cc == 0}">통신사이동</c:when>
 											<c:otherwise>기기변경</c:otherwise>
 										</c:choose></td>
 								</tr>
@@ -108,10 +108,10 @@
 								<!-- 요금제 (rplanList) -->
 								<tr>
 									<th>요금제</th>
-									<td>${orderVO.rname}|월 <fmt:formatNumber
-											value="${orderVO.charge}" type="number" />원<br /> 데이터
-										${orderVO.dataplan} / 음성 ${orderVO.timeplan} /
-										${orderVO.textplan}
+									<td>${orderDetailVO.rname}|월 <fmt:formatNumber
+											value="${orderDetailVO.charge}" type="number" />원<br /> 데이터
+										${orderDetailVO.dataplan} / 음성 ${orderDetailVO.timeplan} /
+										${orderDetailVO.textplan}
 									</td>
 								</tr>
 
@@ -120,19 +120,19 @@
 								<tr>
 									<th>할인방법</th>
 									<td><c:choose>
-											<c:when test="${orderVO.discount == 0}">
+											<c:when test="${orderDetailVO.discount == 0}">
 										공시지원할인 - 총 200,000원<br />
 										(단말기 할인 / 개통당시 1회 단말기 구매 비용 할인)
 									</c:when>
 											<c:otherwise>
 												<c:choose>
-													<c:when test="${orderVO.buyplan == 1}">
+													<c:when test="${orderDetailVO.buyplan == 1}">
 											선택약정할인 - 총 0원<br />
 											(25% 요금할인 / 약정기간동안 매월 기본료 25%할인)
 											</c:when>
 													<c:otherwise>
 											선택약정할인 - 총 <fmt:formatNumber
-															value="${orderVO.charge / 4 * orderVO.buyplan}"
+															value="${orderDetailVO.charge / 4 * orderDetailVO.buyplan}"
 															type="number" />원<br />
 											(25% 요금할인 / 약정기간동안 매월 기본료 25%할인)
 											</c:otherwise>
@@ -145,8 +145,8 @@
 								<tr>
 									<th>구매방법</th>
 									<td><c:choose>
-											<c:when test="${orderVO.buyplan > 1}">
-										${orderVO.buyplan}개월
+											<c:when test="${orderDetailVO.buyplan > 1}">
+										${orderDetailVO.buyplan}개월
 									</c:when>
 											<c:otherwise>
 										일시불
@@ -198,7 +198,7 @@
 												<span class="float-r pdd-price-big"><span
 													class="float-r pdd-big-inside">&nbsp;원</span><span
 													class="pdd-mtotal-out"><fmt:formatNumber
-															value="${orderVO.mtotal}" type="number" /></span></span>
+															value="${orderDetailVO.mtotal}" type="number" /></span></span>
 											</div>
 										</li>
 									</ul>
@@ -221,13 +221,13 @@
 
 
 														<c:choose>
-															<c:when test="${orderVO.buyplan == 1}">
+															<c:when test="${orderDetailVO.buyplan == 1}">
 														&nbsp;일시불
 													</c:when>
 															<c:otherwise>
 																<div class="float-l">&nbsp;월 할부금</div>
 																<div class="float-l pdd-right-inside-month-text">
-																	&nbsp;(${orderVO.buyplan}개월)</div>
+																	&nbsp;(${orderDetailVO.buyplan}개월)</div>
 															</c:otherwise>
 														</c:choose>
 
@@ -239,11 +239,11 @@
 													class="txt-al-r pdd-price-middle float-r pdd-dcmonth-out pdd-plan-chk">
 
 													<c:choose>
-														<c:when test="${orderVO.buyplan == 1}">
+														<c:when test="${orderDetailVO.buyplan == 1}">
 													0
 												</c:when>
 														<c:otherwise>
-															<fmt:formatNumber value="${orderVO.dcmonth}"
+															<fmt:formatNumber value="${orderDetailVO.dcmonth}"
 																type="number" />
 														</c:otherwise>
 													</c:choose>
@@ -260,14 +260,14 @@
 												<div class="txt-al-l float-l">출고가</div>
 												<div class="float-r">&nbsp;원</div>
 												<div class="float-r pdd-price2-out">
-													<fmt:formatNumber value="${orderVO.price}" type="number" />
+													<fmt:formatNumber value="${orderDetailVO.price}" type="number" />
 												</div>
 											</div>
 											<div class="clear"></div>
 										</li>
 
 
-										<c:if test="${orderVO.discount == 0}">
+										<c:if test="${orderDetailVO.discount == 0}">
 											<!-- 공시지원 할인 (hidden toggle) (고정) (b) -->
 											<li class="discount-method-1">
 												<div
@@ -289,7 +289,7 @@
 												<div class="txt-al-l float-l">할부원금</div>
 												<div class="float-r">&nbsp;원</div>
 												<div class="float-r pdd-price-middle pdd-dctotal-out">
-													<fmt:formatNumber value="${orderVO.dctotal}" type="number" />
+													<fmt:formatNumber value="${orderDetailVO.dctotal}" type="number" />
 												</div>
 											</div>
 											<div class="clear"></div>
@@ -317,7 +317,7 @@
 												</div>
 												<div class="float-r">&nbsp;원</div>
 												<div class="pdd-price-middle float-r pdd-mmonth-out">
-													<fmt:formatNumber value="${orderVO.mmonth}" type="number" />
+													<fmt:formatNumber value="${orderDetailVO.mmonth}" type="number" />
 												</div>
 											</div>
 											<div class="clear"></div>
@@ -326,17 +326,17 @@
 										<li>
 											<div
 												class="pdd-right-inside-padding pdd-right-inside-padding-white">
-												<div class="txt-al-l float-l rplan-name">${orderVO.rname}</div>
+												<div class="txt-al-l float-l rplan-name">${orderDetailVO.rname}</div>
 												<div class="float-r">&nbsp;원</div>
 												<div class="float-r rplan-charge">
-													<fmt:formatNumber value="${orderVO.charge}" type="number" />
+													<fmt:formatNumber value="${orderDetailVO.charge}" type="number" />
 												</div>
 											</div>
 											<div class="clear"></div>
 										</li>
 
 
-										<c:if test="${orderVO.discount == 1}">
+										<c:if test="${orderDetailVO.discount == 1}">
 											<!-- 선택약정 할인 (hidden toggle) (고정) (b) -->
 											<li class="discount-method-2">
 												<div
@@ -345,7 +345,7 @@
 													<div class="float-r">&nbsp;원</div>
 													<div class="float-r pdd-text-red discount-value-b-text">
 														-
-														<fmt:formatNumber value="${orderVO.charge / 4}"
+														<fmt:formatNumber value="${orderDetailVO.charge / 4}"
 															type="number" />
 													</div>
 												</div>
@@ -365,8 +365,8 @@
 											onclick="location.href='adminOrderList';" />
 											</div> &nbsp;&nbsp;&nbsp;
 											<div>
-											 <input	type="submit" class="btn"
-											value="수정" />
+											 <input	type="button" class="btn"
+											value="수정" onclick="go_mod_save_od(${orderDetailVO.result},${orderDetailVO.odseq});"/>
 									</div>
 									&nbsp;&nbsp;&nbsp;
 									<!-- //버튼 -->

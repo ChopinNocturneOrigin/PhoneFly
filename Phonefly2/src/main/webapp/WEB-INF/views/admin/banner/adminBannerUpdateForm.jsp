@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../../admin/header2.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
@@ -18,8 +18,8 @@
 
 			<tr>
 				<th>순위</th>
-				<td width="642">
-				<select id="BannerOrder" name="order_seq">
+				<td id="BannerOrder"width="40">
+				<select  name="order_seq">
 						<option value="">디스플레이될 순서를 선택하세요</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -45,7 +45,7 @@
 
 			<tr>
 				<th>텍스트 위치 수정</th>
-				<td width="343" colspan="5">X축:
+				<td width="130" colspan="5">X축:
 				<input type="text" name="top" size="5" value="${bannerVO.top}">px <br>Y축:
 				<input	type="text" name="left" size="5" value="${bannerVO.left}">px
 				</td>
@@ -79,5 +79,5 @@
 
 
 </article>
-<%@ include file="../../admin/footer.jsp"%> --%>
+<%@ include file="../../admin/footer.jsp"%> 
 
