@@ -42,7 +42,7 @@ public interface IAdminDao {
 
 	void updateBanner(String image, String subject, int order_seq, String useyn, int bseq);
 
-	Object getMember(int mseq);
+	void qnaReply(int qseq, String reply);
 
 
 

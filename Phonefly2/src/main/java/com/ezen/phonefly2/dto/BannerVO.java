@@ -13,4 +13,6 @@ public class BannerVO {
 	private String useyn;
 	private Timestamp indate;
 	private String image;
+	
+	
 }

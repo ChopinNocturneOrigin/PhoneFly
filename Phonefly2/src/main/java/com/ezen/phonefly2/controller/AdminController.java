@@ -29,6 +29,7 @@ import com.ezen.phonefly2.dto.OrderDetailVO;
 import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.service.AdminService;
+import com.ezen.phonefly2.service.QnaService;
 import com.ezen.phonefly2.util.Paging;
 
 @Controller
@@ -289,17 +290,6 @@ public class AdminController {
 		return "redirect:/adminBannerList";
 	}
 	
-	@RequestMapping("bannerUpdateForm")
-	   public String bannerUpdateForm(
-	               Model model, HttpServletRequest request,
-	               @RequestParam("bseq") int bseq) {
-	      
-	      model.addAttribute("BannerVO", bseq );
-	      return "admin/banner/adminBannerUpdateForm";
-	      
-	   }
-	@Autowired
-	ServletContext context;
 	
 	@RequestMapping("bannerUpdateForm")
 	public String bannerUpdateForm(
@@ -311,16 +301,30 @@ public class AdminController {
 		
 	}
 	
-	@RequestMapping("adminMemberDetail")
-	public ModelAndView adminMemberDetail( 
-			HttpServletRequest request, 
-			@RequestParam("mseq") int mseq) {
-		
+	@Autowired
+	QnaService qs;
+	
+	@RequestMapping("/adminQnaDetail")
+	public ModelAndView adminQnaDetail( @RequestParam("qseq") int qseq   	) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject( "memberVO",   as.getMember( mseq ) );
-		mav.setViewName("admin/member/adminMemberDetail");
-		
+		mav.addObject("qnaVO", qs.getQna(qseq) );
+		mav.setViewName("admin/qna/adminQnaDetail");
 		return mav;
-		
 	}
+	
+	@RequestMapping("/adminQnaReply")
+	public String adminQnaReply( @RequestParam("qseq") int qseq , 
+									@RequestParam("reply") String reply ) {
+		as.qnaReply( qseq, reply );
+		return "redirect:/adminQnaDetail?qseq=" + qseq;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
