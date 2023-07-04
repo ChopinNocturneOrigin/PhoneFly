@@ -35,7 +35,6 @@ public class AdminProductInsertAction implements Action {
 			pvo.setEventyn(request.getParameter("eventyn"));
 			pvo.setMfc( request.getParameter("mfc") );
 
-			
 			AdminDao adao = AdminDao.getInstance();
 	        adao.insertProduct(pvo);
 	        int pseq = adao.getPseq(pvo);

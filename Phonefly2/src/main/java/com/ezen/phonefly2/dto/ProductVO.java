@@ -7,11 +7,11 @@ import lombok.Data;
 
 @Data
 public class ProductVO {
-	private int pseq;
+	private Integer pseq;
 	private String name;
-	private int price1;
-	private int price2;
-	private int price3;
+	private Integer price1;
+	private Integer price2;
+	private Integer price3;
 	private String content;
 	private String useyn;
 	private String eventyn;

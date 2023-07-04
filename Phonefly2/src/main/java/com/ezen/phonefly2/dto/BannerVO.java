@@ -12,5 +12,9 @@ public class BannerVO {
 	private int order_seq;
 	private String useyn;
 	private Timestamp indate;
-	private String image;
+	private String video;
+	private String btitle;
+	private String btext;
+	private String top;
+	private String left;
 }

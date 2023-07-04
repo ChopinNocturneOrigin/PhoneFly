@@ -29,6 +29,8 @@ import com.ezen.phonefly2.dto.OrderDetailVO;
 import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.service.AdminService;
+import com.ezen.phonefly2.service.ProductService;
+import com.ezen.phonefly2.service.QnaService;
 import com.ezen.phonefly2.util.Paging;
 
 @Controller
@@ -36,6 +38,8 @@ public class AdminController {
 	
 	@Autowired
 	AdminService as;
+	@Autowired
+	ProductService ps;
 	
 	@RequestMapping("/admin")
 	public String admin() {
@@ -239,18 +243,25 @@ public class AdminController {
 	
 	@RequestMapping("adminBannerWrite" )
 	public String adminBannerWrite(  @ModelAttribute BannerVO bannervo, Model model, HttpServletRequest request	) {
-		String url = "admin/banner/adminBannerWrite";
 		
-		if( bannervo.getSubject()==null ) {
+		if( bannervo.getSubject()==null ) 
 			model.addAttribute("message","제목을 입력하세요" );
-		}else if(bannervo.getImage()==null)
-			model.addAttribute("message", "이미지를 추가하세요" );
+		else if(bannervo.getVideo()==null)
+			model.addAttribute("message", "비디오를 추가하세요" );
+		else if(bannervo.getBtitle()==null)
+			model.addAttribute("message", "배너 타이틀을 추가하세요" );
+		else if(bannervo.getBtext()==null)
+			model.addAttribute("message", "배너 내용을 추가하세요" );
+		else if(bannervo.getTop()==null)
+			model.addAttribute("message", "탑 마진 설정해주세요" );
+		else if(bannervo.getLeft()==null)
+			model.addAttribute("message", "왼쪽 마진 설정해주세요" );
 		
 		if( bannervo.getOrder_seq() == 6 ) bannervo.setUseyn("N");
 		else bannervo.setUseyn("Y");
 		
 		as.insertBanner( bannervo );
-			
+		
 		return "redirect:/adminBannerList";
 		}
 
@@ -284,32 +295,64 @@ public class AdminController {
 		if( bannervo.getOrder_seq() > 5) useyn="N";
 		else useyn="Y";
 		
-		as.updateBanner( bannervo.getImage(),bannervo.getSubject(),bannervo.getOrder_seq(), useyn, bannervo.getBseq());
+		as.updateBanner( bannervo.getVideo(),bannervo.getSubject(), bannervo.getOrder_seq(), useyn, 
+				bannervo.getBseq(), bannervo.getBtitle(), bannervo.getBtext(), bannervo.getTop(), bannervo.getLeft());
 		
 		return "redirect:/adminBannerList";
 	}
-
-
+	
 	@RequestMapping("bannerUpdateForm")
-	public String bannerUpdateForm(
-					Model model, HttpServletRequest request,
-					BannerVO bannervo) {
+	   public String bannerUpdateForm(
+	               Model model, HttpServletRequest request,
+	               @RequestParam("bseq") int bseq) {
+	      
+	      model.addAttribute("BannerVO", bseq );
+	      return "admin/banner/adminBannerUpdateForm";
+	      
+	  }
+	
+	@RequestMapping("adminProductDetail")
+	public ModelAndView adminProductDetail(@RequestParam("pseq") int pseq, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HashMap<String, Object> result = ps.getProduct(pseq);
+		ProductVO pvo = (ProductVO) result.get("productVO");
+		mav.addObject("productVO", pvo);
+		mav.setViewName("admin/product/adminProductDetail");
+		return mav;
+	}
+
+	@RequestMapping("adminProductInsertForm")
+	public String adminProductInsertForm() {
+		return "admin/product/adminProductInsertForm";
+	}
+
+	@RequestMapping("adminProductInsert")
+	public ModelAndView adminProductInsert(@ModelAttribute ProductVO productvo, Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
 		
-		model.addAttribute("bannerVO", bannervo );
-		return "admin/banner/adminBannerUpdateForm";
+		as.insertProduct(productvo);
+	    
+	    mav.addObject("ProductVO", productvo);
+	    mav.setViewName("admin/product/adminProductInsert");
+	    return mav;
+	}
 		
+	@Autowired
+	QnaService qs;
+	
+	@RequestMapping("/adminQnaDetail")
+	public ModelAndView adminQnaDetail( @RequestParam("qseq") int qseq   	) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("qnaVO", qs.getQna(qseq) );
+		mav.setViewName("admin/qna/adminQnaDetail");
+		return mav;
 	}
 	
-	@RequestMapping("adminMemberDetail")
-	public ModelAndView adminMemberDetail( 
-			HttpServletRequest request, 
-			@RequestParam("mseq") int mseq) {
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject( "memberVO",   as.getMember( mseq ) );
-		mav.setViewName("admin/member/adminMemberDetail");
-		
-		return mav;
-		
+	@RequestMapping("/adminQnaReply")
+	public String adminQnaReply( @RequestParam("qseq") int qseq , 
+									@RequestParam("reply") String reply ) {
+		as.qnaReply( qseq, reply );
+		return "redirect:/adminQnaDetail?qseq=" + qseq;
 	}
+	
 }

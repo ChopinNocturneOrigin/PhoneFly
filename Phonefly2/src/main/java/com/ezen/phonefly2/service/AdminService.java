@@ -345,20 +345,21 @@ public class AdminService {
 	}
 
 
-	public void updateBanner(String image, String subject, int order_seq, String useyn, int bseq) {
-		adao.updateBanner(image, subject, order_seq, useyn, bseq);
+	public void updateBanner(String video, String subject, int order_seq, String useyn, int bseq, String btitle, String btext, String top, String left) {
+		adao.updateBanner(video, subject, order_seq, useyn, bseq, btitle, btext, top, left);
 		
 	}
 
 
-	public Object getMember(int mseq) {
-		return adao.getMember(mseq);
+	public void qnaReply(int qseq, String reply) {
+		adao.qnaReply( qseq, reply );	
 	}
 
 
-	
 
+	public void insertProduct(ProductVO productvo) {
+		adao.insertProduct( productvo );
+	}
 
-	
 	
 }
