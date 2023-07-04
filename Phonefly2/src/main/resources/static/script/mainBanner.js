@@ -19,7 +19,6 @@ $(function(){
 		clearInterval(setFunction);
 	}
 	function play() {
-		clearInterval(setFunction);
 		setFunction = setInterval(run, 5000);
 	}
 	function slide(n){
