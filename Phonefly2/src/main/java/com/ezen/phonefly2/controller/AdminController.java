@@ -30,6 +30,7 @@ import com.ezen.phonefly2.dto.ProductVO;
 import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.service.AdminService;
 import com.ezen.phonefly2.service.ProductService;
+import com.ezen.phonefly2.service.QnaService;
 import com.ezen.phonefly2.util.Paging;
 
 @Controller
@@ -334,6 +335,24 @@ public class AdminController {
 	    mav.addObject("ProductVO", productvo);
 	    mav.setViewName("admin/product/adminProductInsert");
 	    return mav;
+	}
+		
+	@Autowired
+	QnaService qs;
+	
+	@RequestMapping("/adminQnaDetail")
+	public ModelAndView adminQnaDetail( @RequestParam("qseq") int qseq   	) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("qnaVO", qs.getQna(qseq) );
+		mav.setViewName("admin/qna/adminQnaDetail");
+		return mav;
+	}
+	
+	@RequestMapping("/adminQnaReply")
+	public String adminQnaReply( @RequestParam("qseq") int qseq , 
+									@RequestParam("reply") String reply ) {
+		as.qnaReply( qseq, reply );
+		return "redirect:/adminQnaDetail?qseq=" + qseq;
 	}
 	
 }

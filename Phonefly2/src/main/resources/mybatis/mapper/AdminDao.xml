@@ -117,4 +117,9 @@
 		        values( pseq.nextVal, #{name}, #{price1}, #{price2}, 
 		        #{price3}, #{content}, #{mfc}, #{useyn}, #{bestyn}, #{eventyn} )
 	</insert>
+
+	<update id="qnaReply" >
+		update qna set reply=#{param2}, rep='2' where qseq=#{param1}
+	</update>
+
 </mapper>

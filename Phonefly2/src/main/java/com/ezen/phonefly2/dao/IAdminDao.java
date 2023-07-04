@@ -42,7 +42,7 @@ public interface IAdminDao {
 
 	void updateBanner(String video, String subject, int order_seq, String useyn, int bseq, String btitle, String btext, String top, String left);
 
-	Object getMember(int mseq);
+	void qnaReply(int qseq, String reply);
 
 	void insertProduct(ProductVO productvo);
 

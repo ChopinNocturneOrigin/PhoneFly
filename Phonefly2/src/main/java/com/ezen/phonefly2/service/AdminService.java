@@ -351,19 +351,15 @@ public class AdminService {
 	}
 
 
-	public Object getMember(int mseq) {
-		return adao.getMember(mseq);
+	public void qnaReply(int qseq, String reply) {
+		adao.qnaReply( qseq, reply );	
 	}
+
 
 
 	public void insertProduct(ProductVO productvo) {
 		adao.insertProduct( productvo );
 	}
 
-
-	
-
-
-	
 	
 }
