@@ -326,7 +326,7 @@ function go_order_save() {
 	// 현재 화면에 보여지고 있는 주문들의 체크박스들의 체크된 상태가  몇개나 체크되어 있는지 갯수를  count  합니다
 	var count = 0;
 	if (document.frm.result.length == undefined) {   // 화면에 표시된 체크박스가 한개인경우
-		if (cocument.frm.result.checked == true) count++;
+		if (document.frm.result.checked == true) count++;
 	} else {  //  화면에 표시된 체크박스가 두개 이상인경우
 		for (var i = 0; i < document.frm.result.length; i++)
 			if (document.frm.result[i].checked == true)
