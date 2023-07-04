@@ -25,5 +25,31 @@
 	<select id="getEvent" resultType="com.ezen.phonefly2.dto.EventVO">
 		SELECT * FROM event WHERE eseq = #{param1}
 	</select>
+	
+	<insert id="insertNotice" parameterType="com.ezen.phonefly2.dto.NoticeVO" >
+		insert into notice ( nseq, subject , content) 
+		        values( nseq.nextVal, #{subject}, #{content})
+	</insert>
 
+
+	<update id="updateNotice" parameterType="com.ezen.phonefly2.dto.NoticeVO">
+		update notice set subject=#{subject},content=#{content} where nseq=#{nseq}
+	</update>
+	
+	<delete id = "deleteNotice">
+		delete from notice where nseq=#{param1}
+	</delete>
+	
+	<insert id="insertEvent" parameterType="com.ezen.phonefly2.dto.EventVO" >
+		insert into event ( eseq, subject , image) 
+		        values( eseq.nextVal, #{subject}, #{image})
+	</insert>
+	
+	<update id="updateEvent" parameterType="com.ezen.phonefly2.dto.EventVO">
+		update event set subject=#{subject},image=#{image} where eseq=#{eseq}
+	</update>
+	
+	<delete id = "deleteEvent">
+		delete from event where eseq=#{param1}
+	</delete>
 </mapper>
