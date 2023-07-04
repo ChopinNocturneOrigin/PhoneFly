@@ -17,7 +17,7 @@
 
 			<tr>
 				<th>이벤트 이미지</th>
-				<td width="343" colspan="5"><input type="file" name="image"></td>
+				<td width="343" colspan="5"></td>
 			</tr>
 		</table>
 	</form>

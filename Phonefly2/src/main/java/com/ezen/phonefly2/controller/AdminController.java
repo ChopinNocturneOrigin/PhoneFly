@@ -293,7 +293,7 @@ public class AdminController {
 		else useyn="Y";
 		
 		as.updateBanner( bannervo.getVideo(),bannervo.getSubject(), bannervo.getOrder_seq(), useyn, 
-				Integer.parseInt(bannervo.getBseq()), bannervo.getBtitle(), bannervo.getBtext(), bannervo.getTop(), bannervo.getLeft());
+				bannervo.getBseq(), bannervo.getBtitle(), bannervo.getBtext(), bannervo.getTop(), bannervo.getLeft());
 		
 		return "redirect:/adminBannerList";
 	}

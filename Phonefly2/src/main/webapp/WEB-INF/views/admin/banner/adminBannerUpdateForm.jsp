@@ -6,7 +6,7 @@
 	<h1>배너수정</h1>
 	<form name="frm" method="post">
 		<input type="hidden" name="bseq" value="${bannerVO.bseq}">
-		<input type="hidden" name="oldfilename" value="${bannerVO.image}">
+		<input type="hidden" name="oldfilename" value="${bannerVO.video}">
 
 		<table id="BannerUpdateList">
 			<tr>
@@ -54,7 +54,7 @@
 			<tr>
 				<th>배너 비디오</th>
 				<td width="343" colspan="5" style="vertical =align: top;">현재
-					비디오 : <img src="admin_images/${bannerVO.image}" width="200px;"><br>
+					비디오 : <video src="/videos/${bannerVO.video}" width="200px;"></video><br>
 					<!--  <input type="file" name="image"> --> * 주의 : 비디오를 수정할때에만	선택해주세요.
 					 <input type="hidden" name="image" id="image">
 					<div id="filename"></div>

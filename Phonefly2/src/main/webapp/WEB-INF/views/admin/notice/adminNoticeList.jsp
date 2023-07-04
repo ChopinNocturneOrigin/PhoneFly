@@ -32,7 +32,7 @@
 		<tr>
 			<td style="text-align:left; padding-left:50px;">${noticeVO.nseq}</td>
 			<td>
-				<a href="javascript:;" onClick="go_detail_n( '${noticeVO.nseq}');">
+				<a href="javascript:;" onClick="go_detail_n('${noticeVO.nseq}');">
 					${noticeVO.subject}
 				</a>
 			</td>
