@@ -67,32 +67,32 @@
         ) n
     ) 
     WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
-</select>
+	</select>
 
 
-<select id="listEvent" resultType="com.ezen.phonefly2.dto.EventVO">
-    SELECT *
-    FROM (
-        SELECT rownum as rn, e.*
-        FROM (
-            SELECT *
-            FROM event
-            WHERE subject LIKE '%' || #{param2} || '%'
-            ORDER BY eseq DESC
-        ) e
-    ) 
-    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
-</select>
+	<select id="listEvent" resultType="com.ezen.phonefly2.dto.EventVO">
+	    SELECT *
+	    FROM (
+	        SELECT rownum as rn, e.*
+	        FROM (
+	            SELECT *
+	            FROM event
+	            WHERE subject LIKE '%' || #{param2} || '%'
+	            ORDER BY eseq DESC
+	        ) e
+	    ) 
+	    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
+	</select>
 
 
 
-<select id="getBannerList" resultType="com.ezen.phonefly2.dto.BannerVO">
+	<select id="getBannerList" resultType="com.ezen.phonefly2.dto.BannerVO">
 		select * from banner order by order_seq
 	</select>
 	
 	<insert id="insertBanner" parameterType="com.ezen.phonefly2.dto.BannerVO">
-		insert into banner(bseq, subject, order_seq, useyn, image )
-		values( banner_seq.nextVal, #{subject}, #{order_seq}, #{useyn}, #{image} )
+		insert into banner(bseq, subject, order_seq, useyn, video, btitle, btext, top, left )
+		values( banner_seq.nextVal, #{subject}, #{order_seq}, #{useyn}, #{video}, #{btitle}, #{btext}, #{top}, #{left} )
 	</insert>
 	
 	<update id="updateSeq" >
@@ -104,11 +104,22 @@
 	</delete>
 	
 	<update id="updateBanner" >
-		update banner set image=#{param1},subject=#{param2}, order_seq=#{param3}, useyn=#{param4} where bseq=#{param5}
+		update banner set video=#{param1},subject=#{param2}, order_seq=#{param3}, useyn=#{param4}, 
+		btitle=#{param6}, btext=#{param7}, top=#{param8}, left=#{param9} where bseq=#{param5}
 	</update>
 	
+	<select id="getMember"  resultType="com.ezen.phonefly2.dto.MemberVO">
+		select * from member where mseq=#{param1}
+	</select>
+	
+	<insert id="insertProduct" parameterType="com.ezen.phonefly2.dto.ProductVO" >
+		insert into product ( pseq, name, price1, price2, price3, content, mfc, useyn, bestyn, eventyn) 
+		        values( pseq.nextVal, #{name}, #{price1}, #{price2}, 
+		        #{price3}, #{content}, #{mfc}, #{useyn}, #{bestyn}, #{eventyn} )
+	</insert>
+
 	<update id="qnaReply" >
 		update qna set reply=#{param2}, rep='2' where qseq=#{param1}
 	</update>
-	
+
 </mapper>
