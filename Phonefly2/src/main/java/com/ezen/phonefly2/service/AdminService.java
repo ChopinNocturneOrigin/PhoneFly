@@ -368,6 +368,12 @@ public class AdminService {
 	}
 
 
+	public Object getBanner(int bseq) {
+		
+		return adao.getBanner( bseq );	
+	}
+
+
 	
 
 	

@@ -90,6 +90,10 @@
 		select * from banner order by order_seq
 	</select>
 	
+	<select id="getBanner" resultType="com.ezen.phonefly2.dto.BannerVO">
+		select * from banner where bseq=#{param1}
+	</select>
+	
 	<insert id="insertBanner" parameterType="com.ezen.phonefly2.dto.BannerVO">
 		insert into banner(bseq, subject, order_seq, useyn, video, btitle, btext, top, left )
 		values( banner_seq.nextVal, #{subject}, #{order_seq}, #{useyn}, #{video}, #{btitle}, #{btext}, #{top}, #{left} )
