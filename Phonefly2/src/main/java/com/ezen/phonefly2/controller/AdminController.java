@@ -309,7 +309,7 @@ public class AdminController {
 		bannervo= as.getBanner(bannervo.getBseq());
 		
 	      model.addAttribute("bseq", bannervo.getBseq() );
-	      model.addAttribute("BannerVO", bannervo );
+	      model.addAttribute("bannerVO", as.getBanner(bannervo.getBseq()) );
 
 	      return "admin/banner/adminBannerUpdateForm";
 	      
@@ -413,12 +413,9 @@ public class AdminController {
 	@RequestMapping("adminNoticeUpdateForm")
 	   public String adminNoticeUpdateForm(
 	               Model model, HttpServletRequest request,
-	               NoticeVO noticeVO) {
-	      
-			noticeVO= cs.getNotice(noticeVO.getNseq());
-	      model.addAttribute("nseq", noticeVO.getNseq() );
-	      model.addAttribute("noticeVO", noticeVO );
-
+	              NoticeVO noticevo) {
+		
+	      model.addAttribute("noticeVO", cs.getNotice(noticevo.getNseq()));
 	      return "admin/notice/adminNoticeUpdateForm";
 	      
 	  }
@@ -491,5 +488,16 @@ public class AdminController {
 		
 		return "redirect:/adminEventList";
 	}
+	
+	@RequestMapping("/adminBannerView")
+	public ModelAndView adminBannerView( @RequestParam("bseq") int bseq ) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("bannerVO", as.getBanner(bseq) );
+		mav.setViewName("admin/banner/adminBannerView");
+		return mav;
+	}
+	
+	
+	
 	
 }
