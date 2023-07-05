@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 			<th>이벤트 이미지</th>
-			<td colspan="5"><img src="images/event/${eventVO.image}" width="600"/></td>
+			<td colspan="5"><img src="images/productImage/${eventVO.image}" width="600"/></td>
 		</tr>
 	</table>
 

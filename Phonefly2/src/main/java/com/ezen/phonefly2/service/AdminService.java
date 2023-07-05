@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.phonefly2.dao.IAdminDao;
 import com.ezen.phonefly2.dto.BannerVO;
+import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -374,6 +375,51 @@ public class AdminService {
 	}
 
 
+	public HashMap<String, Object> getColorList(HttpServletRequest request, int pseq) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+	    HttpSession session = request.getSession();
 
+	    // 첫 번째 요청인 경우 세션에 저장된 페이지와 키 값을 제거합니다.
+	    if (request.getParameter("first") != null) {
+	        session.removeAttribute("page");
+	        session.removeAttribute("key");
+	    }
+
+	    int page = 1;
+	    if (request.getParameter("page") != null) {
+	        page = Integer.parseInt(request.getParameter("page"));
+	        session.setAttribute("page", page);
+	    } else if (session.getAttribute("page") != null) {
+	        page = (int) session.getAttribute("page");
+	    } else {
+	        page = 1;
+	        session.removeAttribute("page");
+	    }
+
+	    String key = "";
+	    if (request.getParameter("key") != null) {
+	        key = request.getParameter("key");
+	        session.setAttribute("key", key);
+	    } else if (session.getAttribute("key") != null) {
+	        key = (String) session.getAttribute("key");
+	    } else {
+	        session.removeAttribute("key");
+	        key = "";
+	    }
+
+	    Paging paging = new Paging();
+	    paging.setPage(page);
+
+	    int count = adao.getAllCountColor("color", "name", key, pseq);
+	    paging.setTotalCount(count);
+	    paging.paging();
+
+	    List<ColorVO> list = adao.listColor(paging, key, pseq);
+	    result.put("ProductColorList", list);
+	    result.put("paging", paging);
+	    result.put("key", key);
+
+	    return result;
+	}	
 	
 }

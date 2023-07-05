@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.phonefly2.dto.BannerVO;
+import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -363,8 +364,16 @@ public class AdminController {
 	    return "admin/product/productColorInsert";
 	}
 	
-	
-
+	@RequestMapping("adminColorList")
+	public ModelAndView adminColorList(HttpServletRequest request, @RequestParam("pseq") int pseq) {
+		ModelAndView mav = new ModelAndView();
+		HashMap<String, Object> paramMap = as.getColorList(request, pseq);
+		mav.addObject("ProductColorList", (List<ColorVO>)paramMap.get("ProductColorList"));
+		mav.addObject("paging", (Paging)paramMap.get("paging") );
+		mav.addObject("key", (String)paramMap.get("key") );
+		mav.setViewName("admin/product/productColorList");
+		return mav;
+	}
 	
 	@RequestMapping("adminColorInsert")
 	public String adminColorInsert(HttpServletRequest request, @RequestParam("pseq") int pseq) {
@@ -534,9 +543,6 @@ public class AdminController {
 		return "redirect:/adminEventList";
 	}
 	
-	
-	
-	
-	
+
 	
 }

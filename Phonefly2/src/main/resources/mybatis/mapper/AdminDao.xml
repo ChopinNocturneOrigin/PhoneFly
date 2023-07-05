@@ -83,9 +83,7 @@
 	    ) 
 	    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
 	</select>
-
-
-
+	
 	<select id="getBannerList" resultType="com.ezen.phonefly2.dto.BannerVO">
 		select * from banner order by order_seq
 	</select>
@@ -126,7 +124,6 @@
 		insert into color ( cseq, pseq, name, ccode, image ) 
 		values( cseq.nextVal, #{pseq}, #{name}, #{ccode}, #{image})
 	</insert>
-	
 
 	<update id="qnaReply" >
 		update qna set reply=#{param2}, rep='2' where qseq=#{param1}
@@ -136,5 +133,22 @@
 		update order_detail set result = #{param2}  where odseq=#{param1}
 	</update>
 	
-
+	<select id="getAllCountColor" resultType="_int">
+     select count(*) from ${param1} where ${param2} like '%'||#{param3}||'%' and pseq=#{param4}
+ 	</select>
+ 	
+	<select id="listColor" resultType="com.ezen.phonefly2.dto.ColorVO">
+	    SELECT *
+	    FROM (
+	        SELECT rownum as rn, c.*
+	        FROM (
+	            SELECT *
+	            FROM color
+	            WHERE name LIKE '%' || #{param2} || '%' and pseq=#{param3}
+	            ORDER BY cseq DESC
+	        ) c
+	    ) 
+	    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
+	</select>
+	
 </mapper>
