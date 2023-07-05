@@ -365,12 +365,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminColorList")
-	public ModelAndView adminColorList(HttpServletRequest request, @RequestParam("pseq") int pseq) {
+	public ModelAndView adminColorList( @RequestParam("pseq") int pseq) {
 		ModelAndView mav = new ModelAndView();
-		HashMap<String, Object> paramMap = as.getColorList(request, pseq);
+		HashMap<String, Object> paramMap = as.getColorList(pseq);
 		mav.addObject("ProductColorList", (List<ColorVO>)paramMap.get("ProductColorList"));
-		mav.addObject("paging", (Paging)paramMap.get("paging") );
-		mav.addObject("key", (String)paramMap.get("key") );
 		mav.setViewName("admin/product/productColorList");
 		return mav;
 	}

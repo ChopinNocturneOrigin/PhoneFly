@@ -138,17 +138,7 @@
  	</select>
  	
 	<select id="listColor" resultType="com.ezen.phonefly2.dto.ColorVO">
-	    SELECT *
-	    FROM (
-	        SELECT rownum as rn, c.*
-	        FROM (
-	            SELECT *
-	            FROM color
-	            WHERE name LIKE '%' || #{param2} || '%' and pseq=#{param3}
-	            ORDER BY cseq DESC
-	        ) c
-	    ) 
-	    WHERE rn &gt;= #{param1.startNum} AND rn &lt;= #{param1.endNum}
+	    select*from color where pseq=#{param1}
 	</select>
 	
 </mapper>
