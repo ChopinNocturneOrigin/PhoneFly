@@ -404,6 +404,8 @@ function goToAdminProductList() {
 
 
 
+/*  배너 페이지 */
+
 
 function go_banner_save() {
 	var theForm = document.frm;  
