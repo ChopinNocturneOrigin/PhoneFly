@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.phonefly2.dao.IAdminDao;
+import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;

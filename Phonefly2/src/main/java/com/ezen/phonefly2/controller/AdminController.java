@@ -336,7 +336,6 @@ public class AdminController {
 		
 		
 	      model.addAttribute("bseq", bannervo.getBseq() );
-
 	      return "admin/banner/adminBannerUpdateForm";
 	      
 	  }
@@ -499,7 +498,9 @@ public class AdminController {
 	
 	
 	@RequestMapping("adminEventInsert" )
-	public String adminEventInsert(  @ModelAttribute EventVO eventvo, Model model, HttpServletRequest request	) {
+	public String adminEventInsert( EventVO eventvo,  HttpServletRequest request	) {
+		System.out.println(eventvo.getSubject());
+		System.out.println(eventvo.getImage());
 		cs.insertEvent( eventvo );
 		return "redirect:/adminEventList";
 	}
@@ -543,6 +544,5 @@ public class AdminController {
 	}
 	
 
-	
 	
 }

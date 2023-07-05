@@ -56,5 +56,4 @@ public interface IAdminDao {
 
 	List<ColorVO> listColor(Paging paging, String key, int pseq);
 
-
 }
