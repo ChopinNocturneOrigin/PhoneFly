@@ -49,6 +49,8 @@ public interface IAdminDao {
 
 	void adminOrderUpdate(int odseq, int results);
 
+	BannerVO getBanner(int bseq);
+
 
 
 	
