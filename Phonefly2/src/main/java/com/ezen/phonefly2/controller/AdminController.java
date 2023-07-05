@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.phonefly2.dto.BannerVO;
+import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -84,7 +85,7 @@ public class AdminController {
 			@RequestParam("fileimage") MultipartFile file,
 			HttpServletRequest request, Model model	) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		String path = context.getRealPath("/images/productimage");	
+		String path = context.getRealPath("/images/productImage");	
 		Calendar today = Calendar.getInstance();
  		long t = today.getTimeInMillis();
  		String filename = file.getOriginalFilename(); // 파일이름 추출
@@ -333,10 +334,8 @@ public class AdminController {
 		if( bannervo.getVideo() == null  || bannervo.getVideo().equals("") )
 			bannervo.setVideo( request.getParameter("oldfilename") );
 		
-		bannervo= as.getBanner(bannervo.getBseq());
 		
 	      model.addAttribute("bseq", bannervo.getBseq() );
-	      model.addAttribute("bannerVO", as.getBanner(bannervo.getBseq()) );
 
 	      return "admin/banner/adminBannerUpdateForm";
 	      
@@ -367,16 +366,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminColorList")
-	public ModelAndView adminColorList(@RequestParam("pseq") int pseq) {
+	public ModelAndView adminColorList(HttpServletRequest request, @RequestParam("pseq") int pseq) {
 		ModelAndView mav = new ModelAndView();
-		HashMap<String, Object> paramMap = as.getColorList(pseq);
-		
-		mav.addObject("ProductColorList", (List<ProductVO>)paramMap.get("productList"));
+		HashMap<String, Object> paramMap = as.getColorList(request, pseq);
+		mav.addObject("ProductColorList", (List<ColorVO>)paramMap.get("ProductColorList"));
+		mav.addObject("paging", (Paging)paramMap.get("paging") );
+		mav.addObject("key", (String)paramMap.get("key") );
 		mav.setViewName("admin/product/productColorList");
-		
 		return mav;
 	}
-
 	
 	@RequestMapping("adminColorInsert")
 	public String adminColorInsert(HttpServletRequest request, @RequestParam("pseq") int pseq) {
@@ -544,15 +542,7 @@ public class AdminController {
 		return "redirect:/adminEventList";
 	}
 	
-	@RequestMapping("/adminBannerView")
-	public ModelAndView adminBannerView( @RequestParam("bseq") int bseq ) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("bannerVO", as.getBanner(bseq) );
-		mav.setViewName("admin/banner/adminBannerView");
-		return mav;
-	}
-	
-	
+
 	
 	
 }
