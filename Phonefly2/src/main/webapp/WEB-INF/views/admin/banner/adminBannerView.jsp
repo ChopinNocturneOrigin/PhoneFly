@@ -23,13 +23,10 @@
 			<td width="1470px;" colspan="5"	style="vertical-align: top; position: relative;">
 		     	<video src="../videos/${bannerVO.video}" width="1470px;"></video>
 				    <div style="position: absolute; top: ${bannerVO.top}; left: ${bannerVO.left};">
-					   <input type="text" name="btitle" size="47" value="${bannerVO.btitle}">
-				   </div>
-				   <div style="position: absolute; top: ${bannerVO.top}; left:${bannerVO.left};">
+					    <input type="text" name="btitle" size="47" value="${bannerVO.btitle}"><br>				  				
 				     	<input type="text" name="btext" size="47" value="${bannerVO.btext}">
 				   </div>
 				</td>
-
 		</tr>
 	</table>
 
