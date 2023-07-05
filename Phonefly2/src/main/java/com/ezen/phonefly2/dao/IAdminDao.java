@@ -54,6 +54,6 @@ public interface IAdminDao {
 
 	int getAllCountColor(String string, String string2, String key, int pseq);
 
-	List<ColorVO> listColor(Paging paging, String key, int pseq);
+	List<ColorVO> listColor(int pseq);
 
 }
