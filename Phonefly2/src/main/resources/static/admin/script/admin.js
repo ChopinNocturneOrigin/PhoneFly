@@ -110,7 +110,7 @@ function cal() {
 
 
 
-function go_save(pseq) {
+function go_save() {
 	var theForm = document.frm;
 	if (theForm.name.value == "") {
 		alert('상품명을 입력하세요.');
@@ -128,7 +128,7 @@ function go_save(pseq) {
 		alert('제조사를 입력하세요.');
 		theForm.mfc.focus();
 	} else {
-		theForm.action = "/adminProductInsert?pseq=" + pseq;
+		theForm.action = "/adminProductInsert" ;
 		theForm.submit();
 	}
 }

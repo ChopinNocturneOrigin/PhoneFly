@@ -112,7 +112,8 @@
 		select * from member where mseq=#{param1}
 	</select>
 	
-	<insert id="insertProduct" parameterType="com.ezen.phonefly2.dto.ProductVO" >
+	<insert id="insertProduct" parameterType="com.ezen.phonefly2.dto.ProductVO" useGeneratedKeys="true" keyColumn="pseq" keyProperty="pseq"
+	>
 		insert into product ( pseq, name, price1, price2, price3, content, mfc, useyn, bestyn, eventyn) 
 		        values( pseq.nextVal, #{name}, #{price1}, #{price2}, 
 		        #{price3}, #{content}, #{mfc}, #{useyn}, #{bestyn}, #{eventyn} )
