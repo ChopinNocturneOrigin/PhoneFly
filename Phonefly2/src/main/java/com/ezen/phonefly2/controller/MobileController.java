@@ -27,7 +27,7 @@ public class MobileController {
 		List<ProductVO> mainEventList = (List<ProductVO>)result.get("mainEventList");
 		mav.addObject("mainBestList", mainBestList);
 		mav.addObject("mainEventList", mainEventList);
-		mav.setViewName("main");
+		mav.setViewName("mobile/mobileMain");
 		return mav;
 	}
 
