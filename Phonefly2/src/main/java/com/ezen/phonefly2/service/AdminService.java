@@ -357,8 +357,9 @@ public class AdminService {
 
 
 
-	public void insertProduct(ProductVO productvo) {
+	public ProductVO insertProduct(ProductVO productvo) {
 		adao.insertProduct( productvo );
+		return productvo;
 	}
 
 

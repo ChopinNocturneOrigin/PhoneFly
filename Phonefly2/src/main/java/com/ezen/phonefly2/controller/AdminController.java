@@ -331,14 +331,12 @@ public class AdminController {
 	}
 
 	@RequestMapping("adminProductInsert")
-	public ModelAndView adminProductInsert(@ModelAttribute ProductVO productvo, Model model, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	public String adminProductInsert(Model model ,ProductVO productvo,  HttpServletRequest request) {
 		
 		as.insertProduct(productvo);
-	    
-	    mav.addObject("ProductVO", productvo);
-	    mav.setViewName("admin/product/adminProductInsert");
-	    return mav;
+		System.out.println(productvo.getPseq());
+		model.addAttribute("ProductVO", productvo);
+	    return "admin/product/productColorInsert";
 	}
 		
 	@Autowired
