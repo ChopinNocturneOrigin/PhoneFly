@@ -51,9 +51,7 @@ public interface IAdminDao {
 
 	void insertColor(HashMap<String, Object> paramMap);
 
-	Object getColorList(int pseq);
 
-  BannerVO getBanner(int bseq);
 
 
 }

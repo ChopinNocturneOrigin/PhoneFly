@@ -84,7 +84,7 @@ public class AdminController {
 			@RequestParam("fileimage") MultipartFile file,
 			HttpServletRequest request, Model model	) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		String path = context.getRealPath("/images/productimage");	
+		String path = context.getRealPath("/images/productImage");	
 		Calendar today = Calendar.getInstance();
  		long t = today.getTimeInMillis();
  		String filename = file.getOriginalFilename(); // 파일이름 추출
@@ -333,11 +333,8 @@ public class AdminController {
 		if( bannervo.getVideo() == null  || bannervo.getVideo().equals("") )
 			bannervo.setVideo( request.getParameter("oldfilename") );
 		
-		bannervo= as.getBanner(bannervo.getBseq());
 		
 	      model.addAttribute("bseq", bannervo.getBseq() );
-	      model.addAttribute("bannerVO", as.getBanner(bannervo.getBseq()) );
-
 	      return "admin/banner/adminBannerUpdateForm";
 	      
 	  }
@@ -366,16 +363,7 @@ public class AdminController {
 	    return "admin/product/productColorInsert";
 	}
 	
-	@RequestMapping("adminColorList")
-	public ModelAndView adminColorList(@RequestParam("pseq") int pseq) {
-		ModelAndView mav = new ModelAndView();
-		HashMap<String, Object> paramMap = as.getColorList(pseq);
-		
-		mav.addObject("ProductColorList", (List<ProductVO>)paramMap.get("productList"));
-		mav.setViewName("admin/product/productColorList");
-		
-		return mav;
-	}
+	
 
 	
 	@RequestMapping("adminColorInsert")
@@ -501,7 +489,9 @@ public class AdminController {
 	
 	
 	@RequestMapping("adminEventInsert" )
-	public String adminEventInsert(  @ModelAttribute EventVO eventvo, Model model, HttpServletRequest request	) {
+	public String adminEventInsert( EventVO eventvo,  HttpServletRequest request	) {
+		System.out.println(eventvo.getSubject());
+		System.out.println(eventvo.getImage());
 		cs.insertEvent( eventvo );
 		return "redirect:/adminEventList";
 	}
@@ -544,13 +534,7 @@ public class AdminController {
 		return "redirect:/adminEventList";
 	}
 	
-	@RequestMapping("/adminBannerView")
-	public ModelAndView adminBannerView( @RequestParam("bseq") int bseq ) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("bannerVO", as.getBanner(bseq) );
-		mav.setViewName("admin/banner/adminBannerView");
-		return mav;
-	}
+	
 	
 	
 	

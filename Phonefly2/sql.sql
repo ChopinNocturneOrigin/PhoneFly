@@ -10,6 +10,6 @@ SELECT * FROM tab;
 SELECT * FROM members;
 SELECT * FROM member;
 SELECT * FROM qna;
-SELECT * FROM banner;
+SELECT * FROM EVENT;
 delete from banner;
 select count(*) from order_view where id like '%one%';
