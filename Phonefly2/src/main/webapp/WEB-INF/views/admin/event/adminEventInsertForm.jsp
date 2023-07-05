@@ -17,13 +17,16 @@
 
 			<tr>
 				<th>이벤트 이미지</th>
-				<td width="343" colspan="5"></td>
+				<td width="343" colspan="5">
+				<input type="hidden" name="image" id="image">
+				<div id="filename"></div>
+				</td>
 			</tr>
 		</table>
 	</form>
 	
 	 <div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
-		<form name="fromm" id="fileupForm" method="post" enctype="multipart/form-data">
+		<form name="form" id="fileupForm" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileimage"> 
 			<input type="button" id="myButton" value="추가">
 		</form>
