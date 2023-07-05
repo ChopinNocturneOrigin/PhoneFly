@@ -25,7 +25,7 @@ author : bhs
 		<c:forEach items="${mainBestList}" var="productVO" varStatus="status">
 
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='';" />
+			<c:set var="productDetailLH" value="javascript:void(0);" />
 			
 			
 			<!-- 제품 아이템 시작 -->
@@ -154,7 +154,7 @@ author : bhs
 		<c:forEach items="${mainEventList}" var="productVO" varStatus="status">
 			
 			<!-- location.href JSTL변수 생성 (onclick="${productDetailLH}" 으로 사용)-->
-			<c:set var="productDetailLH" value="location.href='';" />
+			<c:set var="productDetailLH" value="javascript:void(0);" />
 			
 			
 			<!-- 제품 아이템 시작 -->

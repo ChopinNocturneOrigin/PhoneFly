@@ -50,7 +50,7 @@
 			<tr>
 				<th>배너 비디오</th>
 				<td width="343" colspan="5" style="vertical =align: top;">현재
-					비디오 : <video src="videos/${bannerVO.video}" autoplay muted loop preload="auto" width="200" ></video><br>
+					비디오 : <video src="../videos/${bannerVO.video}" autoplay muted loop preload="auto" width="200" ></video><br>
 					<!--  <input type="file" name="image"> --> * 주의 : 비디오를 수정할때에만	선택해주세요.
 					 <input type="hidden" name="video" id="video">
 					<div id="filename"></div>

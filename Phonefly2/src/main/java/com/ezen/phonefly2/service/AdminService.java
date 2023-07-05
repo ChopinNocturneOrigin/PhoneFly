@@ -368,9 +368,9 @@ public class AdminService {
 	}
 
 
-	public Object getBanner(int bseq) {
-		
-		return adao.getBanner( bseq );	
+
+	public BannerVO getBanner(int bseq) {
+		return adao.getBanner(bseq);
 	}
 
 
