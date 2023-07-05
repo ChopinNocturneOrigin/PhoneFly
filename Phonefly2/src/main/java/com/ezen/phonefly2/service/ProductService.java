@@ -60,10 +60,12 @@ public class ProductService {
 		if (pseqList != null) {
 			for (Integer pseq : pseqList) {
 				ProductVO pvo = pdao.getProduct(pseq);
-				List<ColorVO> colorList = mdao.getColorList(pseq);
-				pvo.setColorList(colorList);
 				if (pvo != null) {
-					productList.add(pvo);
+					List<ColorVO> colorList = mdao.getColorList(pseq);
+					pvo.setColorList(colorList);
+					if (pvo != null) {
+						productList.add(pvo);
+					}
 				}
 			}
 		} else {

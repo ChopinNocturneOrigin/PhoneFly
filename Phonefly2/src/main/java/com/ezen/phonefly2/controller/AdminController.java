@@ -147,7 +147,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminProductList")
-	public ModelAndView admin_product_list( HttpServletRequest request ) {
+	public ModelAndView adminProductList( HttpServletRequest request ) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("workId");
@@ -184,7 +184,7 @@ public class AdminController {
 	
 	
 	@RequestMapping("/adminQnaList")
-	public ModelAndView admin_Qna_List( HttpServletRequest request ) {
+	public ModelAndView adminQnaList( HttpServletRequest request ) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("workId");
@@ -289,8 +289,8 @@ public class AdminController {
 		return "redirect:/adminBannerList";
 	}
 
-	@RequestMapping("/change_order")
-	public String change_order(
+	@RequestMapping("/changeOrder")
+	public String changeOrder(
 			HttpServletRequest request,
 			@RequestParam("bseq") int bseq,
 			@RequestParam("changeval") int changeval  	) {
@@ -333,8 +333,10 @@ public class AdminController {
 		if( bannervo.getVideo() == null  || bannervo.getVideo().equals("") )
 			bannervo.setVideo( request.getParameter("oldfilename") );
 		
+		bannervo= as.getBanner(bannervo.getBseq());
+		
 	      model.addAttribute("bseq", bannervo.getBseq() );
-	      model.addAttribute("BannerVO", bannervo );
+	      model.addAttribute("bannerVO", as.getBanner(bannervo.getBseq()) );
 
 	      return "admin/banner/adminBannerUpdateForm";
 	      
@@ -466,9 +468,9 @@ public class AdminController {
 	@RequestMapping("adminNoticeUpdateForm")
 	   public String adminNoticeUpdateForm(
 	               Model model, HttpServletRequest request,
-	               @RequestParam("nseq") int nseq) {
-	      
-	      model.addAttribute("noticeVO", nseq );
+	              NoticeVO noticevo) {
+		
+	      model.addAttribute("noticeVO", cs.getNotice(noticevo.getNseq()));
 	      return "admin/notice/adminNoticeUpdateForm";
 	      
 	  }
@@ -477,7 +479,7 @@ public class AdminController {
 	public String adminNoticeUpdate(
 			HttpServletRequest request,NoticeVO noticeVO) {
 		
-		cs.updateNotice( noticeVO);
+		cs.updateNotice(noticeVO);
 		
 		return "redirect:/adminNoticeList";
 	}
@@ -514,8 +516,10 @@ public class AdminController {
 		if( eventvo.getImage() == null  || eventvo.getImage().equals("") )
 			eventvo.setImage( request.getParameter("oldfilename") );
 		
+			eventvo=cs.getEvent(eventvo.getEseq());
+		
 	      model.addAttribute("eseq", eventvo.getEseq() );
-	      model.addAttribute("eventvo", eventvo );
+	      model.addAttribute("eventVO", eventvo );
 
 	      return "admin/event/adminEventUpdateForm";
 	      
@@ -539,5 +543,16 @@ public class AdminController {
 		
 		return "redirect:/adminEventList";
 	}
+	
+	@RequestMapping("/adminBannerView")
+	public ModelAndView adminBannerView( @RequestParam("bseq") int bseq ) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("bannerVO", as.getBanner(bseq) );
+		mav.setViewName("admin/banner/adminBannerView");
+		return mav;
+	}
+	
+	
+	
 	
 }

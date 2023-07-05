@@ -53,8 +53,7 @@ public interface IAdminDao {
 
 	Object getColorList(int pseq);
 
+  BannerVO getBanner(int bseq);
 
-
-	
 
 }

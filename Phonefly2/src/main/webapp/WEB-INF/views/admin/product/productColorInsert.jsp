@@ -25,17 +25,22 @@
 				<td width="343" colspan="5"><input type="file" name="image"></td>
 			</tr>
 		</table>
-
-		<div class="Bottm-btn-container">
-			<div>
-				<input class="btn" type="button" value="색상등록"
-					onClick="go_save_c(${ProductVO.pseq})">
-			</div>
-			<div>
-				<input class="btn" type="button" value="목록으로" onClick="go_mov()">
-			</div>
-		</div>
 	</form>
+	
+	<div
+		style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
+		<form name="fromm" id="fileupForm" method="post" enctype="multipart/form-data">
+			<input type="file" name="fileimage">
+			<input type="button" id="myButton" value="추가">
+		</form>
+	</div>
+
+	<div id="colorInsertButton"
+		style="position: relative; left: 800px; top: 5px;">
+		<input class="btn" type="button" value="색상등록" onClick="go_save_c(${ProductVO.pseq})"> 
+		<input class="btn"type="button" value="목록으로" onClick="go_mov()">
+	</div>
+
 </article>
 
 <%@ include file="../../admin/footer.jsp"%>

@@ -21,7 +21,7 @@ $(function(){
 		var formdata = new FormData(formselect);   // 전송용 폼객에 다시 저장
 		
 		$.ajax({    // 웹페이지 이동 또는 새로고침이 필요없는 request요청
-			url:"<%=request.getContextPath() %>/fileup",    // 현재주소의 fileup 리퀘스트로 요청  http://localhost:8070/fileup
+			url:"<%=request.getContextPath() %>/fileupImg",    // 현재주소의 fileup 리퀘스트로 요청  http://localhost:8070/fileup
 			type:"POST",
 			enctype:"multipart/form-data",
 			async: false, 

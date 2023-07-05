@@ -422,9 +422,10 @@ public class AdminService {
 	    return result;
 	}
 	
+	public BannerVO getBanner(int bseq) {
+		return adao.getBanner(bseq);
+	}
 
-
-	
 
 	
 }
