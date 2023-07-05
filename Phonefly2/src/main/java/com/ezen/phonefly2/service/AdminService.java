@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.phonefly2.dao.IAdminDao;
+import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
@@ -408,24 +409,16 @@ public class AdminService {
 	    Paging paging = new Paging();
 	    paging.setPage(page);
 
-	    // 이벤트 테이블에서 키워드로 검색한 결과의 총 개수를 가져옵니다.
-	    int count = adao.getAllCount("event", "subject", key);
+	    int count = adao.getAllCountColor("color", "name", key, pseq);
 	    paging.setTotalCount(count);
 	    paging.paging();
 
-	    // 페이징 처리된 이벤트 목록을 가져옵니다.
-	    List<EventVO> list = adao.listEvent(paging, key);
-	    result.put("eventList", list);
+	    List<ColorVO> list = adao.listColor(paging, key, pseq);
+	    result.put("ProductColorList", list);
 	    result.put("paging", paging);
 	    result.put("key", key);
 
 	    return result;
-	}
-	
-	public BannerVO getBanner(int bseq) {
-		return adao.getBanner(bseq);
-	}
-
-
+	}	
 	
 }

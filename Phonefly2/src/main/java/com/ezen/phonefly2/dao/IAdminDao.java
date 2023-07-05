@@ -5,13 +5,14 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ezen.phonefly2.dto.ProductVO;
-import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.dto.BannerVO;
+import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.dto.OrderDetailVO;
+import com.ezen.phonefly2.dto.ProductVO;
+import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.util.Paging;
 
 @Mapper
@@ -51,9 +52,9 @@ public interface IAdminDao {
 
 	void insertColor(HashMap<String, Object> paramMap);
 
-	Object getColorList(int pseq);
+	int getAllCountColor(String string, String string2, String key, int pseq);
 
-  BannerVO getBanner(int bseq);
+	List<ColorVO> listColor(Paging paging, String key, int pseq);
 
 
 }

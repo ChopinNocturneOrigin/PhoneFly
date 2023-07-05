@@ -22,7 +22,9 @@
 
 			<tr>
 				<th>색상 이미지</th>
-				<td width="343" colspan="5"><input type="file" name="image"></td>
+				<td width="343" colspan="5">
+				<input type="hidden" name="image" id="image">
+                <div id="filename"></div></td>
 			</tr>
 		</table>
 	</form>
