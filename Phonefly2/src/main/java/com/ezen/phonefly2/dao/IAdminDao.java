@@ -49,6 +49,10 @@ public interface IAdminDao {
 
 	void adminOrderUpdate(int odseq, int results);
 
+	void insertColor(HashMap<String, Object> paramMap);
+
+	Object getColorList(int pseq);
+
 
 
 	

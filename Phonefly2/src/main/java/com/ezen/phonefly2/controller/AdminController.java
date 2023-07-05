@@ -78,6 +78,33 @@ public class AdminController {
 		return result;
 	}
 	
+	@RequestMapping(value="fileupImg", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Object> fileupImg( 
+			@RequestParam("fileimage") MultipartFile file,
+			HttpServletRequest request, Model model	) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		String path = context.getRealPath("/images/productimage");	
+		Calendar today = Calendar.getInstance();
+ 		long t = today.getTimeInMillis();
+ 		String filename = file.getOriginalFilename(); // 파일이름 추출
+ 		String fn1 = filename.substring(0, filename.indexOf(".") );  // 파일이름과 확장장 분리
+ 		String fn2 = filename.substring(filename.indexOf(".")+1 );
+ 		
+ 		if (!file.isEmpty()) {   // 업로드할 파일이 존재한다면
+            String uploadPath = path + "/" + fn1 + t +  "." + fn2;
+            System.out.println("파일 저장 경로 = " + uploadPath);
+            try {
+				file.transferTo( new File(uploadPath) );
+			} catch (IllegalStateException e) { e.printStackTrace();
+			} catch (IOException e) { e.printStackTrace();
+			}
+ 		}
+		result.put("STATUS", 1);
+		result.put("FILENAME", fn1 + t +  "." + fn2 );
+		return result;
+	}
+	
 	//관리자 로그인
 	@RequestMapping("adminLogin")
 	public ModelAndView admin_login(
@@ -230,7 +257,7 @@ public class AdminController {
 	@RequestMapping("/adminBannerList")
 	public ModelAndView adminBannerList( ) {
 		ModelAndView mav = new ModelAndView();
-	
+		
 		mav.addObject("bannerList", as.getBannerList() );
 		mav.setViewName("admin/banner/adminBannerList");
 		
@@ -335,6 +362,34 @@ public class AdminController {
 		System.out.println(productvo.getPseq());
 		model.addAttribute("ProductVO", productvo);
 	    return "admin/product/productColorInsert";
+	}
+	
+	@RequestMapping("adminColorList")
+	public ModelAndView adminColorList(@RequestParam("pseq") int pseq) {
+		ModelAndView mav = new ModelAndView();
+		HashMap<String, Object> paramMap = as.getColorList(pseq);
+		
+		mav.addObject("ProductColorList", (List<ProductVO>)paramMap.get("productList"));
+		mav.setViewName("admin/product/productColorList");
+		
+		return mav;
+	}
+
+	
+	@RequestMapping("adminColorInsert")
+	public String adminColorInsert(HttpServletRequest request, @RequestParam("pseq") int pseq) {
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("pseq", pseq);
+		paramMap.put("name", request.getParameter("name") );
+		paramMap.put("ccode", request.getParameter("ccode") );
+		paramMap.put("image", request.getParameter("image") );
+		if( request.getParameter("image") == null )
+			paramMap.put("image", "" );
+		else 
+			paramMap.put("image", request.getParameter("image") );
+		as.insertColor( paramMap );
+		return "redirect:/adminProductList";
 	}
 		
 	@Autowired

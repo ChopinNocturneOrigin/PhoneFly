@@ -9,14 +9,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.phonefly2.dto.BannerVO;
+import com.ezen.phonefly2.dao.IAdminDao;
 import com.ezen.phonefly2.dto.EventVO;
 import com.ezen.phonefly2.dto.MemberVO;
 import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.dto.OrderDetailVO;
-import com.ezen.phonefly2.dto.QnaVO;
-import com.ezen.phonefly2.dao.IAdminDao;
 import com.ezen.phonefly2.dto.ProductVO;
+import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.util.Paging;
 
 @Service
@@ -364,9 +363,65 @@ public class AdminService {
 
 
 	public void adminOrderUpdate(int odseq, int results) {
-			adao.adminOrderUpdate(odseq , results);
+		adao.adminOrderUpdate(odseq , results);
 		
 	}
+
+
+	public void insertColor(HashMap<String, Object> paramMap) {
+		adao.insertColor( paramMap );		
+	}
+
+
+	public HashMap<String, Object> getColorList(HttpServletRequest request, int pseq) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+	    HttpSession session = request.getSession();
+
+	    // 첫 번째 요청인 경우 세션에 저장된 페이지와 키 값을 제거합니다.
+	    if (request.getParameter("first") != null) {
+	        session.removeAttribute("page");
+	        session.removeAttribute("key");
+	    }
+
+	    int page = 1;
+	    if (request.getParameter("page") != null) {
+	        page = Integer.parseInt(request.getParameter("page"));
+	        session.setAttribute("page", page);
+	    } else if (session.getAttribute("page") != null) {
+	        page = (int) session.getAttribute("page");
+	    } else {
+	        page = 1;
+	        session.removeAttribute("page");
+	    }
+
+	    String key = "";
+	    if (request.getParameter("key") != null) {
+	        key = request.getParameter("key");
+	        session.setAttribute("key", key);
+	    } else if (session.getAttribute("key") != null) {
+	        key = (String) session.getAttribute("key");
+	    } else {
+	        session.removeAttribute("key");
+	        key = "";
+	    }
+
+	    Paging paging = new Paging();
+	    paging.setPage(page);
+
+	    // 이벤트 테이블에서 키워드로 검색한 결과의 총 개수를 가져옵니다.
+	    int count = adao.getAllCount("event", "subject", key);
+	    paging.setTotalCount(count);
+	    paging.paging();
+
+	    // 페이징 처리된 이벤트 목록을 가져옵니다.
+	    List<EventVO> list = adao.listEvent(paging, key);
+	    result.put("eventList", list);
+	    result.put("paging", paging);
+	    result.put("key", key);
+
+	    return result;
+	}
+	
 
 
 	
