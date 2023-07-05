@@ -404,6 +404,8 @@ function goToAdminProductList() {
 
 
 
+/*  배너 페이지 */
+
 
 function go_banner_save() {
 	var theForm = document.frm;  
@@ -459,4 +461,7 @@ function change_order(bseq) {
 	// BSEQ 와 바꾸려는 값을 갖고 change_order 리퀘스트로 이동합니다
 }
 
+function go_banner_view(bseq) {
+	document.frm.action = "/adminBannerView?bseq=" + bseq;
+}
 
