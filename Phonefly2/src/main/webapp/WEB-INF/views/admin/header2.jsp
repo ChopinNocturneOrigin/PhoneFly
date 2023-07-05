@@ -33,7 +33,7 @@ $(function(){
 	        success : function(data){    // controller 에서 린턴된 해시맵이  data 로 전달됩니다
 	            if( data.STATUS == 1 ){  	// 동적으로 div태그 달아주기.
 	            	$("#filename").append("<div>"+data.FILENAME+"</div>");
-	            	$("#image").val(data.FILENAME);
+	            	$("#video").val(data.FILENAME);
 	            	$("#filename").append("<video src='/videos/"+data.FILENAME+"' height='150'/>");
 	            }
 	        },
