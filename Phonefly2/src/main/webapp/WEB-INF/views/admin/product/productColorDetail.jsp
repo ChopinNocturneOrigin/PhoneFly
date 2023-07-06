@@ -9,9 +9,7 @@
 	<tr><th align="center" >상품 색상 명</th><td colspan="5">${ColorVO.name}</td></tr>      	
    	<tr><th>색상 코드</th><td colspan="5">${ColorVO.ccode}</td></tr>  	
    	<tr><th>색상 이미지</th><td colspan="5" align="center">
-   		<img src="images/productImage/${ColorVO.image}" width="200px"></td></tr>
-   		
-   		
+   		<img src="images/productImage/${ColorVO.image}" width="200px"></td></tr>  	   		
 </table>
 
 <div class="Bottm-btn-container">
