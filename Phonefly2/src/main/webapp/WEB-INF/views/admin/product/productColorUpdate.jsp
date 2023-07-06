@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/header3.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
@@ -24,7 +24,7 @@
 			<tr>
 				<th>색상이미지</th>
 				<td colspan="5"><img src="images/productImage/${ColorVO.image}"
-					width="200"><br> <input type="file" name="image">
+					width="200"><br> 
 				</td>
 			</tr>
 		</table>
@@ -39,6 +39,15 @@
 			</div>
 		</div>
 	</form>
+	
+	 <div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
+		<form name="form" id="fileupForm" method="post" enctype="multipart/form-data">
+			<input type="file" name="fileimage"> 
+			<input type="button" id="myButton" value="추가">
+		</form>
+		</div>
+	
+	
 </article>
 
 <%@ include file="../../admin/footer.jsp"%>
