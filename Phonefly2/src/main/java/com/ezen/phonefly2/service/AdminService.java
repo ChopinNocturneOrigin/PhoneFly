@@ -378,7 +378,7 @@ public class AdminService {
 		return adao.getBanner(bseq);
 	}
 
-  public void deleteProduct(int pseq) {
+	public void deleteProduct(int pseq) {
 		adao.deleteProduct(pseq);
 	}
 
@@ -395,8 +395,9 @@ public class AdminService {
 
 	public void updateColor(ColorVO cvo) {
 		adao.updateColor(cvo);
-
-  public void updateBanner(BannerVO bannervo) {
+	}
+	
+	public void updateBanner(BannerVO bannervo) {
 		adao.updateBanner(bannervo);
 	}	
 	
