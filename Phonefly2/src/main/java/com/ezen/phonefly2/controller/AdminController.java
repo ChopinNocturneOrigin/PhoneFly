@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -358,9 +357,33 @@ public class AdminController {
 	public String adminProductInsert(Model model ,ProductVO productvo,  HttpServletRequest request) {
 		
 		as.insertProduct(productvo);
-		System.out.println(productvo.getPseq());
 		model.addAttribute("ProductVO", productvo);
 	    return "admin/product/productColorInsert";
+	}
+	
+	@RequestMapping("adminProductDelete")
+	public String adminProductDelete(HttpServletRequest request) {
+		int pseq = Integer.parseInt(request.getParameter("pseq"));
+		as.deleteProduct(pseq);
+		return "redirect:/adminProductList";
+	}
+	
+	@RequestMapping("adminProductUpdateForm")
+	public ModelAndView adminProductUpdateForm(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
+		ModelAndView mav = new ModelAndView();
+		HashMap<String, Object> result = ps.getProduct(pseq);
+		ProductVO pvo = (ProductVO)result.get("productVO");
+		mav.addObject("ProductVO", pvo);
+		mav.setViewName("admin/product/adminProductUpdateForm");
+		return mav;
+	}
+	
+	@RequestMapping("adminProductUpdate")
+	public String adminProductUpdate(ProductVO pvo, Model model, HttpServletRequest request) {
+		String url = "admin/product/adminProductUpdateForm";
+		as.updateProduct(pvo);
+		url = "redirect:/adminProductDetail?pseq=" + pvo.getPseq();
+		return url;
 	}
 	
 	@RequestMapping("adminColorList")
@@ -370,6 +393,20 @@ public class AdminController {
 		mav.addObject("ProductColorList", (List<ColorVO>)paramMap.get("ProductColorList"));
 		mav.setViewName("admin/product/productColorList");
 		return mav;
+	}
+	
+	@RequestMapping("adminColorDetail")
+	public ModelAndView adminColorDetail(@RequestParam("cseq") int cseq, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("ColorVO", as.getColor(cseq));
+		mav.setViewName("admin/product/productColorDetail");
+		return mav;
+	}
+	
+	@RequestMapping("adminColorInsertForm")
+	public String adminColorInsertForm(HttpServletRequest request, @RequestParam("pseq") int pseq) {
+	
+		return "admin/product/productColorInsert";
 	}
 	
 	@RequestMapping("adminColorInsert")
@@ -439,8 +476,7 @@ public class AdminController {
 	
 	@RequestMapping("/adminOrderUpdate")
 	public String adminOrderUpdate( @RequestParam("result") int results, @RequestParam("odseq") int odseq ) {
-		
-		as.adminOrderUpdate( odseq,results );
+		mps.adminOrderUpdate( results,odseq );
 		
 		return "redirect:/adminOrderList";
 	}
@@ -540,6 +576,18 @@ public class AdminController {
 		return "redirect:/adminEventList";
 	}
 	
+	@RequestMapping("adminBannerView")
+	public ModelAndView adminBannerView( 
+			HttpServletRequest request, 
+			@RequestParam("bseq") int bseq) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject( "bannerVO",   as.getBanner( bseq ) );
+		
+		mav.setViewName("admin/banner/adminBannerView");
+		
+		return mav;
+	}
 
 	
 }

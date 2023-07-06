@@ -358,11 +358,6 @@ public class AdminService {
 	}
 
 
-	public void adminOrderUpdate(int odseq, int results) {
-		adao.adminOrderUpdate(odseq , results);
-		
-	}
-
 
 	public void insertColor(HashMap<String, Object> paramMap) {
 		adao.insertColor( paramMap );		
@@ -376,8 +371,6 @@ public class AdminService {
 	    result.put("ProductColorList", list);
 	    
 	    return result;
-<<<<<<< Updated upstream
-=======
 	}
 
 
@@ -402,8 +395,6 @@ public class AdminService {
 
 	public void updateBanner(BannerVO bannervo) {
 		adao.updateBanner(bannervo);
-		
->>>>>>> Stashed changes
 	}	
 	
 }

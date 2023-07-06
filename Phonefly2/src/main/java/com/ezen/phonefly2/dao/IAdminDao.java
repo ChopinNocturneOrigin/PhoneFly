@@ -46,19 +46,15 @@ public interface IAdminDao {
 
 	void insertProduct(ProductVO productvo);
 
-	void adminOrderUpdate(int odseq, int results);
-
 	void insertColor(HashMap<String, Object> paramMap);
 
 	int getAllCountColor(String string, String string2, String key, int pseq);
 
 	List<ColorVO> listColor(int pseq);
 
-<<<<<<< Updated upstream
-=======
 	BannerVO getBanner(int bseq);
-	
-	void deleteProduct(int pseq);
+
+  void deleteProduct(int pseq);
 
 	void updateProduct(ProductVO pvo);
 
@@ -66,5 +62,4 @@ public interface IAdminDao {
 
 	void updateBanner(BannerVO bannervo);
 
->>>>>>> Stashed changes
 }
