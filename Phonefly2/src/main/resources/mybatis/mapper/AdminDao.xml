@@ -138,4 +138,18 @@
 	    select*from color where pseq=#{param1}
 	</select>
 	
+	<delete id="deleteProduct" >
+		delete from product where pseq=#{param1}
+	</delete>
+	
+	<update id="updateProduct" >
+		update product set name=#{name}, price1=#{price1}, price2=#{price2}, price3=#{price3},
+		content=#{content}, mfc=#{mfc}, useyn=#{useyn}, bestyn=#{bestyn}, eventyn=#{eventyn}
+		where pseq=#{pseq}
+	</update>
+	
+	<select id="getColor" resultType="com.ezen.phonefly2.dto.ColorVO">
+		select*from color where cseq = #{param1}
+	</select>
+	
 </mapper>

@@ -312,12 +312,8 @@ function go_mod_save_n(nseq) {
 }
 
 
-function go_mod_save_od(result,odseq) {
-			document.frm.action = "/adminOrderUpdate?result=" + result + "&odseq=" + odseq  ;
-			document.frm.submit();
-		
-	
-}
+
+
 
 
 
@@ -449,7 +445,7 @@ function go_mod_save_b(bseq) {
 
 
 
-function change_order(bseq) {
+function changeOrder(bseq) {
 	var selectTag = document.getElementById(bseq);
 	// 각 SELECT 태그의 ID를 BSEQ 값으로 설정해 놓았습니다. 따라서 방금 값이 바뀐 SELECT  태그는 매개변수로 전달된
 	// BSEQ 값으로 식별하여 selectTag 변수에 저장할 수 있습니다
@@ -462,6 +458,6 @@ function change_order(bseq) {
 }
 
 function go_banner_view(bseq) {
-	document.frm.action = "/adminBannerView?bseq=" + bseq;
+	location.href = "/adminBannerView?bseq=" + bseq;
 }
 

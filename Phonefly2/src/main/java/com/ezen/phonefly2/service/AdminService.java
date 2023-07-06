@@ -383,5 +383,19 @@ public class AdminService {
 	public BannerVO getBanner(int bseq) {
 		return adao.getBanner(bseq);
 	}
+
+  public void deleteProduct(int pseq) {
+		adao.deleteProduct(pseq);
+	}
+
+
+	public void updateProduct(ProductVO pvo) {
+		adao.updateProduct(pvo);
+	}
+
+
+	public ColorVO getColor(int cseq) {
+		return adao.getColor(cseq);
+	}	
 	
 }

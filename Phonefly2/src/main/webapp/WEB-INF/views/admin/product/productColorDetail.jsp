@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../../admin/header2.jsp"%>
+<%@ include file="../../admin/header3.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
@@ -9,9 +9,7 @@
 	<tr><th align="center" >상품 색상 명</th><td colspan="5">${ColorVO.name}</td></tr>      	
    	<tr><th>색상 코드</th><td colspan="5">${ColorVO.ccode}</td></tr>  	
    	<tr><th>색상 이미지</th><td colspan="5" align="center">
-   		<img src="images/productImage/${ColorVO.image}" width="200px"></td></tr>
-   		
-   		
+   		<img src="images/productImage/${ColorVO.image}" width="200px"></td></tr>  	   		
 </table>
 
 <div class="Bottm-btn-container">

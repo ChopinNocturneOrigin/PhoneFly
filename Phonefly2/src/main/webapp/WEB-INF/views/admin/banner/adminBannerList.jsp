@@ -43,7 +43,7 @@
 							</td>
 							
 							<td><select name="order_seq" id="${bannerVO.bseq}"
-								onChange="change_order('${bannerVO.bseq}');">
+								onChange="changeOrder('${bannerVO.bseq}');">
 									<c:forEach var="cnt" begin="1" end="5" varStatus="status">
 										<c:choose>
 											<c:when test="${cnt==bannerVO.order_seq}">
