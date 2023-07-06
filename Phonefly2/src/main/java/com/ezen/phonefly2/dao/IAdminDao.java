@@ -56,4 +56,10 @@ public interface IAdminDao {
 
 	List<ColorVO> listColor(int pseq);
 
+	void deleteProduct(int pseq);
+
+	void updateProduct(ProductVO pvo);
+
+	ColorVO getColor(int cseq);
+
 }
