@@ -15,9 +15,9 @@
 			<td width="1470px;" colspan="5"	style="vertical-align: top; position: relative;">
 				<div style="position: relative; width: 1470px;">
 					<video src="../videos/${bannerVO.video}" width="100%"></video>
-					<div style="position: absolute; top: ${bannerVO.top}; left: ${bannerVO.left};">
-						<input type="text" name="btitle" size="47" value="${bannerVO.btitle}"><br> 
-						<input type="text"name="btext" size="47" value="${bannerVO.btext}">
+					<div style="position: absolute; color:white; top: ${bannerVO.top}; left: ${bannerVO.left}; z-index: 1;">
+						<h1>${bannerVO.btitle}</h1>
+						<h3>${bannerVO.btext}</h3>
 					</div>
 				</div>
 			</td>
