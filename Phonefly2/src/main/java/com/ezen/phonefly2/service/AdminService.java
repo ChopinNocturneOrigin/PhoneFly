@@ -346,12 +346,6 @@ public class AdminService {
 	}
 
 
-	public void updateBanner(String video, String subject, int order_seq, String useyn, int bseq, String btitle, String btext, String top, String left) {
-		adao.updateBanner(video, subject, order_seq, useyn, bseq, btitle, btext, top, left);
-		
-	}
-
-
 	public void qnaReply(int qseq, String reply) {
 		adao.qnaReply( qseq, reply );	
 	}
@@ -382,6 +376,34 @@ public class AdminService {
 	    result.put("ProductColorList", list);
 	    
 	    return result;
+<<<<<<< Updated upstream
+=======
+	}
+
+
+	public BannerVO getBanner(int bseq) {
+		return adao.getBanner(bseq);
+	}
+
+  public void deleteProduct(int pseq) {
+		adao.deleteProduct(pseq);
+	}
+
+
+	public void updateProduct(ProductVO pvo) {
+		adao.updateProduct(pvo);
+	}
+
+
+	public ColorVO getColor(int cseq) {
+		return adao.getColor(cseq);
+	}
+
+
+	public void updateBanner(BannerVO bannervo) {
+		adao.updateBanner(bannervo);
+		
+>>>>>>> Stashed changes
 	}	
 	
 }

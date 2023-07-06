@@ -42,8 +42,6 @@ public interface IAdminDao {
 
 	void deleteBanner(int bseq);
 
-	void updateBanner(String video, String subject, int order_seq, String useyn, int bseq, String btitle, String btext, String top, String left);
-
 	void qnaReply(int qseq, String reply);
 
 	void insertProduct(ProductVO productvo);
@@ -56,4 +54,17 @@ public interface IAdminDao {
 
 	List<ColorVO> listColor(int pseq);
 
+<<<<<<< Updated upstream
+=======
+	BannerVO getBanner(int bseq);
+	
+	void deleteProduct(int pseq);
+
+	void updateProduct(ProductVO pvo);
+
+	ColorVO getColor(int cseq);
+
+	void updateBanner(BannerVO bannervo);
+
+>>>>>>> Stashed changes
 }
