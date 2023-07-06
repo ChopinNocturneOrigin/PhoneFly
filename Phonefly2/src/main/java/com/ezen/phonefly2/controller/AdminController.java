@@ -406,8 +406,17 @@ public class AdminController {
 	
 	@RequestMapping("adminColorInsertForm")
 	public String adminColorInsertForm(HttpServletRequest request, @RequestParam("pseq") int pseq) {
-	
-		return "admin/product/productColorInsert";
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("pseq", pseq);
+		paramMap.put("name", request.getParameter("name") );
+		paramMap.put("ccode", request.getParameter("ccode") );
+		paramMap.put("image", request.getParameter("image") );
+		if( request.getParameter("image") == null )
+			paramMap.put("image", "" );
+		else 
+			paramMap.put("image", request.getParameter("image") );
+		as.insertColor( paramMap );
+		return "redirect:/adminProductList";
 	}
 	
 	@RequestMapping("adminColorInsert")
@@ -425,7 +434,7 @@ public class AdminController {
 		as.insertColor( paramMap );
 		return "redirect:/adminProductList";
 	}
-		
+	
 	@Autowired
 	QnaService qs;
 	

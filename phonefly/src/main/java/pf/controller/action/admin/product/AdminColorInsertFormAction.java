@@ -30,5 +30,5 @@ public class AdminColorInsertFormAction implements Action {
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-
+	
 }
