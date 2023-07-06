@@ -60,6 +60,8 @@ public interface IAdminDao {
 
 	ColorVO getColor(int cseq);
 
-	void updateBanner(BannerVO bannervo);
+	void updateColor(ColorVO cvo);
+
+  void updateBanner(BannerVO bannervo);
 
 }

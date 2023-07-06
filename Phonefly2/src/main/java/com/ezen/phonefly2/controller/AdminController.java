@@ -379,7 +379,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminProductUpdate")
-	public String adminProductUpdate(ProductVO pvo, Model model, HttpServletRequest request) {
+	public String adminProductUpdate(ProductVO pvo, HttpServletRequest request) {
 		String url = "admin/product/adminProductUpdateForm";
 		as.updateProduct(pvo);
 		url = "redirect:/adminProductDetail?pseq=" + pvo.getPseq();
@@ -404,7 +404,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminColorInsertForm")
-	public String adminColorInsertForm(HttpServletRequest request, @RequestParam("pseq") int pseq) {
+	public String adminColorInsertForm(Model model ,ProductVO productvo,  HttpServletRequest request) {
+		model.addAttribute("ProductVO", productvo);
+	    return "admin/product/productColorInsert";
+	}
+	
+	@RequestMapping("adminColorInsert")
+	public String adminColorInsert(HttpServletRequest request, @RequestParam("pseq") int pseq) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("pseq", pseq);
 		paramMap.put("name", request.getParameter("name") );
@@ -418,21 +424,24 @@ public class AdminController {
 		return "redirect:/adminProductList";
 	}
 	
-	@RequestMapping("adminColorInsert")
-	public String adminColorInsert(HttpServletRequest request, @RequestParam("pseq") int pseq) {
-		
-		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("pseq", pseq);
-		paramMap.put("name", request.getParameter("name") );
-		paramMap.put("ccode", request.getParameter("ccode") );
-		paramMap.put("image", request.getParameter("image") );
-		if( request.getParameter("image") == null )
-			paramMap.put("image", "" );
-		else 
-			paramMap.put("image", request.getParameter("image") );
-		as.insertColor( paramMap );
-		return "redirect:/adminProductList";
+	@RequestMapping("adminColorUpdateForm")
+	public ModelAndView adminColorUpdateForm(Model model, @RequestParam("cseq") int cseq, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		ColorVO cvo = as.getColor(cseq);
+		mav.addObject("ColorVO", cvo);
+		mav.setViewName("admin/product/productColorUpdate");
+		return mav;
 	}
+	
+	@RequestMapping("adminColorUpdate")
+	public String adminColorUpdate(ColorVO cvo, HttpServletRequest request) {
+		String url = "admin/product/productColorUpdate";
+		cvo.setImage(request.getParameter("oldImage"));
+		as.updateColor(cvo);
+		url = "redirect:/productColorDetail?cseq=" + cvo.getCseq();
+		return url;
+	}
+	
 	
 	@Autowired
 	QnaService qs;
