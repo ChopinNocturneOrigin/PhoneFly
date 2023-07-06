@@ -92,5 +92,7 @@ public class CommonService {
 	public void deleteEvent(int eseq) {
 		cdao.deleteEvent(eseq);		
 	}
+	
+	
 
 }

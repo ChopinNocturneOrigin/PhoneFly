@@ -37,5 +37,9 @@
 	<insert id="insertOrder" parameterType="com.ezen.phonefly2.dto.OrderDetailVO">
 		INSERT INTO order_detail (odseq, pseq, rseq, discount, buyplan, dcmonth, dctotal, mmonth, mtotal, cc, id, cseq) VALUES (odseq.nextVal, #{pseq}, #{rseq}, #{discount}, #{buyplan}, #{dcmonth}, #{dctotal}, #{mmonth}, #{mtotal}, #{cc}, #{id}, #{cseq})
 	</insert>
+	
+	<update id="adminOrderUpdate">
+		update order_detail set result = #{param1}  where odseq= #{param2}
+	</update>
 
 </mapper>
