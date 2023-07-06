@@ -316,8 +316,8 @@ public class AdminController {
 			HttpServletRequest request,BannerVO bannervo) {
 		
 		String useyn;
-		if( bannervo.getOrder_seq() > 5) useyn="N";
-		else useyn="Y";
+		if( bannervo.getOrder_seq() > 5) bannervo.setUseyn("N");
+		else bannervo.setUseyn("Y");;
 		
 		as.updateBanner( bannervo);
 		
