@@ -192,7 +192,7 @@ public class AdminController {
 		}
 		return mav;
 	}
-
+	
 	
 	@RequestMapping("/adminMemberList")
 	public ModelAndView adminMemberList(HttpServletRequest request) {
@@ -463,14 +463,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminColorUpdate")
-	public String adminColorUpdate(ColorVO cvo, HttpServletRequest request) {
+	public String adminColorUpdate(ColorVO cvo, HttpServletRequest request, Model model) {
 		String url = "admin/product/productColorUpdate";
-		cvo.setImage(request.getParameter("oldImage"));
 		as.updateColor(cvo);
-		url = "redirect:/productColorDetail?cseq=" + cvo.getCseq();
+		model.addAttribute("ColorVO", as.getColor(cvo.getCseq()));
+		System.out.println(cvo.getCseq());
+		url = "admin/product/productColorDetail";
 		return url;
 	}
-	
 	
 	@Autowired
 	QnaService qs;

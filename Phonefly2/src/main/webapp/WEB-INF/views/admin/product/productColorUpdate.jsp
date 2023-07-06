@@ -24,7 +24,9 @@
 			<tr>
 				<th>색상이미지</th>
 				<td colspan="5"><img src="images/productImage/${ColorVO.image}"
-					width="200"><br> 
+					width="200"><br>
+				<input type="hidden" name="image" id="image">
+				<div id="filename"></div>
 				</td>
 			</tr>
 		</table>

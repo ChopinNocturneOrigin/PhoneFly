@@ -378,7 +378,7 @@ public class AdminService {
 		return adao.getBanner(bseq);
 	}
 
-  public void deleteProduct(int pseq) {
+	public void deleteProduct(int pseq) {
 		adao.deleteProduct(pseq);
 	}
 
