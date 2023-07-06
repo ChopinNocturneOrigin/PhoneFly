@@ -364,11 +364,6 @@ public class AdminService {
 	}
 
 
-	public void adminOrderUpdate(int odseq, int results) {
-		adao.adminOrderUpdate(odseq , results);
-		
-	}
-
 
 	public void insertColor(HashMap<String, Object> paramMap) {
 		adao.insertColor( paramMap );		
@@ -382,6 +377,11 @@ public class AdminService {
 	    result.put("ProductColorList", list);
 	    
 	    return result;
-	}	
+	}
+
+
+	public BannerVO getBanner(int bseq) {
+		return adao.getBanner(bseq);
+	}
 	
 }

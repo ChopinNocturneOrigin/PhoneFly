@@ -89,4 +89,8 @@ public class MyPageService {
 	public void order(OrderDetailVO ovo) {
 		mpdao.insertOrder(ovo);
 	}
+
+	public void adminOrderUpdate( int results,int odseq) {
+		mpdao.adminOrderUpdate(results,odseq);
+	}
 }

@@ -440,8 +440,7 @@ public class AdminController {
 	
 	@RequestMapping("/adminOrderUpdate")
 	public String adminOrderUpdate( @RequestParam("result") int results, @RequestParam("odseq") int odseq ) {
-		
-		as.adminOrderUpdate( odseq,results );
+		mps.adminOrderUpdate( results,odseq );
 		
 		return "redirect:/adminOrderList";
 	}
@@ -541,6 +540,18 @@ public class AdminController {
 		return "redirect:/adminEventList";
 	}
 	
+	@RequestMapping("adminBannerView")
+	public ModelAndView adminBannerView( 
+			HttpServletRequest request, 
+			@RequestParam("bseq") int bseq) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject( "bannerVO",   as.getBanner( bseq ) );
+		
+		mav.setViewName("admin/banner/adminBannerView");
+		
+		return mav;
+	}
 
 	
 }

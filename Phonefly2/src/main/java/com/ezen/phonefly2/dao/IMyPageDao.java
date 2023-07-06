@@ -20,5 +20,6 @@ public interface IMyPageDao {
 	OrderDetailVO adminOrderDetail(int odseq);
 	void deleteOrder(int odseq);
 	void insertOrder(OrderDetailVO ovo);
+	void adminOrderUpdate(int results, int odseq);
 	
 }

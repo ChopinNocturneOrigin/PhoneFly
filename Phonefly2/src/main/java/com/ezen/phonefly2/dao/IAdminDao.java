@@ -48,12 +48,12 @@ public interface IAdminDao {
 
 	void insertProduct(ProductVO productvo);
 
-	void adminOrderUpdate(int odseq, int results);
-
 	void insertColor(HashMap<String, Object> paramMap);
 
 	int getAllCountColor(String string, String string2, String key, int pseq);
 
 	List<ColorVO> listColor(int pseq);
+
+	BannerVO getBanner(int bseq);
 
 }
