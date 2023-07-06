@@ -396,8 +396,8 @@ public class AdminService {
 	public void updateColor(ColorVO cvo) {
 		adao.updateColor(cvo);
 	}
-	
-	public void updateBanner(BannerVO bannervo) {
+
+  public void updateBanner(BannerVO bannervo) {
 		adao.updateBanner(bannervo);
 	}	
 	

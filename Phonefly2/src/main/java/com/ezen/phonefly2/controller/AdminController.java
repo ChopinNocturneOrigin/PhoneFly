@@ -85,6 +85,35 @@ public class AdminController {
 			HttpServletRequest request, Model model	) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		String path = context.getRealPath("/images/productImage");	
+		
+		Calendar today = Calendar.getInstance();
+ 		long t = today.getTimeInMillis();
+ 		String filename = file.getOriginalFilename(); // 파일이름 추출
+ 		String fn1 = filename.substring(0, filename.indexOf(".") );  // 파일이름과 확장장 분리
+ 		String fn2 = filename.substring(filename.indexOf(".")+1 );
+ 		
+ 		if (!file.isEmpty()) {   // 업로드할 파일이 존재한다면
+            String uploadPath = path + "/" + fn1 + t +  "." + fn2;
+            System.out.println("파일 저장 경로 = " + uploadPath);
+            try {
+				file.transferTo( new File(uploadPath) );
+			} catch (IllegalStateException e) { e.printStackTrace();
+			} catch (IOException e) { e.printStackTrace();
+			}
+ 		}
+		result.put("STATUS", 1);
+		result.put("FILENAME", fn1 + t +  "." + fn2 );
+		return result;
+	}
+	
+	@RequestMapping(value="fileupImgE", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Object> fileupImgE( 
+			@RequestParam("fileimage") MultipartFile file,
+			HttpServletRequest request, Model model	) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		String path = context.getRealPath("/images/event");	
+		
 		Calendar today = Calendar.getInstance();
  		long t = today.getTimeInMillis();
  		String filename = file.getOriginalFilename(); // 파일이름 추출
