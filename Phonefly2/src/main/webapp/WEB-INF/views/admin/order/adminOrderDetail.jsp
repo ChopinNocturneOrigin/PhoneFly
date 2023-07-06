@@ -5,12 +5,8 @@
 
 <article>
 	<!-- <h1>주문리스트</h1> -->
-	<form name="frm" method="post" >
-		<input type="hidden" name="command" value="adminOrderUpdate" /> 
+	<form action="/adminOrderUpdate" name="frm" method="post"  >
 		<input type="hidden" name="odseq" value="${orderDetailVO.odseq}" />
-
-
-
 
 		<!-- <div class="support-right-content card-normal"> -->
 		<div class="admin-orderdetail-wrap card-normal">
@@ -360,39 +356,23 @@
 								</li>
 
 								<div class="Bottm-btn-container btn-group">
-									<div>
-										<input type="button" class="btn" value="목록"
-											onclick="location.href='adminOrderList';" />
+								        	<div>
+										       <input type="button" class="btn" value="목록"	
+										       onclick="location.href='adminOrderList';" />
 											</div> &nbsp;&nbsp;&nbsp;
 											<div>
-											 <input	type="button" class="btn"
-											value="수정" onclick="go_mod_save_od(${orderDetailVO.result},${orderDetailVO.odseq});"/>
-									</div>
+											 <input	type="submit" class="btn" value="수정" />
+								        	</div>
 									&nbsp;&nbsp;&nbsp;
 									<!-- //버튼 -->
 									</div>
 							</ul>
-
 						</div>
 						<!-- //스크롤 박스 (wrap) -->
-
-
-
 					</div>
 				</div>
-
-
-
-
-
 			</div>
 		</div>
-
-
-
-
-
-
 	</form>
 </article>
 

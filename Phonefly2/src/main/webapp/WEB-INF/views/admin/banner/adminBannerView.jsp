@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head><%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ include file="../../admin/header2.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
@@ -19,14 +12,15 @@
 		</tr>
 		<tr>
 			<th>배너 동영상</th>
-
 			<td width="1470px;" colspan="5"	style="vertical-align: top; position: relative;">
-		     	<video src="../videos/${bannerVO.video}" width="1470px;"></video>
-				    <div style="position: absolute; top: ${bannerVO.top}; left: ${bannerVO.left};">
-					    <input type="text" name="btitle" size="47" value="${bannerVO.btitle}"><br>				  				
-				     	<input type="text" name="btext" size="47" value="${bannerVO.btext}">
-				   </div>
-				</td>
+				<div style="position: relative; width: 1470px;">
+					<video src="../videos/${bannerVO.video}" width="100%"></video>
+					<div style="position: absolute; top: ${bannerVO.top}; left: ${bannerVO.left};">
+						<input type="text" name="btitle" size="47" value="${bannerVO.btitle}"><br> 
+						<input type="text"name="btext" size="47" value="${bannerVO.btext}">
+					</div>
+				</div>
+			</td>
 		</tr>
 	</table>
 
