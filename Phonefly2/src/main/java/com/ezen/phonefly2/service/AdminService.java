@@ -382,6 +382,21 @@ public class AdminService {
 	    result.put("ProductColorList", list);
 	    
 	    return result;
+	}
+
+
+	public void deleteProduct(int pseq) {
+		adao.deleteProduct(pseq);
+	}
+
+
+	public void updateProduct(ProductVO pvo) {
+		adao.updateProduct(pvo);
+	}
+
+
+	public ColorVO getColor(int cseq) {
+		return adao.getColor(cseq);
 	}	
 	
 }
