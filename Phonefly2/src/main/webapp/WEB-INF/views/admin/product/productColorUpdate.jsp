@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../admin/header3.jsp"%>
+<%@ include file="../../admin/headerP.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
@@ -25,6 +25,7 @@
 				<th>색상이미지</th>
 				<td colspan="5"><img src="images/productImage/${ColorVO.image}"
 					width="200"><br> 
+					<div id="filename"></div>
 				</td>
 			</tr>
 		</table>
@@ -38,6 +39,7 @@
 					onClick="history.go(-1)"/>
 			</div>
 		</div>
+		
 	</form>
 	
 	 <div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
