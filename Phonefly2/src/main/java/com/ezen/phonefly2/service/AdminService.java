@@ -396,6 +396,11 @@ public class AdminService {
 
 	public ColorVO getColor(int cseq) {
 		return adao.getColor(cseq);
+	}
+
+
+	public void updateColor(ColorVO cvo) {
+		adao.updateColor(cvo);
 	}	
 	
 }

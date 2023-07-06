@@ -152,4 +152,7 @@
 		select*from color where cseq = #{param1}
 	</select>
 	
+	<update id="updateColor">
+		update color set name=#{name}, ccode=#{ccode}, image=#{image} where cseq=#{cseq}
+	</update>
 </mapper>
