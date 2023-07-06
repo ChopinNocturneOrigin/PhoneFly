@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../admin/header3.jsp"%>
+<%@ include file="../../admin/headerE.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
 	<h1>이벤트 수정</h1>
 	<form name="frm" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="eseq" value="${eventVO.eseq}"> <input
-			type="hidden" name="oldImage" value="${eventVO.image}">
+		<input type="hidden" name="eseq" value="${eventVO.eseq}"> 
+		<input type="hidden" name="oldImage" value="${eventVO.image}">
 
 		<table id="EUList">
 			<tr>
@@ -20,8 +20,9 @@
 				<th>이벤트 이미지</th>
 				<td colspan="5"><img src="images/event/${eventVO.image}"
 					width="600"><br> 
+					<input type="hidden" name="image" id="image">
+					<div id="filename"></div>					
 				</td>
-			</tr>
 		</table>
 	</form>
 	

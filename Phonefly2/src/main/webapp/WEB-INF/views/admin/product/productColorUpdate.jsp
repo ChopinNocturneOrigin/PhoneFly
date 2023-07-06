@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../admin/header3.jsp"%>
+<%@ include file="../../admin/headerP.jsp"%>
 <%@ include file="../../admin/sub_menu2.jsp"%>
 
 <article>
@@ -27,6 +27,7 @@
 					width="200"><br>
 				<input type="hidden" name="image" id="image">
 				<div id="filename"></div>
+
 				</td>
 			</tr>
 		</table>
@@ -40,6 +41,7 @@
 					onClick="history.go(-1)"/>
 			</div>
 		</div>
+		
 	</form>
 	
 	 <div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
