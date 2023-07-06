@@ -316,11 +316,10 @@ public class AdminController {
 			HttpServletRequest request,BannerVO bannervo) {
 		
 		String useyn;
-		if( bannervo.getOrder_seq() > 5) useyn="N";
-		else useyn="Y";
+		if( bannervo.getOrder_seq() > 5) bannervo.setUseyn("N");
+		else bannervo.setUseyn("Y");;
 		
-		as.updateBanner( bannervo.getVideo(),bannervo.getSubject(), bannervo.getOrder_seq(), useyn, 
-				bannervo.getBseq(), bannervo.getBtitle(), bannervo.getBtext(), bannervo.getTop(), bannervo.getLeft());
+		as.updateBanner( bannervo);
 		
 		return "redirect:/adminBannerList";
 	}
@@ -334,7 +333,7 @@ public class AdminController {
 			bannervo.setVideo( request.getParameter("oldfilename") );
 		
 		
-	      model.addAttribute("bseq", bannervo.getBseq() );
+	      model.addAttribute("bannerVO", as.getBanner(bannervo.getBseq()));
 	      return "admin/banner/adminBannerUpdateForm";
 	      
 	  }

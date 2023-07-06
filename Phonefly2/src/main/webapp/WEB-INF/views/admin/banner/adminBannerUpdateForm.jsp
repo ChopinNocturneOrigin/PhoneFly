@@ -4,7 +4,7 @@
 <%@ include file="../../admin/sub_menu2.jsp"%>
 <article>
 	<h1>배너수정</h1>
-	<form name="frm" method="post">
+	<form action="/bannerUpdate" name="frm" method="post">
 		<input type="hidden" name="bseq" value="${bannerVO.bseq}">
 		<input type="hidden" name="oldfilename" value="${bannerVO.video}">
 
@@ -60,7 +60,11 @@
 					<div id="filename"></div>
 				</td>
 			</tr>
-		</table>
+		</table>		  
+    <div id = "BannerUpdateButton" style="position: relative; left:800px; top:5px;">
+	    <input class="btn" type="submit" value="수정" />
+		<input class="btn" type="button" value="취소" onClick="go_mov()">
+     </div>
 	</form>
 
 	<div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
@@ -70,11 +74,7 @@
 		</form>
 	</div>
 
-    
-    <div id = "BannerUpdateButton" style="position: relative; left:800px; top:5px;">
-	    <input class="btn" type="button" value="수정" onClick="go_mod_save_b('${bannerVO.bseq}')"> 
-		<input class="btn" type="button" value="취소" onClick="go_mov()">
-     </div>
+  
 
 
 

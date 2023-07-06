@@ -105,9 +105,9 @@
 		delete from banner where bseq=#{param1}
 	</delete>
 	
-	<update id="updateBanner" >
-		update banner set video=#{param1},subject=#{param2}, order_seq=#{param3}, useyn=#{param4}, 
-		btitle=#{param6}, btext=#{param7}, top=#{param8}, left=#{param9} where bseq=#{param5}
+	<update id="updateBanner" parameterType="com.ezen.phonefly2.dto.BannerVO" >
+		update banner set subject=#{subject}, order_seq=#{order_seq}, useyn=#{useyn},
+		video=#{video}, btitle=#{btitle}, btext=#{btext}, top=#{top}, left=#{left} where bseq=#{bseq}
 	</update>
 	
 	<select id="getMember"  resultType="com.ezen.phonefly2.dto.MemberVO">
