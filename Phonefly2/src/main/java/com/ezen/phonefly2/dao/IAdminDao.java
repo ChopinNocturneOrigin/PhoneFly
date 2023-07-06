@@ -47,7 +47,7 @@ public interface IAdminDao {
 	void insertProduct(ProductVO productvo);
 
 	void insertColor(HashMap<String, Object> paramMap);
-
+	
 	int getAllCountColor(String string, String string2, String key, int pseq);
 
 	List<ColorVO> listColor(int pseq);
