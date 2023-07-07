@@ -31,8 +31,10 @@ public class MainController {
 		ms.getMainProduct(result);
 		List<ProductVO> mainBestList = (List<ProductVO>)result.get("mainBestList");
 		List<ProductVO> mainEventList = (List<ProductVO>)result.get("mainEventList");
+		List<ProductVO> bannerList = (List<ProductVO>)result.get("bannerList");
 		mav.addObject("mainBestList", mainBestList);
 		mav.addObject("mainEventList", mainEventList);
+		mav.addObject("bannerList", bannerList);
 		mav.setViewName("main");
 		return mav;
 	}

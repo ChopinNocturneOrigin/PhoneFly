@@ -15,4 +15,7 @@
 		SELECT * FROM color WHERE pseq = #{param1} ORDER BY cseq DESC
 	</select>
 
+	<select id="getBannerList">
+		SELECT * FROM banner WHERE useyn = 'Y' ORDER BY order_seq
+	</select>
 </mapper>

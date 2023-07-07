@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.ProductVO;
 
@@ -13,4 +14,5 @@ public interface IMainDao {
 	List<ProductVO> getBestList();
 	List<ProductVO> getEventList();
 	List<ColorVO> getColorList(int pseq);
+	List<BannerVO> getBannerList();
 }

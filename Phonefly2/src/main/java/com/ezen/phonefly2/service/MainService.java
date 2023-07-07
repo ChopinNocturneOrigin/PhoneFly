@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.phonefly2.dao.IMainDao;
+import com.ezen.phonefly2.dto.BannerVO;
 import com.ezen.phonefly2.dto.ColorVO;
 import com.ezen.phonefly2.dto.ProductVO;
 
@@ -28,7 +29,9 @@ public class MainService {
 			List<ColorVO> colorList = mdao.getColorList(pvo.getPseq());
 			pvo.setColorList(colorList);
 		}
+		List<BannerVO> bannerList = mdao.getBannerList();
 		result.put("mainBestList", mainBestList);
 		result.put("mainEventList", mainEventList);
+		result.put("bannerList", bannerList);
 	}
 }
