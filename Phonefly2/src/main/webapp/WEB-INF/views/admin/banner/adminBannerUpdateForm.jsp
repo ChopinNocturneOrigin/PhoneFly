@@ -11,8 +11,8 @@
 		<table id="BannerUpdateList">
 			<tr>
 				<th>배너 제목</th>
-				<td width="343" colspan="5">
-				<input type="text" name="subject" size="47" value="${bannerVO.subject}">
+				<td width="10" colspan="5">
+				<input type="text" name="subject" size="10" value="${bannerVO.subject}">
 				</td>
 			</tr>
 
@@ -39,7 +39,9 @@
 			<tr>
 				<th>배너 내용 수정</th>
 				<td width="343" colspan="5">
-				<input type="text" name="btext"	size="47" value="${bannerVO.btext}">
+				<textarea name="btext" rows="8" cols="50" > ${bannerVO.btext}</textarea>
+				
+			
 				</td>
 			</tr>
 
