@@ -412,7 +412,7 @@ public class AdminController {
 		String url = "admin/product/adminProductUpdateForm";
 		as.updateProduct(pvo);
 		url = "redirect:/adminProductDetail?pseq=" + pvo.getPseq();
-		return url;
+		return url;	
 	}
 	
 	@RequestMapping("adminColorList")
@@ -470,6 +470,14 @@ public class AdminController {
 		System.out.println(cvo.getCseq());
 		url = "admin/product/productColorDetail";
 		return url;
+	}
+	
+	@RequestMapping("adminColorDelete")
+	public String adminColorDelete(HttpServletRequest request) {
+		int cseq = Integer.parseInt(request.getParameter("cseq"));
+		int pseq = Integer.parseInt(request.getParameter("pseq"));
+		as.deleteColor(cseq);
+		return "redirect:/adminColorList?pseq="+pseq;
 	}
 	
 	@Autowired

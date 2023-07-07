@@ -382,7 +382,7 @@ function go_del_n(nseq) {
 function go_del_c(cseq, pseq) {
 	var confirmDelete = confirm("정말 이 색상을 삭제하시겠습니까?");
 	if (confirmDelete) {
-		var url = "/adminColorDelete?cseq=" + cseq + "?pseq=" + pseq;
+		var url = "/adminColorDelete?cseq=" + cseq + "&pseq=" + pseq;
 		location.href = url;
 	}
 }
