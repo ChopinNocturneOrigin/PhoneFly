@@ -17,8 +17,8 @@
 					<video src="../videos/${bannerVO.video}" width="100%"></video>
 					<div style="position: absolute;  top: ${bannerVO.top}px; left: ${bannerVO.left}px; z-index: 1;">
 						<h1 style="color:white;
-						 text-shadow: 1px 1px 5px rgba(0,0,0,.5), -1px -1px 5px rgba(0,0,0,.5), 1px -1px 5px rgba(0,0,0,.5), -1px 1px 5px rgba(0,0,0,.5); 
-						 font-size: 1.6em; font-weight: 600;  letter-spacing: -0.007em;  text-align: left;" >${bannerVO.btitle}</h1>
+						     text-shadow: 1px 1px 5px rgba(0,0,0,.5), -1px -1px 5px rgba(0,0,0,.5), 1px -1px 5px rgba(0,0,0,.5), -1px 1px 5px rgba(0,0,0,.5); 
+						     font-size: 1.6em; font-weight: 600;  letter-spacing: -0.007em;  text-align: left;" >${bannerVO.btitle}</h1>
 						<h3 style="color:white; text-align: left;">${bannerVO.btext}</h3>
 					</div>
 				</div>

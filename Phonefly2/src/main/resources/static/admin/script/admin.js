@@ -403,12 +403,34 @@ function goToAdminProductList() {
 /*  배너 페이지 */
 
 
-function go_banner_save() {
-	var theForm = document.frm;  
+function go_banner_save() {	
+	var theForm = document.frm;  	
+	if (theForm.subject.value == "") {
+		alert('베너 제목을 입력하세요.');
+		theForm.subject.focus();
+	} else if (theForm.order_seq.value == "") {
+		alert('순위를 입력하세요.');
+		theForm.order_seq.focus();			
+	} else if (theForm.btitle.value == "") {
+		alert('베너 타이틀을 입력하세요.');
+		theForm.btitle.focus();
+	} else if (theForm.btext.value == "") {
+		alert('베너 내용을 입력하세요.');
+		theForm.btext.focus();
+    } else if (theForm.top.value == "") {
+		alert('X축 좌표를 입력하세요.');
+		theForm.top.focus();
+	} else if (theForm.left.value == "") {
+		alert('Y축 좌표를 입력하세요.');
+		theForm.left.focus();			
+	} else {
 	theForm.action = "adminBannerWrite";
 	theForm.submit();
+    }
 }
 
+
+	
 
 function go_del_b(bseq) {
 	var confirmDelete = confirm("정말 이 베너를 삭제하시겠습니까?");
@@ -461,3 +483,11 @@ function go_banner_view(bseq) {
 	location.href = "/adminBannerView?bseq=" + bseq;
 }
 
+function validateForm() {
+  var orderSeq = document.forms["frm"]["order_seq"].value;
+  if (orderSeq === "") {
+    alert("순위를 선택해주세요.");
+    return false; // 폼 제출을 막습니다.
+  }
+  return true; // 순위가 선택되었으므로 폼이 제출됩니다.
+}
