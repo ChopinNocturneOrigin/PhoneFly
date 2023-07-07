@@ -7,6 +7,7 @@
 
 	<h1>배너 리스트</h1>
 	<form name="frm" method="post">
+	<input type="hidden" name="order_seq_previous" value="${bannerVO.order_seq}">
 		<table id="bannerTd">
 			<tr>
 				<td id="bannertd"><input id="bannerbtn" type="button"

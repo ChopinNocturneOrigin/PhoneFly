@@ -16,11 +16,15 @@
 				</td>
 			</tr>
 
+
+           <!-- 배너 디스플레이 순위 선택 -->
 			<tr>
 				<th>순위</th>
 				<td id="BannerOrder"width="40">
 				<select  name="order_seq" onchange="savePreviousValue(this)">
 					   <option value="">디스플레이될 순서를 선택하세요</option>
+					   
+					 <!-- 배너의 현재 순위를 기준으로 선택 옵션을 생성 -->
 					<c:choose>
 						<c:when test="${bannerVO.order_seq == '1'}">
 							<option value="1" selected>1</option>
@@ -50,7 +54,7 @@
 					
 					<c:choose>
 						<c:when test="${bannerVO.order_seq == '4'}">
-							<option value="4" selected>1</option>
+							<option value="4" selected>4</option>
 						</c:when>
 						<c:otherwise>
 							<option value="4">4</option>
