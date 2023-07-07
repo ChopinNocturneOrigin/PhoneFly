@@ -327,7 +327,7 @@ public class AdminService {
 	}
 
 	
-	public Object getBannerList() {
+	public List<BannerVO> getBannerList() {
 		return adao.getBannerList();
 	}
 
@@ -399,6 +399,11 @@ public class AdminService {
 
   public void updateBanner(BannerVO bannervo) {
 		adao.updateBanner(bannervo);
-	}	
+	}
+
+
+public void deleteColor(int cseq) {
+		adao.deleteColor(cseq);
+}	
 	
 }

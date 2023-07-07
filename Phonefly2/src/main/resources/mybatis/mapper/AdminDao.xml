@@ -155,4 +155,8 @@
 	<update id="updateColor" parameterType="com.ezen.phonefly2.dto.ColorVO">
 		update color set name=#{name}, ccode=#{ccode}, image=#{image} where cseq=#{cseq}
 	</update>
+	
+	<delete id="deleteColor" >
+		delete from color where cseq=#{param1}
+	</delete>
 </mapper>

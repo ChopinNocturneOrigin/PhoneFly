@@ -64,4 +64,6 @@ public interface IAdminDao {
 
   void updateBanner(BannerVO bannervo);
 
+  void deleteColor(int cseq);
+
 }
