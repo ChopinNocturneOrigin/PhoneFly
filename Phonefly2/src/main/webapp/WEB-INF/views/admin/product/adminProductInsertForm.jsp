@@ -20,8 +20,8 @@
 
 			<tr id= PITR>
 				<th>원가[A]</th>
-				<td width="70"><input type="text" name="price1" size="11"
-					onkeyup="cal();"></td>
+				<td width="70">
+				<input type="text" name="price1" size="11"	onkeyup="cal();"></td>
 	    	</tr>
 			<tr> 		
 				<th>판매가[B]</th>

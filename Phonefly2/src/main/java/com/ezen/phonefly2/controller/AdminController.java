@@ -343,7 +343,8 @@ public class AdminController {
 	@RequestMapping("/bannerUpdate")
 	public String bannerUpdate(
 			HttpServletRequest request,BannerVO bannervo) {
-		
+		  if( bannervo.getVideo() == null  || bannervo.getVideo().equals("") )
+			  bannervo.setVideo( request.getParameter("oldfilename") );
 		String useyn;
 		if( bannervo.getOrder_seq() > 5) bannervo.setUseyn("N");
 		else bannervo.setUseyn("Y");;
@@ -463,14 +464,16 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminColorUpdate")
-	public String adminColorUpdate(ColorVO cvo, HttpServletRequest request, Model model) {
-		String url = "admin/product/productColorUpdate";
-		as.updateColor(cvo);
-		model.addAttribute("ColorVO", as.getColor(cvo.getCseq()));
-		System.out.println(cvo.getCseq());
-		url = "admin/product/productColorDetail";
-		return url;
-	}
+    public String adminColorUpdate(ColorVO cvo, HttpServletRequest request, Model model) {
+        String url = "admin/product/productColorUpdate";
+        if( cvo.getImage() == null  || cvo.getImage().equals("") )
+            cvo.setImage( request.getParameter("oldImage") );
+        as.updateColor(cvo);
+        model.addAttribute("ColorVO", as.getColor(cvo.getCseq()));
+        System.out.println(cvo.getCseq());
+        url = "admin/product/productColorDetail";
+        return url;
+    }
 	
 	@RequestMapping("adminColorDelete")
 	public String adminColorDelete(HttpServletRequest request) {
@@ -615,7 +618,8 @@ public class AdminController {
 	@RequestMapping("/adminEventUpdate")
 	public String adminEventUpdate(
 			HttpServletRequest request,EventVO eventvo) {
-		
+		  if( eventvo.getImage() == null  || eventvo.getImage().equals("") )
+			  eventvo.setImage( request.getParameter("oldImage") );
 		cs.updateEvent( eventvo);
 		
 		return "redirect:/adminEventList";
