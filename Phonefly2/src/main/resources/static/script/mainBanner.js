@@ -4,6 +4,7 @@
 
 
 $(function(){
+	var bannerSize = document.getElementById('bannerSize').value;
 	let imgIndex = 0;
 	let playFlag = false;
 	let setFunction;
@@ -12,7 +13,7 @@ $(function(){
 	}
 	function run(){
 		imgIndex++;
-		imgIndex %= 3;
+		imgIndex %= bannerSize;
 		move();
 	}
 	function stop() {
@@ -26,7 +27,7 @@ $(function(){
 		if (playFlag) return;
 		imgIndex += n;
 		if (imgIndex < 0) imgIndex = 0;
-		else if (imgIndex > 2) imgIndex = 2;
+		else if (imgIndex > (bannerSize-1)) imgIndex = (bannerSize-1);
 		move();
 	}
 	$("#lbutton").click(function(){

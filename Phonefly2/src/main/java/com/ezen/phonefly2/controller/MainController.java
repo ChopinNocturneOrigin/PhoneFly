@@ -35,6 +35,7 @@ public class MainController {
 		mav.addObject("mainBestList", mainBestList);
 		mav.addObject("mainEventList", mainEventList);
 		mav.addObject("bannerList", bannerList);
+		mav.addObject("bannerSize", bannerList.size());
 		mav.setViewName("main");
 		return mav;
 	}

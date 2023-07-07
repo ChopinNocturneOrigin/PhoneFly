@@ -33,6 +33,7 @@ author : PMS, BHS
 			<li class="card">
 
 
+				<input type="hidden" id="bannerSize" value="${bannerSize}" />
 				<input type="hidden" class="pdPseq" value="${productVO.pseq}" />
 				<input type="hidden" class="pdImg" value="${productVO.colorList[0].image}" />
 				<input type="hidden" class="pdName" value="${productVO.name}" />
