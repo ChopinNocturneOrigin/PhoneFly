@@ -451,7 +451,7 @@ public class AdminController {
 		else 
 			paramMap.put("image", request.getParameter("image") );
 		as.insertColor( paramMap );
-		return "redirect:/adminProductList";
+		return "redirect:/adminColorList";
 	}
 	
 	@RequestMapping("adminColorUpdateForm")
