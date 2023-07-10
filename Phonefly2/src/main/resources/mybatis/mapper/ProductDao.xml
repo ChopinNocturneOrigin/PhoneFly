@@ -4,11 +4,11 @@
 <mapper namespace="com.ezen.phonefly2.dao.IProductDao">
 
 	<select id="getProduct" resultType="com.ezen.phonefly2.dto.ProductVO">
-		SELECT * FROM product WHERE pseq = #{param1}
+		SELECT * FROM product WHERE pseq = #{param1} AND useyn = 'Y'
 	</select>
 
 	<select id="getMfcList" resultType="com.ezen.phonefly2.dto.ProductVO">
-		SELECT * FROM product WHERE mfc = #{param1}
+		SELECT * FROM product WHERE mfc = #{param1} AND useyn = 'Y'
 	</select>
 
 	<select id="getRplanList" resultType="com.ezen.phonefly2.dto.RplanVO">
@@ -24,7 +24,7 @@
 	</select>
 
 	<select id="getProductList" resultType="com.ezen.phonefly2.dto.ProductVO">
-		SELECT * FROM product ORDER BY pseq
+		SELECT * FROM product ORDER BY pseq AND useyn = 'Y'
 	</select>
 
 	<insert id="writeReview" parameterType="com.ezen.phonefly2.dto.ReviewVO">
