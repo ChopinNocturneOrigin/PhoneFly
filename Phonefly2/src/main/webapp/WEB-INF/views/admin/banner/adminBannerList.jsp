@@ -37,7 +37,7 @@
 						<tr>
 							<td height="23" align="center">${bannerVO.bseq}</td>
 							
-							<td	style="text-align: left; padding-left: 50px; padding-right: 0px; ">
+							<td	style="text-align: center;">
 								<a href="javascript:;" onClick="go_banner_view('${bannerVO.bseq}');">
 									${bannerVO.subject} 
 							    </a>

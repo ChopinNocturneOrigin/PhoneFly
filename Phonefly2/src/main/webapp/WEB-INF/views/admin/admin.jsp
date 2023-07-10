@@ -14,7 +14,7 @@
 		
 	<div class="clear"></div>
 	<article>
-		<div id="loginform">
+		<div id="loginform" style= "height: 876px">
 			<form name="frm" method="post" action="adminLogin">
 				<table>
 					<tr><td>아 이 디</td><td><input type="text" name="workId" size="10"></td></tr>
