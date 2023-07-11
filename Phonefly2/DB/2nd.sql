@@ -8,7 +8,11 @@ CREATE TABLE banner (
 	order_seq NUMBER(3) DEFAULT 1,
 	useyn CHAR(1) DEFAULT 'Y',
 	indate DATE DEFAULT SYSDATE,
-	image VARCHAR(255),
+	video VARCHAR(255),
+	btitle VARCHAR2(100),
+	btext VARCHAR2(1500),
+	top VARCHAR2(10),
+	left VARCHAR2(10),
 	PRIMARY KEY (bseq)
 );
 

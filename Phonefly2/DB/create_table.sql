@@ -340,14 +340,5 @@ REFERENCES product (
 -- 2. 상품번호에 따른 상품 이름과 가격 등의 정보 표시
 -- 3. 아이디에 따른 고객 이름과 배송주소 등의 정보 표시
 
-create or replace view order_view
-as
-select  d.odseq, o.oseq, o.indate, o.id, 
-			m.name as mname, m.zip_num, m.address1, m.address2, m.phone,
-			d.pseq, p.price2, d.quantity, d.result, p.name as pname
-from orders o, order_detail d, member m, product p
-where o.oseq=d.oseq and o.id=m.id and d.pseq=p.pseq;
-
-select * from order_view;
 
 
