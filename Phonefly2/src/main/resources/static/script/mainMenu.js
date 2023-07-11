@@ -34,13 +34,13 @@ $(function(){
 		let idx = $(this).index();
 		let setString = "";
 		switch (idx) {
-			case 0:
+			case 1:
 				setString = "5";
 				break;
-			case 1:
+			case 2:
 				setString = "2";
 				break;
-			case 2:
+			case 3:
 				setString = "4";
 				break;
 		}
