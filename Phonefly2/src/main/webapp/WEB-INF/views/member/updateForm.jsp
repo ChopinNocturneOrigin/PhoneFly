@@ -52,10 +52,9 @@ function sample6_execDaumPostcode() {
 		<input type="hidden" name="provider" value="${loginUser.provider}" />
 		<fieldset>
 			<legend>기본 정보</legend>
-			<div class="form-floating input-group mb-3">
+			<div class="form-floating mb-3">
 				<input type="text" name="id" size="20" id="join-id" class="form-control" placeholder=" 아이디를 입력하세요" maxlength="20" aria-describedby="button-addon1" value="${loginUser.id}" readonly /><label for="join-id">아이디</label>
 				<input type="hidden" name="reid" />
-				<button type="button" id="button-addon1" class="btn btn-secondary" onclick="idcheck();" >중복 체크</button>
 			</div>
 
 			<c:choose>

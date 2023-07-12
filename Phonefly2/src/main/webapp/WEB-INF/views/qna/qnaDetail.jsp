@@ -44,7 +44,7 @@ author : BHS
 						<th scope="row">번호</th><td>${qnaVO.qseq}</td>
 					</tr>
 					<tr>
-						<th scope="row">제목</th><td>${qnaVO.subject}</td>
+						<th scope="row">제목</th><td><pre class="fs-6">${qnaVO.subject}</pre></td>
 					</tr>
 					<tr>
 						<th scope="row">작성일자</th><td><fmt:formatDate value="${qnaVO.indate}" /></td>

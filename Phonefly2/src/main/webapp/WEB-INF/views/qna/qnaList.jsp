@@ -53,7 +53,7 @@ author : BHS
 					
 						<tr class="cs-p" onclick="location.href='/qnaDetail?qseq=${board.qseq}';">
 							<th scope="row">${board.qseq}</th>
-							<td class="board-title">${board.subject}</td>
+							<td class="board-title"><pre class="fs-6">${board.subject}</pre></td>
 							<td><fmt:formatDate value="${board.indate}" /></td>
 							<td>
 								<c:choose>

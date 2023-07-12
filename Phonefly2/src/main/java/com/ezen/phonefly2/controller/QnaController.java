@@ -94,7 +94,7 @@ public class QnaController {
 		String url = "member/loginForm";
 		if (mvo != null) {
 			QnaVO qvo = qs.getQna(qseq);
-			model.addAttribute("qvo", qvo);
+			model.addAttribute("qnaVO", qvo);
 			url = "qna/qnaUpdateForm";
 		}
 		return url;
