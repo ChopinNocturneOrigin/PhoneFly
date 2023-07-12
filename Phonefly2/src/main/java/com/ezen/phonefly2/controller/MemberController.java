@@ -151,6 +151,9 @@ public class MemberController {
 			mvo.setProvider("kakao");
 			//mvo.setPwd("kakao");
 			//mvo.setPhone("");
+			if (ac.getEmail() == null || ac.getEmail().equals("")) {
+				mvo.setEmail("");
+			}
 
 			ms.joinKakao(mvo);
 		}
