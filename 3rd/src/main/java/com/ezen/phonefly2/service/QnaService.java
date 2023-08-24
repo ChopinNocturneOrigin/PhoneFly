@@ -5,15 +5,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.phonefly2.dao.ICommonDao;
 import com.ezen.phonefly2.dao.IQnaDao;
-import com.ezen.phonefly2.dto.MemberVO;
-import com.ezen.phonefly2.dto.NoticeVO;
 import com.ezen.phonefly2.dto.QnaVO;
 import com.ezen.phonefly2.util.Paging;
 
