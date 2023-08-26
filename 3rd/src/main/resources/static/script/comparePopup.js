@@ -26,7 +26,7 @@ let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
 
 
 /* 비교하기 카드(펼치기 숨기기) */
-function openCloseArrow(){// console.log("비교하기 카드(펼치기 숨기기)");
+function openCloseArrow(){
 	$(function(){
 		if ($('.compare-popup').hasClass('compare-popup-open')) {
 		//if (check_compare_box === 0) {
