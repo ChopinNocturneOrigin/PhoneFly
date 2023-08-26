@@ -179,7 +179,7 @@ function setCompareSession() {
 	let comp_image_h_list = document.getElementsByClassName('compare-box-image-real-h');
 	let comp_name_h_list = document.getElementsByClassName('compare-box-name-h');
 	let comp_price_h_list = document.getElementsByClassName('compare-box-price-h');
-*/	
+*/
 	let data_set2 = new Array();
 	for (let i = 0; i < compare_box_count; i++) {
 		let data = new Object();
