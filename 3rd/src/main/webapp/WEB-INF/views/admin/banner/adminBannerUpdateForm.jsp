@@ -7,7 +7,7 @@
 	<form action="/bannerUpdate" name="frm" method="post" onsubmit="return validateForm()">
 		<input type="hidden" name="bseq" value="${bannerVO.bseq}">
 		<input type="hidden" name="oldfilename" value="${bannerVO.video}">
-        <input type="hidden" name="order_seq_previous" value="${bannerVO.order_seq}">
+		<input type="hidden" name="order_seq_previous" value="${bannerVO.order_seq}">
 		<table id="BannerUpdateList">
 			<tr>
 				<th>배너 제목</th>
@@ -17,7 +17,7 @@
 			</tr>
 
 
-           <!-- 배너 디스플레이 순위 선택 -->
+			<!-- 배너 디스플레이 순위 선택 -->
 			<tr>
 				<th>순위</th>
 				<td id="BannerOrder"width="40">
@@ -112,11 +112,11 @@
 					<div id="filename"></div>
 				</td>
 			</tr>
-		</table>		  
-    <div id = "BannerUpdateButton" style="position: relative; left:800px; top:5px;">
-	    <input class="btn" type="submit" value="수정" />
+		</table>
+	<div id = "BannerUpdateButton" style="position: relative; left:800px; top:5px;">
+		<input class="btn" type="submit" value="수정" />
 		<input class="btn" type="button" value="취소" onClick="go_mov()">
-     </div>
+	</div>
 	</form>
 
 	<div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto;">
@@ -126,7 +126,7 @@
 		</form>
 	</div>
 
-  
+
 
 
 

@@ -40,8 +40,6 @@
 			
 		</tr>
 	</c:forEach>
-	
-	
 </table>
 
 <br /><br />

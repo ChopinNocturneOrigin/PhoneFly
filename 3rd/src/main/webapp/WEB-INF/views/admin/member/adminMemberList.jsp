@@ -12,24 +12,28 @@
 	<table id="adminMemberList">
 		<tr><th>아이디(탈퇴여부)</th><th> 이름 </th><th>이메일</th><th>우편번호</th><th>주소</th>
 		<th>전화</th></tr>
-	    <c:forEach items="${memberList}" var="memberVO">  
-		    <tr><td>${memberVO.id} 
-		    	<c:choose>
-		      		<c:when test='${memberVO.useyn=="Y"}'>
-		        		<input type="checkbox" name="useyn" disabled="disabled">
-			        </c:when>
-			        <c:otherwise>
-			        	<input type="checkbox" name="useyn" checked="checked" disabled="disabled">
-			        </c:otherwise>
-		    	</c:choose></td>
-		    	
-		    	<td>${memberVO.name}</td><td>${memberVO.email}</td>
-		    	<td>${memberVO.zipnum}</td><td>${memberVO.address1}</td>
-		    	<td>${memberVO.phone}</td></tr>
-	  </c:forEach>
+		<c:forEach items="${memberList}" var="memberVO">  
+			<tr>
+				<td>${memberVO.id}
+					<c:choose>
+						<c:when test='${memberVO.useyn=="Y"}'>
+							<input type="checkbox" name="useyn" disabled="disabled">
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="useyn" checked="checked" disabled="disabled">
+						</c:otherwise>
+					</c:choose>
+				</td>
+				<td>${memberVO.name}</td>
+				<td>${memberVO.email}</td>
+				<td>${memberVO.zipnum}</td>
+				<td>${memberVO.address1}</td>
+				<td>${memberVO.phone}</td>
+			</tr>
+		</c:forEach>
 	</table>
-	<jsp:include page="../../admin/paging/page.jsp">   
-	    <jsp:param name="command" value="adminMemberList" />
+	<jsp:include page="../../admin/paging/page.jsp">
+		<jsp:param name="command" value="adminMemberList" />
 	</jsp:include>
 </form>
 </article>
