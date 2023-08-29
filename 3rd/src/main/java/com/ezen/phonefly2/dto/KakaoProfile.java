@@ -3,7 +3,9 @@ package com.ezen.phonefly2.dto;
 public class KakaoProfile {
 	private String id;
 	private KakaoAccount kakao_account;
-	public KakaoAccount getAccount() { return kakao_account; }
+	public KakaoAccount getAccount() {
+		return kakao_account;
+	}
 
 	public String getId() {
 		return id;

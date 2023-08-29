@@ -76,7 +76,7 @@ public class CommonService {
 	}
 
 	public void deleteNotice(int nseq) {
-		cdao.deleteNotice(nseq);		
+		cdao.deleteNotice(nseq);
 	}
 
 	public void insertEvent(EventVO eventvo) {
@@ -90,9 +90,8 @@ public class CommonService {
 	}
 
 	public void deleteEvent(int eseq) {
-		cdao.deleteEvent(eseq);		
+		cdao.deleteEvent(eseq);
 	}
-	
-	
+
 
 }

@@ -16,7 +16,7 @@
 	</select>
 
 	<select id="listMember" resultType="com.ezen.phonefly2.dto.MemberVO">
-		SELECT * FROM (SELECT * FROM (SELECT ROWNUM rn, M.* FROM (SELECT * FROM member WHERE name LIKE '%'||#{param2}||'%' ORDER BY mseq DESC) M) WHERE rn &gt; = #{param1.startNum}) WHERE rn &lt; = #{param1.endNum}
+		SELECT * FROM (SELECT * FROM (SELECT ROWNUM rn, M.* FROM (SELECT * FROM member WHERE name LIKE '%'||#{param2}||'%' ORDER BY id ASC) M) WHERE rn &gt; = #{param1.startNum}) WHERE rn &lt; = #{param1.endNum}
 	</select>
 
 	<select id="listQna" resultType="com.ezen.phonefly2.dto.QnaVO">

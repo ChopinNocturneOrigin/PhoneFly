@@ -49,7 +49,7 @@ author : PMS, BHS
 								<li style="z-index:10"><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:when>
 							<c:otherwise>
-								<li><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
+								<li><img class="cs-p" src="images/productImage/${colorVO.image}" style="display:none"/></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -190,7 +190,7 @@ author : PMS, BHS
 								<li style="z-index:10"><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
 							</c:when>
 							<c:otherwise>
-								<li><img class="cs-p" src="images/productImage/${colorVO.image}" /></li>
+								<li><img class="cs-p" src="images/productImage/${colorVO.image}" style="display:none" /></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
