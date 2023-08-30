@@ -153,18 +153,18 @@ function writeReview() {
 
 
 function fn_chk_byte(obj){
-    totalByte = 0;
-    var message = $(obj).val();
+	totalByte = 0;
+	var message = $(obj).val();
 
-    for(var i =0; i < message.length; i++) {
-            var currentByte = message.charCodeAt(i);
-            if(currentByte > 128){
-            	totalByte += 2;
-            }else {
-            	totalByte++;
-            }
-    }
-    $("#messagebyte").text(totalByte);
+	for(var i =0; i < message.length; i++) {
+		var currentByte = message.charCodeAt(i);
+		if(currentByte > 128){
+			totalByte += 2;
+		} else {
+			totalByte++;
+		}
+	}
+	$("#messagebyte").text(totalByte);
 }
 
 function fn_chk_byte2(obj, nn){
